@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://abdulmanan.tech/</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image><image:loc>https://abdulmanan.tech/og-image.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/</loc>
@@ -17,41 +18,48 @@
     <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://abdulmanan.tech/posts/images/figma-to-code-workflow.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/javascript-tips-for-beginners/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://abdulmanan.tech/posts/images/javascript-tips-for-beginners.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/seo-for-developers/</loc>
     <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://abdulmanan.tech/posts/images/seo-for-developers.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/responsive-web-design/</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://abdulmanan.tech/posts/images/responsive-web-design.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/how-i-built-this-portfolio/</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://abdulmanan.tech/posts/images/how-i-built-this-portfolio.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/clean-minimal-web-design/</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://abdulmanan.tech/posts/images/clean-minimal-web-design.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/learning-web-dev-as-a-student/</loc>
     <lastmod>2026-07-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://abdulmanan.tech/posts/images/learning-web-dev-as-a-student.png</image:loc></image:image>
   </url>
 </urlset>

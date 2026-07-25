@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Abdul Manan - Blog</title>
+  <link>https://abdulmanan.tech/blog/</link>
+  <atom:link href="https://abdulmanan.tech/feed.xml" rel="self" type="application/rss+xml" />
+  <description>Web development, design, SEO and learning to code - by Abdul Manan.</description>
+  <language>en-us</language>
+  <lastBuildDate>Fri, 14 Aug 2026 00:00:00 GMT</lastBuildDate>
+  <item>
+    <title>From Figma to Code — My Design Workflow</title>
+    <link>https://abdulmanan.tech/blog/figma-to-code-workflow/</link>
+    <guid>https://abdulmanan.tech/blog/figma-to-code-workflow/</guid>
+    <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
+    <description>How I go from a blank Figma canvas to a working, responsive website — the decisions, the handoff, and the details that make it feel finished.</description>
+  </item>
+  <item>
+    <title>10 JavaScript Tips Every Beginner Should Know</title>
+    <link>https://abdulmanan.tech/blog/javascript-tips-for-beginners/</link>
+    <guid>https://abdulmanan.tech/blog/javascript-tips-for-beginners/</guid>
+    <pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Small habits that made my JavaScript cleaner and less buggy — from const-by-default to guard clauses and optional chaining.</description>
+  </item>
+  <item>
+    <title>SEO for Developers — How I Get Pages to Rank</title>
+    <link>https://abdulmanan.tech/blog/seo-for-developers/</link>
+    <guid>https://abdulmanan.tech/blog/seo-for-developers/</guid>
+    <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Search engine optimization isn&#x27;t magic. It&#x27;s clean HTML, fast pages, good metadata and structured data. Here&#x27;s the practical checklist I use.</description>
+  </item>
+  <item>
+    <title>Responsive Web Design — One Site, Every Screen</title>
+    <link>https://abdulmanan.tech/blog/responsive-web-design/</link>
+    <guid>https://abdulmanan.tech/blog/responsive-web-design/</guid>
+    <pubDate>Tue, 28 Jul 2026 00:00:00 GMT</pubDate>
+    <description>How I make websites that look right on a 360px phone and a 4K monitor, using fluid layouts, sensible breakpoints and a mobile-first mindset.</description>
+  </item>
+  <item>
+    <title>How I Built This Portfolio</title>
+    <link>https://abdulmanan.tech/blog/how-i-built-this-portfolio/</link>
+    <guid>https://abdulmanan.tech/blog/how-i-built-this-portfolio/</guid>
+    <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+    <description>A behind-the-scenes look at building a fast, GitHub-driven portfolio with zero build step — projects and blog posts that update themselves.</description>
+  </item>
+  <item>
+    <title>Clean, Minimal Web Design — Less but Better</title>
+    <link>https://abdulmanan.tech/blog/clean-minimal-web-design/</link>
+    <guid>https://abdulmanan.tech/blog/clean-minimal-web-design/</guid>
+    <pubDate>Sat, 18 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Minimalism isn&#x27;t about empty pages. It&#x27;s about removing everything that isn&#x27;t doing a job, so the things that matter can breathe.</description>
+  </item>
+  <item>
+    <title>Learning Web Development as a Student</title>
+    <link>https://abdulmanan.tech/blog/learning-web-dev-as-a-student/</link>
+    <guid>https://abdulmanan.tech/blog/learning-web-dev-as-a-student/</guid>
+    <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
+    <description>What actually helped me learn to build for the web — and what turned out to be a waste of time. An honest note from someone still learning.</description>
+  </item>
+</channel>
+</rss>

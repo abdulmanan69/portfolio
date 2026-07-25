@@ -11,20 +11,25 @@
 <meta name="theme-color" content="#faf8f5" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
 <meta property="og:title" content="How I Built This Portfolio - Abdul Manan" />
 <meta property="og:description" content="A behind-the-scenes look at building a fast, GitHub-driven portfolio with zero build step — projects and blog posts that update themselves." />
 <meta property="og:url" content="https://abdulmanan.tech/blog/how-i-built-this-portfolio/" />
 <meta property="og:image" content="https://abdulmanan.tech/posts/images/how-i-built-this-portfolio.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="How I Built This Portfolio - Abdul Manan" />
 <meta name="twitter:description" content="A behind-the-scenes look at building a fast, GitHub-driven portfolio with zero build step — projects and blog posts that update themselves." />
 <meta name="twitter:image" content="https://abdulmanan.tech/posts/images/how-i-built-this-portfolio.png" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/style.css" />
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "How I Built This Portfolio", "description": "A behind-the-scenes look at building a fast, GitHub-driven portfolio with zero build step \u2014 projects and blog posts that update themselves.", "image": "https://abdulmanan.tech/posts/images/how-i-built-this-portfolio.png", "author": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "publisher": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "datePublished": "2026-07-24", "dateModified": "2026-07-24", "keywords": "web, javascript, build-log", "mainEntityOfPage": "https://abdulmanan.tech/blog/how-i-built-this-portfolio/", "url": "https://abdulmanan.tech/blog/how-i-built-this-portfolio/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "How I Built This Portfolio", "description": "A behind-the-scenes look at building a fast, GitHub-driven portfolio with zero build step \u2014 projects and blog posts that update themselves.", "image": "https://abdulmanan.tech/posts/images/how-i-built-this-portfolio.png", "wordCount": 400, "author": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech", "sameAs": ["https://github.com/abdulmanan69", "https://www.linkedin.com/in/abdulxmanan", "https://www.instagram.com/abdul_x_manan"]}, "publisher": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "datePublished": "2026-07-24", "dateModified": "2026-07-24", "keywords": "web, javascript, build-log", "mainEntityOfPage": "https://abdulmanan.tech/blog/how-i-built-this-portfolio/", "url": "https://abdulmanan.tech/blog/how-i-built-this-portfolio/"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulmanan.tech/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://abdulmanan.tech/blog/"}, {"@type": "ListItem", "position": 3, "name": "How I Built This Portfolio", "item": "https://abdulmanan.tech/blog/how-i-built-this-portfolio/"}]}</script>
 </head>
 <body>
@@ -37,7 +42,7 @@
 <a href="/" style="color:var(--muted)">Home</a> / <a href="/blog/" style="color:var(--muted)">Blog</a> / How I Built This Portfolio
 </nav>
 <h1>How I Built This Portfolio</h1>
-<div class="reader__meta">By Abdul Manan - 2026-07-24 - #web #javascript #build-log</div>
+<div class="reader__meta">By Abdul Manan - 2026-07-24 - 2 min read - #web #javascript #build-log</div>
 <img class="post-hero-img" alt="How I Built This Portfolio" src="https://abdulmanan.tech/posts/images/how-i-built-this-portfolio.png">
 <p>I wanted a portfolio that felt like <em>me</em> — clean, a little playful, and, most importantly, one I'd never have to babysit. No redeploys every time I ship a new project or write a post. Here's how it came together.</p>
 <h2>The rule: everything lives on GitHub</h2>
@@ -59,8 +64,14 @@ const repos = await fetch(`https://api.github.com/users/${user}/repos`)
 <p>Every page — including each blog post — sets its own title, description and structured data, so search engines understand exactly who "Abdul Manan" is and what I do.</p>
 <h2>What's next</h2>
 <p>More posts, more projects, and probably a few more interactive experiments. The best part: I can add all of it from GitHub, and the site just keeps up.</p>
-<hr>
-<p style="font-size:1rem"><a href="/blog/" style="color:var(--accent)">Read more posts</a> - <a href="/" style="color:var(--accent)">Back to abdulmanan.tech</a></p>
+<div class="share"><span>Share:</span>
+<a href="https://twitter.com/intent/tweet?text=How%20I%20Built%20This%20Portfolio&url=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fhow-i-built-this-portfolio%2F" target="_blank" rel="noopener">X</a>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fhow-i-built-this-portfolio%2F" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://api.whatsapp.com/send?text=How%20I%20Built%20This%20Portfolio%20https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fhow-i-built-this-portfolio%2F" target="_blank" rel="noopener">WhatsApp</a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fhow-i-built-this-portfolio%2F" target="_blank" rel="noopener">Facebook</a>
+<button type="button" onclick="navigator.clipboard.writeText('https://abdulmanan.tech/blog/how-i-built-this-portfolio/');this.textContent='Copied!'">Copy link</button></div>
+<nav class="prevnext"><a href="/blog/responsive-web-design/">&larr; Responsive Web Design — One Site, Every Screen</a><a href="/blog/clean-minimal-web-design/">Clean, Minimal Web Design — Less but Better &rarr;</a></nav>
+<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/javascript-tips-for-beginners/"><span>2026-08-08</span><h3>10 JavaScript Tips Every Beginner Should Know</h3></a><a class="related__card" href="/blog/seo-for-developers/"><span>2026-08-02</span><h3>SEO for Developers — How I Get Pages to Rank</h3></a><a class="related__card" href="/blog/responsive-web-design/"><span>2026-07-28</span><h3>Responsive Web Design — One Site, Every Screen</h3></a></div></section>
 </main>
 <footer class="footer">
   <span>(c) 2026 Abdul Manan</span>
@@ -77,6 +88,20 @@ backdrop-filter:blur(12px);border-bottom:1px solid var(--line);font-weight:600}
 .hub{max-width:1100px;margin:0 auto;padding:60px clamp(20px,5vw,64px) 100px}
 .hub h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.2rem,6vw,3.4rem);letter-spacing:-.02em;margin-bottom:10px}
 .hub__sub{color:var(--ink-soft);margin-bottom:44px}
+.share{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:34px 0;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.share span{font-weight:600;margin-right:4px}
+.share a,.share button{font:inherit;font-size:.88rem;font-weight:600;cursor:pointer;border:1px solid var(--line);
+background:var(--card);color:var(--ink);border-radius:100px;padding:8px 16px;transition:.25s}
+.share a:hover,.share button:hover{border-color:var(--accent);color:var(--accent)}
+.related{margin-top:70px}
+.related h2{font-family:"Fraunces",serif;font-weight:500;font-size:1.7rem;margin-bottom:22px}
+.related__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:18px}
+.related__card{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:22px;transition:.3s}
+.related__card:hover{box-shadow:var(--shadow);border-color:transparent;transform:translateY(-4px)}
+.related__card span{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--accent)}
+.related__card h3{font-family:"Fraunces",serif;font-weight:500;font-size:1.15rem;margin-top:6px}
+.prevnext{display:flex;justify-content:space-between;gap:16px;margin-top:40px;font-weight:600}
+.prevnext a{color:var(--accent)}
 </style>
 </body>
 </html>
