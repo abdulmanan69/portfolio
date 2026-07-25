@@ -231,17 +231,16 @@
       <div class="gh-stat"><b id="ghGists">—</b><span>Gists</span></div>
     </div>
 
-    <div class="gh-cards">
-      <img class="gh-card reveal" loading="lazy" alt="Abdul Manan GitHub stats"
-        src="https://github-readme-stats.vercel.app/api?username=abdulmanan69&show_icons=true&hide_border=true&title_color=ff5a3c&icon_color=ff5a3c&text_color=808080&bg_color=00000000&include_all_commits=true&count_private=true" />
-      <img class="gh-card reveal" loading="lazy" alt="Abdul Manan top languages"
-        src="https://github-readme-stats.vercel.app/api/top-langs/?username=abdulmanan69&layout=compact&hide_border=true&title_color=ff5a3c&text_color=808080&bg_color=00000000" />
-    </div>
+    <!-- Top languages — computed natively from the GitHub API (always loads) -->
+    <div class="gh-langs reveal" id="ghLangs"><div class="projects__loading">Loading languages…</div></div>
 
+    <!-- Contribution graph + streak (auto-updating; hidden automatically if the service is down) -->
     <img class="gh-graph reveal" loading="lazy" alt="Abdul Manan contribution graph — commit history"
+      onerror="this.style.display='none'"
       src="https://github-readme-activity-graph.vercel.app/graph?username=abdulmanan69&hide_border=true&area=true&color=808080&line=ff5a3c&point=ff5a3c&bg_color=00000000" />
 
     <img class="gh-streak reveal" loading="lazy" alt="Abdul Manan commit streak"
+      onerror="this.style.display='none'"
       src="https://streak-stats.demolab.com/?user=abdulmanan69&hide_border=true&background=00000000&ring=ff5a3c&fire=ff5a3c&currStreakLabel=808080&sideLabels=808080&dates=808080&stroke=808080&currStreakNum=808080&sideNums=808080&dayLabels=808080&titleColor=808080" />
   </section>
 

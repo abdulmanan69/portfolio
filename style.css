@@ -308,3 +308,51 @@ code { font-family: "JetBrains Mono", monospace; font-size: .85em; }
   .btn { justify-content: center; }
   .footer { flex-direction: column; }
 }
+
+/* ---------- github: native languages bar ---------- */
+.gh-langs { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); padding: 26px 28px; margin-bottom: 26px; }
+.gh-langs__title { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.3rem; margin-bottom: 18px; }
+.gh-langs__bar { display: flex; height: 14px; border-radius: 100px; overflow: hidden; gap: 2px; background: var(--paper-2); }
+.gh-langs__bar span { display: block; min-width: 4px; transition: filter .2s; }
+.gh-langs__bar span:hover { filter: brightness(1.15); }
+.gh-langs__legend { display: flex; flex-wrap: wrap; gap: 12px 22px; margin-top: 18px; font-size: .9rem; color: var(--ink-soft); }
+.gh-langs__legend span { display: inline-flex; align-items: center; }
+.gh-langs__legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 7px; }
+.gh-langs__legend b { color: var(--ink); font-weight: 600; margin-left: 5px; }
+
+/* ============================================================
+   RESPONSIVE HARDENING  (mobile-first correctness)
+   ============================================================ */
+html { overflow-x: hidden; }
+/* grids never demand more width than the screen has → no horizontal scroll */
+.projects__grid, .blog__grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+.skills__grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+.testi__grid  { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+.gh-card, .gh-graph, .gh-streak, .about__avatar, .post__cover { max-width: 100%; height: auto; }
+
+@media (max-width: 900px) {
+  .about__stats { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .section { padding-left: 18px; padding-right: 18px; }
+  .section__head { margin-bottom: 40px; }
+  .hero { padding-left: 18px; padding-right: 18px; }
+  .hero__lead { font-size: 1.05rem; }
+  .hero__scroll { margin-top: 44px; }
+  .about__stats { grid-template-columns: 1fr; }
+  .gh-strip { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .gh-stat { padding: 20px 12px; }
+  .gh-stat b { font-size: 2rem; }
+  .gh-langs { padding: 22px 20px; }
+  .marquee__track span { font-size: 1.3rem; }
+  .nav { padding-left: 18px; padding-right: 18px; }
+  .nav__right { gap: 10px; }
+  .reader__bar { padding-left: 18px; padding-right: 18px; }
+  .reader__body { padding: 24px 18px 100px; }
+  .reader__body p, .reader__body ul, .reader__body ol { font-size: 1.02rem; }
+  .contact__socials { gap: 16px 20px; }
+}
+@media (max-width: 380px) {
+  .hero__title { font-size: 2.6rem; }
+  .nav__logo { font-size: 1.3rem; }
+}

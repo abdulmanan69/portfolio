@@ -1,75 +1,94 @@
+<div align="center">
+
 # Abdul Manan — Portfolio
 
-Static, single-page portfolio. No build step. Deploys by **drag-and-drop to Netlify**
-or by pushing to **GitHub Pages**. Projects and the blog fill themselves from GitHub.
+**Web Developer · Designer · Student**
 
-## Files
-- `index.html` — page + SEO meta + JSON-LD structured data
-- `style.css` — clean-minimal design, light **+ dark theme**, mouse interactions
-- `script.js` — cursor, magnetic buttons, 3D tilt, reveal, theme toggle, loader,
-  **live GitHub projects/stats**, and the **GitHub-driven blog engine**
-- `SAMPLE-POST.md` — copy this into your blog repo to make your first post
-- `robots.txt`, `sitemap.xml`, `site.webmanifest`, `favicon.svg`, `.nojekyll` — SEO / PWA / Pages
-- `og-image.png`, `resume.pdf` — **you add these** (see below)
+A fast, interactive, SEO-optimized personal site that fills itself from GitHub.
+Projects, stats and blog posts update automatically — no build step, no CMS.
 
----
+🌐 **[abdulmanan.tech](https://abdulmanan.tech)** &nbsp;·&nbsp; [GitHub](https://github.com/abdulmanan69) · [LinkedIn](https://www.linkedin.com/in/abdulxmanan) · [Instagram](https://www.instagram.com/abdul_x_manan)
 
-## What updates itself from GitHub (no code edits, no redeploy)
-| On the site | Comes from |
-|---|---|
-| Projects grid | your repos at `github.com/abdulmanan69` (top 6 by stars/recency) |
-| Stats strip | live GitHub API — repos, followers, stars, gists |
-| Stats / langs / contribution graph / streak | auto-refreshing image cards |
-| **Blog posts** | markdown files in your `blog` repo → `posts/` folder |
+![HTML](https://img.shields.io/badge/HTML5-e34c26?logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-563d7c?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-f1e05a?logo=javascript&logoColor=black)
+![No Build](https://img.shields.io/badge/build-none-ff5a3c)
+![Deploy](https://img.shields.io/badge/deploy-Netlify%20%7C%20GitHub%20Pages-16151a)
+
+![Portfolio preview](og-image.png)
+
+</div>
 
 ---
 
-## ✍️ Blog — add posts from GitHub
-1. Create a **public** GitHub repo named **`blog`**.
-2. Inside it, make a folder **`posts/`**.
-3. Copy `SAMPLE-POST.md` into `posts/`, rename it (e.g. `learning-react.md`).
-4. Edit the front-matter at the top:
-   ```
+## ✨ Features
+
+- **Clean, minimal design** — warm paper palette, one coral accent, serif display type
+- **Mouse-interactive** — custom trailing cursor, magnetic buttons, 3D tilt cards, cursor-follow hero blob, scroll reveals, animated counters
+- **Dark / light theme** — respects system preference, remembers your choice
+- **Loading intro** animation
+- **Live GitHub projects** — top repos pulled straight from the API (stars, forks, language)
+- **Native language chart** + contribution graph, streak and live stat counters
+- **GitHub-driven blog** — every post is a markdown file in [`posts/`](posts); push one and it appears, credited to Abdul Manan, with its own SEO metadata
+- **SEO-first** — per-page titles/descriptions, `Person` + `BlogPosting` structured data, Open Graph & Twitter cards, `sitemap.xml`, `robots.txt`, canonical URLs
+- **Fully responsive** and accessible (reduced-motion aware)
+
+## 🧱 Tech
+
+Plain **HTML + CSS + JavaScript**. No framework, no bundler. Markdown rendered client-side with [`marked`](https://marked.js.org). That's the whole stack.
+
+## 📁 Structure
+
+```
+portfolio/
+├── index.html            # page + SEO meta + structured data
+├── style.css             # design system, themes, responsive rules
+├── script.js             # interactions + GitHub/blog engine
+├── posts/                # ← blog: one .md file per post
+│   ├── *.md
+│   └── images/           # post cover images
+├── og-image.png          # social share preview
+├── favicon.svg  robots.txt  sitemap.xml  site.webmanifest
+├── CNAME  .nojekyll       # custom domain + GitHub Pages
+└── SAMPLE-POST.md         # template for new posts
+```
+
+## ✍️ Writing a blog post
+
+1. Add a `.md` file to [`posts/`](posts) (copy [`SAMPLE-POST.md`](SAMPLE-POST.md)).
+2. Fill in the front-matter, then write in markdown:
+   ```yaml
    ---
-   title: Learning React
+   title: My Post
    date: 2026-07-24
-   excerpt: Short summary for the card + SEO.
-   cover: https://link-to-an-image.png
-   tags: react, web
+   excerpt: One line for the card and SEO.
+   cover: posts/images/my-post.png
+   tags: web, design
    ---
-   Body in markdown — images, code, links all work.
    ```
-5. Commit. Refresh the site → the post appears in the **Blog** section, credited to
-   Abdul Manan, with its own SEO title/description + structured data.
+3. Commit. The site picks it up automatically — no redeploy.
 
-Everything is markdown — edit or delete a file on GitHub and the site follows.
-> Using a different repo/folder/username? Change `GH_USER` and the `BLOG` object at the
-> top of `script.js`.
+> Want covers like these? The generator lives in the repo history; any 1200×675 image works.
 
----
+## 🚀 Deploy
 
-## Deploy — option A: Netlify (drag & drop)
-1. https://app.netlify.com/drop → drag the whole `portfolio` folder.
-2. Site settings → Domain management → add `abdulmanan.tech`, set DNS as shown.
-3. HTTPS is automatic. Contact form works (Netlify Forms → Forms tab in dashboard).
+**Netlify** — drag the folder onto [netlify.com/drop](https://app.netlify.com/drop), add the custom domain, done. Contact form works via Netlify Forms.
 
-## Deploy — option B: GitHub Pages
-1. Create a repo (e.g. `portfolio`) and upload everything in this folder.
-2. Repo → Settings → Pages → Source: `main` branch, `/root`. Save.
-3. Site goes live at `https://abdulmanan69.github.io/portfolio/`.
-4. For `abdulmanan.tech`: Settings → Pages → Custom domain → enter it, then set your
-   DNS (CNAME to `abdulmanan69.github.io`). `.nojekyll` is already included.
-   > Note: the Netlify contact form only works on Netlify. On Pages, swap it for
-   > [Formspree](https://formspree.io) (change the form `action`).
+**GitHub Pages** — Settings → Pages → deploy from `main` / root. `CNAME` and `.nojekyll` are already included. On Pages, swap the contact form for [Formspree](https://formspree.io).
+
+**Domain (Cloudflare):** point `A @` to GitHub's IPs (`185.199.108–111.153`) as **DNS-only** during setup, set SSL/TLS to **Full**, then Enforce HTTPS on GitHub.
+
+## 🔧 Make it yours
+
+Everything configurable sits at the top of [`script.js`](script.js):
+
+```js
+const GH_USER = "abdulmanan69";               // projects + stats
+const BLOG = { user, repo, path, branch };    // where posts live
+```
 
 ---
 
-## You still need to add
-- **`og-image.png`** (1200×630) — the preview thumbnail when the link is shared.
-- **`resume.pdf`** — makes the "Download résumé" button work.
-- **Social links** — in `index.html`, replace the `USERNAME` placeholders
-  (LinkedIn, X, Instagram) with your real handles.
-- **Testimonials** — real quotes in the `#testimonials` section of `index.html`
-  (currently placeholder text).
-- **Google Search Console** — add the site, submit `sitemap.xml` so "Abdul Manan"
-  indexes fast: https://search.google.com/search-console
+<div align="center">
+Built &amp; designed by <strong>Abdul Manan</strong> · <a href="https://abdulmanan.tech">abdulmanan.tech</a>
+</div>

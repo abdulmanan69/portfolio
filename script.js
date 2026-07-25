@@ -138,6 +138,27 @@
   const esc = s => s.replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const fmt = n => n >= 1000 ? (n / 1000).toFixed(1) + "k" : n;
 
+  /* native top-languages bar (reliable — no external image service) */
+  const LANG_COLORS = { JavaScript:"#f1e05a", TypeScript:"#3178c6", HTML:"#e34c26", CSS:"#563d7c",
+    SCSS:"#c6538c", Python:"#3572A5", Java:"#b07219", "C++":"#f34b7d", C:"#555555", "C#":"#178600",
+    PHP:"#4F5D95", Ruby:"#701516", Go:"#00ADD8", Rust:"#dea584", Shell:"#89e051", Dart:"#00B4AB",
+    Kotlin:"#A97BFF", Swift:"#F05138", Vue:"#41b883", Astro:"#ff5a03", Jupyter:"#DA5B0B" };
+  function renderLangs(repos) {
+    const el = document.getElementById("ghLangs");
+    if (!el) return;
+    const count = {};
+    repos.forEach(r => { if (r.language) count[r.language] = (count[r.language] || 0) + 1; });
+    const entries = Object.entries(count).sort((a, b) => b[1] - a[1]);
+    if (!entries.length) { el.style.display = "none"; return; }
+    const total = entries.reduce((s, [, n]) => s + n, 0);
+    const top = entries.slice(0, 8);
+    const pct = n => (n / total * 100).toFixed(1);
+    el.innerHTML = `
+      <h3 class="gh-langs__title">Most used languages</h3>
+      <div class="gh-langs__bar">${top.map(([l, n]) => `<span style="width:${pct(n)}%;background:${LANG_COLORS[l] || "#ff5a3c"}" title="${esc(l)} ${pct(n)}%"></span>`).join("")}</div>
+      <div class="gh-langs__legend">${top.map(([l, n]) => `<span><i style="background:${LANG_COLORS[l] || "#ff5a3c"}"></i>${esc(l)} <b>${pct(n)}%</b></span>`).join("")}</div>`;
+  }
+
   /* ============================================================
      LIVE GITHUB — profile stats + auto project cards
      ============================================================ */
@@ -158,6 +179,7 @@
       if (!Array.isArray(repos)) throw 0;
       const owned = repos.filter(r => !r.fork);
       $("#ghStars").textContent = fmt(owned.reduce((s, r) => s + r.stargazers_count, 0));
+      renderLangs(owned);
       const top = owned.sort((a, b) =>
         (b.stargazers_count - a.stargazers_count) || (new Date(b.pushed_at) - new Date(a.pushed_at))
       ).slice(0, 6);
