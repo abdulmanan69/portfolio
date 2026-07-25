@@ -90,12 +90,13 @@
     const el = e.target, end = +el.dataset.count, suf = el.dataset.suffix || "";
     if (reduce) { el.textContent = end + suf; cIO.unobserve(el); return; }
     let t0 = null;
-    (function step(ts) {
-      if (!t0) t0 = ts;
+    const step = ts => {
+      if (t0 === null) t0 = ts;
       const p = Math.min((ts - t0) / 1400, 1);
       el.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * end) + suf;
       if (p < 1) requestAnimationFrame(step);
-    })();
+    };
+    requestAnimationFrame(step);
     cIO.unobserve(el);
   }), { threshold: .6 });
   $$("[data-count]").forEach(el => cIO.observe(el));
