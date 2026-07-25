@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Message sent — Abdul Manan</title>
+<meta name="robots" content="noindex, follow" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+<style>
+.ty{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;gap:20px}
+.ty__check{width:96px;height:96px;border-radius:50%;background:var(--accent);display:grid;place-items:center;box-shadow:0 18px 40px -14px rgba(255,90,60,.7);animation:pop .5s cubic-bezier(.22,1,.36,1) both}
+.ty__check svg{width:46px;height:46px;stroke:#fff;stroke-width:3;fill:none;stroke-dasharray:40;stroke-dashoffset:40;animation:draw .5s .25s forwards}
+@keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes draw{to{stroke-dashoffset:0}}
+.ty small{color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.8rem}
+</style>
+</head>
+<body>
+<main class="ty">
+  <div class="ty__check"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></div>
+  <p style="font-family:'JetBrains Mono',monospace;color:var(--accent);letter-spacing:.15em">MESSAGE SENT</p>
+  <h1 style="font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.4rem,8vw,4.5rem);line-height:1;letter-spacing:-.02em">Thank you<span class="accent">.</span></h1>
+  <p style="color:var(--ink-soft);max-width:460px">Your message reached me — I'll get back to you as soon as I can. Talk soon!</p>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px">
+    <a href="/" class="btn btn--solid">Back home</a>
+    <a href="/blog/" class="btn btn--ghost">Read the blog</a>
+  </div>
+  <small>Redirecting home in <span id="c">8</span>s…</small>
+</main>
+<script>
+  let n=8;const el=document.getElementById('c');
+  const t=setInterval(()=>{n--;if(el)el.textContent=n;if(n<=0){clearInterval(t);location.href='/#contact';}},1000);
+</script>
+</body>
+</html>
