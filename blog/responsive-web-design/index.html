@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Responsive Web Design — One Site, Every Screen - Abdul Manan</title>
+<meta name="description" content="How I make websites that look right on a 360px phone and a 4K monitor, using fluid layouts, sensible breakpoints and a mobile-first mindset." />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/blog/responsive-web-design/" />
+<meta name="theme-color" content="#faf8f5" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:title" content="Responsive Web Design — One Site, Every Screen - Abdul Manan" />
+<meta property="og:description" content="How I make websites that look right on a 360px phone and a 4K monitor, using fluid layouts, sensible breakpoints and a mobile-first mindset." />
+<meta property="og:url" content="https://abdulmanan.tech/blog/responsive-web-design/" />
+<meta property="og:image" content="https://abdulmanan.tech/posts/images/responsive-web-design.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Responsive Web Design — One Site, Every Screen - Abdul Manan" />
+<meta name="twitter:description" content="How I make websites that look right on a 360px phone and a 4K monitor, using fluid layouts, sensible breakpoints and a mobile-first mindset." />
+<meta name="twitter:image" content="https://abdulmanan.tech/posts/images/responsive-web-design.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Responsive Web Design \u2014 One Site, Every Screen", "description": "How I make websites that look right on a 360px phone and a 4K monitor, using fluid layouts, sensible breakpoints and a mobile-first mindset.", "image": "https://abdulmanan.tech/posts/images/responsive-web-design.png", "author": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "publisher": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "datePublished": "2026-07-28", "dateModified": "2026-07-28", "keywords": "web, css, responsive, mobile", "mainEntityOfPage": "https://abdulmanan.tech/blog/responsive-web-design/", "url": "https://abdulmanan.tech/blog/responsive-web-design/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulmanan.tech/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://abdulmanan.tech/blog/"}, {"@type": "ListItem", "position": 3, "name": "Responsive Web Design \u2014 One Site, Every Screen", "item": "https://abdulmanan.tech/blog/responsive-web-design/"}]}</script>
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo">AM<span>.</span></a>
+  <a href="/#blog" data-hover>All posts</a>
+</header>
+<main class="reader__body">
+<nav aria-label="Breadcrumb" style="font-size:.85rem;color:var(--muted);margin-bottom:22px">
+<a href="/" style="color:var(--muted)">Home</a> / <a href="/blog/" style="color:var(--muted)">Blog</a> / Responsive Web Design — One Site, Every Screen
+</nav>
+<h1>Responsive Web Design — One Site, Every Screen</h1>
+<div class="reader__meta">By Abdul Manan - 2026-07-28 - #web #css #responsive #mobile</div>
+<img class="post-hero-img" alt="Responsive Web Design — One Site, Every Screen" src="https://abdulmanan.tech/posts/images/responsive-web-design.png">
+<p>Most people will see your site on a phone. If it only looks good on your laptop, it doesn't look good. Here's how I build sites that adapt to any screen.</p>
+<h2>Mobile-first, always</h2>
+<p>I write the base styles for the smallest screen first, then <em>add</em> complexity for bigger ones with <code>min-width</code> media queries. It keeps the CSS simple and forces me to decide what actually matters before I have room for extras.</p>
+<pre><code>.card { padding: 20px; }
+@media (min-width: 640px) {
+  .card { padding: 40px; }
+}</code></pre>
+<h2>Fluid before fixed</h2>
+<p>Fixed pixel widths are the enemy of responsive design. I lean on:</p>
+<ul><li><strong>clamp()</strong> for type that scales smoothly</li><li><strong>min() / max()</strong> so grids never demand more width than the screen has</li><li><strong>Flexbox and CSS grid</strong> with auto-fit / minmax() for layouts that reflow themselves</li></ul>
+<pre><code>.grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }</code></pre>
+<p>That one line means: as many 300px columns as fit — but never wider than the screen. No horizontal scroll, ever.</p>
+<h2>Test the extremes</h2>
+<p>I check 360px small phones and very wide screens, not just the comfy middle. The edges are where layouts break.</p>
+<h2>Touch matters too</h2>
+<p>On phones there's no hover, so nothing important should hide behind a hover state, and tap targets need to be big enough to hit with a thumb.</p>
+<p>Responsive isn't a feature you bolt on at the end — it's the default. Build for the phone, and the desktop takes care of itself.</p>
+<hr>
+<p style="font-size:1rem"><a href="/blog/" style="color:var(--accent)">Read more posts</a> - <a href="/" style="color:var(--accent)">Back to abdulmanan.tech</a></p>
+</main>
+<footer class="footer">
+  <span>(c) 2026 Abdul Manan</span>
+  <span>Built &amp; designed by Abdul Manan - abdulmanan.tech</span>
+  <a href="/" data-hover>Home</a>
+</footer>
+<style>
+.post-topbar{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+padding:16px clamp(20px,6vw,40px);background:color-mix(in srgb,var(--paper) 85%,transparent);
+backdrop-filter:blur(12px);border-bottom:1px solid var(--line);font-weight:600}
+.post-topbar a[data-hover]{color:var(--ink-soft)}
+.post-topbar a[data-hover]:hover{color:var(--accent)}
+.post-hero-img{border-radius:var(--radius);border:1px solid var(--line);margin:0 0 34px;width:100%}
+.hub{max-width:1100px;margin:0 auto;padding:60px clamp(20px,5vw,64px) 100px}
+.hub h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.2rem,6vw,3.4rem);letter-spacing:-.02em;margin-bottom:10px}
+.hub__sub{color:var(--ink-soft);margin-bottom:44px}
+</style>
+</body>
+</html>

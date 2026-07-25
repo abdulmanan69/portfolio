@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How I Built This Portfolio - Abdul Manan</title>
+<meta name="description" content="A behind-the-scenes look at building a fast, GitHub-driven portfolio with zero build step — projects and blog posts that update themselves." />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/blog/how-i-built-this-portfolio/" />
+<meta name="theme-color" content="#faf8f5" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:title" content="How I Built This Portfolio - Abdul Manan" />
+<meta property="og:description" content="A behind-the-scenes look at building a fast, GitHub-driven portfolio with zero build step — projects and blog posts that update themselves." />
+<meta property="og:url" content="https://abdulmanan.tech/blog/how-i-built-this-portfolio/" />
+<meta property="og:image" content="https://abdulmanan.tech/posts/images/how-i-built-this-portfolio.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How I Built This Portfolio - Abdul Manan" />
+<meta name="twitter:description" content="A behind-the-scenes look at building a fast, GitHub-driven portfolio with zero build step — projects and blog posts that update themselves." />
+<meta name="twitter:image" content="https://abdulmanan.tech/posts/images/how-i-built-this-portfolio.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "How I Built This Portfolio", "description": "A behind-the-scenes look at building a fast, GitHub-driven portfolio with zero build step \u2014 projects and blog posts that update themselves.", "image": "https://abdulmanan.tech/posts/images/how-i-built-this-portfolio.png", "author": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "publisher": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "datePublished": "2026-07-24", "dateModified": "2026-07-24", "keywords": "web, javascript, build-log", "mainEntityOfPage": "https://abdulmanan.tech/blog/how-i-built-this-portfolio/", "url": "https://abdulmanan.tech/blog/how-i-built-this-portfolio/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulmanan.tech/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://abdulmanan.tech/blog/"}, {"@type": "ListItem", "position": 3, "name": "How I Built This Portfolio", "item": "https://abdulmanan.tech/blog/how-i-built-this-portfolio/"}]}</script>
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo">AM<span>.</span></a>
+  <a href="/#blog" data-hover>All posts</a>
+</header>
+<main class="reader__body">
+<nav aria-label="Breadcrumb" style="font-size:.85rem;color:var(--muted);margin-bottom:22px">
+<a href="/" style="color:var(--muted)">Home</a> / <a href="/blog/" style="color:var(--muted)">Blog</a> / How I Built This Portfolio
+</nav>
+<h1>How I Built This Portfolio</h1>
+<div class="reader__meta">By Abdul Manan - 2026-07-24 - #web #javascript #build-log</div>
+<img class="post-hero-img" alt="How I Built This Portfolio" src="https://abdulmanan.tech/posts/images/how-i-built-this-portfolio.png">
+<p>I wanted a portfolio that felt like <em>me</em> — clean, a little playful, and, most importantly, one I'd never have to babysit. No redeploys every time I ship a new project or write a post. Here's how it came together.</p>
+<h2>The rule: everything lives on GitHub</h2>
+<p>The core idea is simple: <strong>if it's on my GitHub, it shows up on the site.</strong></p>
+<ul><li>The <strong>projects</strong> grid is pulled straight from the GitHub API — my top repos by</li></ul>
+<p>stars and recency, with language, stars and forks. Push a new repo, it appears.</p>
+<ul><li>This <strong>blog</strong> is just markdown files in a <code>posts/</code> folder. The file you're</li></ul>
+<p>reading right now is one of them.</p>
+<ul><li>The stats, contribution graph and streak are live cards that refresh on their own.</li></ul>
+<p>No CMS. No database. No build pipeline. Just files.</p>
+<h2>The stack (or lack of one)</h2>
+<ul><li><strong>Plain HTML, CSS and JavaScript.</strong> One <code>index.html</code>, one stylesheet, one script.</li><li><strong>No framework.</strong> For a site this size, React would be more ceremony than value.</li><li><strong><code>marked</code></strong> to turn markdown posts into HTML in the browser.</li><li><strong>Netlify / GitHub Pages</strong> for hosting — both are a drag-and-drop or a <code>git push</code>.</li></ul>
+<pre><code>// projects, straight from GitHub — no hardcoding
+const repos = await fetch(`https://api.github.com/users/${user}/repos`)
+  .then(r =&gt; r.json());</code></pre>
+<h2>Making it feel alive</h2>
+<p>Clean and minimal doesn't have to mean static. There's a custom cursor that lags slightly behind your mouse, buttons that lean toward the pointer, cards that tilt in 3D, and a soft accent blob that follows you around the hero. Small touches, but together they make the page feel <em>responsive to you</em>.</p>
+<h2>SEO from day one</h2>
+<p>Every page — including each blog post — sets its own title, description and structured data, so search engines understand exactly who "Abdul Manan" is and what I do.</p>
+<h2>What's next</h2>
+<p>More posts, more projects, and probably a few more interactive experiments. The best part: I can add all of it from GitHub, and the site just keeps up.</p>
+<hr>
+<p style="font-size:1rem"><a href="/blog/" style="color:var(--accent)">Read more posts</a> - <a href="/" style="color:var(--accent)">Back to abdulmanan.tech</a></p>
+</main>
+<footer class="footer">
+  <span>(c) 2026 Abdul Manan</span>
+  <span>Built &amp; designed by Abdul Manan - abdulmanan.tech</span>
+  <a href="/" data-hover>Home</a>
+</footer>
+<style>
+.post-topbar{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+padding:16px clamp(20px,6vw,40px);background:color-mix(in srgb,var(--paper) 85%,transparent);
+backdrop-filter:blur(12px);border-bottom:1px solid var(--line);font-weight:600}
+.post-topbar a[data-hover]{color:var(--ink-soft)}
+.post-topbar a[data-hover]:hover{color:var(--accent)}
+.post-hero-img{border-radius:var(--radius);border:1px solid var(--line);margin:0 0 34px;width:100%}
+.hub{max-width:1100px;margin:0 auto;padding:60px clamp(20px,5vw,64px) 100px}
+.hub h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.2rem,6vw,3.4rem);letter-spacing:-.02em;margin-bottom:10px}
+.hub__sub{color:var(--ink-soft);margin-bottom:44px}
+</style>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>From Figma to Code — My Design Workflow - Abdul Manan</title>
+<meta name="description" content="How I go from a blank Figma canvas to a working, responsive website — the decisions, the handoff, and the details that make it feel finished." />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/blog/figma-to-code-workflow/" />
+<meta name="theme-color" content="#faf8f5" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:title" content="From Figma to Code — My Design Workflow - Abdul Manan" />
+<meta property="og:description" content="How I go from a blank Figma canvas to a working, responsive website — the decisions, the handoff, and the details that make it feel finished." />
+<meta property="og:url" content="https://abdulmanan.tech/blog/figma-to-code-workflow/" />
+<meta property="og:image" content="https://abdulmanan.tech/posts/images/figma-to-code-workflow.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="From Figma to Code — My Design Workflow - Abdul Manan" />
+<meta name="twitter:description" content="How I go from a blank Figma canvas to a working, responsive website — the decisions, the handoff, and the details that make it feel finished." />
+<meta name="twitter:image" content="https://abdulmanan.tech/posts/images/figma-to-code-workflow.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "From Figma to Code \u2014 My Design Workflow", "description": "How I go from a blank Figma canvas to a working, responsive website \u2014 the decisions, the handoff, and the details that make it feel finished.", "image": "https://abdulmanan.tech/posts/images/figma-to-code-workflow.png", "author": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "publisher": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "datePublished": "2026-08-14", "dateModified": "2026-08-14", "keywords": "design, figma, ui, workflow", "mainEntityOfPage": "https://abdulmanan.tech/blog/figma-to-code-workflow/", "url": "https://abdulmanan.tech/blog/figma-to-code-workflow/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulmanan.tech/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://abdulmanan.tech/blog/"}, {"@type": "ListItem", "position": 3, "name": "From Figma to Code \u2014 My Design Workflow", "item": "https://abdulmanan.tech/blog/figma-to-code-workflow/"}]}</script>
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo">AM<span>.</span></a>
+  <a href="/#blog" data-hover>All posts</a>
+</header>
+<main class="reader__body">
+<nav aria-label="Breadcrumb" style="font-size:.85rem;color:var(--muted);margin-bottom:22px">
+<a href="/" style="color:var(--muted)">Home</a> / <a href="/blog/" style="color:var(--muted)">Blog</a> / From Figma to Code — My Design Workflow
+</nav>
+<h1>From Figma to Code — My Design Workflow</h1>
+<div class="reader__meta">By Abdul Manan - 2026-08-14 - #design #figma #ui #workflow</div>
+<img class="post-hero-img" alt="From Figma to Code — My Design Workflow" src="https://abdulmanan.tech/posts/images/figma-to-code-workflow.png">
+<p>Good websites don't start in the code editor — they start with a plan. Here's how I move from an idea to a shipped, responsive site.</p>
+<h2>1. Decide the feeling first</h2>
+<p>Before any pixels, I pick a direction: calm and minimal, bold and loud, playful? That one decision drives type, colour and spacing.</p>
+<h2>2. Set up a tiny design system</h2>
+<ul><li><strong>Type scale</strong> — a few sizes, not fifteen</li><li><strong>Colour tokens</strong> — background, ink, one accent</li><li><strong>Spacing scale</strong> — 4 / 8 / 16 / 24 / 40</li><li><strong>Radius and shadows</strong> — consistent everywhere</li></ul>
+<h2>3. Design mobile and desktop together</h2>
+<p>I lay out the phone version next to the desktop one so responsive isn't an afterthought.</p>
+<h2>4. Translate tokens straight to CSS variables</h2>
+<pre><code>:root { --ink: #16151a; --accent: #ff5a3c; --radius: 18px; }</code></pre>
+<h2>5. Build, then add the delight</h2>
+<p>Structure and spacing first. Then the small interactive touches — a hover lift, a cursor trail, a soft reveal. Motion last, so it enhances a solid layout.</p>
+<h2>6. Polish the details nobody asks for</h2>
+<p>Focus states, consistent alignment, real content, dark mode that looks intentional. The details are the difference between fine and finished.</p>
+<hr>
+<p style="font-size:1rem"><a href="/blog/" style="color:var(--accent)">Read more posts</a> - <a href="/" style="color:var(--accent)">Back to abdulmanan.tech</a></p>
+</main>
+<footer class="footer">
+  <span>(c) 2026 Abdul Manan</span>
+  <span>Built &amp; designed by Abdul Manan - abdulmanan.tech</span>
+  <a href="/" data-hover>Home</a>
+</footer>
+<style>
+.post-topbar{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+padding:16px clamp(20px,6vw,40px);background:color-mix(in srgb,var(--paper) 85%,transparent);
+backdrop-filter:blur(12px);border-bottom:1px solid var(--line);font-weight:600}
+.post-topbar a[data-hover]{color:var(--ink-soft)}
+.post-topbar a[data-hover]:hover{color:var(--accent)}
+.post-hero-img{border-radius:var(--radius);border:1px solid var(--line);margin:0 0 34px;width:100%}
+.hub{max-width:1100px;margin:0 auto;padding:60px clamp(20px,5vw,64px) 100px}
+.hub h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.2rem,6vw,3.4rem);letter-spacing:-.02em;margin-bottom:10px}
+.hub__sub{color:var(--ink-soft);margin-bottom:44px}
+</style>
+</body>
+</html>

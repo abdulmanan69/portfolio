@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>10 JavaScript Tips Every Beginner Should Know - Abdul Manan</title>
+<meta name="description" content="Small habits that made my JavaScript cleaner and less buggy — from const-by-default to guard clauses and optional chaining." />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/blog/javascript-tips-for-beginners/" />
+<meta name="theme-color" content="#faf8f5" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:title" content="10 JavaScript Tips Every Beginner Should Know - Abdul Manan" />
+<meta property="og:description" content="Small habits that made my JavaScript cleaner and less buggy — from const-by-default to guard clauses and optional chaining." />
+<meta property="og:url" content="https://abdulmanan.tech/blog/javascript-tips-for-beginners/" />
+<meta property="og:image" content="https://abdulmanan.tech/posts/images/javascript-tips-for-beginners.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="10 JavaScript Tips Every Beginner Should Know - Abdul Manan" />
+<meta name="twitter:description" content="Small habits that made my JavaScript cleaner and less buggy — from const-by-default to guard clauses and optional chaining." />
+<meta name="twitter:image" content="https://abdulmanan.tech/posts/images/javascript-tips-for-beginners.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "10 JavaScript Tips Every Beginner Should Know", "description": "Small habits that made my JavaScript cleaner and less buggy \u2014 from const-by-default to guard clauses and optional chaining.", "image": "https://abdulmanan.tech/posts/images/javascript-tips-for-beginners.png", "author": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "publisher": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "datePublished": "2026-08-08", "dateModified": "2026-08-08", "keywords": "javascript, web, beginners, tips", "mainEntityOfPage": "https://abdulmanan.tech/blog/javascript-tips-for-beginners/", "url": "https://abdulmanan.tech/blog/javascript-tips-for-beginners/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulmanan.tech/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://abdulmanan.tech/blog/"}, {"@type": "ListItem", "position": 3, "name": "10 JavaScript Tips Every Beginner Should Know", "item": "https://abdulmanan.tech/blog/javascript-tips-for-beginners/"}]}</script>
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo">AM<span>.</span></a>
+  <a href="/#blog" data-hover>All posts</a>
+</header>
+<main class="reader__body">
+<nav aria-label="Breadcrumb" style="font-size:.85rem;color:var(--muted);margin-bottom:22px">
+<a href="/" style="color:var(--muted)">Home</a> / <a href="/blog/" style="color:var(--muted)">Blog</a> / 10 JavaScript Tips Every Beginner Should Know
+</nav>
+<h1>10 JavaScript Tips Every Beginner Should Know</h1>
+<div class="reader__meta">By Abdul Manan - 2026-08-08 - #javascript #web #beginners #tips</div>
+<img class="post-hero-img" alt="10 JavaScript Tips Every Beginner Should Know" src="https://abdulmanan.tech/posts/images/javascript-tips-for-beginners.png">
+<p>These are the things I wish someone had told me earlier. None are advanced — they just quietly make your code better.</p>
+<h2>1. Default to const</h2>
+<p>Use const unless you know the value will change; then use let. Never var.</p>
+<h2>2. Template literals beat concatenation</h2>
+<pre><code>const msg = `Hi ${name}, you have ${count} messages`;</code></pre>
+<h2>3. Use guard clauses to avoid nesting</h2>
+<pre><code>function save(user) {
+  if (!user) return;
+  // happy path stays flat
+}</code></pre>
+<h2>4. Use === not ==</h2>
+<p>== does surprising type coercion. === compares value and type.</p>
+<h2>5. Array methods over loops</h2>
+<pre><code>const names = users.filter(u =&gt; u.active).map(u =&gt; u.name);</code></pre>
+<h2>6. Optional chaining saves you from crashes</h2>
+<p>user?.profile?.avatar returns undefined instead of throwing.</p>
+<h2>7. Nullish coalescing for defaults</h2>
+<p>const page = input ?? 1; uses 1 only when input is null or undefined.</p>
+<h2>8. Destructure what you need</h2>
+<pre><code>const { title, date } = post;</code></pre>
+<h2>9. console.log is a debugging superpower</h2>
+<p>Log early, log often. console.table() for arrays of objects is a hidden gem.</p>
+<h2>10. Read the error message</h2>
+<p>The stack trace usually tells you the file and line. Slow down and read it — it's answering the question you're about to Google.</p>
+<hr>
+<p style="font-size:1rem"><a href="/blog/" style="color:var(--accent)">Read more posts</a> - <a href="/" style="color:var(--accent)">Back to abdulmanan.tech</a></p>
+</main>
+<footer class="footer">
+  <span>(c) 2026 Abdul Manan</span>
+  <span>Built &amp; designed by Abdul Manan - abdulmanan.tech</span>
+  <a href="/" data-hover>Home</a>
+</footer>
+<style>
+.post-topbar{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+padding:16px clamp(20px,6vw,40px);background:color-mix(in srgb,var(--paper) 85%,transparent);
+backdrop-filter:blur(12px);border-bottom:1px solid var(--line);font-weight:600}
+.post-topbar a[data-hover]{color:var(--ink-soft)}
+.post-topbar a[data-hover]:hover{color:var(--accent)}
+.post-hero-img{border-radius:var(--radius);border:1px solid var(--line);margin:0 0 34px;width:100%}
+.hub{max-width:1100px;margin:0 auto;padding:60px clamp(20px,5vw,64px) 100px}
+.hub h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.2rem,6vw,3.4rem);letter-spacing:-.02em;margin-bottom:10px}
+.hub__sub{color:var(--ink-soft);margin-bottom:44px}
+</style>
+</body>
+</html>

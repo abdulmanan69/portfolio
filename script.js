@@ -252,7 +252,7 @@
           const { meta, body } = parseFrontMatter(raw);
           const title = meta.title || f.name.replace(/\.md$/i, "").replace(/[-_]/g, " ");
           return {
-            slug: slugify(meta.slug || title),
+            slug: f.name.replace(/\.md$/i, "").toLowerCase(),
             title,
             date: meta.date || "",
             excerpt: meta.excerpt || body.replace(/[#>*`_!\[\]()-]/g, "").trim().slice(0, 140),
@@ -284,7 +284,7 @@
 
   function renderBlogList() {
     blogGrid.innerHTML = POSTS.map(p => `
-      <article class="post reveal" data-hover data-slug="${p.slug}">
+      <a class="post reveal" data-hover href="/blog/${p.slug}/">
         ${p.cover ? `<img class="post__cover" loading="lazy" alt="${esc(p.title)}" src="${esc(p.cover)}">` : ""}
         <div class="post__body">
           <span class="post__date">${prettyDate(p.date)}</span>
@@ -292,11 +292,8 @@
           <p>${esc(p.excerpt)}</p>
           ${p.tags.length ? `<div class="post__tags">${p.tags.map(t => `<span>#${esc(t)}</span>`).join("")}</div>` : ""}
         </div>
-      </article>`).join("");
-    $$("#blogGrid .post").forEach(el => {
-      io.observe(el);
-      el.addEventListener("click", () => location.hash = "post/" + el.dataset.slug);
-    });
+      </a>`).join("");
+    $$("#blogGrid .post").forEach(el => io.observe(el));
     window.__rebindCursor?.();
   }
 
