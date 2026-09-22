@@ -283,7 +283,7 @@
     </div>
     <p class="contact__lead reveal">Got a project, an idea, or just want to say hi? My inbox is open.</p>
 
-    <form class="contact__form reveal" action="https://formsubmit.co/manan999999999@gmail.com" method="POST">
+    <form class="contact__form reveal" id="contactForm" action="https://formsubmit.co/manan999999999@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="New message from abdulmanan.tech" />
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_template" value="table" />
@@ -302,7 +302,13 @@
         <label for="cmsg">Message</label>
       </div>
       <button type="submit" class="btn btn--solid" data-magnetic data-hover>Send message →</button>
+      <p class="contact__status" id="formStatus" role="status" aria-live="polite"></p>
     </form>
+
+    <!-- instant channels — rendered by script.js from the CONTACT config -->
+    <div class="contact__alt reveal" id="altChannels" hidden>
+      <span class="contact__alt-label">Or reach me straight away:</span>
+    </div>
 
     <!-- SOCIAL LINKS — replace the # / USERNAME placeholders with your real handles -->
     <div class="contact__socials reveal">

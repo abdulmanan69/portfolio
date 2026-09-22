@@ -72,11 +72,54 @@ portfolio/
 
 ## 🚀 Deploy
 
-**Netlify** — drag the folder onto [netlify.com/drop](https://app.netlify.com/drop), add the custom domain, done. Contact form works via Netlify Forms.
+**Netlify** — drag the folder onto [netlify.com/drop](https://app.netlify.com/drop), add the custom domain, done.
 
-**GitHub Pages** — Settings → Pages → deploy from `main` / root. `CNAME` and `.nojekyll` are already included. On Pages, swap the contact form for [Formspree](https://formspree.io).
+**GitHub Pages** — Settings → Pages → deploy from `main` / root. `CNAME` and `.nojekyll` are already included. The contact form needs no server on either host (see below).
 
 **Domain (Cloudflare):** point `A @` to GitHub's IPs (`185.199.108–111.153`) as **DNS-only** during setup, set SSL/TLS to **Full**, then Enforce HTTPS on GitHub.
+
+## 📬 Contact form — how messages actually arrive
+
+No server, no paid plan. The form posts over `fetch`, so the visitor never leaves the page,
+and every route below is free with no expiry.
+
+**1. Email — [FormSubmit](https://formsubmit.co) (free, unlimited, no account)**
+
+It has to be activated once, from the live domain:
+
+1. Open <https://abdulmanan.tech/#contact> and send yourself a test message.
+2. FormSubmit emails a confirmation link — check the inbox **and the spam folder**.
+3. Click it. You also get a random alias like `https://formsubmit.co/ajax/a1b2c3…`.
+4. Paste that alias into `CONTACT.endpoint` in [`script.js`](script.js) and into the
+   `action` attribute in [`index.html`](index.html), replacing the raw address — the inbox
+   then stays out of the page source, away from scrapers.
+
+From then on every submission lands in Gmail as a formatted table.
+
+**2. Instant channels (optional, free forever)**
+
+Fill any of these in `CONTACT` and the button renders itself; leave `""` and it stays hidden.
+
+| Field | Value | What it gives you |
+|---|---|---|
+| `whatsapp` | digits only, country code first — `"923001234567"` | A tap-to-chat button; the message hits your phone instantly. No API, no limits. |
+| `telegram` | username without the `@` | Same idea, via `t.me`. |
+| `discord` | a channel webhook URL | Every form submission is also mirrored into a private Discord channel — a push notification the second someone writes, even if email is slow or filtered. |
+
+The Discord webhook URL is visible in the page source (it's a static site — everything is).
+Worst case someone posts junk into that one channel; delete the webhook in Discord and
+generate a new one.
+
+**3. Fallback that can't fail**
+
+If the endpoint is ever down or blocked, the form hands the message to the visitor's own
+mail app, pre-filled. With JavaScript disabled it does a plain form POST and lands on
+[`thankyou.html`](thankyou.html). A message never disappears silently.
+
+**Swapping providers:** [Web3Forms](https://web3forms.com) (free, 250/month, instant key, no
+activation email) is a drop-in — change `CONTACT.endpoint` to
+`https://api.web3forms.com/submit` and add `access_key` to the JSON body in the submit
+handler at the bottom of [`script.js`](script.js).
 
 ## 🔧 Make it yours
 
@@ -85,6 +128,7 @@ Everything configurable sits at the top of [`script.js`](script.js):
 ```js
 const GH_USER = "abdulmanan69";               // projects + stats
 const BLOG = { user, repo, path, branch };    // where posts live
+const CONTACT = { email, endpoint, whatsapp, telegram, discord };  // how messages reach me
 ```
 
 ---

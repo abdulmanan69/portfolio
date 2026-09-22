@@ -278,6 +278,14 @@ code { font-family: "JetBrains Mono", monospace; font-size: .85em; }
 .field textarea:focus + label, .field textarea:not(:placeholder-shown) + label { top: -12px; font-size: .78rem; color: var(--accent); }
 .hidden { display: none; }
 .contact__form button { justify-self: start; margin-top: 6px; }
+.contact__status { min-height: 1.2em; margin: -10px 0 0; font-size: .92rem; color: var(--muted); }
+.contact__status[data-state="busy"] { color: var(--muted); }
+.contact__status[data-state="ok"]   { color: var(--accent); font-weight: 600; }
+.contact__status[data-state="err"]  { color: #d9534f; }
+.contact__alt { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 30px; }
+.contact__alt-label { color: var(--muted); font-size: .92rem; margin-right: 4px; }
+.alt-btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border: 1.5px solid var(--line); border-radius: 999px; font-size: .9rem; font-weight: 600; transition: border-color .25s, color .25s, transform .25s var(--ease); }
+.alt-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 .contact__socials { display: flex; flex-wrap: wrap; gap: 26px; margin-top: 46px; font-weight: 600; }
 .contact__socials a { position: relative; }
 .contact__socials a::after { content: "↗"; margin-left: 4px; color: var(--accent); }

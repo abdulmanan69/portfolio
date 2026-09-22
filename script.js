@@ -19,6 +19,25 @@
   const AUTHOR = "Abdul Manan";
   const SITE   = "https://abdulmanan.tech";
 
+  /* ------------------------------------------------------------
+     CONTACT — where messages land. All of these are free forever.
+       endpoint : FormSubmit. Swap the address for the random alias
+                  FormSubmit gives you after activation, so the raw
+                  inbox never sits in the HTML for scrapers.
+       whatsapp : digits only, country code first — "923001234567".
+       telegram : username without the @.
+       discord  : a channel webhook URL (optional mirror; the form
+                  also pings it so a message is never only in email).
+     Leave a value as "" and that button simply isn't rendered.
+     ------------------------------------------------------------ */
+  const CONTACT = {
+    email:    "manan999999999@gmail.com",
+    endpoint: "https://formsubmit.co/ajax/manan999999999@gmail.com",
+    whatsapp: "",
+    telegram: "",
+    discord:  ""
+  };
+
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const canHover = matchMedia("(hover: hover)").matches;
   const $  = (s, c = document) => c.querySelector(s);
@@ -352,4 +371,85 @@
   $("#readerBack").addEventListener("click", () => { location.hash = "blog"; });
   $("#readerClose").addEventListener("click", () => { location.hash = "blog"; });
   addEventListener("keydown", e => { if (e.key === "Escape" && reader.classList.contains("open")) location.hash = "blog"; });
+
+  /* ============================================================
+     CONTACT FORM
+     Posts over fetch so the visitor stays on the page. If the
+     endpoint is down or blocked, the message is handed to the
+     visitor's own mail app instead — it is never silently lost.
+     With JS off the form still does a normal POST (action attr)
+     and lands on thankyou.html.
+     ============================================================ */
+  const cForm = $("#contactForm");
+  if (cForm) {
+    const status = $("#formStatus");
+    const submit = cForm.querySelector('button[type="submit"]');
+    const say = (msg, state) => { status.textContent = msg; status.dataset.state = state || ""; };
+
+    const mailtoFor = d => "mailto:" + CONTACT.email +
+      "?subject=" + encodeURIComponent("Portfolio message from " + (d.name || "someone")) +
+      "&body=" + encodeURIComponent(`${d.message || ""}
+
+— ${d.name || ""} (${d.email || ""})`);
+
+    /* optional Discord mirror — instant phone push, no inbox needed */
+    const mirror = d => {
+      if (!CONTACT.discord) return Promise.resolve();
+      return fetch(CONTACT.discord, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content: `**${d.name}** <${d.email}>
+${d.message}`.slice(0, 1900) })
+      }).catch(() => {});
+    };
+
+    cForm.addEventListener("submit", async e => {
+      e.preventDefault();
+      const d = Object.fromEntries(new FormData(cForm));
+      if (d._honey) return;                       // hidden field: only bots fill it
+      submit.disabled = true;
+      say("Sending…", "busy");
+      try {
+        const res = await fetch(CONTACT.endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            name: d.name, email: d.email, message: d.message,
+            _subject: d._subject, _template: "table", _captcha: "false"
+          })
+        });
+        if (!res.ok) throw new Error(res.status);
+        mirror(d);
+        cForm.reset();
+        say(`Sent ✓ — I'll reply to ${d.email} soon.`, "ok");
+      } catch {
+        mirror(d);
+        say("The form service didn't answer — opening your mail app so nothing is lost.", "err");
+        location.href = mailtoFor(d);
+      } finally {
+        submit.disabled = false;
+      }
+    });
+
+    /* instant channels, only the ones that are configured */
+    const alt = $("#altChannels");
+    const greeting = encodeURIComponent("Hi Abdul — I saw your portfolio and");
+    const links = [
+      CONTACT.whatsapp && [`https://wa.me/${CONTACT.whatsapp}?text=${greeting}`, "WhatsApp"],
+      CONTACT.telegram && [`https://t.me/${CONTACT.telegram}`, "Telegram"],
+      CONTACT.email    && [`mailto:${CONTACT.email}`, "Email"]
+    ].filter(Boolean);
+    if (links.length) {
+      alt.hidden = false;
+      for (const [href, label] of links) {
+        const a = document.createElement("a");
+        a.className = "alt-btn";
+        a.href = href;
+        a.textContent = label;
+        a.setAttribute("data-hover", "");
+        if (href.startsWith("http")) { a.target = "_blank"; a.rel = "noopener"; }
+        alt.appendChild(a);
+      }
+    }
+  }
 })();
