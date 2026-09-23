@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CV Studio — A Free, Private Resume Builder - Abdul Manan</title>
+<meta name="description" content="12 templates, live A4 pagination and PDF export, with no account and no server. Your CV never leaves the browser." />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/blog/cv-studio-free-resume-builder/" />
+<meta name="theme-color" content="#faf8f5" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="CV Studio — A Free, Private Resume Builder - Abdul Manan" />
+<meta property="og:description" content="12 templates, live A4 pagination and PDF export, with no account and no server. Your CV never leaves the browser." />
+<meta property="og:url" content="https://abdulmanan.tech/blog/cv-studio-free-resume-builder/" />
+<meta property="og:image" content="https://abdulmanan.tech/posts/images/cv-studio-free-resume-builder.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="CV Studio — A Free, Private Resume Builder - Abdul Manan" />
+<meta name="twitter:description" content="12 templates, live A4 pagination and PDF export, with no account and no server. Your CV never leaves the browser." />
+<meta name="twitter:image" content="https://abdulmanan.tech/posts/images/cv-studio-free-resume-builder.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "CV Studio \u2014 A Free, Private Resume Builder", "description": "12 templates, live A4 pagination and PDF export, with no account and no server. Your CV never leaves the browser.", "image": "https://abdulmanan.tech/posts/images/cv-studio-free-resume-builder.png", "wordCount": 770, "author": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech", "sameAs": ["https://github.com/abdulmanan69", "https://www.linkedin.com/in/abdulxmanan", "https://www.instagram.com/abdul_x_manan"]}, "publisher": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "datePublished": "2026-09-10", "dateModified": "2026-09-10", "keywords": "javascript, tools, career, privacy, open-source", "mainEntityOfPage": "https://abdulmanan.tech/blog/cv-studio-free-resume-builder/", "url": "https://abdulmanan.tech/blog/cv-studio-free-resume-builder/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulmanan.tech/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://abdulmanan.tech/blog/"}, {"@type": "ListItem", "position": 3, "name": "CV Studio \u2014 A Free, Private Resume Builder", "item": "https://abdulmanan.tech/blog/cv-studio-free-resume-builder/"}]}</script>
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo">AM<span>.</span></a>
+  <a href="/#blog" data-hover>All posts</a>
+</header>
+
+<main class="reader__body">
+<nav aria-label="Breadcrumb" style="font-size:.85rem;color:var(--muted);margin-bottom:22px">
+<a href="/" style="color:var(--muted)">Home</a> / <a href="/blog/" style="color:var(--muted)">Blog</a> / CV Studio — A Free, Private Resume Builder
+</nav>
+<h1>CV Studio — A Free, Private Resume Builder</h1>
+<div class="reader__meta">By Abdul Manan - 2026-09-10 - 4 min read - #javascript #tools #career #privacy #open-source</div>
+<img class="post-hero-img" alt="CV Studio — A Free, Private Resume Builder" src="https://abdulmanan.tech/posts/images/cv-studio-free-resume-builder.png">
+<p>The online CV builder script is always the same. You fill in everything, you get a nice preview, you click Download — and there's the paywall. You've just typed your full employment history, address and phone number into a database to get nothing back.</p>
+<p><strong><a href="https://github.com/abdulmanan69/cv-maker">CV Studio</a></strong> is my answer: a free, fast, 100% client-side CV / resume builder. No accounts, no server, and your data never leaves your browser. MIT licensed.</p>
+<h2>12 templates that cover real formats</h2>
+<p>Classic, Horizon, Minimal, Executive, Bold, Tech, Timeline, Swiss, Gradient, Compact, Paper and Onyx — spanning ATS-friendly single-column, sidebar layouts, timelines, dark, serif and dense formats.</p>
+<p>The ATS-friendly ones matter more than they look. A lot of applications go through an applicant tracking system before a human sees them, and a two-column design with text in boxes can come out scrambled. Having both kinds in one tool means you can keep a plain version for the robots and a designed version for the human.</p>
+<h2>The pagination engine was the hard part</h2>
+<p>A CV is a <em>paged</em> document, and the web has no native concept of one. The preview renders real A4 or US Letter pages, and content flows across them automatically — which means measuring rendered blocks and deciding where each one is allowed to break.</p>
+<p>On top of that sits <strong>Fit to 1 / 2 / 3 pages</strong>, which auto-shrinks type, spacing and margins until the content lands on the target page count. Everyone's real constraint is "it must be one page", so the tool solves for that directly instead of leaving you to nudge a font-size slider twenty times.</p>
+<h2>Everything is adjustable, live</h2>
+<ul><li><strong>Accent colour</strong> from a palette, hue/lightness sliders, or a hex value</li><li><strong>Body and heading fonts</strong>, text size, line height, section spacing, margins</li><li><strong>Heading style</strong> and date format</li><li><strong>Photo upload and editor</strong> — drag &amp; drop an image, then pan, zoom, rotate and tune brightness / contrast / saturation / grayscale / sepia; circle, rounded or square</li><li><strong>Drag &amp; drop everything</strong> — sections, entries, skills and links reorder with smooth FLIP animations</li><li><strong>A QR code on your CV</strong>, generated entirely locally — no external QR service ever sees the link — pointing at your site, GitHub, LinkedIn, email, phone or a scannable contact card</li></ul>
+<p>Colour, font and spacing changes render while you drag, because a preview that updates on blur makes you guess.</p>
+<h2>Ten section types, plus your own</h2>
+<p>Experience, education, skills, languages, projects, certifications, awards, interests, references — and unlimited custom sections, because someone always needs "Publications" or "Volunteering" and a fixed schema always loses.</p>
+<h2>Losing work is the real failure mode</h2>
+<p>For a tool with no accounts, "my browser crashed" cannot mean "start again". So:</p>
+<ul><li><strong>Undo / redo</strong> on Ctrl+Z / Ctrl+Y</li><li><strong>Autosave</strong> to <code>localStorage</code> as you type</li><li><strong>JSON backup import / export</strong> — your CV as a portable file you own, which also means you can keep three tailored versions and switch between them</li><li><strong>Sample data</strong> to start from, and dark mode for late-night applications</li></ul>
+<h2>PDF export without a server</h2>
+<p>Export uses <code>html2canvas</code> + <code>jsPDF</code>, loaded from a CDN only when you click download, with a <strong>print fallback</strong> when you're offline. Ctrl+P → Save as PDF gives you a vector-quality copy that is often <em>better</em> than the rasterised one, and it works with nothing loaded at all.</p>
+<p>That's the general rule in this app: the primary path can use a library, but there always has to be a path that works with nothing.</p>
+<h2>The stack</h2>
+<p>Vanilla JavaScript, hand-written CSS, canvas-based image editing and a custom pagination engine. No framework and no build step — open <code>index.html</code> and it runs.</p>
+<p>Every form control is hand-built too: dropdowns, month/year picker, sliders, colour picker and toggles. Native browser popups look wrong inside a designed app and behave differently on every OS, so they're gone.</p>
+<p>It also ships with full SEO wiring — meta tags, Open Graph, JSON-LD (<code>WebApplication</code> + FAQ + author), <code>robots.txt</code>, <code>sitemap.xml</code>, an <code>llms.txt</code> for AI crawlers, and a PWA manifest — the same checklist I wrote about in <a href="/blog/seo-for-developers/">SEO for Developers</a>.</p>
+<h2>Use it or fork it</h2>
+<pre><code class="language-bash">git clone https://github.com/abdulmanan69/cv-maker.git
+# then just open index.html</code></pre>
+<p>Deploying your own copy is Settings → Pages → <code>main</code> / root. Search-and-replace the site URL in <code>index.html</code>, <code>robots.txt</code> and <code>sitemap.xml</code> once and you're live.</p>
+<p>Code and issues: <a href="https://github.com/abdulmanan69/cv-maker">github.com/abdulmanan69/cv-maker</a>. Building something similar and want a hand? <a href="/#contact">Say hi</a>.</p>
+<div class="share"><span>Share:</span>
+<a href="https://twitter.com/intent/tweet?text=CV%20Studio%20%E2%80%94%20A%20Free%2C%20Private%20Resume%20Builder&url=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fcv-studio-free-resume-builder%2F" target="_blank" rel="noopener">X</a>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fcv-studio-free-resume-builder%2F" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://api.whatsapp.com/send?text=CV%20Studio%20%E2%80%94%20A%20Free%2C%20Private%20Resume%20Builder%20https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fcv-studio-free-resume-builder%2F" target="_blank" rel="noopener">WhatsApp</a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fcv-studio-free-resume-builder%2F" target="_blank" rel="noopener">Facebook</a>
+<button type="button" onclick="navigator.clipboard.writeText('https://abdulmanan.tech/blog/cv-studio-free-resume-builder/');this.textContent='Copied!'">Copy link</button></div>
+<nav class="prevnext"><a href="/blog/toolforge-browser-pdf-tools/">&larr; ToolForge — 93 Browser Tools, Zero Uploads</a><a href="/blog/leadslicer-split-csv-excel-files/">LeadSlicer — Split and Clean CSV Files Offline &rarr;</a></nav>
+<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/toolforge-browser-pdf-tools/"><span>2026-09-16</span><h3>ToolForge — 93 Browser Tools, Zero Uploads</h3></a><a class="related__card" href="/blog/leadslicer-split-csv-excel-files/"><span>2026-09-04</span><h3>LeadSlicer — Split and Clean CSV Files Offline</h3></a><a class="related__card" href="/blog/lancall-webrtc-lan-voice-calls/"><span>2026-08-20</span><h3>LanCall — WebRTC Voice Calls Over Your LAN</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>(c) 2026 Abdul Manan</span>
+  <span>Built &amp; designed by Abdul Manan - abdulmanan.tech</span>
+  <a href="/" data-hover>Home</a>
+</footer>
+
+<style>
+.post-topbar{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+padding:16px clamp(20px,6vw,40px);background:color-mix(in srgb,var(--paper) 85%,transparent);
+backdrop-filter:blur(12px);border-bottom:1px solid var(--line);font-weight:600}
+.post-topbar a[data-hover]{color:var(--ink-soft)}
+.post-topbar a[data-hover]:hover{color:var(--accent)}
+.post-hero-img{border-radius:var(--radius);border:1px solid var(--line);margin:0 0 34px;width:100%}
+.hub{max-width:1100px;margin:0 auto;padding:60px clamp(20px,5vw,64px) 100px}
+.hub h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.2rem,6vw,3.4rem);letter-spacing:-.02em;margin-bottom:10px}
+.hub__sub{color:var(--ink-soft);margin-bottom:44px}
+.share{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:34px 0;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.share span{font-weight:600;margin-right:4px}
+.share a,.share button{font:inherit;font-size:.88rem;font-weight:600;cursor:pointer;border:1px solid var(--line);
+background:var(--card);color:var(--ink);border-radius:100px;padding:8px 16px;transition:.25s}
+.share a:hover,.share button:hover{border-color:var(--accent);color:var(--accent)}
+.related{margin-top:70px}
+.related h2{font-family:"Fraunces",serif;font-weight:500;font-size:1.7rem;margin-bottom:22px}
+.related__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:18px}
+.related__card{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:22px;transition:.3s}
+.related__card:hover{box-shadow:var(--shadow);border-color:transparent;transform:translateY(-4px)}
+.related__card span{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--accent)}
+.related__card h3{font-family:"Fraunces",serif;font-weight:500;font-size:1.15rem;margin-top:6px}
+.prevnext{display:flex;justify-content:space-between;gap:16px;margin-top:40px;font-weight:600}
+.prevnext a{color:var(--accent)}
+.reader__body table{width:100%;border-collapse:collapse;margin:22px 0;font-size:.95rem}
+.reader__body th,.reader__body td{border:1px solid var(--line);padding:10px 12px;text-align:left}
+.reader__body th{background:var(--paper-2);font-weight:600}
+</style>
+</body>
+</html>

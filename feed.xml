@@ -6,7 +6,56 @@
   <atom:link href="https://abdulmanan.tech/feed.xml" rel="self" type="application/rss+xml" />
   <description>Web development, design, SEO and learning to code - by Abdul Manan.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 14 Aug 2026 00:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 22 Sep 2026 00:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Bulwark — An MCP and AI Agent Security Scanner</title>
+    <link>https://abdulmanan.tech/blog/bulwark-mcp-security-scanner/</link>
+    <guid>https://abdulmanan.tech/blog/bulwark-mcp-security-scanner/</guid>
+    <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+    <description>Nothing in your stack reads the file that decides what your AI agent can do. Bulwark scans MCP servers for prompt injection and tool poisoning.</description>
+  </item>
+  <item>
+    <title>ToolForge — 93 Browser Tools, Zero Uploads</title>
+    <link>https://abdulmanan.tech/blog/toolforge-browser-pdf-tools/</link>
+    <guid>https://abdulmanan.tech/blog/toolforge-browser-pdf-tools/</guid>
+    <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
+    <description>Most free PDF tools upload your file to someone else&#x27;s server. ToolForge does the whole job inside your browser tab, and works offline.</description>
+  </item>
+  <item>
+    <title>CV Studio — A Free, Private Resume Builder</title>
+    <link>https://abdulmanan.tech/blog/cv-studio-free-resume-builder/</link>
+    <guid>https://abdulmanan.tech/blog/cv-studio-free-resume-builder/</guid>
+    <pubDate>Thu, 10 Sep 2026 00:00:00 GMT</pubDate>
+    <description>12 templates, live A4 pagination and PDF export, with no account and no server. Your CV never leaves the browser.</description>
+  </item>
+  <item>
+    <title>LeadSlicer — Split and Clean CSV Files Offline</title>
+    <link>https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/</link>
+    <guid>https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/</guid>
+    <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    <description>Dedupe, filter and split 50,000-row CSV or Excel lead files into chunks, entirely in the browser, with nothing uploaded anywhere.</description>
+  </item>
+  <item>
+    <title>SafeRoute — A Full-Stack App on React and Supabase</title>
+    <link>https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/</link>
+    <guid>https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/</guid>
+    <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Real driving routes, safety scoring, live GPS and a ride marketplace, built on React 19, Supabase RLS and free APIs that need no keys.</description>
+  </item>
+  <item>
+    <title>InvoiceApp — Offline Invoicing and Stock Control</title>
+    <link>https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/</link>
+    <guid>https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/</guid>
+    <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Invoices, quotations, inventory, payments and returns in one local SQLite file. No server, no internet, no subscription.</description>
+  </item>
+  <item>
+    <title>LanCall — WebRTC Voice Calls Over Your LAN</title>
+    <link>https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/</link>
+    <guid>https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/</guid>
+    <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Voice calls between devices on the same network with no cloud service in the middle. A small Python server does the introductions.</description>
+  </item>
   <item>
     <title>From Figma to Code — My Design Workflow</title>
     <link>https://abdulmanan.tech/blog/figma-to-code-workflow/</link>

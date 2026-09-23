@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>InvoiceApp — Offline Invoicing and Stock Control - Abdul Manan</title>
+<meta name="description" content="Invoices, quotations, inventory, payments and returns in one local SQLite file. No server, no internet, no subscription." />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/" />
+<meta name="theme-color" content="#faf8f5" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="InvoiceApp — Offline Invoicing and Stock Control - Abdul Manan" />
+<meta property="og:description" content="Invoices, quotations, inventory, payments and returns in one local SQLite file. No server, no internet, no subscription." />
+<meta property="og:url" content="https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/" />
+<meta property="og:image" content="https://abdulmanan.tech/posts/images/invoiceapp-offline-invoicing-small-business.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="InvoiceApp — Offline Invoicing and Stock Control - Abdul Manan" />
+<meta name="twitter:description" content="Invoices, quotations, inventory, payments and returns in one local SQLite file. No server, no internet, no subscription." />
+<meta name="twitter:image" content="https://abdulmanan.tech/posts/images/invoiceapp-offline-invoicing-small-business.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "InvoiceApp \u2014 Offline Invoicing and Stock Control", "description": "Invoices, quotations, inventory, payments and returns in one local SQLite file. No server, no internet, no subscription.", "image": "https://abdulmanan.tech/posts/images/invoiceapp-offline-invoicing-small-business.png", "wordCount": 834, "author": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech", "sameAs": ["https://github.com/abdulmanan69", "https://www.linkedin.com/in/abdulxmanan", "https://www.instagram.com/abdul_x_manan"]}, "publisher": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "datePublished": "2026-08-25", "dateModified": "2026-08-25", "keywords": "python, sqlite, desktop, business, pdf", "mainEntityOfPage": "https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/", "url": "https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulmanan.tech/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://abdulmanan.tech/blog/"}, {"@type": "ListItem", "position": 3, "name": "InvoiceApp \u2014 Offline Invoicing and Stock Control", "item": "https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/"}]}</script>
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo">AM<span>.</span></a>
+  <a href="/#blog" data-hover>All posts</a>
+</header>
+
+<main class="reader__body">
+<nav aria-label="Breadcrumb" style="font-size:.85rem;color:var(--muted);margin-bottom:22px">
+<a href="/" style="color:var(--muted)">Home</a> / <a href="/blog/" style="color:var(--muted)">Blog</a> / InvoiceApp — Offline Invoicing and Stock Control
+</nav>
+<h1>InvoiceApp — Offline Invoicing and Stock Control</h1>
+<div class="reader__meta">By Abdul Manan - 2026-08-25 - 4 min read - #python #sqlite #desktop #business #pdf</div>
+<img class="post-hero-img" alt="InvoiceApp — Offline Invoicing and Stock Control" src="https://abdulmanan.tech/posts/images/invoiceapp-offline-invoicing-small-business.png">
+<p>Small shops run on a monthly subscription they resent, or on a spreadsheet nobody trusts. Both fail the same way: the subscription needs internet and a card that keeps working, and the spreadsheet lets you sell fifty units of something you have thirty of.</p>
+<p><strong><a href="https://github.com/abdulmanan69/InvoiceApp">InvoiceApp</a></strong> is a standalone Windows desktop app that keeps customers, vendors, products, stock, purchases, invoices, quotations, payments and returns in <strong>one local SQLite file</strong>. No server, no internet, no subscription. Default currency is Pakistani Rupee (PKR, "Rs"), changeable in Settings.</p>
+<h2>Documents that behave like documents</h2>
+<p>Invoices and quotations share a searchable, filterable list and an editor with product auto-fill that shows what's actually in stock. Per-line tax override, percentage or fixed discount, live totals, duplicate, print, PDF export — and <strong>one-click convert quotation → invoice</strong>, which is the step every shop does daily and most software makes you retype.</p>
+<p><strong>Seven PDF templates</strong> — Modern, Classic, Minimal, Bold, Corporate, Elegant, Compact — in A4 or Letter. Big company name and bill-to details, logo, itemised table with grid borders, totals, status badge, notes and terms, bank details, and <strong>signature boxes</strong> (prepared by / received by, with names). Long item lists paginate with the table header repeated, which sounds trivial until you've received page 3 of an invoice with no column labels.</p>
+<p>Every document also gets a <em>Show / hide sections &amp; columns</em> panel: turn off the status badge, due date, currency, logo, any table column, the discount, tax or paid lines, notes, terms, bank details, signatures or the grid. Defaults live in Settings → PDF layout. Different customers want different paperwork, and hardcoding one opinion means someone maintains a second template forever.</p>
+<p>Numbering is prefix + counter + padding per document type, editable, with duplicates rejected.</p>
+<h2>Money, computed rather than typed</h2>
+<p>Payments support partial amounts and guard against overpayment. "Mark as paid" writes a real payment row instead of flipping a flag, so the payments log and the invoice can't disagree. There's a global payments log with CSV export.</p>
+<p>Status is <strong>always computed</strong> — Unpaid, Partially Paid, Paid, Overdue. Nobody sets it by hand, so nobody forgets to.</p>
+<p>Customer returns credit the invoice, dropping the balance, and can optionally put items back into stock. A return that fixes the money but not the shelf is how inventory drifts away from reality.</p>
+<h2>Inventory that says no</h2>
+<p>Products carry a <strong>cost price</strong> (what you paid) and a <strong>sale price</strong>, with margin shown to owners. Purchases from vendors add stock and update the cost price; returns to vendor remove it.</p>
+<p>The rule that matters: <strong>invoices cannot sell more than is in stock.</strong> Fifty in stock means fifty is the maximum on an invoice. Owners can allow negative stock in Settings if their business genuinely works that way, but the default is the safe one. Editing an existing invoice frees its own stock first, so changing a line from 10 to 12 doesn't fail against stock the same invoice is holding.</p>
+<p>On top: stock levels, low-stock alerts (global threshold or per product), stock adjustments, a full movement history, and best sellers by quantity, revenue and gross profit over a date range.</p>
+<h2>Roles, because not everyone should see the margin</h2>
+<p>First run creates the <strong>owner</strong>. Owners see everything — payments, purchases, costs, profit, vendors, settings, users. <strong>Employees</strong> work with invoices, quotations, customers, products (sale prices only) and can view stock — no payments, no costs, no deletes.</p>
+<p>That split isn't paranoia, it's ordinary: the person at the counter needs to issue an invoice and should not be able to see what you paid the vendor, or quietly delete a document.</p>
+<p>The owner dashboard shows outstanding, paid this month, overdue, open quotes, gross profit, stock value, low stock, purchases, best sellers and an activity feed. The employee dashboard shows counts only.</p>
+<h2>Nothing business-specific is hardcoded</h2>
+<p>Company profile and logo, currency, tax defaults, numbering, payment methods, default notes and terms, template and page size, bill-to heading, signature labels and names, PDF defaults, low-stock rules, live theme colours, backup and restore.</p>
+<p>That list <em>is</em> the product. Software for small businesses usually dies on the one assumption the author never questioned — a currency symbol, a tax rate, a document label — and at that point it's someone else's tool you're fighting.</p>
+<h2>Why SQLite and why offline</h2>
+<p>One file holds everything. Backup is copying it. Restore is copying it back. There is no connection string, no migration server, no "the internet is down so we can't bill anyone."</p>
+<p>And because it's a real database rather than a spreadsheet, the constraints above — stock limits, computed status, atomic payments — are actually enforced instead of being a convention everyone violates when it's busy.</p>
+<h2>Run from source</h2>
+<pre><code class="language-bat">python -m pip install -r requirements.txt</code></pre>
+<p>Source: <a href="https://github.com/abdulmanan69/InvoiceApp">github.com/abdulmanan69/InvoiceApp</a>. If your business needs something shaped like this — or the web version of it — <a href="/#contact">get in touch</a>.</p>
+<div class="share"><span>Share:</span>
+<a href="https://twitter.com/intent/tweet?text=InvoiceApp%20%E2%80%94%20Offline%20Invoicing%20and%20Stock%20Control&url=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Finvoiceapp-offline-invoicing-small-business%2F" target="_blank" rel="noopener">X</a>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Finvoiceapp-offline-invoicing-small-business%2F" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://api.whatsapp.com/send?text=InvoiceApp%20%E2%80%94%20Offline%20Invoicing%20and%20Stock%20Control%20https%3A%2F%2Fabdulmanan.tech%2Fblog%2Finvoiceapp-offline-invoicing-small-business%2F" target="_blank" rel="noopener">WhatsApp</a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Finvoiceapp-offline-invoicing-small-business%2F" target="_blank" rel="noopener">Facebook</a>
+<button type="button" onclick="navigator.clipboard.writeText('https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/');this.textContent='Copied!'">Copy link</button></div>
+<nav class="prevnext"><a href="/blog/saferoute-react-supabase-full-stack/">&larr; SafeRoute — A Full-Stack App on React and Supabase</a><a href="/blog/lancall-webrtc-lan-voice-calls/">LanCall — WebRTC Voice Calls Over Your LAN &rarr;</a></nav>
+<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/bulwark-mcp-security-scanner/"><span>2026-09-22</span><h3>Bulwark — An MCP and AI Agent Security Scanner</h3></a><a class="related__card" href="/blog/toolforge-browser-pdf-tools/"><span>2026-09-16</span><h3>ToolForge — 93 Browser Tools, Zero Uploads</h3></a><a class="related__card" href="/blog/lancall-webrtc-lan-voice-calls/"><span>2026-08-20</span><h3>LanCall — WebRTC Voice Calls Over Your LAN</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>(c) 2026 Abdul Manan</span>
+  <span>Built &amp; designed by Abdul Manan - abdulmanan.tech</span>
+  <a href="/" data-hover>Home</a>
+</footer>
+
+<style>
+.post-topbar{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+padding:16px clamp(20px,6vw,40px);background:color-mix(in srgb,var(--paper) 85%,transparent);
+backdrop-filter:blur(12px);border-bottom:1px solid var(--line);font-weight:600}
+.post-topbar a[data-hover]{color:var(--ink-soft)}
+.post-topbar a[data-hover]:hover{color:var(--accent)}
+.post-hero-img{border-radius:var(--radius);border:1px solid var(--line);margin:0 0 34px;width:100%}
+.hub{max-width:1100px;margin:0 auto;padding:60px clamp(20px,5vw,64px) 100px}
+.hub h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.2rem,6vw,3.4rem);letter-spacing:-.02em;margin-bottom:10px}
+.hub__sub{color:var(--ink-soft);margin-bottom:44px}
+.share{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:34px 0;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.share span{font-weight:600;margin-right:4px}
+.share a,.share button{font:inherit;font-size:.88rem;font-weight:600;cursor:pointer;border:1px solid var(--line);
+background:var(--card);color:var(--ink);border-radius:100px;padding:8px 16px;transition:.25s}
+.share a:hover,.share button:hover{border-color:var(--accent);color:var(--accent)}
+.related{margin-top:70px}
+.related h2{font-family:"Fraunces",serif;font-weight:500;font-size:1.7rem;margin-bottom:22px}
+.related__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:18px}
+.related__card{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:22px;transition:.3s}
+.related__card:hover{box-shadow:var(--shadow);border-color:transparent;transform:translateY(-4px)}
+.related__card span{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--accent)}
+.related__card h3{font-family:"Fraunces",serif;font-weight:500;font-size:1.15rem;margin-top:6px}
+.prevnext{display:flex;justify-content:space-between;gap:16px;margin-top:40px;font-weight:600}
+.prevnext a{color:var(--accent)}
+.reader__body table{width:100%;border-collapse:collapse;margin:22px 0;font-size:.95rem}
+.reader__body th,.reader__body td{border:1px solid var(--line);padding:10px 12px;text-align:left}
+.reader__body th{background:var(--paper-2);font-weight:600}
+</style>
+</body>
+</html>

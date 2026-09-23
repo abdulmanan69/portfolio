@@ -2,16 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://abdulmanan.tech/</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image><image:loc>https://abdulmanan.tech/og-image.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/blog/bulwark-mcp-security-scanner/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://abdulmanan.tech/posts/images/bulwark-mcp-security-scanner.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/blog/toolforge-browser-pdf-tools/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://abdulmanan.tech/posts/images/toolforge-browser-pdf-tools.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/blog/cv-studio-free-resume-builder/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://abdulmanan.tech/posts/images/cv-studio-free-resume-builder.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://abdulmanan.tech/posts/images/leadslicer-split-csv-excel-files.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://abdulmanan.tech/posts/images/saferoute-react-supabase-full-stack.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://abdulmanan.tech/posts/images/invoiceapp-offline-invoicing-small-business.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://abdulmanan.tech/posts/images/lancall-webrtc-lan-voice-calls.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/figma-to-code-workflow/</loc>

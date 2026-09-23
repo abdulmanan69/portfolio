@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/style.css" />
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "How I Built This Portfolio", "description": "A behind-the-scenes look at building a fast, GitHub-driven portfolio with zero build step \u2014 projects and blog posts that update themselves.", "image": "https://abdulmanan.tech/posts/images/how-i-built-this-portfolio.png", "wordCount": 400, "author": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech", "sameAs": ["https://github.com/abdulmanan69", "https://www.linkedin.com/in/abdulxmanan", "https://www.instagram.com/abdul_x_manan"]}, "publisher": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "datePublished": "2026-07-24", "dateModified": "2026-07-24", "keywords": "web, javascript, build-log", "mainEntityOfPage": "https://abdulmanan.tech/blog/how-i-built-this-portfolio/", "url": "https://abdulmanan.tech/blog/how-i-built-this-portfolio/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "How I Built This Portfolio", "description": "A behind-the-scenes look at building a fast, GitHub-driven portfolio with zero build step \u2014 projects and blog posts that update themselves.", "image": "https://abdulmanan.tech/posts/images/how-i-built-this-portfolio.png", "wordCount": 339, "author": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech", "sameAs": ["https://github.com/abdulmanan69", "https://www.linkedin.com/in/abdulxmanan", "https://www.instagram.com/abdul_x_manan"]}, "publisher": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "datePublished": "2026-07-24", "dateModified": "2026-07-24", "keywords": "web, javascript, build-log", "mainEntityOfPage": "https://abdulmanan.tech/blog/how-i-built-this-portfolio/", "url": "https://abdulmanan.tech/blog/how-i-built-this-portfolio/"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulmanan.tech/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://abdulmanan.tech/blog/"}, {"@type": "ListItem", "position": 3, "name": "How I Built This Portfolio", "item": "https://abdulmanan.tech/blog/how-i-built-this-portfolio/"}]}</script>
 </head>
 <body>
@@ -37,6 +37,7 @@
   <a href="/" class="nav__logo">AM<span>.</span></a>
   <a href="/#blog" data-hover>All posts</a>
 </header>
+
 <main class="reader__body">
 <nav aria-label="Breadcrumb" style="font-size:.85rem;color:var(--muted);margin-bottom:22px">
 <a href="/" style="color:var(--muted)">Home</a> / <a href="/blog/" style="color:var(--muted)">Blog</a> / How I Built This Portfolio
@@ -47,15 +48,11 @@
 <p>I wanted a portfolio that felt like <em>me</em> — clean, a little playful, and, most importantly, one I'd never have to babysit. No redeploys every time I ship a new project or write a post. Here's how it came together.</p>
 <h2>The rule: everything lives on GitHub</h2>
 <p>The core idea is simple: <strong>if it's on my GitHub, it shows up on the site.</strong></p>
-<ul><li>The <strong>projects</strong> grid is pulled straight from the GitHub API — my top repos by</li></ul>
-<p>stars and recency, with language, stars and forks. Push a new repo, it appears.</p>
-<ul><li>This <strong>blog</strong> is just markdown files in a <code>posts/</code> folder. The file you're</li></ul>
-<p>reading right now is one of them.</p>
-<ul><li>The stats, contribution graph and streak are live cards that refresh on their own.</li></ul>
+<ul><li>The <strong>projects</strong> grid is pulled straight from the GitHub API — my top repos by stars and recency, with language, stars and forks. Push a new repo, it appears.</li><li>This <strong>blog</strong> is just markdown files in a <code>posts/</code> folder. The file you're reading right now is one of them.</li><li>The stats, contribution graph and streak are live cards that refresh on their own.</li></ul>
 <p>No CMS. No database. No build pipeline. Just files.</p>
 <h2>The stack (or lack of one)</h2>
 <ul><li><strong>Plain HTML, CSS and JavaScript.</strong> One <code>index.html</code>, one stylesheet, one script.</li><li><strong>No framework.</strong> For a site this size, React would be more ceremony than value.</li><li><strong><code>marked</code></strong> to turn markdown posts into HTML in the browser.</li><li><strong>Netlify / GitHub Pages</strong> for hosting — both are a drag-and-drop or a <code>git push</code>.</li></ul>
-<pre><code>// projects, straight from GitHub — no hardcoding
+<pre><code class="language-js">// projects, straight from GitHub — no hardcoding
 const repos = await fetch(`https://api.github.com/users/${user}/repos`)
   .then(r =&gt; r.json());</code></pre>
 <h2>Making it feel alive</h2>
@@ -71,13 +68,14 @@ const repos = await fetch(`https://api.github.com/users/${user}/repos`)
 <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fhow-i-built-this-portfolio%2F" target="_blank" rel="noopener">Facebook</a>
 <button type="button" onclick="navigator.clipboard.writeText('https://abdulmanan.tech/blog/how-i-built-this-portfolio/');this.textContent='Copied!'">Copy link</button></div>
 <nav class="prevnext"><a href="/blog/responsive-web-design/">&larr; Responsive Web Design — One Site, Every Screen</a><a href="/blog/clean-minimal-web-design/">Clean, Minimal Web Design — Less but Better &rarr;</a></nav>
-<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/javascript-tips-for-beginners/"><span>2026-08-08</span><h3>10 JavaScript Tips Every Beginner Should Know</h3></a><a class="related__card" href="/blog/seo-for-developers/"><span>2026-08-02</span><h3>SEO for Developers — How I Get Pages to Rank</h3></a><a class="related__card" href="/blog/responsive-web-design/"><span>2026-07-28</span><h3>Responsive Web Design — One Site, Every Screen</h3></a></div></section>
+<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/javascript-tips-for-beginners/"><span>2026-08-08</span><h3>10 JavaScript Tips Every Beginner Should Know</h3></a><a class="related__card" href="/blog/toolforge-browser-pdf-tools/"><span>2026-09-16</span><h3>ToolForge — 93 Browser Tools, Zero Uploads</h3></a><a class="related__card" href="/blog/cv-studio-free-resume-builder/"><span>2026-09-10</span><h3>CV Studio — A Free, Private Resume Builder</h3></a></div></section>
 </main>
 <footer class="footer">
   <span>(c) 2026 Abdul Manan</span>
   <span>Built &amp; designed by Abdul Manan - abdulmanan.tech</span>
   <a href="/" data-hover>Home</a>
 </footer>
+
 <style>
 .post-topbar{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
 padding:16px clamp(20px,6vw,40px);background:color-mix(in srgb,var(--paper) 85%,transparent);
@@ -102,6 +100,9 @@ background:var(--card);color:var(--ink);border-radius:100px;padding:8px 16px;tra
 .related__card h3{font-family:"Fraunces",serif;font-weight:500;font-size:1.15rem;margin-top:6px}
 .prevnext{display:flex;justify-content:space-between;gap:16px;margin-top:40px;font-weight:600}
 .prevnext a{color:var(--accent)}
+.reader__body table{width:100%;border-collapse:collapse;margin:22px 0;font-size:.95rem}
+.reader__body th,.reader__body td{border:1px solid var(--line);padding:10px 12px;text-align:left}
+.reader__body th{background:var(--paper-2);font-weight:600}
 </style>
 </body>
 </html>

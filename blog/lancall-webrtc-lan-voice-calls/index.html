@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LanCall — WebRTC Voice Calls Over Your LAN - Abdul Manan</title>
+<meta name="description" content="Voice calls between devices on the same network with no cloud service in the middle. A small Python server does the introductions." />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/" />
+<meta name="theme-color" content="#faf8f5" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="LanCall — WebRTC Voice Calls Over Your LAN - Abdul Manan" />
+<meta property="og:description" content="Voice calls between devices on the same network with no cloud service in the middle. A small Python server does the introductions." />
+<meta property="og:url" content="https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/" />
+<meta property="og:image" content="https://abdulmanan.tech/posts/images/lancall-webrtc-lan-voice-calls.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="LanCall — WebRTC Voice Calls Over Your LAN - Abdul Manan" />
+<meta name="twitter:description" content="Voice calls between devices on the same network with no cloud service in the middle. A small Python server does the introductions." />
+<meta name="twitter:image" content="https://abdulmanan.tech/posts/images/lancall-webrtc-lan-voice-calls.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "LanCall \u2014 WebRTC Voice Calls Over Your LAN", "description": "Voice calls between devices on the same network with no cloud service in the middle. A small Python server does the introductions.", "image": "https://abdulmanan.tech/posts/images/lancall-webrtc-lan-voice-calls.png", "wordCount": 657, "author": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech", "sameAs": ["https://github.com/abdulmanan69", "https://www.linkedin.com/in/abdulxmanan", "https://www.instagram.com/abdul_x_manan"]}, "publisher": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "datePublished": "2026-08-20", "dateModified": "2026-08-20", "keywords": "webrtc, javascript, python, networking, privacy", "mainEntityOfPage": "https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/", "url": "https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulmanan.tech/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://abdulmanan.tech/blog/"}, {"@type": "ListItem", "position": 3, "name": "LanCall \u2014 WebRTC Voice Calls Over Your LAN", "item": "https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/"}]}</script>
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo">AM<span>.</span></a>
+  <a href="/#blog" data-hover>All posts</a>
+</header>
+
+<main class="reader__body">
+<nav aria-label="Breadcrumb" style="font-size:.85rem;color:var(--muted);margin-bottom:22px">
+<a href="/" style="color:var(--muted)">Home</a> / <a href="/blog/" style="color:var(--muted)">Blog</a> / LanCall — WebRTC Voice Calls Over Your LAN
+</nav>
+<h1>LanCall — WebRTC Voice Calls Over Your LAN</h1>
+<div class="reader__meta">By Abdul Manan - 2026-08-20 - 3 min read - #webrtc #javascript #python #networking #privacy</div>
+<img class="post-hero-img" alt="LanCall — WebRTC Voice Calls Over Your LAN" src="https://abdulmanan.tech/posts/images/lancall-webrtc-lan-voice-calls.png">
+<p>Two people sitting in the same building, on the same Wi-Fi, talk to each other by sending their voices to a data centre in another country and back. That's normal now, and it's absurd — it needs internet, it needs an account, and a third party hears everything.</p>
+<p><strong><a href="https://github.com/abdulmanan69/lancall">LanCall</a></strong> is voice calling that stays on your LAN. Devices on the same network call each other directly using WebRTC, with no external servers involved.</p>
+<h2>How a "serverless" call still needs a server</h2>
+<p>The audio is peer-to-peer. Getting the two peers to find each other is not.</p>
+<p>Two pieces run on one machine on the network:</p>
+<ol><li><strong>An HTTPS server</strong> that serves the web app — HTML, CSS, JavaScript</li><li><strong>A WebSocket signalling server</strong> that carries the introduction between peers</li></ol>
+<pre><code>[Device A] ----\
+                \
+                 [Signaling Server] &lt;---&gt; [HTTPS Server]
+                /
+[Device B] ----/</code></pre>
+<p>The sequence:</p>
+<ol><li>Both devices connect to the signalling server and exchange connection details — session descriptions and network candidates</li><li>Once they know how to reach each other, they open a direct P2P connection</li><li><strong>Voice data flows straight between the devices</strong>, not through the server</li></ol>
+<p>The signalling server handles a few kilobytes of setup, then does nothing for the rest of the call. If it crashed mid-conversation, the conversation would continue.</p>
+<p>That's the thing WebRTC tutorials bury: signalling and media are separate problems. The server you need is small, dumb and only involved at the start.</p>
+<h2>HTTPS isn't optional, and that's the fiddly bit</h2>
+<p>Browsers won't give a page microphone access over plain HTTP, and WebRTC needs a secure context. On the public internet you get a certificate from Let's Encrypt. On a LAN, with devices addressed as <code>192.168.1.x</code>, there's no domain to certify.</p>
+<p>So LanCall serves over <strong>HTTPS and WSS using self-signed certificates</strong>, generated at setup. The cost is the browser warning on first connect — you click through it once per device. The alternative is no microphone access at all.</p>
+<p>If you're deploying something like this for a team, the tidier route is installing your own certificate authority on the devices. For a small network, clicking through once is fine.</p>
+<h2>Cross-platform for free</h2>
+<p>Windows, macOS, Linux, Android and iOS — anything with a modern browser. There's no app to install on the phones, no store approval, no build per platform. One web app, every device on the network.</p>
+<p>This is the part people forget when reaching for Electron or a native app: a web page served from a laptop on the LAN already runs everywhere, and the browser provides the microphone, the codecs, the echo cancellation and the encryption.</p>
+<h2>Getting it running</h2>
+<p>Prerequisites: Python 3.6 or newer, and pip.</p>
+<p><strong>Windows</strong></p>
+<pre><code class="language-cmd">start_server.bat</code></pre>
+<p><strong>Linux / macOS</strong></p>
+<pre><code class="language-bash">python start_server.py</code></pre>
+<p>Then open the printed HTTPS address on any device on the same network, accept the certificate warning once, and call.</p>
+<h2>Where it's genuinely useful</h2>
+<p>An office where the internet is down but the network is up. A warehouse floor. A workshop. Any situation where two people need voice contact and a cloud dependency is either unavailable or unwelcome — the audio never leaves the building, so there's no recording in someone else's account and no bill.</p>
+<p>It also makes a good way to actually learn WebRTC. On the open internet you also need STUN and TURN servers to punch through NATs, and that complexity hides the core idea. On a LAN, peers can reach each other directly, so the protocol shows through clearly.</p>
+<h2>Related reading</h2>
+<p>If the privacy-first, no-cloud thread is what interests you, the same idea shows up in <a href="/blog/toolforge-browser-pdf-tools/">ToolForge</a> — 93 document tools with no uploads — and in <a href="/blog/leadslicer-split-csv-excel-files/">LeadSlicer</a> for spreadsheet work.</p>
+<p>Source: <a href="https://github.com/abdulmanan69/lancall">github.com/abdulmanan69/lancall</a>. Questions, or want something like it for your office? <a href="/#contact">Message me</a>.</p>
+<div class="share"><span>Share:</span>
+<a href="https://twitter.com/intent/tweet?text=LanCall%20%E2%80%94%20WebRTC%20Voice%20Calls%20Over%20Your%20LAN&url=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Flancall-webrtc-lan-voice-calls%2F" target="_blank" rel="noopener">X</a>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Flancall-webrtc-lan-voice-calls%2F" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://api.whatsapp.com/send?text=LanCall%20%E2%80%94%20WebRTC%20Voice%20Calls%20Over%20Your%20LAN%20https%3A%2F%2Fabdulmanan.tech%2Fblog%2Flancall-webrtc-lan-voice-calls%2F" target="_blank" rel="noopener">WhatsApp</a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Flancall-webrtc-lan-voice-calls%2F" target="_blank" rel="noopener">Facebook</a>
+<button type="button" onclick="navigator.clipboard.writeText('https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/');this.textContent='Copied!'">Copy link</button></div>
+<nav class="prevnext"><a href="/blog/invoiceapp-offline-invoicing-small-business/">&larr; InvoiceApp — Offline Invoicing and Stock Control</a><a href="/blog/figma-to-code-workflow/">From Figma to Code — My Design Workflow &rarr;</a></nav>
+<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/toolforge-browser-pdf-tools/"><span>2026-09-16</span><h3>ToolForge — 93 Browser Tools, Zero Uploads</h3></a><a class="related__card" href="/blog/cv-studio-free-resume-builder/"><span>2026-09-10</span><h3>CV Studio — A Free, Private Resume Builder</h3></a><a class="related__card" href="/blog/leadslicer-split-csv-excel-files/"><span>2026-09-04</span><h3>LeadSlicer — Split and Clean CSV Files Offline</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>(c) 2026 Abdul Manan</span>
+  <span>Built &amp; designed by Abdul Manan - abdulmanan.tech</span>
+  <a href="/" data-hover>Home</a>
+</footer>
+
+<style>
+.post-topbar{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+padding:16px clamp(20px,6vw,40px);background:color-mix(in srgb,var(--paper) 85%,transparent);
+backdrop-filter:blur(12px);border-bottom:1px solid var(--line);font-weight:600}
+.post-topbar a[data-hover]{color:var(--ink-soft)}
+.post-topbar a[data-hover]:hover{color:var(--accent)}
+.post-hero-img{border-radius:var(--radius);border:1px solid var(--line);margin:0 0 34px;width:100%}
+.hub{max-width:1100px;margin:0 auto;padding:60px clamp(20px,5vw,64px) 100px}
+.hub h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.2rem,6vw,3.4rem);letter-spacing:-.02em;margin-bottom:10px}
+.hub__sub{color:var(--ink-soft);margin-bottom:44px}
+.share{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:34px 0;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.share span{font-weight:600;margin-right:4px}
+.share a,.share button{font:inherit;font-size:.88rem;font-weight:600;cursor:pointer;border:1px solid var(--line);
+background:var(--card);color:var(--ink);border-radius:100px;padding:8px 16px;transition:.25s}
+.share a:hover,.share button:hover{border-color:var(--accent);color:var(--accent)}
+.related{margin-top:70px}
+.related h2{font-family:"Fraunces",serif;font-weight:500;font-size:1.7rem;margin-bottom:22px}
+.related__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:18px}
+.related__card{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:22px;transition:.3s}
+.related__card:hover{box-shadow:var(--shadow);border-color:transparent;transform:translateY(-4px)}
+.related__card span{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--accent)}
+.related__card h3{font-family:"Fraunces",serif;font-weight:500;font-size:1.15rem;margin-top:6px}
+.prevnext{display:flex;justify-content:space-between;gap:16px;margin-top:40px;font-weight:600}
+.prevnext a{color:var(--accent)}
+.reader__body table{width:100%;border-collapse:collapse;margin:22px 0;font-size:.95rem}
+.reader__body th,.reader__body td{border:1px solid var(--line);padding:10px 12px;text-align:left}
+.reader__body th{background:var(--paper-2);font-weight:600}
+</style>
+</body>
+</html>

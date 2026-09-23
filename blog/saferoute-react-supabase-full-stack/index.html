@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SafeRoute — A Full-Stack App on React and Supabase - Abdul Manan</title>
+<meta name="description" content="Real driving routes, safety scoring, live GPS and a ride marketplace, built on React 19, Supabase RLS and free APIs that need no keys." />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/" />
+<meta name="theme-color" content="#faf8f5" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="SafeRoute — A Full-Stack App on React and Supabase - Abdul Manan" />
+<meta property="og:description" content="Real driving routes, safety scoring, live GPS and a ride marketplace, built on React 19, Supabase RLS and free APIs that need no keys." />
+<meta property="og:url" content="https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/" />
+<meta property="og:image" content="https://abdulmanan.tech/posts/images/saferoute-react-supabase-full-stack.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SafeRoute — A Full-Stack App on React and Supabase - Abdul Manan" />
+<meta name="twitter:description" content="Real driving routes, safety scoring, live GPS and a ride marketplace, built on React 19, Supabase RLS and free APIs that need no keys." />
+<meta name="twitter:image" content="https://abdulmanan.tech/posts/images/saferoute-react-supabase-full-stack.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "SafeRoute \u2014 A Full-Stack App on React and Supabase", "description": "Real driving routes, safety scoring, live GPS and a ride marketplace, built on React 19, Supabase RLS and free APIs that need no keys.", "image": "https://abdulmanan.tech/posts/images/saferoute-react-supabase-full-stack.png", "wordCount": 837, "author": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech", "sameAs": ["https://github.com/abdulmanan69", "https://www.linkedin.com/in/abdulxmanan", "https://www.instagram.com/abdul_x_manan"]}, "publisher": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "datePublished": "2026-08-30", "dateModified": "2026-08-30", "keywords": "react, supabase, full-stack, pwa, maps", "mainEntityOfPage": "https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/", "url": "https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulmanan.tech/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://abdulmanan.tech/blog/"}, {"@type": "ListItem", "position": 3, "name": "SafeRoute \u2014 A Full-Stack App on React and Supabase", "item": "https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/"}]}</script>
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo">AM<span>.</span></a>
+  <a href="/#blog" data-hover>All posts</a>
+</header>
+
+<main class="reader__body">
+<nav aria-label="Breadcrumb" style="font-size:.85rem;color:var(--muted);margin-bottom:22px">
+<a href="/" style="color:var(--muted)">Home</a> / <a href="/blog/" style="color:var(--muted)">Blog</a> / SafeRoute — A Full-Stack App on React and Supabase
+</nav>
+<h1>SafeRoute — A Full-Stack App on React and Supabase</h1>
+<div class="reader__meta">By Abdul Manan - 2026-08-30 - 4 min read - #react #supabase #full-stack #pwa #maps</div>
+<img class="post-hero-img" alt="SafeRoute — A Full-Stack App on React and Supabase" src="https://abdulmanan.tech/posts/images/saferoute-react-supabase-full-stack.png">
+<p>Most of my tools deliberately have no backend. <strong>SafeRoute</strong> is the opposite: a full-stack travel platform where accounts, roles, bookings and admin broadcasts all have to be real.</p>
+<p>It plans road trips on <strong>real driving routes</strong> with automatic <strong>safety-risk scoring</strong>, runs <strong>live GPS journeys</strong> with voice guidance, books rides in a customer/driver marketplace, explores any city in the world with real photos, gives AI outfit advice from live weather, and is managed from an admin panel — installable as a <strong>PWA</strong> on your phone.</p>
+<p>Here's what I'd tell anyone building something similar.</p>
+<h2>Supabase did the part I didn't want to build</h2>
+<p><strong>Backend:</strong> Supabase — PostgreSQL, Auth and Row-Level Security.</p>
+<p>Auth alone is weeks of work done properly: sign-up, email confirmation, password reset that actually sends mail, sessions that survive a refresh. Supabase gives you all of it, and — this is the part people underrate — it gives you Postgres underneath rather than a proprietary document store you'll fight later.</p>
+<p>Two decisions that paid off:</p>
+<p><strong>RLS is the authorisation layer, not the client.</strong> A driver must not read another driver's bookings. If that rule lives in React, it holds until someone opens the network tab. In a row-level security policy it holds everywhere, including from a raw API call. The client stops being a trust boundary.</p>
+<p><strong>Signup side effects belong in the database.</strong> A new user needs a profile row and a settings row. Doing that in the app means every signup path has to remember, and a failed second insert leaves a half-created user. A database trigger creates both rows atomically — one place, no drift.</p>
+<p>The schema lives in <code>supabase/schema.sql</code> and is <strong>idempotent</strong>, so it's safe to re-run against a fresh project any time. A migration you're afraid to run twice is a migration you'll avoid running at all.</p>
+<h2>The frontend</h2>
+<p><strong>React 19 · Vite 7 · React Router 7 · Leaflet / React-Leaflet · ESLint 9.</strong></p>
+<p>Vite is the reason the project stayed pleasant. A dev server that starts instantly and hot-reloads a map-heavy page in under a second changes how much you're willing to experiment.</p>
+<p>Leaflet over a commercial map SDK was a cost decision that turned into a design one: OpenStreetMap tiles are free and unlimited, and Leaflet's plainness meant the map inherited the app's dark-violet UI instead of fighting it.</p>
+<h2>Every API is free, and none of them need a key</h2>
+<p>This was a hard constraint: anyone should be able to clone the repo and have a working app without signing up for anything.</p>
+<table><thead><tr><th>Purpose</th><th>Service</th></tr></thead><tbody><tr><td>City search &amp; geocoding</td><td>Open-Meteo Geocoding</td></tr><tr><td>Live weather + forecast</td><td>Open-Meteo Forecast</td></tr><tr><td>Real driving routes</td><td>OSRM (two public hosts + offline estimate fallback)</td></tr><tr><td>Map tiles</td><td>OpenStreetMap</td></tr><tr><td>Place photos &amp; nearby landmarks</td><td>Wikipedia REST + geosearch</td></tr><tr><td>GPS to place name</td><td>BigDataCloud reverse geocoding</td></tr><tr><td>Voice guidance</td><td>Browser SpeechSynthesis</td></tr><tr><td>Live position</td><td>Browser Geolocation</td></tr></tbody></table>
+<p>Note the routing row: <strong>two public OSRM hosts plus an offline estimate fallback.</strong> Free public endpoints go down, rate-limit and occasionally return nonsense. A trip planner that shows an error instead of a route is useless, so it tries the second host, and if both are gone it falls back to a distance-and-speed estimate and says so. Degrade, don't die.</p>
+<p>The last two rows are worth noticing too — voice guidance and live position are <em>browser</em> APIs. The turn-by-turn voice costs nothing and needs no service at all.</p>
+<h2>What "safety-risk scoring" means</h2>
+<p>The route comes back as real road geometry. Scoring combines what's knowable for free — conditions along the way, time of day, weather at the destination, the character of the road segments — into a number a person can act on.</p>
+<p>The interesting problem isn't the maths, it's the honesty: a score that looks authoritative but is guessing is worse than no score. So the app shows what fed the number rather than presenting a bare 7/10.</p>
+<h2>PWA, because this runs in a car</h2>
+<p>Installable on Android, iOS and desktop. On a phone mount, a browser tab with an address bar is the wrong shape — and a PWA also keeps the shell cached, which matters on a patchy signal between towns.</p>
+<h2>What I'd keep from this build</h2>
+<ul><li><strong>Push authorisation into the database.</strong> RLS policies are the cheapest real security you will ever write.</li><li><strong>Make the schema idempotent</strong> from day one.</li><li><strong>Give every external call a fallback</strong> before you ship, not after the first outage.</li><li><strong>Free APIs are a real stack</strong>, not a prototype stack — as long as you plan for them being down.</li></ul>
+<p>Source: <a href="https://github.com/abdulmanan69/saferoutes">github.com/abdulmanan69/saferoutes</a>. If you want something like this built — React front, Supabase back, deployed and live — <a href="/#contact">start a conversation</a>.</p>
+<div class="share"><span>Share:</span>
+<a href="https://twitter.com/intent/tweet?text=SafeRoute%20%E2%80%94%20A%20Full-Stack%20App%20on%20React%20and%20Supabase&url=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fsaferoute-react-supabase-full-stack%2F" target="_blank" rel="noopener">X</a>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fsaferoute-react-supabase-full-stack%2F" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://api.whatsapp.com/send?text=SafeRoute%20%E2%80%94%20A%20Full-Stack%20App%20on%20React%20and%20Supabase%20https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fsaferoute-react-supabase-full-stack%2F" target="_blank" rel="noopener">WhatsApp</a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fsaferoute-react-supabase-full-stack%2F" target="_blank" rel="noopener">Facebook</a>
+<button type="button" onclick="navigator.clipboard.writeText('https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/');this.textContent='Copied!'">Copy link</button></div>
+<nav class="prevnext"><a href="/blog/leadslicer-split-csv-excel-files/">&larr; LeadSlicer — Split and Clean CSV Files Offline</a><a href="/blog/invoiceapp-offline-invoicing-small-business/">InvoiceApp — Offline Invoicing and Stock Control &rarr;</a></nav>
+<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/bulwark-mcp-security-scanner/"><span>2026-09-22</span><h3>Bulwark — An MCP and AI Agent Security Scanner</h3></a><a class="related__card" href="/blog/toolforge-browser-pdf-tools/"><span>2026-09-16</span><h3>ToolForge — 93 Browser Tools, Zero Uploads</h3></a><a class="related__card" href="/blog/cv-studio-free-resume-builder/"><span>2026-09-10</span><h3>CV Studio — A Free, Private Resume Builder</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>(c) 2026 Abdul Manan</span>
+  <span>Built &amp; designed by Abdul Manan - abdulmanan.tech</span>
+  <a href="/" data-hover>Home</a>
+</footer>
+
+<style>
+.post-topbar{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+padding:16px clamp(20px,6vw,40px);background:color-mix(in srgb,var(--paper) 85%,transparent);
+backdrop-filter:blur(12px);border-bottom:1px solid var(--line);font-weight:600}
+.post-topbar a[data-hover]{color:var(--ink-soft)}
+.post-topbar a[data-hover]:hover{color:var(--accent)}
+.post-hero-img{border-radius:var(--radius);border:1px solid var(--line);margin:0 0 34px;width:100%}
+.hub{max-width:1100px;margin:0 auto;padding:60px clamp(20px,5vw,64px) 100px}
+.hub h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.2rem,6vw,3.4rem);letter-spacing:-.02em;margin-bottom:10px}
+.hub__sub{color:var(--ink-soft);margin-bottom:44px}
+.share{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:34px 0;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.share span{font-weight:600;margin-right:4px}
+.share a,.share button{font:inherit;font-size:.88rem;font-weight:600;cursor:pointer;border:1px solid var(--line);
+background:var(--card);color:var(--ink);border-radius:100px;padding:8px 16px;transition:.25s}
+.share a:hover,.share button:hover{border-color:var(--accent);color:var(--accent)}
+.related{margin-top:70px}
+.related h2{font-family:"Fraunces",serif;font-weight:500;font-size:1.7rem;margin-bottom:22px}
+.related__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:18px}
+.related__card{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:22px;transition:.3s}
+.related__card:hover{box-shadow:var(--shadow);border-color:transparent;transform:translateY(-4px)}
+.related__card span{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--accent)}
+.related__card h3{font-family:"Fraunces",serif;font-weight:500;font-size:1.15rem;margin-top:6px}
+.prevnext{display:flex;justify-content:space-between;gap:16px;margin-top:40px;font-weight:600}
+.prevnext a{color:var(--accent)}
+.reader__body table{width:100%;border-collapse:collapse;margin:22px 0;font-size:.95rem}
+.reader__body th,.reader__body td{border:1px solid var(--line);padding:10px 12px;text-align:left}
+.reader__body th{background:var(--paper-2);font-weight:600}
+</style>
+</body>
+</html>

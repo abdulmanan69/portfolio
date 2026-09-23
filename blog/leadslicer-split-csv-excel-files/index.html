@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeadSlicer — Split and Clean CSV Files Offline - Abdul Manan</title>
+<meta name="description" content="Dedupe, filter and split 50,000-row CSV or Excel lead files into chunks, entirely in the browser, with nothing uploaded anywhere." />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/" />
+<meta name="theme-color" content="#faf8f5" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="LeadSlicer — Split and Clean CSV Files Offline - Abdul Manan" />
+<meta property="og:description" content="Dedupe, filter and split 50,000-row CSV or Excel lead files into chunks, entirely in the browser, with nothing uploaded anywhere." />
+<meta property="og:url" content="https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/" />
+<meta property="og:image" content="https://abdulmanan.tech/posts/images/leadslicer-split-csv-excel-files.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="LeadSlicer — Split and Clean CSV Files Offline - Abdul Manan" />
+<meta name="twitter:description" content="Dedupe, filter and split 50,000-row CSV or Excel lead files into chunks, entirely in the browser, with nothing uploaded anywhere." />
+<meta name="twitter:image" content="https://abdulmanan.tech/posts/images/leadslicer-split-csv-excel-files.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "LeadSlicer \u2014 Split and Clean CSV Files Offline", "description": "Dedupe, filter and split 50,000-row CSV or Excel lead files into chunks, entirely in the browser, with nothing uploaded anywhere.", "image": "https://abdulmanan.tech/posts/images/leadslicer-split-csv-excel-files.png", "wordCount": 633, "author": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech", "sameAs": ["https://github.com/abdulmanan69", "https://www.linkedin.com/in/abdulxmanan", "https://www.instagram.com/abdul_x_manan"]}, "publisher": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "datePublished": "2026-09-04", "dateModified": "2026-09-04", "keywords": "javascript, csv, excel, tools, privacy", "mainEntityOfPage": "https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/", "url": "https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulmanan.tech/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://abdulmanan.tech/blog/"}, {"@type": "ListItem", "position": 3, "name": "LeadSlicer \u2014 Split and Clean CSV Files Offline", "item": "https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/"}]}</script>
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo">AM<span>.</span></a>
+  <a href="/#blog" data-hover>All posts</a>
+</header>
+
+<main class="reader__body">
+<nav aria-label="Breadcrumb" style="font-size:.85rem;color:var(--muted);margin-bottom:22px">
+<a href="/" style="color:var(--muted)">Home</a> / <a href="/blog/" style="color:var(--muted)">Blog</a> / LeadSlicer — Split and Clean CSV Files Offline
+</nav>
+<h1>LeadSlicer — Split and Clean CSV Files Offline</h1>
+<div class="reader__meta">By Abdul Manan - 2026-09-04 - 3 min read - #javascript #csv #excel #tools #privacy</div>
+<img class="post-hero-img" alt="LeadSlicer — Split and Clean CSV Files Offline" src="https://abdulmanan.tech/posts/images/leadslicer-split-csv-excel-files.png">
+<p>Anyone who has worked in a sales or dispatch office knows this job. A 50,000-row lead list arrives. It needs the duplicates removed, the empty rows stripped, three columns kept out of nineteen, and then it has to be cut into 500-row chunks — one per agent.</p>
+<p>The usual options are all bad. Excel struggles and mangles your phone numbers into scientific notation. An online splitter wants you to upload a file full of customer phone numbers to a site with no name on it. A Python script works, but the person who actually needs this doesn't have Python.</p>
+<p><strong><a href="https://leadslicer.abdulmanan.tech">LeadSlicer</a></strong> is the fourth option: free, offline, browser-based. Your files never leave your device.</p>
+<h2>The seven-step flow</h2>
+<ol><li><strong>Upload</strong> — drag &amp; drop any <code>.csv</code>, <code>.xlsx</code> or <code>.xls</code> file</li><li><strong>Preview</strong> — first rows, total row and column counts</li><li><strong>Configure headers</strong> — use the first row, or auto-generate column names</li><li><strong>Select columns</strong> — keep only the fields you need</li><li><strong>Filter &amp; clean</strong> — remove duplicates, empty rows and rows with missing values</li><li><strong>Chunk</strong> — split into files of any size: 100, 500, 1000+ rows</li><li><strong>Download</strong> — individual files, or everything as one ZIP</li></ol>
+<p>Each chunk can be previewed before you download it, because finding out the split was wrong <em>after</em> you've emailed eight agents is how the afternoon disappears.</p>
+<h2>Formats come out the way they went in</h2>
+<p>This is the detail that decides whether a tool like this is usable. Dates, currency and number formats are preserved exactly. No <code>+923001234567</code> turning into <code>9.23E+11</code>, no leading zeros eaten, no <code>03/04</code> silently becoming April 3rd.</p>
+<p>Deduplication runs on <strong>any column you choose</strong> — Email, Phone, Company — not on whole-row equality, because two records for the same person are almost never byte-identical.</p>
+<h2>Why in-browser is the right call here</h2>
+<p>Three reasons, in the order that actually matters to a sales office:</p>
+<p><strong>Privacy.</strong> Lead files are customer data. In most companies, uploading them to an unvetted website is a policy breach even when nobody notices. A tool that runs locally sidesteps the entire conversation.</p>
+<p><strong>No install.</strong> It's a web page. The agent who needs it opens a link. There's no IT ticket, no admin password, no Python.</p>
+<p><strong>Offline.</strong> It's an installable PWA, so once loaded it works with no internet at all — on Android, iOS or desktop. Handy when the office Wi-Fi is the bottleneck.</p>
+<h2>Details that make it pleasant</h2>
+<ul><li>Light / dark / system themes with six accent colours</li><li>Keyboard navigable, semantic HTML — it works with a screen reader</li><li>Responsive down to a phone, because half the people using it are on one</li><li>ZIP download so you get one file instead of forty</li></ul>
+<p>None of that is clever engineering. It's the difference between a tool people use twice and a tool people keep in their bookmarks bar.</p>
+<h2>The same pattern, again</h2>
+<p>LeadSlicer is the third tool I've built on the same idea as <a href="/blog/toolforge-browser-pdf-tools/">ToolForge</a> and <a href="/blog/cv-studio-free-resume-builder/">CV Studio</a>: take a job that everyone assumes needs a server, and notice that the browser has been able to do it for years.</p>
+<p>Parsing spreadsheets, hashing, zipping, rendering PDFs, reading the camera — all local APIs now. Most "upload your file here" products are charging for a round trip that doesn't need to happen.</p>
+<h2>Try it</h2>
+<p><strong>Online:</strong> <a href="https://leadslicer.abdulmanan.tech">leadslicer.abdulmanan.tech</a> — no install, no account.</p>
+<p><strong>Locally:</strong></p>
+<pre><code class="language-bash">git clone https://github.com/abdulmanan69/leadslicer.git
+cd leadslicer
+# open index.html — that's the whole setup</code></pre>
+<p>MIT licensed, source on <a href="https://github.com/abdulmanan69/leadslicer">GitHub</a>. If your team has a file-wrangling job that eats an afternoon every week, <a href="/#contact">tell me about it</a> — those are my favourite things to build.</p>
+<div class="share"><span>Share:</span>
+<a href="https://twitter.com/intent/tweet?text=LeadSlicer%20%E2%80%94%20Split%20and%20Clean%20CSV%20Files%20Offline&url=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fleadslicer-split-csv-excel-files%2F" target="_blank" rel="noopener">X</a>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fleadslicer-split-csv-excel-files%2F" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://api.whatsapp.com/send?text=LeadSlicer%20%E2%80%94%20Split%20and%20Clean%20CSV%20Files%20Offline%20https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fleadslicer-split-csv-excel-files%2F" target="_blank" rel="noopener">WhatsApp</a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fleadslicer-split-csv-excel-files%2F" target="_blank" rel="noopener">Facebook</a>
+<button type="button" onclick="navigator.clipboard.writeText('https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/');this.textContent='Copied!'">Copy link</button></div>
+<nav class="prevnext"><a href="/blog/cv-studio-free-resume-builder/">&larr; CV Studio — A Free, Private Resume Builder</a><a href="/blog/saferoute-react-supabase-full-stack/">SafeRoute — A Full-Stack App on React and Supabase &rarr;</a></nav>
+<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/cv-studio-free-resume-builder/"><span>2026-09-10</span><h3>CV Studio — A Free, Private Resume Builder</h3></a><a class="related__card" href="/blog/toolforge-browser-pdf-tools/"><span>2026-09-16</span><h3>ToolForge — 93 Browser Tools, Zero Uploads</h3></a><a class="related__card" href="/blog/lancall-webrtc-lan-voice-calls/"><span>2026-08-20</span><h3>LanCall — WebRTC Voice Calls Over Your LAN</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>(c) 2026 Abdul Manan</span>
+  <span>Built &amp; designed by Abdul Manan - abdulmanan.tech</span>
+  <a href="/" data-hover>Home</a>
+</footer>
+
+<style>
+.post-topbar{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+padding:16px clamp(20px,6vw,40px);background:color-mix(in srgb,var(--paper) 85%,transparent);
+backdrop-filter:blur(12px);border-bottom:1px solid var(--line);font-weight:600}
+.post-topbar a[data-hover]{color:var(--ink-soft)}
+.post-topbar a[data-hover]:hover{color:var(--accent)}
+.post-hero-img{border-radius:var(--radius);border:1px solid var(--line);margin:0 0 34px;width:100%}
+.hub{max-width:1100px;margin:0 auto;padding:60px clamp(20px,5vw,64px) 100px}
+.hub h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.2rem,6vw,3.4rem);letter-spacing:-.02em;margin-bottom:10px}
+.hub__sub{color:var(--ink-soft);margin-bottom:44px}
+.share{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:34px 0;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.share span{font-weight:600;margin-right:4px}
+.share a,.share button{font:inherit;font-size:.88rem;font-weight:600;cursor:pointer;border:1px solid var(--line);
+background:var(--card);color:var(--ink);border-radius:100px;padding:8px 16px;transition:.25s}
+.share a:hover,.share button:hover{border-color:var(--accent);color:var(--accent)}
+.related{margin-top:70px}
+.related h2{font-family:"Fraunces",serif;font-weight:500;font-size:1.7rem;margin-bottom:22px}
+.related__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:18px}
+.related__card{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:22px;transition:.3s}
+.related__card:hover{box-shadow:var(--shadow);border-color:transparent;transform:translateY(-4px)}
+.related__card span{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--accent)}
+.related__card h3{font-family:"Fraunces",serif;font-weight:500;font-size:1.15rem;margin-top:6px}
+.prevnext{display:flex;justify-content:space-between;gap:16px;margin-top:40px;font-weight:600}
+.prevnext a{color:var(--accent)}
+.reader__body table{width:100%;border-collapse:collapse;margin:22px 0;font-size:.95rem}
+.reader__body th,.reader__body td{border:1px solid var(--line);padding:10px 12px;text-align:left}
+.reader__body th{background:var(--paper-2);font-weight:600}
+</style>
+</body>
+</html>

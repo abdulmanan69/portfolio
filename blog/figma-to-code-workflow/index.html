@@ -37,6 +37,7 @@
   <a href="/" class="nav__logo">AM<span>.</span></a>
   <a href="/#blog" data-hover>All posts</a>
 </header>
+
 <main class="reader__body">
 <nav aria-label="Breadcrumb" style="font-size:.85rem;color:var(--muted);margin-bottom:22px">
 <a href="/" style="color:var(--muted)">Home</a> / <a href="/blog/" style="color:var(--muted)">Blog</a> / From Figma to Code — My Design Workflow
@@ -52,7 +53,7 @@
 <h2>3. Design mobile and desktop together</h2>
 <p>I lay out the phone version next to the desktop one so responsive isn't an afterthought.</p>
 <h2>4. Translate tokens straight to CSS variables</h2>
-<pre><code>:root { --ink: #16151a; --accent: #ff5a3c; --radius: 18px; }</code></pre>
+<pre><code class="language-css">:root { --ink: #16151a; --accent: #ff5a3c; --radius: 18px; }</code></pre>
 <h2>5. Build, then add the delight</h2>
 <p>Structure and spacing first. Then the small interactive touches — a hover lift, a cursor trail, a soft reveal. Motion last, so it enhances a solid layout.</p>
 <h2>6. Polish the details nobody asks for</h2>
@@ -63,14 +64,15 @@
 <a href="https://api.whatsapp.com/send?text=From%20Figma%20to%20Code%20%E2%80%94%20My%20Design%20Workflow%20https%3A%2F%2Fabdulmanan.tech%2Fblog%2Ffigma-to-code-workflow%2F" target="_blank" rel="noopener">WhatsApp</a>
 <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Ffigma-to-code-workflow%2F" target="_blank" rel="noopener">Facebook</a>
 <button type="button" onclick="navigator.clipboard.writeText('https://abdulmanan.tech/blog/figma-to-code-workflow/');this.textContent='Copied!'">Copy link</button></div>
-<nav class="prevnext"><span></span><a href="/blog/javascript-tips-for-beginners/">10 JavaScript Tips Every Beginner Should Know &rarr;</a></nav>
-<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/clean-minimal-web-design/"><span>2026-07-18</span><h3>Clean, Minimal Web Design — Less but Better</h3></a><a class="related__card" href="/blog/javascript-tips-for-beginners/"><span>2026-08-08</span><h3>10 JavaScript Tips Every Beginner Should Know</h3></a><a class="related__card" href="/blog/seo-for-developers/"><span>2026-08-02</span><h3>SEO for Developers — How I Get Pages to Rank</h3></a></div></section>
+<nav class="prevnext"><a href="/blog/lancall-webrtc-lan-voice-calls/">&larr; LanCall — WebRTC Voice Calls Over Your LAN</a><a href="/blog/javascript-tips-for-beginners/">10 JavaScript Tips Every Beginner Should Know &rarr;</a></nav>
+<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/clean-minimal-web-design/"><span>2026-07-18</span><h3>Clean, Minimal Web Design — Less but Better</h3></a><a class="related__card" href="/blog/bulwark-mcp-security-scanner/"><span>2026-09-22</span><h3>Bulwark — An MCP and AI Agent Security Scanner</h3></a><a class="related__card" href="/blog/toolforge-browser-pdf-tools/"><span>2026-09-16</span><h3>ToolForge — 93 Browser Tools, Zero Uploads</h3></a></div></section>
 </main>
 <footer class="footer">
   <span>(c) 2026 Abdul Manan</span>
   <span>Built &amp; designed by Abdul Manan - abdulmanan.tech</span>
   <a href="/" data-hover>Home</a>
 </footer>
+
 <style>
 .post-topbar{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
 padding:16px clamp(20px,6vw,40px);background:color-mix(in srgb,var(--paper) 85%,transparent);
@@ -95,6 +97,9 @@ background:var(--card);color:var(--ink);border-radius:100px;padding:8px 16px;tra
 .related__card h3{font-family:"Fraunces",serif;font-weight:500;font-size:1.15rem;margin-top:6px}
 .prevnext{display:flex;justify-content:space-between;gap:16px;margin-top:40px;font-weight:600}
 .prevnext a{color:var(--accent)}
+.reader__body table{width:100%;border-collapse:collapse;margin:22px 0;font-size:.95rem}
+.reader__body th,.reader__body td{border:1px solid var(--line);padding:10px 12px;text-align:left}
+.reader__body th{background:var(--paper-2);font-weight:600}
 </style>
 </body>
 </html>

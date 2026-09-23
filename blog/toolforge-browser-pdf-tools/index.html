@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ToolForge — 93 Browser Tools, Zero Uploads - Abdul Manan</title>
+<meta name="description" content="Most free PDF tools upload your file to someone else&#x27;s server. ToolForge does the whole job inside your browser tab, and works offline." />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/blog/toolforge-browser-pdf-tools/" />
+<meta name="theme-color" content="#faf8f5" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="ToolForge — 93 Browser Tools, Zero Uploads - Abdul Manan" />
+<meta property="og:description" content="Most free PDF tools upload your file to someone else&#x27;s server. ToolForge does the whole job inside your browser tab, and works offline." />
+<meta property="og:url" content="https://abdulmanan.tech/blog/toolforge-browser-pdf-tools/" />
+<meta property="og:image" content="https://abdulmanan.tech/posts/images/toolforge-browser-pdf-tools.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ToolForge — 93 Browser Tools, Zero Uploads - Abdul Manan" />
+<meta name="twitter:description" content="Most free PDF tools upload your file to someone else&#x27;s server. ToolForge does the whole job inside your browser tab, and works offline." />
+<meta name="twitter:image" content="https://abdulmanan.tech/posts/images/toolforge-browser-pdf-tools.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "ToolForge \u2014 93 Browser Tools, Zero Uploads", "description": "Most free PDF tools upload your file to someone else's server. ToolForge does the whole job inside your browser tab, and works offline.", "image": "https://abdulmanan.tech/posts/images/toolforge-browser-pdf-tools.png", "wordCount": 785, "author": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech", "sameAs": ["https://github.com/abdulmanan69", "https://www.linkedin.com/in/abdulxmanan", "https://www.instagram.com/abdul_x_manan"]}, "publisher": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "datePublished": "2026-09-16", "dateModified": "2026-09-16", "keywords": "javascript, privacy, pdf, browser, open-source", "mainEntityOfPage": "https://abdulmanan.tech/blog/toolforge-browser-pdf-tools/", "url": "https://abdulmanan.tech/blog/toolforge-browser-pdf-tools/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulmanan.tech/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://abdulmanan.tech/blog/"}, {"@type": "ListItem", "position": 3, "name": "ToolForge \u2014 93 Browser Tools, Zero Uploads", "item": "https://abdulmanan.tech/blog/toolforge-browser-pdf-tools/"}]}</script>
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo">AM<span>.</span></a>
+  <a href="/#blog" data-hover>All posts</a>
+</header>
+
+<main class="reader__body">
+<nav aria-label="Breadcrumb" style="font-size:.85rem;color:var(--muted);margin-bottom:22px">
+<a href="/" style="color:var(--muted)">Home</a> / <a href="/blog/" style="color:var(--muted)">Blog</a> / ToolForge — 93 Browser Tools, Zero Uploads
+</nav>
+<h1>ToolForge — 93 Browser Tools, Zero Uploads</h1>
+<div class="reader__meta">By Abdul Manan - 2026-09-16 - 4 min read - #javascript #privacy #pdf #browser #open-source</div>
+<img class="post-hero-img" alt="ToolForge — 93 Browser Tools, Zero Uploads" src="https://abdulmanan.tech/posts/images/toolforge-browser-pdf-tools.png">
+<p>Search "merge PDF" and every result asks you to upload the file. Your contract, your payslip, your ID scan — onto a stranger's server, with a promise that it'll be deleted in an hour.</p>
+<p>The strange part is that none of it needs a server. Browsers have had the APIs to do this work locally for years. So I built <strong><a href="https://github.com/abdulmanan69/pdf-toolkit">ToolForge</a></strong>: 93 document, image, text and utility tools that run entirely in your browser. No uploads, no accounts, no tracking — and it keeps working with no connection at all.</p>
+<p><a href="https://abdulmanan69.github.io/pdf-toolkit/">Try it live</a> · MIT licensed</p>
+<h2>"Client-side" here means there is no server</h2>
+<p>ToolForge is a static single-page app. Once the page has loaded there is no server left to talk to. Every merge, render, hash and conversion happens inside your tab, using:</p>
+<ul><li><strong>Canvas</strong> for rendering pages, resizing and filtering images</li><li><strong>Web Crypto</strong> for hashing and password work</li><li><strong>IndexedDB</strong> for holding large files without blowing up memory</li><li>a handful of well-known client-side libraries for PDF and archive formats</li></ul>
+<p>The privacy claim isn't a policy you have to trust. Open DevTools, watch the Network tab, drop in a file. Nothing leaves.</p>
+<h2>What's actually in it</h2>
+<p>The tools cover six categories. A few overlap — Compress PDF is listed under both PDF and Compression — so the lists add up to a little more than 93 distinct tools.</p>
+<p><strong>PDF.</strong> Merge, split, extract pages, delete pages, rearrange with drag &amp; drop plus undo/redo, rotate, crop, duplicate pages, insert blanks, compress, add or remove watermarks, page numbers, metadata editor, flatten, sign by drawing or uploading, add text, highlight, underline, sticky notes, fill AcroForms, password protect, unlock, view, search text, extract text, extract embedded images, PDF to images, images to PDF, contact-sheet generator.</p>
+<p><strong>Images.</strong> Resize, compress by quality or target size, crop by drag or numbers, rotate, flip, convert between JPG / PNG / WebP / SVG, GIF conversion, image to PDF, watermark, blur, grayscale, brightness, contrast, saturation, background colour, QR generator and QR scanner from file or camera.</p>
+<p><strong>Text.</strong> Word and character counters, remove duplicate lines, strip extra spaces, sort lines, reverse text, Base64 and URL encode/decode, JSON formatter and validator, XML and HTML formatters, Markdown preview.</p>
+<p><strong>Conversion.</strong> JPG/PNG/WebP to PDF, PDF to PNG/JPG, ZIP creator and extractor, CSV to JSON, JSON to CSV, Markdown to HTML.</p>
+<p><strong>Security.</strong> Password generator with an entropy readout, SHA-256, SHA-512, MD5, UUID v4, JWT decoder, JWT viewer with local HS256 verification, random strings, PDF encryption and decryption.</p>
+<p><strong>Utilities.</strong> QR codes for text, URL, Wi-Fi and vCard, barcodes (CODE128, EAN, UPC and more), colour picker with contrast checks, palette generator, timestamp converter, Unix clock, lorem ipsum, random numbers, dice, coin flip.</p>
+<h2>The interesting engineering problems</h2>
+<p><strong>Memory, not CPU, is the limit.</strong> A 200-page scanned PDF will happily exhaust a tab if you hold every rendered page as a bitmap. Pages get rendered on demand and cached to IndexedDB rather than kept in JavaScript memory.</p>
+<p><strong>The UI has to stay alive.</strong> Hashing a large file or rasterising a long document blocks the main thread, and a frozen tab reads as a crash. Heavy work goes off the main thread and reports progress, so the page always looks like it's doing something.</p>
+<p><strong>Offline is a feature, not a fallback.</strong> Because everything is local, the app caches itself and stays usable on a plane or a bad hotel connection. Any tool that <em>would</em> need the network simply isn't in the app.</p>
+<p><strong>93 tools can't be 93 pages.</strong> They share one workspace shell — file picker, preview, options panel, download — so adding a tool means adding a module, not a new page and a new set of bugs.</p>
+<h2>Who it's for</h2>
+<p>People handling documents they'd rather not hand to a stranger: HR files, invoices, ID scans, medical letters, signed contracts. Also anyone on a locked-down office machine where installing Acrobat isn't happening and uploading client documents is a fireable offence.</p>
+<p>That privacy-first, no-server approach is the same one behind <a href="/blog/leadslicer-split-csv-excel-files/">LeadSlicer</a> and <a href="/blog/cv-studio-free-resume-builder/">CV Studio</a> — once you've built the pattern once, a surprising number of "you need an account for this" products turn out not to need one.</p>
+<h2>Run it yourself</h2>
+<p>It's a static site. Clone it and open <code>index.html</code>, or fork it and publish to GitHub Pages in two clicks — there's no build step and nothing to configure.</p>
+<pre><code class="language-bash">git clone https://github.com/abdulmanan69/pdf-toolkit.git</code></pre>
+<p>The code is <a href="https://github.com/abdulmanan69/pdf-toolkit">on GitHub</a>. If a tool you need is missing, open an issue — or <a href="/#contact">tell me about it</a>.</p>
+<div class="share"><span>Share:</span>
+<a href="https://twitter.com/intent/tweet?text=ToolForge%20%E2%80%94%2093%20Browser%20Tools%2C%20Zero%20Uploads&url=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Ftoolforge-browser-pdf-tools%2F" target="_blank" rel="noopener">X</a>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Ftoolforge-browser-pdf-tools%2F" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://api.whatsapp.com/send?text=ToolForge%20%E2%80%94%2093%20Browser%20Tools%2C%20Zero%20Uploads%20https%3A%2F%2Fabdulmanan.tech%2Fblog%2Ftoolforge-browser-pdf-tools%2F" target="_blank" rel="noopener">WhatsApp</a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Ftoolforge-browser-pdf-tools%2F" target="_blank" rel="noopener">Facebook</a>
+<button type="button" onclick="navigator.clipboard.writeText('https://abdulmanan.tech/blog/toolforge-browser-pdf-tools/');this.textContent='Copied!'">Copy link</button></div>
+<nav class="prevnext"><a href="/blog/bulwark-mcp-security-scanner/">&larr; Bulwark — An MCP and AI Agent Security Scanner</a><a href="/blog/cv-studio-free-resume-builder/">CV Studio — A Free, Private Resume Builder &rarr;</a></nav>
+<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/cv-studio-free-resume-builder/"><span>2026-09-10</span><h3>CV Studio — A Free, Private Resume Builder</h3></a><a class="related__card" href="/blog/leadslicer-split-csv-excel-files/"><span>2026-09-04</span><h3>LeadSlicer — Split and Clean CSV Files Offline</h3></a><a class="related__card" href="/blog/lancall-webrtc-lan-voice-calls/"><span>2026-08-20</span><h3>LanCall — WebRTC Voice Calls Over Your LAN</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>(c) 2026 Abdul Manan</span>
+  <span>Built &amp; designed by Abdul Manan - abdulmanan.tech</span>
+  <a href="/" data-hover>Home</a>
+</footer>
+
+<style>
+.post-topbar{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+padding:16px clamp(20px,6vw,40px);background:color-mix(in srgb,var(--paper) 85%,transparent);
+backdrop-filter:blur(12px);border-bottom:1px solid var(--line);font-weight:600}
+.post-topbar a[data-hover]{color:var(--ink-soft)}
+.post-topbar a[data-hover]:hover{color:var(--accent)}
+.post-hero-img{border-radius:var(--radius);border:1px solid var(--line);margin:0 0 34px;width:100%}
+.hub{max-width:1100px;margin:0 auto;padding:60px clamp(20px,5vw,64px) 100px}
+.hub h1{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(2.2rem,6vw,3.4rem);letter-spacing:-.02em;margin-bottom:10px}
+.hub__sub{color:var(--ink-soft);margin-bottom:44px}
+.share{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:34px 0;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.share span{font-weight:600;margin-right:4px}
+.share a,.share button{font:inherit;font-size:.88rem;font-weight:600;cursor:pointer;border:1px solid var(--line);
+background:var(--card);color:var(--ink);border-radius:100px;padding:8px 16px;transition:.25s}
+.share a:hover,.share button:hover{border-color:var(--accent);color:var(--accent)}
+.related{margin-top:70px}
+.related h2{font-family:"Fraunces",serif;font-weight:500;font-size:1.7rem;margin-bottom:22px}
+.related__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:18px}
+.related__card{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:22px;transition:.3s}
+.related__card:hover{box-shadow:var(--shadow);border-color:transparent;transform:translateY(-4px)}
+.related__card span{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--accent)}
+.related__card h3{font-family:"Fraunces",serif;font-weight:500;font-size:1.15rem;margin-top:6px}
+.prevnext{display:flex;justify-content:space-between;gap:16px;margin-top:40px;font-weight:600}
+.prevnext a{color:var(--accent)}
+.reader__body table{width:100%;border-collapse:collapse;margin:22px 0;font-size:.95rem}
+.reader__body th,.reader__body td{border:1px solid var(--line);padding:10px 12px;text-align:left}
+.reader__body th{background:var(--paper-2);font-weight:600}
+</style>
+</body>
+</html>

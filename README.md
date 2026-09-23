@@ -66,9 +66,18 @@ portfolio/
    tags: web, design
    ---
    ```
-3. Commit. The site picks it up automatically — no redeploy.
+3. Generate the cover and rebuild the crawlable pages:
+   ```bash
+   python tools/make-cover.py my-post "Short Cover Title" CATEGORY
+   python tools/build-blog.py
+   ```
+4. Commit. The live site picks the markdown up from GitHub automatically — the
+   build step is only for the static `blog/<slug>/` pages, `feed.xml` and `sitemap.xml`
+   that crawlers and social cards read.
 
-> Want covers like these? The generator lives in the repo history; any 1200×675 image works.
+> `tools/make-cover.py` needs three variable fonts in `.fonts/` (Fraunces, Inter,
+> JetBrains Mono — links are in the script's docstring). They're gitignored; any
+> 1200×675 image works instead.
 
 ## 🚀 Deploy
 

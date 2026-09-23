@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/style.css" />
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "10 JavaScript Tips Every Beginner Should Know", "description": "Small habits that made my JavaScript cleaner and less buggy \u2014 from const-by-default to guard clauses and optional chaining.", "image": "https://abdulmanan.tech/posts/images/javascript-tips-for-beginners.png", "wordCount": 200, "author": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech", "sameAs": ["https://github.com/abdulmanan69", "https://www.linkedin.com/in/abdulxmanan", "https://www.instagram.com/abdul_x_manan"]}, "publisher": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "datePublished": "2026-08-08", "dateModified": "2026-08-08", "keywords": "javascript, web, beginners, tips", "mainEntityOfPage": "https://abdulmanan.tech/blog/javascript-tips-for-beginners/", "url": "https://abdulmanan.tech/blog/javascript-tips-for-beginners/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "10 JavaScript Tips Every Beginner Should Know", "description": "Small habits that made my JavaScript cleaner and less buggy \u2014 from const-by-default to guard clauses and optional chaining.", "image": "https://abdulmanan.tech/posts/images/javascript-tips-for-beginners.png", "wordCount": 211, "author": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech", "sameAs": ["https://github.com/abdulmanan69", "https://www.linkedin.com/in/abdulxmanan", "https://www.instagram.com/abdul_x_manan"]}, "publisher": {"@type": "Person", "name": "Abdul Manan", "url": "https://abdulmanan.tech"}, "datePublished": "2026-08-08", "dateModified": "2026-08-08", "keywords": "javascript, web, beginners, tips", "mainEntityOfPage": "https://abdulmanan.tech/blog/javascript-tips-for-beginners/", "url": "https://abdulmanan.tech/blog/javascript-tips-for-beginners/"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulmanan.tech/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://abdulmanan.tech/blog/"}, {"@type": "ListItem", "position": 3, "name": "10 JavaScript Tips Every Beginner Should Know", "item": "https://abdulmanan.tech/blog/javascript-tips-for-beginners/"}]}</script>
 </head>
 <body>
@@ -37,6 +37,7 @@
   <a href="/" class="nav__logo">AM<span>.</span></a>
   <a href="/#blog" data-hover>All posts</a>
 </header>
+
 <main class="reader__body">
 <nav aria-label="Breadcrumb" style="font-size:.85rem;color:var(--muted);margin-bottom:22px">
 <a href="/" style="color:var(--muted)">Home</a> / <a href="/blog/" style="color:var(--muted)">Blog</a> / 10 JavaScript Tips Every Beginner Should Know
@@ -48,22 +49,22 @@
 <h2>1. Default to const</h2>
 <p>Use const unless you know the value will change; then use let. Never var.</p>
 <h2>2. Template literals beat concatenation</h2>
-<pre><code>const msg = `Hi ${name}, you have ${count} messages`;</code></pre>
+<pre><code class="language-js">const msg = `Hi ${name}, you have ${count} messages`;</code></pre>
 <h2>3. Use guard clauses to avoid nesting</h2>
-<pre><code>function save(user) {
+<pre><code class="language-js">function save(user) {
   if (!user) return;
   // happy path stays flat
 }</code></pre>
 <h2>4. Use === not ==</h2>
 <p>== does surprising type coercion. === compares value and type.</p>
 <h2>5. Array methods over loops</h2>
-<pre><code>const names = users.filter(u =&gt; u.active).map(u =&gt; u.name);</code></pre>
+<pre><code class="language-js">const names = users.filter(u =&gt; u.active).map(u =&gt; u.name);</code></pre>
 <h2>6. Optional chaining saves you from crashes</h2>
 <p>user?.profile?.avatar returns undefined instead of throwing.</p>
 <h2>7. Nullish coalescing for defaults</h2>
 <p>const page = input ?? 1; uses 1 only when input is null or undefined.</p>
 <h2>8. Destructure what you need</h2>
-<pre><code>const { title, date } = post;</code></pre>
+<pre><code class="language-js">const { title, date } = post;</code></pre>
 <h2>9. console.log is a debugging superpower</h2>
 <p>Log early, log often. console.table() for arrays of objects is a hidden gem.</p>
 <h2>10. Read the error message</h2>
@@ -75,13 +76,14 @@
 <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fjavascript-tips-for-beginners%2F" target="_blank" rel="noopener">Facebook</a>
 <button type="button" onclick="navigator.clipboard.writeText('https://abdulmanan.tech/blog/javascript-tips-for-beginners/');this.textContent='Copied!'">Copy link</button></div>
 <nav class="prevnext"><a href="/blog/figma-to-code-workflow/">&larr; From Figma to Code — My Design Workflow</a><a href="/blog/seo-for-developers/">SEO for Developers — How I Get Pages to Rank &rarr;</a></nav>
-<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/how-i-built-this-portfolio/"><span>2026-07-24</span><h3>How I Built This Portfolio</h3></a><a class="related__card" href="/blog/learning-web-dev-as-a-student/"><span>2026-07-10</span><h3>Learning Web Development as a Student</h3></a><a class="related__card" href="/blog/seo-for-developers/"><span>2026-08-02</span><h3>SEO for Developers — How I Get Pages to Rank</h3></a></div></section>
+<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/how-i-built-this-portfolio/"><span>2026-07-24</span><h3>How I Built This Portfolio</h3></a><a class="related__card" href="/blog/learning-web-dev-as-a-student/"><span>2026-07-10</span><h3>Learning Web Development as a Student</h3></a><a class="related__card" href="/blog/toolforge-browser-pdf-tools/"><span>2026-09-16</span><h3>ToolForge — 93 Browser Tools, Zero Uploads</h3></a></div></section>
 </main>
 <footer class="footer">
   <span>(c) 2026 Abdul Manan</span>
   <span>Built &amp; designed by Abdul Manan - abdulmanan.tech</span>
   <a href="/" data-hover>Home</a>
 </footer>
+
 <style>
 .post-topbar{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
 padding:16px clamp(20px,6vw,40px);background:color-mix(in srgb,var(--paper) 85%,transparent);
@@ -106,6 +108,9 @@ background:var(--card);color:var(--ink);border-radius:100px;padding:8px 16px;tra
 .related__card h3{font-family:"Fraunces",serif;font-weight:500;font-size:1.15rem;margin-top:6px}
 .prevnext{display:flex;justify-content:space-between;gap:16px;margin-top:40px;font-weight:600}
 .prevnext a{color:var(--accent)}
+.reader__body table{width:100%;border-collapse:collapse;margin:22px 0;font-size:.95rem}
+.reader__body th,.reader__body td{border:1px solid var(--line);padding:10px 12px;text-align:left}
+.reader__body th{background:var(--paper-2);font-weight:600}
 </style>
 </body>
 </html>
