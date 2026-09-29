@@ -93,6 +93,17 @@
   addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  /* which section you're in, reflected in the nav */
+  const navLinkFor = {};
+  $$("#navLinks a").forEach(a => { navLinkFor[a.getAttribute("href").slice(1)] = a; });
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      const link = navLinkFor[e.target.id];
+      if (link) link.classList.toggle("is-current", e.isIntersecting);
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  Object.keys(navLinkFor).forEach(id => { const sec = document.getElementById(id); if (sec) spy.observe(sec); });
+
   const burger = $("#burger"), links = $("#navLinks");
   burger?.addEventListener("click", () => links.classList.toggle("open"));
   $$("#navLinks a").forEach(a => a.addEventListener("click", () => links.classList.remove("open")));
@@ -178,6 +189,72 @@
       <div class="gh-langs__legend">${top.map(([l, n]) => `<span><i style="background:${LANG_COLORS[l] || "#ff5a3c"}"></i>${esc(l)} <b>${pct(n)}%</b></span>`).join("")}</div>`;
   }
 
+  /* the About stats mirror the live numbers, so the page never contradicts itself */
+  function setStat(id, value) {
+    const el = document.getElementById(id);
+    if (!el || typeof value !== "number") return;
+    el.dataset.count = value;
+    if (el.textContent !== "0") el.textContent = value;   // already counted up: just correct it
+  }
+
+  /* commit activity — drawn from the events API, so no third-party image service
+     can rate-limit it away. The API keeps ~90 days and 300 events, so the window
+     follows the data: inventing empty days would read as "no commits". */
+  function renderActivity(events) {
+    const wrap = document.getElementById("ghActivity");
+    const chart = document.getElementById("ghActivityChart");
+    if (!wrap || !chart) return;
+
+    const byDay = new Map();
+    let total = 0;
+    for (const ev of events) {
+      if (ev.type !== "PushEvent") continue;
+      const day = ev.created_at.slice(0, 10);
+      const n = ev.payload?.size || 1;
+      byDay.set(day, (byDay.get(day) || 0) + n);
+      total += n;
+    }
+    if (!total) return;
+
+    const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const oldest = new Date(events[events.length - 1].created_at);
+    oldest.setHours(0, 0, 0, 0);
+    const days = Math.min(90, Math.max(14, Math.ceil((Date.now() - oldest) / 864e5) + 1));
+    const first = new Date();
+    first.setHours(0, 0, 0, 0);
+    first.setDate(first.getDate() - days + 1);
+    const max = Math.max(...byDay.values());
+
+    let bars = "";
+    for (let i = 0; i < days; i++) {
+      const day = new Date(first);
+      day.setDate(first.getDate() + i);
+      const n = byDay.get(day.toISOString().slice(0, 10)) || 0;
+      const label = `${n} commit${n === 1 ? "" : "s"} · ${day.getDate()} ${MONTHS[day.getMonth()]}`;
+      bars += `<i style="--h:${n ? Math.max(8, Math.round(n / max * 100)) : 0}%" data-on="${n ? 1 : 0}" title="${label}"></i>`;
+    }
+    chart.innerHTML = bars;
+    chart.setAttribute("aria-label", `${total} commits pushed over the last ${days} days`);
+
+    const scale = document.getElementById("ghActivityScale");
+    if (scale) scale.innerHTML =
+      `<span>${first.getDate()} ${MONTHS[first.getMonth()]}</span><span>today</span>`;
+    let last30 = 0;
+    for (const [day, n] of byDay) {
+      if ((Date.now() - new Date(day)) / 864e5 <= 30) last30 += n;
+    }
+    setStat("statCommits", last30);
+
+    const note = document.getElementById("ghActivityNote");
+    if (note) note.textContent = `${total} commits · peak ${max} in a day`;
+    wrap.hidden = false;
+  }
+
+  fetch(`https://api.github.com/users/${GH_USER}/events/public?per_page=100`)
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(ev => Array.isArray(ev) && renderActivity(ev))
+    .catch(() => {});
+
   /* ============================================================
      LIVE GITHUB — profile stats + auto project cards
      ============================================================ */
@@ -188,6 +265,7 @@
     .then(r => r.ok ? r.json() : Promise.reject())
     .then(u => {
       $("#ghRepos").textContent = u.public_repos ?? "—";
+      setStat("statRepos", u.public_repos);
       $("#ghFollowers").textContent = u.followers ?? "—";
       $("#ghGists").textContent = u.public_gists ?? "—";
     }).catch(() => {});
