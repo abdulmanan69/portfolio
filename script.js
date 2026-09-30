@@ -158,6 +158,198 @@
     (function bl() { bx += (tx - bx) * .05; by += (ty - by) * .05; blob.style.left = bx + "px"; blob.style.top = by + "px"; requestAnimationFrame(bl); })();
   }
 
+  /* ============================================================
+     HERO ORB — concentric rings of particles drawn in perspective.
+     The cursor tilts the field, brightens what it passes over and
+     pushes a wave through it; a click sends a ripple outward.
+     Falls back to a single static frame when motion is reduced.
+     ============================================================ */
+  (function orb() {
+    const host = $("[data-orb]");
+    if (!host) return;
+    const canvas = $(".orb__canvas", host);
+    const core = $(".orb__core", host);
+    const ctx = canvas.getContext("2d", { alpha: true });
+
+    const SPOKES = 132;                  // radial rays, like light off a disc
+    const INNER = .34, STEP = .033;      // where the field starts, and ring spacing
+    const TILT = .46;                    // how far the disc is laid back
+    const css = getComputedStyle(document.documentElement);
+    let accent = css.getPropertyValue("--accent").trim() || "#ff5a3c";
+
+    let W = 0, H = 0, cx = 0, cy = 0, R = 0, dpr = 1;
+    let spin = 0, tiltX = 0, tiltY = 0, targetX = 0, targetY = 0;
+    let pointer = null, pointerTarget = null;
+    const ripples = [];
+    const dots = [];
+
+    function build() {
+      dots.length = 0;
+      for (let sIdx = 0; sIdx < SPOKES; sIdx++) {
+        const t = sIdx / SPOKES;
+        // three overlaid waves give the outer edge an uneven, sunburst rhythm
+        const reach = .62 + .38 * (
+          .5 + .28 * Math.sin(t * Math.PI * 2 * 3) +
+               .14 * Math.sin(t * Math.PI * 2 * 7 + 1.2) +
+               .08 * Math.sin(t * Math.PI * 2 * 13 + .4)
+        );
+        const a = t * Math.PI * 2;
+        const offset = sIdx % 2 ? STEP / 2 : 0;          // stagger every other spoke
+        for (let r = INNER + offset; r <= reach; r += STEP) {
+          dots.push({ a, r, seed: Math.random() * Math.PI * 2, drift: .9 + Math.random() * .2 });
+        }
+      }
+    }
+
+    function size() {
+      const rect = host.getBoundingClientRect();
+      if (!rect.width) return;
+      dpr = Math.min(devicePixelRatio || 1, 2);
+      W = rect.width; H = rect.height;
+      canvas.width = Math.round(W * dpr);
+      canvas.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cx = W / 2; cy = H / 2;
+      R = Math.min(W, H) * .5;
+    }
+
+    function rgba(hex, a) {
+      const h = hex.replace("#", "");
+      const v = h.length === 3 ? h.split("").map(c => c + c).join("") : h;
+      const n = parseInt(v, 16);
+      return `rgba(${(n >> 16) & 255},${(n >> 8) & 255},${n & 255},${a})`;
+    }
+
+    function frame(now) {
+      if (!W) size();
+      ctx.clearRect(0, 0, W, H);
+
+      // the field eases toward wherever the cursor last was
+      tiltX += (targetX - tiltX) * .06;
+      tiltY += (targetY - tiltY) * .06;
+      if (pointerTarget) {
+        pointer = pointer || { x: pointerTarget.x, y: pointerTarget.y };
+        pointer.x += (pointerTarget.x - pointer.x) * .18;
+        pointer.y += (pointerTarget.y - pointer.y) * .18;
+      } else {
+        // nobody is pointing (or it's a touch screen): a light drifts around the ring
+        const a = now / 5200;
+        const orbit = R * .74;
+        const gx = cx + Math.cos(a) * orbit;
+        const gy = cy + Math.sin(a) * orbit * (TILT + .04);
+        pointer = pointer || { x: gx, y: gy };
+        pointer.x += (gx - pointer.x) * .05;
+        pointer.y += (gy - pointer.y) * .05;
+      }
+      spin += .0016 + Math.abs(tiltX) * .002;
+
+      const tilt = TILT + tiltY * .12;
+      const lean = tiltX * .07;
+      const REACH = Math.max(110, R * .52), REACH2 = REACH * REACH;
+
+      // atmosphere behind the particles
+      const GR = R * 1.12;
+      const glow = ctx.createRadialGradient(cx, cy, R * .08, cx, cy, GR);
+      glow.addColorStop(0, rgba(accent, .22));
+      glow.addColorStop(.38, rgba(accent, .08));
+      glow.addColorStop(.75, rgba(accent, .02));
+      glow.addColorStop(1, rgba(accent, 0));
+      ctx.save();
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, GR, GR * (tilt + .34), 0, 0, Math.PI * 2);  // a disc, never a square
+      ctx.fillStyle = glow;
+      ctx.fill();
+      ctx.restore();
+
+      for (let i = 0; i < ripples.length; i++) {
+        ripples[i].r += .016;
+        ripples[i].life -= .012;
+      }
+      while (ripples.length && ripples[0].life <= 0) ripples.shift();
+
+      for (const d of dots) {
+        const a = d.a + spin * d.drift;
+        const breathe = 1 + Math.sin(now / 1600 + d.seed) * .01;
+        let rr = d.r * breathe;
+
+        for (const rip of ripples) {                     // wave pushed out by a click
+          const band = Math.abs(rr - rip.r);
+          if (band < .14) rr += (1 - band / .14) * .07 * rip.life;
+        }
+
+        const depth = Math.sin(a);                       // +1 nearest the viewer
+        let sx = cx + Math.cos(a) * rr * R;
+        let sy = cy + depth * rr * R * tilt + Math.cos(a) * rr * R * lean;
+
+        let near = 0;
+        if (pointer) {
+          const dx = sx - pointer.x, dy = sy - pointer.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < REACH2) {
+            near = 1 - Math.sqrt(d2) / REACH;
+            near *= near;                                // tighter, softer falloff
+            sx += dx * near * .10;                       // the cursor parts the field
+            sy += dy * near * .10;
+          }
+        }
+
+        const front = depth * .5 + .5;                   // 0 back .. 1 front
+        const fade = .20 + .55 * front + .25 * (1 - d.r);
+        ctx.beginPath();
+        ctx.arc(sx, sy, (.8 + front * 1.25) * (1 + near * .75), 0, Math.PI * 2);
+        ctx.fillStyle = rgba(accent, Math.min(1, fade * (1 + near * 1.15)));
+        ctx.fill();
+      }
+
+      if (core) core.style.transform =
+        `translate(-50%, -50%) translate(${tiltX * 10}px, ${tiltY * 8}px)`;
+
+      raf = requestAnimationFrame(frame);
+    }
+
+    let raf = 0;
+    build();
+    size();
+
+    if (reduce) {                        // one static frame, no loop
+      frame(0);
+      cancelAnimationFrame(raf);
+    } else {
+      raf = requestAnimationFrame(frame);
+      // pause when the hero is off screen — no work for a canvas nobody sees
+      new IntersectionObserver(([e]) => {
+        if (e.isIntersecting && !raf) raf = requestAnimationFrame(frame);
+        else if (!e.isIntersecting && raf) { cancelAnimationFrame(raf); raf = 0; }
+      }, { threshold: .05 }).observe(host);
+    }
+
+    const hero = host.closest(".hero") || host;
+    hero.addEventListener("pointermove", e => {
+      const rect = host.getBoundingClientRect();
+      targetX = ((e.clientX - (rect.left + rect.width / 2)) / rect.width) * 2;
+      targetY = ((e.clientY - (rect.top + rect.height / 2)) / rect.height) * 2;
+      pointerTarget = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+      host.classList.add("is-touched");
+    }, { passive: true });
+
+    hero.addEventListener("pointerleave", () => {
+      targetX = targetY = 0;
+      pointerTarget = null;          // pointer keeps its place, then the drift takes over
+    });
+
+    host.addEventListener("pointerdown", () => {
+      if (!reduce) ripples.push({ r: INNER, life: 1 });
+    });
+
+    addEventListener("resize", () => { size(); }, { passive: true });
+    matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", readColors);
+    new MutationObserver(readColors).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    function readColors() {
+      const c = getComputedStyle(document.documentElement);
+      accent = c.getPropertyValue("--accent").trim() || accent;
+    }
+  })();
+
   /* ---------- marquee ---------- */
   const track = $("[data-marquee]");
   if (track && !reduce) {
