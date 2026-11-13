@@ -10,8 +10,8 @@ from datetime import datetime, timezone
 from urllib.parse import quote
 
 import og
-from common import (AUTHOR, GH_USER, ROOT, SITE, abs_url, breadcrumbs, e, page,
-                    person_ref, prune, write)
+from common import (AUTHOR, GH_USER, ROOT, SITE, BuildError, abs_url, breadcrumbs, e,
+                    inject, page, person_ref, prune, write)
 from md import markdown
 
 WPM = 200
@@ -30,11 +30,16 @@ def parse_post(path):
             meta[k.strip()] = v.strip()
     body = m.group(2).strip()
     slug = os.path.splitext(os.path.basename(path))[0]
+    for key in ("date", "updated"):
+        if (key == "date" or meta.get(key)) and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", meta.get(key, "")):
+            raise BuildError("%s: '%s' must be YYYY-MM-DD, got %r" % (path, key, meta.get(key)))
     words = len(re.sub(r"[#>*`_\[\]()-]", " ", body).split())
     return {
         "slug": slug,
         "title": meta.get("title", slug),
         "date": meta.get("date", ""),
+        # last real content change; set "updated: YYYY-MM-DD" when you edit a post
+        "updated": max(meta.get("date", ""), meta.get("updated", "")),
         "excerpt": meta.get("excerpt", ""),
         "cover": meta.get("cover", ""),
         "tags": [t.strip() for t in meta.get("tags", "").split(",") if t.strip()],
@@ -100,7 +105,7 @@ def build_post(post, posts, idx, repos):
         "wordCount": post["words"],
         "author": person_ref(),
         "publisher": person_ref(),
-        "datePublished": post["date"], "dateModified": post["date"],
+        "datePublished": post["date"], "dateModified": post["updated"],
         "keywords": ", ".join(post["tags"]),
         "mainEntityOfPage": post["url"], "url": post["url"],
     }
@@ -149,6 +154,27 @@ def build_post(post, posts, idx, repos):
     write(os.path.join(ROOT, "blog", post["slug"], "index.html"), doc)
 
 
+def card(p, heading, reveal=False):
+    """Post card for the blog hub (heading h2) and the homepage (h3)."""
+    cover = ('<img class="post__cover" loading="lazy" decoding="async" alt="" src="/%s" '
+             'width="1200" height="675">' % e(p["cover"].lstrip("/"))) if p["cover"] else ""
+    tags = "".join("<span>#%s</span>" % e(t) for t in p["tags"])
+    return ('<a class="post%s" href="%s">\n%s\n<div class="post__body">\n'
+            '<span class="post__date">%s &middot; %d min read</span>\n'
+            '<%s class="post__title">%s</%s>\n<p>%s</p>\n'
+            '<div class="post__tags">%s</div>\n</div></a>'
+            % (" reveal" if reveal else "", p["path"], cover, p["date"], p["minutes"],
+               heading, e(p["title"]), heading, e(p["excerpt"]), tags))
+
+
+HOME_POSTS = 6
+
+
+def inject_home(posts):
+    inject("index.html", "posts", "\n".join(card(p, "h3", reveal=True) for p in posts[:HOME_POSTS]))
+    inject("index.html", "posts-count", "All %d posts &rarr;" % len(posts), inline=True)
+
+
 def build_hub(posts):
     desc = "Articles by Abdul Manan on web development, design, SEO and learning to code."
     ld = {"@context": "https://schema.org", "@type": "Blog",
@@ -160,17 +186,7 @@ def build_hub(posts):
              "<h1>Writing by %s</h1>" % AUTHOR,
              '<p class="hub__sub">Thoughts on web development, design, SEO and '
              "learning to build for the web.</p>"]
-    cards = []
-    for p in posts:
-        cover = ('<img class="post__cover" loading="lazy" alt="" src="%s" width="1200" height="675">'
-                 % e(abs_url(p["cover"]))) if p["cover"] else ""
-        tags = "".join("<span>#%s</span>" % e(t) for t in p["tags"])
-        cards.append(
-            '<a class="post" href="%s">\n%s\n<div class="post__body">\n'
-            '<span class="post__date">%s &middot; %d min</span>\n<h2 class="post__title">%s</h2>\n<p>%s</p>\n'
-            '<div class="post__tags">%s</div>\n</div></a>'
-            % (p["path"], cover, p["date"], p["minutes"], e(p["title"]), e(p["excerpt"]), tags))
-    parts.append('<div class="blog__grid">%s</div>' % "".join(cards))
+    parts.append('<div class="blog__grid">%s</div>' % "".join(card(p, "h2") for p in posts))
     parts.append("</main>")
     image = og.card("og/blog.png", "Blog", "Writing by %s" % AUTHOR,
                     "Web development, design, SEO and the projects behind them.")
@@ -208,5 +224,6 @@ def build(posts, repos):
         build_post(p, posts, i, repos)
     build_hub(posts)
     build_feed(posts)
-    return ([("/blog/", posts[0]["date"], None)] +
-            [(p["path"], p["date"], abs_url(p["cover"]) if p["cover"] else None) for p in posts])
+    inject_home(posts)
+    return {"/blog/": max(p["updated"] for p in posts),
+            **{p["path"]: p["updated"] for p in posts}}
