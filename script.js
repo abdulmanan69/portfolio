@@ -179,10 +179,15 @@
   }
 
   /* ============================================================
-     LIVE GITHUB — profile stats + auto project cards
+     LIVE GITHUB — profile stats + language bar.
+     The project cards themselves are static HTML written by
+     tools/build.py, so crawlers see them without running this.
      ============================================================ */
-  const ICONS = ["◆","▲","●","✦","◈","❖","✳","◐"];
-  const grid = $("#projectsGrid");
+  $$("#projectsGrid .project").forEach(card => card.addEventListener("mousemove", e => {
+    const b = card.getBoundingClientRect();
+    card.style.setProperty("--mx", (e.clientX - b.left) + "px");
+    card.style.setProperty("--my", (e.clientY - b.top) + "px");
+  }));
 
   fetch(`https://api.github.com/users/${GH_USER}`)
     .then(r => r.ok ? r.json() : Promise.reject())
@@ -199,32 +204,8 @@
       const owned = repos.filter(r => !r.fork);
       $("#ghStars").textContent = fmt(owned.reduce((s, r) => s + r.stargazers_count, 0));
       renderLangs(owned);
-      const top = owned.sort((a, b) =>
-        (b.stargazers_count - a.stargazers_count) || (new Date(b.pushed_at) - new Date(a.pushed_at))
-      ).slice(0, 6);
-      if (!top.length) { grid.innerHTML = `<div class="projects__loading">No public repos yet.</div>`; return; }
-      grid.innerHTML = top.map((r, i) => `
-        <a class="project reveal" href="${r.homepage || r.html_url}" target="_blank" rel="noopener" data-hover>
-          <div class="project__top">
-            <span class="project__icon">${ICONS[i % ICONS.length]}</span>
-            ${r.language ? `<span class="project__lang"><span class="project__dot"></span>${esc(r.language)}</span>` : ""}
-          </div>
-          <h3>${esc(r.name.replace(/[-_]/g, " "))}</h3>
-          <p>${r.description ? esc(r.description) : "A project I've been building — click to explore the code."}</p>
-          <div class="project__meta"><span>★ ${r.stargazers_count}</span><span>⑂ ${r.forks_count}</span><span>${new Date(r.pushed_at).getFullYear()}</span></div>
-        </a>`).join("");
-      $$("#projectsGrid .reveal").forEach(el => io.observe(el));
-      window.__rebindCursor?.();
-      $$("#projectsGrid .project").forEach(card => card.addEventListener("mousemove", e => {
-        const b = card.getBoundingClientRect();
-        card.style.setProperty("--mx", (e.clientX - b.left) + "px");
-        card.style.setProperty("--my", (e.clientY - b.top) + "px");
-      }));
     })
-    .catch(() => {
-      grid.innerHTML = `<div class="projects__loading">Couldn't load repos —
-        <a class="link-underline" href="https://github.com/${GH_USER}?tab=repositories" target="_blank" rel="noopener">view on GitHub →</a></div>`;
-    });
+    .catch(() => { $("#ghLangs").style.display = "none"; });
 
   /* ============================================================
      GITHUB-DRIVEN BLOG
