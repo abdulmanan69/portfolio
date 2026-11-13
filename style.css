@@ -374,3 +374,60 @@ html { overflow-x: hidden; }
 .faq__item summary::after { content: "+"; color: var(--accent); font-size: 1.6rem; line-height: 1; transition: transform .3s var(--ease); }
 .faq__item[open] summary::after { transform: rotate(45deg); }
 .faq__item p { color: var(--ink-soft); padding: 0 0 24px; margin: 0; }
+
+/* ============================================================
+   GENERATED SUBPAGES  (tools/build.py: /projects/, /blog/)
+   ============================================================ */
+.post-topbar { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding: 16px clamp(20px, 6vw, 40px); background: color-mix(in srgb, var(--paper) 85%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); font-weight: 600; }
+.post-topbar__links { display: flex; gap: 22px; }
+.post-topbar__links a { color: var(--ink-soft); }
+.post-topbar__links a:hover { color: var(--accent); }
+.crumbs { font-size: .85rem; color: var(--muted); margin-bottom: 22px; }
+.reader__body .crumbs a { color: var(--muted); border: 0; }
+.post-hero-img { border-radius: var(--radius); border: 1px solid var(--line); margin: 0 0 34px; width: 100%; height: auto; }
+.hub { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 60px clamp(20px, 5vw, 64px) 100px; }
+.hub h1 { font-family: "Fraunces", serif; font-weight: 500; font-size: clamp(2.2rem, 6vw, 3.4rem); letter-spacing: -.02em; margin-bottom: 10px; }
+.hub__sub { color: var(--ink-soft); margin-bottom: 44px; max-width: 640px; }
+.hub__h2 { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.6rem; margin: 10px 0 22px; }
+.hub .projects__grid + .hub__h2 { margin-top: 56px; }
+.hub__more { margin-top: 44px; }
+.post .post__title { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.4rem; margin: 8px 0 10px; line-height: 1.2; }
+.share { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 34px 0; padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.share span { font-weight: 600; margin-right: 4px; }
+.share a, .share button { font: inherit; font-size: .88rem; font-weight: 600; cursor: pointer; border: 1px solid var(--line); background: var(--card); color: var(--ink); border-radius: 100px; padding: 8px 16px; transition: .25s; }
+.reader__body .share a { border-bottom: 1px solid var(--line); color: var(--ink); }
+.share a:hover, .share button:hover { border-color: var(--accent); color: var(--accent); }
+.related { margin-top: 70px; }
+.related h2 { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.7rem; margin-bottom: 22px; }
+.related__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 18px; }
+.reader__body a.related__card { display: block; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); padding: 22px; color: var(--ink); transition: .3s; }
+.related__card:hover { box-shadow: var(--shadow); border-color: transparent; transform: translateY(-4px); }
+.related__card span { font-family: "JetBrains Mono", monospace; font-size: .72rem; color: var(--accent); }
+.related__card h3 { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.15rem; margin-top: 6px; }
+.prevnext { display: flex; justify-content: space-between; gap: 16px; margin-top: 40px; font-weight: 600; }
+.reader__body table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: .95rem; display: block; overflow-x: auto; }
+.reader__body th, .reader__body td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; }
+.reader__body th { background: var(--paper-2); font-weight: 600; }
+
+/* project page */
+.project-page__lead { font-size: 1.25rem; color: var(--ink); }
+.project-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 14px; margin: 28px 0; padding: 22px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.project-facts dt { font-family: "JetBrains Mono", monospace; font-size: .74rem; letter-spacing: .06em; color: var(--muted); }
+.project-facts dd { color: var(--ink); font-weight: 500; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.project-tags span { font-family: "JetBrains Mono", monospace; font-size: .74rem; border: 1px solid var(--line); border-radius: 100px; padding: 2px 9px; }
+.project-links { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
+.reader__body .project-links a { border-bottom: 0; }
+.reader__body .project-links .btn--solid { color: var(--paper); }
+.reader__body .project-links .btn--ghost { color: var(--ink); }
+.project-writing { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); padding: 18px 22px; margin: 0 0 40px; }
+.project-writing h2 { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.15rem; margin: 0 0 8px; }
+.project-writing ul { margin: 0 0 0 18px; }
+.project-page__note { color: var(--muted); }
+.readme { border-top: 1px solid var(--line); padding-top: 10px; overflow-wrap: anywhere; }
+.readme h4, .readme h5, .readme h6 { font-family: "Fraunces", serif; font-weight: 500; font-size: 1.12rem; margin: 24px 0 8px; }
+.reader__body .readme img { display: inline-block; vertical-align: middle; margin: 4px 4px 4px 0; border: 0; border-radius: 8px; }
+.reader__body .readme a:has(img) { border-bottom: 0; }
+.readme details { margin: 0 0 22px; }
+.readme summary { cursor: pointer; font-weight: 600; }
+.project__badge { font-family: "JetBrains Mono", monospace; font-size: .72rem; letter-spacing: .06em; color: var(--accent); }
