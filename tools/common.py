@@ -8,17 +8,55 @@ top bar and footer stay identical across the site.
 import html
 import json
 import os
+import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://abdulmanan.tech"
 AUTHOR = "Abdul Manan"
 GH_USER = "abdulmanan69"
+# Every profile that is you. Google uses these to tie the name to one person.
+# TODO(Abdul): add your X profile URL and any others (dev.to, Stack Overflow...).
 SAME_AS = [
     "https://github.com/abdulmanan69",
     "https://www.linkedin.com/in/abdulxmanan",
     "https://www.instagram.com/abdul_x_manan",
 ]
+# Taken from the existing site copy. Change it here and rebuild.
+JOB_TITLE = "Web Developer & Designer"
+PERSON_ID = SITE + "/#person"
 DEFAULT_IMAGE = ("/og-image.png", 1200, 630)
+
+
+def person():
+    """The full Person entity. Used once, on the homepage; other pages point at PERSON_ID."""
+    return {
+        "@type": "Person",
+        "@id": PERSON_ID,
+        "name": AUTHOR,
+        "url": SITE + "/",
+        "image": "https://github.com/abdulmanan69.png",
+        "jobTitle": JOB_TITLE,
+        "description": "Web developer and designer who builds full-stack apps and "
+                       "self-hosts them.",
+        "email": "mailto:manan999999999@gmail.com",
+        "sameAs": SAME_AS,
+        "knowsAbout": ["Web Development", "Full-Stack Development", "UI Design",
+                       "JavaScript", "TypeScript", "React", "Next.js", "Node.js",
+                       "Python", "Supabase", "PostgreSQL", "Docker"],
+    }
+
+
+def person_ref():
+    """Short reference to the Person defined on the homepage."""
+    return {"@type": "Person", "@id": PERSON_ID, "name": AUTHOR, "url": SITE + "/"}
+
+
+def breadcrumbs(*trail):
+    """BreadcrumbList from (name, path) pairs, starting at Home."""
+    items = [("Home", "/")] + list(trail)
+    return {"@context": "https://schema.org", "@type": "BreadcrumbList",
+            "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n,
+                                 "item": SITE + p} for i, (n, p) in enumerate(items)]}
 
 
 def e(s):
@@ -28,6 +66,31 @@ def e(s):
 
 def abs_url(p):
     return p if p.startswith("http") else "%s/%s" % (SITE, p.lstrip("/"))
+
+
+class BuildError(SystemExit):
+    """Stops the build with a readable message and a non-zero exit code."""
+
+    def __init__(self, msg):
+        super().__init__("\nBUILD FAILED: %s\n" % msg)
+
+
+def inject(rel_path, name, content, inline=False):
+    """Replace the text between <!-- build:NAME --> and <!-- /build:NAME --> in a
+    hand-written file such as index.html. Everything outside the markers is kept."""
+    path = os.path.join(ROOT, rel_path)
+    with open(path, encoding="utf-8", newline="") as f:
+        text = f.read()
+    start, end = "<!-- build:%s -->" % name, "<!-- /build:%s -->" % name
+    if text.count(start) != 1 or text.count(end) != 1:
+        raise BuildError("%s needs exactly one %s ... %s pair" % (rel_path, start, end))
+    sep = "" if inline else "\n"
+    new = re.sub(re.escape(start) + r".*?" + re.escape(end),
+                 lambda m: start + sep + content + sep + end, text, count=1, flags=re.S)
+    if new != text:
+        with open(path, "w", encoding="utf-8", newline="") as f:
+            f.write(new)
+        print("  updated %s (%s)" % (rel_path, name))
 
 
 def write(path, text):
@@ -76,18 +139,20 @@ TOPBAR = """<header class="post-topbar">
 </header>"""
 
 FOOTER = """<footer class="footer">
-  <span>&copy; {year} Abdul Manan</span>
+  <span>Abdul Manan &copy; {year}</span>
   <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
   <a href="/">Home</a>
 </footer>"""
 
 
-def page(*, title, desc, path, body, og_type="website", image=None, ld=(), year="2026"):
+def page(*, title, desc, path, body, og_type="website", image=None, image_alt=None,
+         ld=(), year="2026"):
     """Render a full HTML document.
 
-    path   site-relative URL of this page, e.g. "/projects/lancall/"
-    image  (url, width, height) for og:image; defaults to the site card
-    ld     iterable of JSON-LD dicts
+    path       site-relative URL of this page, e.g. "/projects/lancall/"
+    image      (url, width, height) for og:image; defaults to the site card
+    image_alt  alt text for the card; defaults to the title
+    ld         iterable of JSON-LD dicts
     """
     url = SITE + path
     img_url, img_w, img_h = image or DEFAULT_IMAGE
@@ -113,10 +178,12 @@ def page(*, title, desc, path, body, og_type="website", image=None, ld=(), year=
 <meta property="og:image" content="{img}" />
 <meta property="og:image:width" content="{img_w}" />
 <meta property="og:image:height" content="{img_h}" />
+<meta property="og:image:alt" content="{img_alt}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{title}" />
 <meta name="twitter:description" content="{desc}" />
 <meta name="twitter:image" content="{img}" />
+<meta name="twitter:image:alt" content="{img_alt}" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="{author} - Blog" href="/feed.xml" />
@@ -129,5 +196,6 @@ def page(*, title, desc, path, body, og_type="website", image=None, ld=(), year=
 <body>
 """.format(title=e(title), desc=e(desc), author=AUTHOR, url=url, theme=THEME_SCRIPT,
            og_type=og_type, img=e(img_url), img_w=img_w, img_h=img_h,
+           img_alt=e(image_alt or title),
            ld="\n".join(ld_script(x) for x in ld))
     return "%s%s\n%s\n%s\n</body>\n</html>\n" % (head, TOPBAR, body, FOOTER.format(year=year))

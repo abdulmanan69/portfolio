@@ -21,7 +21,7 @@ import time
 import urllib.error
 import urllib.request
 
-from common import GH_USER, ROOT
+from common import GH_USER, ROOT, BuildError
 
 # ---------------------------------------------------------------- edit these
 
@@ -64,11 +64,6 @@ OVERRIDES = {
 
 API = "https://api.github.com"
 CACHE = os.path.join(ROOT, ".cache", "github")
-
-
-class BuildError(SystemExit):
-    def __init__(self, msg):
-        super().__init__("\nBUILD FAILED: %s\n" % msg)
 
 
 def _request(url, accept, attempts=3):
