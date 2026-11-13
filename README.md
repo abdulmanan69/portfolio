@@ -49,6 +49,7 @@ portfolio/
 │   ├── *.md
 │   └── images/           # post cover images
 ├── projects/             # generated: one page per repo (tools/build.py)
+├── og/                   # generated: Open Graph cards for project and hub pages
 ├── blog/                 # generated: one page per post (tools/build.py)
 ├── tools/                # build.py + repos.py (DENYLIST/FEATURED) + page builders
 ├── og-image.png          # social share preview
@@ -87,8 +88,17 @@ python tools/build.py --offline   # rebuild from the last good GitHub cache
 ```
 
 It writes one page per public repo at `projects/<slug>/` (README included), the
-`projects/` hub, the project cards inside `index.html`, every `blog/<slug>/` page,
-`feed.xml` and `sitemap.xml`. Standard library only, no `pip install`.
+`projects/` hub, the project cards and structured data inside `index.html`, every
+`blog/<slug>/` page, an Open Graph card per page in `og/`, `feed.xml` and `sitemap.xml`.
+Then it checks every HTML file and stops if any two pages share a title or
+description, a canonical or OG tag is missing, or JSON-LD doesn't parse.
+
+Needs Python 3 and Pillow (`pip install pillow`, the same library `make-cover.py`
+uses) for the OG cards. The three fonts are downloaded from Google Fonts into
+`.cache/fonts/` on the first run.
+
+- **Your identity:** name, job title and profile links (`SAME_AS`) live in
+  [`tools/common.py`](tools/common.py). The homepage Person schema is generated from them.
 
 - **Which repos:** forks, archived repos and anything in `DENYLIST` in
   [`tools/repos.py`](tools/repos.py) are skipped. Sorted by stars, then latest push.
