@@ -1,0 +1,30 @@
+# After every push to main (which is the GitHub Pages deploy), tell IndexNow
+# (Bing, Yandex, Seznam, Naver...) which pages changed. The script waits until
+# the new version is live before it announces anything. See tools/indexnow.py.
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+    paths: ["**.html", "sitemap.xml"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  announce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Announce changed URLs
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: python3 tools/indexnow.py --since "$BEFORE" --until "$AFTER"
