@@ -29,8 +29,8 @@ One Python script turns my repos and markdown posts into static pages. No framew
 - **Loading intro** animation
 - **A page per project** — every public repo (minus a denylist) gets a static page with its README, generated at build time
 - **Native language chart** + contribution graph, streak and live stat counters
-- **GitHub-driven blog** — every post is a markdown file in [`posts/`](posts); push one and it appears, credited to Abdul Manan, with its own SEO metadata
-- **SEO-first** — per-page titles/descriptions, `Person` + `BlogPosting` structured data, Open Graph & Twitter cards, `sitemap.xml`, `robots.txt`, canonical URLs
+- **Markdown blog** — every post is a markdown file in [`posts/`](posts), built into a static page with its own SEO metadata
+- **SEO-first** — unique titles/descriptions (enforced by the build), `Person`, `SoftwareSourceCode` and `BlogPosting` structured data, Open Graph cards, a sitemap built from the real pages, IndexNow pings after each deploy
 - **Fully responsive** and accessible (reduced-motion aware)
 
 ## 🧱 Tech
@@ -117,6 +117,15 @@ uses) for the OG cards. The three fonts are downloaded from Google Fonts into
 **Netlify** — drag the folder onto [netlify.com/drop](https://app.netlify.com/drop), add the custom domain, done.
 
 **GitHub Pages** — Settings → Pages → deploy from `main` / root. `CNAME` and `.nojekyll` are already included. The contact form needs no server on either host (see below).
+
+**After a deploy: IndexNow.** Pushing to `main` runs
+[`.github/workflows/indexnow.yml`](.github/workflows/indexnow.yml), which waits until the
+new pages are live and then sends the changed URLs to IndexNow (Bing, Yandex, Seznam,
+Naver and others). The key file is `8f3c1a9b2d7e4f60a1b5c8d9e0f21324.txt` at the root.
+To run it by hand: `python tools/indexnow.py --since <previous main commit>`, or `--all`
+for every URL in the sitemap; `--dry-run` prints the list without sending.
+Google isn't part of IndexNow; it reads `sitemap.xml`. The Google Indexing API is not
+used on purpose: it only accepts job postings and livestream pages.
 
 **Domain (Cloudflare):** point `A @` to GitHub's IPs (`185.199.108–111.153`) as **DNS-only** during setup, set SSL/TLS to **Full**, then Enforce HTTPS on GitHub.
 
