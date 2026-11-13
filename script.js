@@ -1,23 +1,14 @@
 /* ============================================================
-   Abdul Manan — portfolio  ·  interactions, theme, GitHub blog
+   Abdul Manan — portfolio  ·  interactions, theme, live GitHub stats
    ------------------------------------------------------------
-   EDIT THESE if you rename things:
-     GH_USER  = your GitHub username (projects + stats)
-     BLOG     = where your blog markdown lives on GitHub
-   Add a .md file to that repo/folder and it shows up here.
+   Projects and blog posts are static HTML written by tools/build.py.
+   This file only adds motion, the theme toggle, the live GitHub
+   numbers and the contact form.
    ============================================================ */
 (() => {
   "use strict";
 
   const GH_USER = "abdulmanan69";
-  const BLOG = {
-    user:   "abdulmanan69",   // repo owner
-    repo:   "portfolio",      // posts live in the same repo as the site
-    path:   "posts",          // folder inside the repo that holds *.md files
-    branch: "main"            // default branch
-  };
-  const AUTHOR = "Abdul Manan";
-  const SITE   = "https://abdulmanan.tech";
 
   /* ------------------------------------------------------------
      CONTACT — where messages land. All of these are free forever.
@@ -207,151 +198,11 @@
     })
     .catch(() => { $("#ghLangs").style.display = "none"; });
 
-  /* ============================================================
-     GITHUB-DRIVEN BLOG
-     Reads markdown files from  github.com/USER/REPO/PATH
-     Each .md may start with YAML front-matter:
-       ---
-       title: My post
-       date: 2026-07-24
-       excerpt: One line for the card + SEO.
-       cover: https://link-to-image.png
-       tags: web, design
-       ---
-       Body in **markdown**, images, code, etc.
-     ============================================================ */
-  const blogGrid = $("#blogGrid");
-  const reader = $("#reader"), readerBody = $("#readerBody");
-  let POSTS = [];
-
-  const slugify = s => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-
-  function parseFrontMatter(raw) {
-    const m = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/);
-    if (!m) return { meta: {}, body: raw };
-    const meta = {};
-    m[1].split("\n").forEach(line => {
-      const i = line.indexOf(":");
-      if (i > -1) meta[line.slice(0, i).trim().toLowerCase()] = line.slice(i + 1).trim().replace(/^["']|["']$/g, "");
-    });
-    return { meta, body: m[2] };
-  }
-
-  const prettyDate = d => {
-    const t = new Date(d);
-    return isNaN(t) ? "" : t.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
-  };
-
-  fetch(`https://api.github.com/repos/${BLOG.user}/${BLOG.repo}/contents/${BLOG.path}?ref=${BLOG.branch}`)
-    .then(r => r.ok ? r.json() : Promise.reject(r.status))
-    .then(files => {
-      const mds = (Array.isArray(files) ? files : []).filter(f => f.type === "file" && /\.md$/i.test(f.name) && f.name.toLowerCase() !== "readme.md");
-      if (!mds.length) return showEmptyBlog();
-      return Promise.all(mds.map(f =>
-        fetch(f.download_url).then(r => r.text()).then(raw => {
-          const { meta, body } = parseFrontMatter(raw);
-          const title = meta.title || f.name.replace(/\.md$/i, "").replace(/[-_]/g, " ");
-          return {
-            slug: f.name.replace(/\.md$/i, "").toLowerCase(),
-            title,
-            date: meta.date || "",
-            excerpt: meta.excerpt || body.replace(/[#>*`_!\[\]()-]/g, "").trim().slice(0, 140),
-            cover: meta.cover || "",
-            tags: (meta.tags || "").split(",").map(s => s.trim()).filter(Boolean),
-            body
-          };
-        }).catch(() => null)
-      ));
-    })
-    .then(posts => {
-      if (!posts) return;
-      POSTS = posts.filter(Boolean).sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
-      if (!POSTS.length) return showEmptyBlog();
-      renderBlogList();
-      routeFromHash();
-    })
-    .catch(() => showEmptyBlog(true));
-
-  function showEmptyBlog(errored) {
-    blogGrid.innerHTML = `<div class="blog__empty">
-      <p style="margin-bottom:10px"><strong>No posts yet.</strong> ${errored ? "(couldn't reach the blog repo) " : ""}Here's how to publish one:</p>
-      <p>1. In the <code>${BLOG.repo}</code> repo, open the <code>${BLOG.path}/</code> folder.<br>
-         2. Add a <code>my-post.md</code> file in it.<br>
-         3. Start the file with front-matter (title, date, excerpt, cover) — then write in markdown.<br>
-         4. Commit. Refresh this page. It appears automatically. ✨</p>
-    </div>`;
-  }
-
-  function renderBlogList() {
-    blogGrid.innerHTML = POSTS.map(p => `
-      <a class="post reveal" data-hover href="/blog/${p.slug}/">
-        ${p.cover ? `<img class="post__cover" loading="lazy" alt="${esc(p.title)}" src="${esc(p.cover)}">` : ""}
-        <div class="post__body">
-          <span class="post__date">${prettyDate(p.date)}</span>
-          <h3>${esc(p.title)}</h3>
-          <p>${esc(p.excerpt)}</p>
-          ${p.tags.length ? `<div class="post__tags">${p.tags.map(t => `<span>#${esc(t)}</span>`).join("")}</div>` : ""}
-        </div>
-      </a>`).join("");
-    $$("#blogGrid .post").forEach(el => io.observe(el));
-    window.__rebindCursor?.();
-  }
-
-  function openPost(slug) {
-    const p = POSTS.find(x => x.slug === slug);
-    if (!p) return closeReader();
-    readerBody.innerHTML = `
-      <h1>${esc(p.title)}</h1>
-      <div class="reader__meta">By ${esc(AUTHOR)}${p.date ? " · " + prettyDate(p.date) : ""}${p.tags.length ? " · " + p.tags.map(t => "#" + esc(t)).join(" ") : ""}</div>
-      ${p.cover ? `<img alt="${esc(p.title)}" src="${esc(p.cover)}">` : ""}
-      <div>${window.marked ? marked.parse(p.body) : esc(p.body)}</div>`;
-    reader.classList.add("open");
-    reader.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-    reader.scrollTop = 0;
-    setSEO(p);
-    window.__rebindCursor?.();
-  }
-
-  function closeReader() {
-    reader.classList.remove("open");
-    reader.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-    resetSEO();
-  }
-
-  /* per-post SEO: title, description, canonical + BlogPosting structured data */
-  const baseTitle = document.title;
-  const baseDesc = $('meta[name="description"]').content;
-  function setSEO(p) {
-    document.title = `${p.title} — ${AUTHOR}`;
-    $('meta[name="description"]').content = p.excerpt;
-    let ld = $("#ldPost");
-    if (!ld) { ld = document.createElement("script"); ld.type = "application/ld+json"; ld.id = "ldPost"; document.head.appendChild(ld); }
-    ld.textContent = JSON.stringify({
-      "@context": "https://schema.org", "@type": "BlogPosting",
-      headline: p.title, description: p.excerpt,
-      author: { "@type": "Person", name: AUTHOR, url: SITE },
-      datePublished: p.date || undefined,
-      image: p.cover || undefined,
-      keywords: p.tags.join(", "),
-      mainEntityOfPage: `${SITE}/#post/${p.slug}`
-    });
-  }
-  function resetSEO() {
-    document.title = baseTitle;
-    $('meta[name="description"]').content = baseDesc;
-    $("#ldPost")?.remove();
-  }
-
-  function routeFromHash() {
-    const m = location.hash.match(/^#post\/(.+)$/);
-    if (m) openPost(decodeURIComponent(m[1])); else closeReader();
-  }
-  addEventListener("hashchange", routeFromHash);
-  $("#readerBack").addEventListener("click", () => { location.hash = "blog"; });
-  $("#readerClose").addEventListener("click", () => { location.hash = "blog"; });
-  addEventListener("keydown", e => { if (e.key === "Escape" && reader.classList.contains("open")) location.hash = "blog"; });
+  /* ---------- old blog links ----------
+     Posts used to open in an overlay at /#post/<slug>. They are static pages
+     now, so send any old link to the real URL. */
+  const legacy = location.hash.match(/^#post\/([\w-]+)$/);
+  if (legacy) location.replace(`/blog/${legacy[1]}/`);
 
   /* ============================================================
      CONTACT FORM
