@@ -21,7 +21,7 @@ import time
 import urllib.error
 import urllib.request
 
-from common import GH_USER, ROOT, BuildError
+from common import GH_USER, ROOT, SITE, BuildError
 
 # ---------------------------------------------------------------- edit these
 
@@ -220,9 +220,12 @@ def _plain(text):
 
 
 def _demo_url(homepage):
-    """The repo's Website field, unless it just points back at GitHub."""
+    """The repo's Website field, unless it points back at GitHub or at this site
+    (setting it to the project's page here is fine, but that isn't a demo)."""
     h = (homepage or "").strip()
     if not h.startswith("http") or re.match(r"https?://(www\.)?github\.com/", h):
+        return ""
+    if re.match(r"https?://(www\.)?%s(/|$)" % re.escape(SITE.split("://", 1)[1]), h):
         return ""
     return h
 
