@@ -4,15 +4,15 @@
 
 **Web Developer · Designer · Student**
 
-A fast, interactive, SEO-optimized personal site that fills itself from GitHub.
-Projects, stats and blog posts update automatically — no build step, no CMS.
+A fast, interactive, SEO-optimized personal site built from GitHub.
+One Python script turns my repos and markdown posts into static pages. No framework, no CMS.
 
 🌐 **[abdulmanan.tech](https://abdulmanan.tech)** &nbsp;·&nbsp; [GitHub](https://github.com/abdulmanan69) · [LinkedIn](https://www.linkedin.com/in/abdulxmanan) · [Instagram](https://www.instagram.com/abdul_x_manan)
 
 ![HTML](https://img.shields.io/badge/HTML5-e34c26?logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS3-563d7c?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-f1e05a?logo=javascript&logoColor=black)
-![No Build](https://img.shields.io/badge/build-none-ff5a3c)
+![Build](https://img.shields.io/badge/build-python%20stdlib-ff5a3c)
 ![Deploy](https://img.shields.io/badge/deploy-Netlify%20%7C%20GitHub%20Pages-16151a)
 
 ![Portfolio preview](og-image.png)
@@ -27,7 +27,7 @@ Projects, stats and blog posts update automatically — no build step, no CMS.
 - **Mouse-interactive** — custom trailing cursor, magnetic buttons, 3D tilt cards, cursor-follow hero blob, scroll reveals, animated counters
 - **Dark / light theme** — respects system preference, remembers your choice
 - **Loading intro** animation
-- **Live GitHub projects** — top repos pulled straight from the API (stars, forks, language)
+- **A page per project** — every public repo (minus a denylist) gets a static page with its README, generated at build time
 - **Native language chart** + contribution graph, streak and live stat counters
 - **GitHub-driven blog** — every post is a markdown file in [`posts/`](posts); push one and it appears, credited to Abdul Manan, with its own SEO metadata
 - **SEO-first** — per-page titles/descriptions, `Person` + `BlogPosting` structured data, Open Graph & Twitter cards, `sitemap.xml`, `robots.txt`, canonical URLs
@@ -35,7 +35,8 @@ Projects, stats and blog posts update automatically — no build step, no CMS.
 
 ## 🧱 Tech
 
-Plain **HTML + CSS + JavaScript**. No framework, no bundler. Markdown rendered client-side with [`marked`](https://marked.js.org). That's the whole stack.
+Plain **HTML + CSS + JavaScript**. No framework, no bundler. A standard-library
+Python build ([`tools/build.py`](tools/build.py)) writes the static project and blog pages.
 
 ## 📁 Structure
 
@@ -47,6 +48,9 @@ portfolio/
 ├── posts/                # ← blog: one .md file per post
 │   ├── *.md
 │   └── images/           # post cover images
+├── projects/             # generated: one page per repo (tools/build.py)
+├── blog/                 # generated: one page per post (tools/build.py)
+├── tools/                # build.py + repos.py (DENYLIST/FEATURED) + page builders
 ├── og-image.png          # social share preview
 ├── favicon.svg  robots.txt  sitemap.xml  site.webmanifest
 ├── CNAME  .nojekyll       # custom domain + GitHub Pages
@@ -69,11 +73,30 @@ portfolio/
 3. Generate the cover and rebuild the crawlable pages:
    ```bash
    python tools/make-cover.py my-post "Short Cover Title" CATEGORY
-   python tools/build-blog.py
+   python tools/build.py
    ```
-4. Commit. The live site picks the markdown up from GitHub automatically — the
-   build step is only for the static `blog/<slug>/` pages, `feed.xml` and `sitemap.xml`
-   that crawlers and social cards read.
+4. Commit the generated files along with the post.
+
+## 🔨 Build (projects, blog, sitemap)
+
+GitHub Pages serves plain files, so the build runs on your machine and its output is committed.
+
+```bash
+python tools/build.py             # fetch repos from GitHub, rebuild everything
+python tools/build.py --offline   # rebuild from the last good GitHub cache
+```
+
+It writes one page per public repo at `projects/<slug>/` (README included), the
+`projects/` hub, the project cards inside `index.html`, every `blog/<slug>/` page,
+`feed.xml` and `sitemap.xml`. Standard library only, no `pip install`.
+
+- **Which repos:** forks, archived repos and anything in `DENYLIST` in
+  [`tools/repos.py`](tools/repos.py) are skipped. Sorted by stars, then latest push.
+- **Featured:** list repo names in `FEATURED` in the same file to pin them first.
+- **Display names / demo links:** `OVERRIDES` in the same file.
+- **If GitHub fails** (offline, rate-limited, empty response) the build stops with
+  `BUILD FAILED` and writes nothing. Set `GITHUB_TOKEN` to raise the 60 requests/hour
+  limit. READMEs are cached in `.cache/` and refetched only when a repo is pushed.
 
 > `tools/make-cover.py` needs three variable fonts in `.fonts/` (Fraunces, Inter,
 > JetBrains Mono — links are in the script's docstring). They're gitignored; any
