@@ -19,7 +19,9 @@ Standard library only.
 
 import argparse
 import os
+import subprocess
 import sys
+from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -28,8 +30,8 @@ import check                         # noqa: E402
 import og                            # noqa: E402
 import projects                      # noqa: E402
 import repos as repo_data            # noqa: E402
-from common import (AUTHOR, PERSON_ID, ROOT, SITE, inject, ld_script,  # noqa: E402
-                    person, write)
+from common import (AUTHOR, PERSON_ID, ROOT, SITE, BuildError, inject,  # noqa: E402
+                    ld_script, person, write)
 
 
 def build_home_ld(lastmod):
@@ -47,21 +49,48 @@ def build_home_ld(lastmod):
     inject("index.html", "ld-home", "\n".join(ld_script(x) for x in (profile, website)))
 
 
-def build_sitemap(entries):
-    """entries: (path, lastmod YYYY-MM-DD, image url or None)."""
-    seen, urls = set(), []
-    for path, lastmod, image in entries:
-        if path in seen:
-            raise SystemExit("duplicate sitemap entry: %s" % path)
-        seen.add(path)
-        img = ("    <image:image><image:loc>%s</image:loc></image:image>\n" % image) if image else ""
-        urls.append("  <url>\n    <loc>%s%s</loc>\n    <lastmod>%s</lastmod>\n%s  </url>\n"
-                    % (SITE, path, lastmod, img))
+def today():
+    return datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+
+def git_lastmod(path):
+    """Date of the last commit touching path, or today if it has uncommitted edits."""
+    rel = os.path.relpath(path, ROOT)
+    dirty = subprocess.run(["git", "status", "--porcelain", "--", rel], cwd=ROOT,
+                           capture_output=True, text=True).stdout.strip()
+    if dirty:
+        return today()
+    out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", rel], cwd=ROOT,
+                         capture_output=True, text=True).stdout.strip()
+    if not out:
+        raise BuildError("can't date %s for the sitemap: not in git" % rel)
+    return out
+
+
+def build_sitemap(lastmods):
+    """List every indexable HTML page on disk, so the sitemap is the real route
+    list. lastmods maps URL paths to content dates from the page builders; a
+    hand-written page uses its git date."""
+    urls = []
+    for path in check.html_files():
+        page_info = check.parse(path)
+        if page_info.noindex:
+            continue
+        loc = check.url_for(path)
+        rel = loc[len(SITE):]
+        lastmod = lastmods.get(rel) or git_lastmod(path)
+        img = page_info.og_image
+        img = ("    <image:image><image:loc>%s</image:loc></image:image>\n" % img
+               if img.startswith(SITE + "/") else "")
+        urls.append((rel, "  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n%s  </url>\n"
+                     % (loc, lastmod, img)))
+    urls.sort(key=lambda u: (u[0] != "/", u[0]))          # homepage first, then by path
     write(os.path.join(ROOT, "sitemap.xml"),
           '<?xml version="1.0" encoding="UTF-8"?>\n'
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
           'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n%s</urlset>\n'
-          % "".join(urls))
+          % "".join(u[1] for u in urls))
+    print("sitemap: %d URLs" % len(urls))
 
 
 def main():
@@ -73,13 +102,16 @@ def main():
     posts = blog.load_posts()
     print("building %d projects, %d posts" % (len(repos), len(posts)))
 
-    project_entries = projects.build(repos, posts)
-    blog_entries = blog.build(posts, repos)
+    lastmods = {}
+    lastmods.update(projects.build(repos, posts))
+    lastmods.update(blog.build(posts, repos))
 
-    home_lastmod = max(e[1] for e in project_entries + blog_entries)
-    build_home_ld(home_lastmod)
-    build_sitemap([("/", home_lastmod, SITE + "/og-image.png")] + project_entries + blog_entries)
+    # Anything the homepage shows (cards, counts, copy) lives in index.html, so the
+    # file's own date is the page's date: last commit, or today if it has edits.
+    lastmods["/"] = git_lastmod(os.path.join(ROOT, "index.html"))
+    build_home_ld(lastmods["/"])
     og.save_manifest()
+    build_sitemap(lastmods)
     check.run()
     print("done")
 

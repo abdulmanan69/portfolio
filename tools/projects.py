@@ -446,6 +446,6 @@ def build(repos, posts):
         build_project(r, repos, posts)
     build_hub(repos)
     inject_home(repos)
-    latest = max(r["pushed_at"][:10] for r in repos)
-    return ([("/projects/", latest, None)] +
-            [("/projects/%s/" % r["slug"], r["pushed_at"][:10], None) for r in repos])
+    # a project page changes when its repo is pushed (README, description, date)
+    return {"/projects/": max(r["pushed_at"][:10] for r in repos),
+            **{"/projects/%s/" % r["slug"]: r["pushed_at"][:10] for r in repos}}
