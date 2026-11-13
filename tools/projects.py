@@ -13,8 +13,10 @@ from datetime import datetime
 from html.parser import HTMLParser
 from urllib.parse import urljoin
 
-from common import AUTHOR, GH_USER, ROOT, e, page, prune, write
-from repos import BuildError, featured_first
+import og
+from common import (AUTHOR, GH_USER, ROOT, SITE, breadcrumbs, e, inject, page,
+                    person_ref, prune, write)
+from repos import featured_first
 
 HOME_CARDS = 6
 
@@ -357,8 +359,34 @@ def build_project(repo, repos, posts):
                          for r in more))
     parts.append("</main>")
 
-    doc = page(title=page_title(repo), desc=meta_description(repo),
-               path="/projects/%s/" % repo["slug"], body="\n".join(parts))
+    path = "/projects/%s/" % repo["slug"]
+    label = "Project · %s" % repo["language"] if repo.get("language") else "Project"
+    image = og.card("og/projects/%s.png" % repo["slug"], label, name, summary(repo))
+    code = {
+        "@context": "https://schema.org", "@type": "SoftwareSourceCode",
+        "@id": SITE + path + "#code",
+        "name": name,
+        "description": summary(repo) or meta_description(repo),
+        "url": SITE + path,
+        "mainEntityOfPage": SITE + path,
+        "codeRepository": repo["html_url"],
+        "author": person_ref(),
+        "dateCreated": repo["created_at"][:10],
+        "dateModified": repo["pushed_at"][:10],
+        "image": SITE + image[0],
+    }
+    if repo.get("language"):
+        code["programmingLanguage"] = repo["language"]
+    if repo.get("topics"):
+        code["keywords"] = ", ".join(repo["topics"])
+    spdx = (repo.get("license") or {}).get("spdx_id")
+    if spdx and spdx != "NOASSERTION":
+        code["license"] = "https://spdx.org/licenses/%s.html" % spdx
+
+    doc = page(title=page_title(repo), desc=meta_description(repo), path=path,
+               body="\n".join(parts), image=image,
+               image_alt="%s, a project by %s" % (name, AUTHOR),
+               ld=(code, breadcrumbs(("Projects", "/projects/"), (name, path))))
     write(os.path.join(ROOT, "projects", repo["slug"], "index.html"), doc)
 
 
@@ -380,33 +408,32 @@ def build_hub(repos):
                  'href="https://github.com/%s?tab=repositories">Everything else is on GitHub</a></p>'
                  % GH_USER)
     parts.append("</main>")
-    doc = page(title="Projects by %s: Open-Source Code and Apps" % AUTHOR,
-               desc="Every project %s has published on GitHub, with language, topics, "
+    title = "Projects by %s: Open-Source Code and Apps" % AUTHOR
+    image = og.card("og/projects.png", "Projects", title.split(":")[0],
+                    "Open-source code, READMEs and live demos from my GitHub.")
+    collection = {
+        "@context": "https://schema.org", "@type": "CollectionPage",
+        "@id": SITE + "/projects/#page", "name": title, "url": SITE + "/projects/",
+        "author": person_ref(),
+        "mainEntity": {"@type": "ItemList", "numberOfItems": len(ordered),
+                       "itemListElement": [{"@type": "ListItem", "position": i + 1,
+                                            "url": "%s/projects/%s/" % (SITE, r["slug"]),
+                                            "name": r["display_name"]}
+                                           for i, r in enumerate(ordered)]},
+    }
+    doc = page(title=title,
+               desc="Open-source projects by %s on GitHub, each with its language, topics, "
                     "README and links to the code and live demos." % AUTHOR,
-               path="/projects/", body="\n".join(parts))
+               path="/projects/", body="\n".join(parts), image=image,
+               ld=(collection, breadcrumbs(("Projects", "/projects/"))))
     write(os.path.join(ROOT, "projects", "index.html"), doc)
-
-
-START, END = "<!-- build:projects -->", "<!-- /build:projects -->"
 
 
 def inject_home(repos):
     """Bake the top project cards into index.html between the build markers."""
-    path = os.path.join(ROOT, "index.html")
-    with open(path, encoding="utf-8", newline="") as f:
-        text = f.read()
-    if START not in text or END not in text:
-        raise BuildError("index.html is missing the %s / %s markers" % (START, END))
     top = featured_first(repos)[:HOME_CARDS]
-    cards = "\n".join(card(r, reveal=True) for r in top)
-    text = re.sub(re.escape(START) + r".*?" + re.escape(END),
-                  lambda m: "%s\n%s\n%s" % (START, cards, END), text, count=1, flags=re.S)
-    text = re.sub(r'(<a href="/projects/" class="[^"]*" id="allProjects"[^>]*>)[^<]*(</a>)',
-                  lambda m: "%sAll %d projects &rarr;%s" % (m.group(1), len(repos), m.group(2)),
-                  text, count=1)
-    with open(path, "w", encoding="utf-8", newline="") as f:
-        f.write(text)
-    print("  updated index.html (%d project cards)" % len(top))
+    inject("index.html", "projects", "\n".join(card(r, reveal=True) for r in top))
+    inject("index.html", "projects-count", "All %d projects &rarr;" % len(repos), inline=True)
 
 
 def build(repos, posts):
@@ -414,6 +441,7 @@ def build(repos, posts):
     for r in repos:
         r["readme_html"], r["excerpt"] = clean_readme(r)
     prune("projects", {r["slug"] for r in repos})
+    og.prune("projects", {r["slug"] for r in repos})
     for r in repos:
         build_project(r, repos, posts)
     build_hub(repos)

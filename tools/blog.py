@@ -9,7 +9,9 @@ import re
 from datetime import datetime, timezone
 from urllib.parse import quote
 
-from common import AUTHOR, GH_USER, ROOT, SAME_AS, SITE, abs_url, e, page, prune, write
+import og
+from common import (AUTHOR, GH_USER, ROOT, SITE, abs_url, breadcrumbs, e, page,
+                    person_ref, prune, write)
 from md import markdown
 
 WPM = 200
@@ -96,20 +98,13 @@ def build_post(post, posts, idx, repos):
         "@context": "https://schema.org", "@type": "BlogPosting",
         "headline": post["title"], "description": post["excerpt"], "image": image,
         "wordCount": post["words"],
-        "author": {"@type": "Person", "name": AUTHOR, "url": SITE, "sameAs": SAME_AS},
-        "publisher": {"@type": "Person", "name": AUTHOR, "url": SITE},
+        "author": person_ref(),
+        "publisher": person_ref(),
         "datePublished": post["date"], "dateModified": post["date"],
         "keywords": ", ".join(post["tags"]),
         "mainEntityOfPage": post["url"], "url": post["url"],
     }
-    crumbs = {
-        "@context": "https://schema.org", "@type": "BreadcrumbList",
-        "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
-            {"@type": "ListItem", "position": 2, "name": "Blog", "item": SITE + "/blog/"},
-            {"@type": "ListItem", "position": 3, "name": post["title"], "item": post["url"]},
-        ],
-    }
+    crumbs = breadcrumbs(("Blog", "/blog/"), (post["title"], post["path"]))
 
     parts = ['<main class="reader__body">',
              '<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / '
@@ -150,7 +145,7 @@ def build_post(post, posts, idx, repos):
     doc = page(title="%s - %s" % (post["title"], AUTHOR), desc=post["excerpt"],
                path=post["path"], body="\n".join(parts), og_type="article",
                image=(image, 1200, 675) if post["cover"] else None,
-               ld=(blogposting, crumbs))
+               image_alt="Cover: %s" % post["title"], ld=(blogposting, crumbs))
     write(os.path.join(ROOT, "blog", post["slug"], "index.html"), doc)
 
 
@@ -158,7 +153,7 @@ def build_hub(posts):
     desc = "Articles by Abdul Manan on web development, design, SEO and learning to code."
     ld = {"@context": "https://schema.org", "@type": "Blog",
           "name": "%s - Blog" % AUTHOR, "url": "%s/blog/" % SITE,
-          "author": {"@type": "Person", "name": AUTHOR, "url": SITE},
+          "author": person_ref(),
           "blogPost": [{"@type": "BlogPosting", "headline": p["title"],
                         "url": p["url"], "datePublished": p["date"]} for p in posts]}
     parts = ['<main class="hub">',
@@ -177,7 +172,10 @@ def build_hub(posts):
             % (p["path"], cover, p["date"], p["minutes"], e(p["title"]), e(p["excerpt"]), tags))
     parts.append('<div class="blog__grid">%s</div>' % "".join(cards))
     parts.append("</main>")
-    doc = page(title="Blog - %s" % AUTHOR, desc=desc, path="/blog/", body="\n".join(parts), ld=(ld,))
+    image = og.card("og/blog.png", "Blog", "Writing by %s" % AUTHOR,
+                    "Web development, design, SEO and the projects behind them.")
+    doc = page(title="Blog - %s" % AUTHOR, desc=desc, path="/blog/", body="\n".join(parts),
+               image=image, ld=(ld, breadcrumbs(("Blog", "/blog/"))))
     write(os.path.join(ROOT, "blog", "index.html"), doc)
 
 
