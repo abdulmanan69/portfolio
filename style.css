@@ -135,7 +135,7 @@ code { font-family: "JetBrains Mono", monospace; font-size: .85em; }
 .hero__inner { max-width: 1000px; }
 .hero__eyebrow { font-family: "JetBrains Mono", monospace; font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; }
 .hero__title { font-family: "Fraunces", serif; font-weight: 400; font-size: clamp(3rem, 11vw, 8.5rem); line-height: .92; letter-spacing: -.03em; margin-bottom: 28px; }
-.hero__title span { display: block; }
+.hero__title > span { display: block; }
 .accent { color: var(--accent); font-style: italic; }
 .hero__lead { max-width: 540px; font-size: clamp(1.05rem, 2vw, 1.3rem); color: var(--ink-soft); margin-bottom: 40px; }
 .hero__actions { display: flex; gap: 16px; flex-wrap: wrap; }
