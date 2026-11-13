@@ -1,3 +1,4 @@
 .fonts/
 .playwright-mcp/
 .cache/
+__pycache__/
