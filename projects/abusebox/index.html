@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AbuseBox: Open-source threat monitoring toolkit… | Abdul Manan</title>
+<meta name="description" content="AbuseBox by Abdul Manan. Open-source threat monitoring toolkit for IPs, domains, and servers." />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/abusebox/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="AbuseBox: Open-source threat monitoring toolkit… | Abdul Manan" />
+<meta property="og:description" content="AbuseBox by Abdul Manan. Open-source threat monitoring toolkit for IPs, domains, and servers." />
+<meta property="og:url" content="https://abdulmanan.tech/projects/abusebox/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AbuseBox: Open-source threat monitoring toolkit… | Abdul Manan" />
+<meta name="twitter:description" content="AbuseBox by Abdul Manan. Open-source threat monitoring toolkit for IPs, domains, and servers." />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">AbuseBox</span></nav>
+<h1>AbuseBox</h1>
+<p class="project-page__lead">Open-source threat monitoring toolkit for IPs, domains, and servers.</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>Python</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-11-04">4 Nov 2026</time></dd></div><div><dt>License</dt><dd>MIT</dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/AbuseBox" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div align="center">
+<a href="https://github.com/abdulmanan69/AbuseBox/blob/main/files/logo.png"><img src="https://raw.githubusercontent.com/abdulmanan69/AbuseBox/main/files/logo.png" alt="AbuseBox Logo" width="120" loading="lazy" decoding="async"></a>
+<div><span id="user-content-abusebox"></span></div>
+
+<p>Check blacklists, query AbuseIPDB, inspect DNS/SSL/DMARC records, scan subnets and verify uptime, then get told when something changes. One self-hosted dashboard.</p>
+<p><a href="https://github.com/abdulmanan69/AbuseBox/blob/main/LICENSE"><img src="https://camo.githubusercontent.com/f0cb8ba13592d31161791daf5df230b9e7c063b00e304ac5a2f0661e7e2c8a57/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d4d49542d626c75652e737667" alt="License: MIT" loading="lazy" decoding="async"></a>
+<a href="https://github.com/bekkaze/abusebox/releases"><img src="https://camo.githubusercontent.com/ad71e82933c88dbee4a90f02b8bdd3ac9eaf2d47364a8685282ada0f470ab110/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f762f72656c656173652f62656b6b617a652f6162757365626f78" alt="GitHub release" loading="lazy" decoding="async"></a>
+<a href="https://github.com/bekkaze/abusebox/stargazers"><img src="https://camo.githubusercontent.com/65cf8573571c6689d2b63e43fec4b121bd90f89124e0e208c06520f76caa45eb/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f73746172732f62656b6b617a652f6162757365626f783f7374796c653d736f6369616c" alt="GitHub stars" loading="lazy" decoding="async"></a></p>
+</div>
+<hr>
+<div><h3>Screenshots</h3><span id="user-content-screenshots"></span></div>
+<p><strong>Dashboard</strong>: everything that needs attention across your assets, scheduler status, recent activity and listing history</p>
+<p><a href="https://github.com/abdulmanan69/AbuseBox/blob/main/files/dashboard.png"><img src="https://raw.githubusercontent.com/abdulmanan69/AbuseBox/main/files/dashboard.png" alt="Dashboard" loading="lazy" decoding="async"></a></p>
+<p><strong>Assets</strong>: health at a glance, filters, sorting, card or table view, and bulk actions</p>
+<p><a href="https://github.com/abdulmanan69/AbuseBox/blob/main/files/assets.png"><img src="https://raw.githubusercontent.com/abdulmanan69/AbuseBox/main/files/assets.png" alt="Assets" loading="lazy" decoding="async"></a></p>
+<p><strong>Asset detail</strong>: results for every check, plus the asset's activity and a check-by-check history</p>
+<p><a href="https://github.com/abdulmanan69/AbuseBox/blob/main/files/asset_details.png"><img src="https://raw.githubusercontent.com/abdulmanan69/AbuseBox/main/files/asset_details.png" alt="Asset detail" loading="lazy" decoding="async"></a></p>
+<p><strong>Landing page</strong>: anyone can run a quick blacklist check, no account needed</p>
+<p><a href="https://github.com/abdulmanan69/AbuseBox/blob/main/files/landing.png"><img src="https://raw.githubusercontent.com/abdulmanan69/AbuseBox/main/files/landing.png" alt="Landing page" loading="lazy" decoding="async"></a></p>
+<table>
+  <tbody><tr>
+    <td width="50%"><b>Activity log</b>: every change, with severity filters<br><a href="https://github.com/abdulmanan69/AbuseBox/blob/main/files/activity.png"><img src="https://raw.githubusercontent.com/abdulmanan69/AbuseBox/main/files/activity.png" alt="Activity log" loading="lazy" decoding="async"></a></td>
+    <td width="50%"><b>Alerts</b>: email, Slack, Discord or any webhook, with a test button<br><a href="https://github.com/abdulmanan69/AbuseBox/blob/main/files/notifications.png"><img src="https://raw.githubusercontent.com/abdulmanan69/AbuseBox/main/files/notifications.png" alt="Notification settings" loading="lazy" decoding="async"></a></td>
+  </tr>
+  <tr>
+    <td width="50%"><b>Dark mode</b><br><a href="https://github.com/abdulmanan69/AbuseBox/blob/main/files/dashboard_dark.png"><img src="https://raw.githubusercontent.com/abdulmanan69/AbuseBox/main/files/dashboard_dark.png" alt="Dashboard in dark mode" loading="lazy" decoding="async"></a></td>
+    <td width="50%"><b>Command palette</b> (Ctrl/Cmd + K): jump to any asset or page<br><a href="https://github.com/abdulmanan69/AbuseBox/blob/main/files/command_palette.png"><img src="https://raw.githubusercontent.com/abdulmanan69/AbuseBox/main/files/command_palette.png" alt="Command palette" loading="lazy" decoding="async"></a></td>
+  </tr>
+</tbody></table>
+<hr>
+<div><h3>Why AbuseBox?</h3><span id="user-content-why-abusebox"></span></div>
+<p>Most blacklist tools check one thing at a time. AbuseBox gives you a <strong>single pane of glass</strong> to:</p>
+<ul>
+<li>See <strong>what needs attention</strong> in one list: blacklist listings, expiring certificates and domains, servers down, weak email security</li>
+<li>Scan <strong>60 DNSBL providers</strong> in seconds</li>
+<li>Get <strong>AbuseIPDB reputation scores</strong> alongside blacklist results</li>
+<li>Run <strong>bulk checks</strong> on up to 300 IPs/domains at once (paste or upload TXT/CSV/XLSX)</li>
+<li>Scan entire <strong>subnets (CIDR /24)</strong> for blacklisted IPs</li>
+<li>Pull <strong>WHOIS</strong>, <strong>DNS records</strong>, and <strong>SSL certificate</strong> details with one click</li>
+<li>Validate <strong>SPF / DKIM / DMARC</strong> email authentication</li>
+<li>Check if a server is <strong>up or down</strong> with DNS, port, and HTTP checks</li>
+<li><strong>Register assets</strong> and run all checks with configurable toggles</li>
+<li><strong>Schedule periodic checks</strong> with email, Slack, Discord or webhook alerts for listings, recoveries, outages and expiry</li>
+<li>Keep an <strong>activity log</strong> of every change and compare any two checks</li>
+<li>Export results to <strong>CSV</strong> and track history with <strong>charts</strong></li>
+<li>Switch between <strong>light and dark mode</strong></li>
+</ul>
+<p>No vendor lock-in. No paid tiers. Self-host it and own your data.</p>
+<hr>
+<div><h3>Features</h3><span id="user-content-features"></span></div>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+<th>Auth required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Needs-attention dashboard</strong></td>
+<td>Listings, invalid/expiring SSL, expiring domains, servers down, weak email security, overdue checks, scheduler status</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Activity log</strong></td>
+<td>Every detected change (listed, delisted, down, recovered, expiring) with severity filters</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Alerts</strong></td>
+<td>Email and webhook (Slack/Discord formatted) for new listings, removals, outages and expiry warnings, with a test button</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Blacklist Quick Check</strong></td>
+<td>Scan hostname/IP against 60 DNSBL providers (rate limited for anonymous use)</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Bulk Check</strong></td>
+<td>Check up to 300 IPs/domains at once, from a list or a TXT/CSV/XLSX file</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Subnet / CIDR Check</strong></td>
+<td>Scan an entire IP range (max /24) against key DNSBL providers</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>AbuseIPDB</strong></td>
+<td>IP reputation score, abuse reports, ISP &amp; geolocation</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>WHOIS Lookup</strong></td>
+<td>Domain registrar, dates, name servers, registrant info</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>DNS Record Viewer</strong></td>
+<td>A, AAAA, MX, TXT, CNAME, NS, SOA, PTR records</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>SSL Certificate Checker</strong></td>
+<td>Validity, expiry, issuer, cipher, SAN list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>SPF / DKIM / DMARC</strong></td>
+<td>Email authentication validation with A-F grading, custom DKIM selectors</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Is Server Up?</strong></td>
+<td>DNS resolution, port scan (80/443), HTTP status &amp; response time</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>CSV Export</strong></td>
+<td>Download blacklist and subnet results as CSV</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Bulk Asset Import</strong></td>
+<td>Add up to 300 assets at once from a pasted list or TXT/CSV/XLSX file</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>CIDR Import</strong></td>
+<td>Import an IP range (max /24) as monitored assets from the UI</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Assets</strong></td>
+<td>Register domains/IPs, run all checks with per-asset toggles, edit them later</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Bulk Actions</strong></td>
+<td>Select many assets to re-check (in the background), toggle monitoring/alerts or delete; table view, sorting, CSV export</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Check History</strong></td>
+<td>Browse past checks and see which blacklists were added or removed</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Asset Detail View</strong></td>
+<td>Tabbed results for every check type with summary cards</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Scheduled Monitoring</strong></td>
+<td>Automatic re-checks on a global or per-asset interval, with a "check due assets now" button</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Historical Charts</strong></td>
+<td>Visual blacklist history per monitored asset</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Re-check Asset</strong></td>
+<td>Re-run all enabled checks on any asset with one click</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Delist Tracking</strong></td>
+<td>Links to each provider's removal page and tracks requested removals</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Search &amp; Filter</strong></td>
+<td>Search assets by hostname, type or description; filter by needs attention, listed or clean</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Auto-refresh</strong></td>
+<td>Configurable auto-refresh (30s/1m/5m) on Dashboard and Assets</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Copy to Clipboard</strong></td>
+<td>One-click copy on IPs, DNS records, WHOIS data, SSL details</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Relative Timestamps</strong></td>
+<td>"2 hours ago" with full datetime tooltip on hover</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Dark Mode</strong></td>
+<td>Toggle between light and dark themes, persisted to localStorage</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Responsive Layout</strong></td>
+<td>Collapsible sidebar with hamburger menu on mobile</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Favicon Alert</strong></td>
+<td>Red badge on favicon when any asset is blacklisted</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Users</strong></td>
+<td>Admins add users, grant admin, deactivate and reset passwords; everyone can change their own password</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Data Retention</strong></td>
+<td>Optionally delete history older than 30–365 days</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Command Palette</strong></td>
+<td>Ctrl/Cmd + K to jump to any asset, page or setting, or check a domain/IP</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>API Documentation</strong></td>
+<td>Swagger UI &amp; ReDoc for all endpoints</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Composite Risk Score</strong></td>
+<td>Runs every scanner in parallel and reduces the results to one weighted 0-100 posture score with a prioritised fix list</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>HTTP Security Headers</strong></td>
+<td>Grades CSP, HSTS, frame options, referrer and cross-origin policies A+ to F, plus cookie flags and version disclosure</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>TLS / Cipher Audit</strong></td>
+<td>Separate handshake per TLS version to find deprecated protocols (TLS 1.0/1.1), weak ciphers and missing forward secrecy</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Port Scanner</strong></td>
+<td>50 commonly exposed ports with service identification, banner grab and risk tiering (exposed database, RDP, Redis)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Exposed Files &amp; Paths</strong></td>
+<td>Finds readable <code>.env</code>, <code>.git/config</code>, SQL dumps, backups, Spring Actuator and unprotected admin panels, with soft-404 filtering</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>DNS Security Audit</strong></td>
+<td>DNSSEC chain validation, zone transfer (AXFR) test against every nameserver, CAA records and wildcard detection</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Subdomain Enumeration</strong></td>
+<td>Certificate Transparency logs plus a DNS wordlist, with wildcard filtering and subdomain-takeover detection</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Technology Fingerprint</strong></td>
+<td>Detects web server, framework, CMS, WAF/CDN and analytics from headers, cookies and page markers, with evidence</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Typosquat Detector</strong></td>
+<td>Generates lookalike domains across seven techniques and reports which are registered, live and able to send email</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Snort3 Alert Ingestion</strong></td>
+<td>Receives alerts from Snort3 sensors in alert_json, alert_fast or alert_csv format, deduplicates floods and correlates them to monitored assets</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Snort3 Rule Generator</strong></td>
+<td>Turns blacklisted assets, repeat attackers and lookalike domains into deployable Snort3 rules, with a syntax validator</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Sensor Health</strong></td>
+<td>Lists every reporting sensor and flags one that has gone quiet for over an hour</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Role-Based Access Control</strong></td>
+<td>Three roles (viewer, analyst, admin) enforced server-side on every request</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>API Keys</strong></td>
+<td>Scoped machine credentials for sensors and automation; only a SHA-256 digest is stored</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Audit Trail</strong></td>
+<td>Append-only record of logins, failed logins, user and role changes, key issuance and alert triage, with source IP</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Prometheus Metrics</strong></td>
+<td>/metrics endpoint with request counters and latency histograms, labelled by route template</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Nmap</strong></td>
+<td>Five scan profiles with service and version detection, run inside the container</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Ncat</strong></td>
+<td>Service banner grabbing, including over TLS with SNI, with protocol probes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>OpenVAS / Greenbone</strong></td>
+<td>Live over GMP: start a scan, poll it, pull the report. XML import also supported</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Rapid7 Nexpose / InsightVM</strong></td>
+<td>Live over REST API v3 against your licensed console</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>MBSA, LanGuard, Nipper, Core Impact</strong></td>
+<td>Live via the Windows connector, which runs them locally and pushes results back</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Contextual risk prioritisation</strong></td>
+<td>Dempster-Shafer evidence fusion across all eight scanners, weighted by learned per-tool reliability, multiplied by live exploitation evidence from Snort3, suppressed by a false-positive model trained on your own triage, and measured against a CVSS-only baseline</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Cross-tool correlation</strong></td>
+<td>Groups findings by CVE fingerprint to show where independent scanners agree, and where they disagree on severity</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div><h3>Quick Start</h3><span id="user-content-quick-start"></span></div>
+<div><h4>Docker (recommended)</h4><span id="user-content-docker-recommended"></span></div>
+<div><pre>git clone https://github.com/bekkaze/abusebox
+<span>cd</span> abusebox
+cp backend/.env.example .env    <span><span>#</span> configure your settings</span>
+docker compose up --build</pre></div>
+<p>Open <code>http://localhost:3000</code> and you're ready to go.</p>
+<blockquote>
+<p>Default login: <code>admin</code> / <code>password123</code>. <strong>Change it in Settings right after the first sign-in.</strong></p>
+<p>To open AbuseBox from another machine, add that hostname or IP to <code>VITE_ALLOWED_HOSTS</code> and <code>APP_CORS_ALLOWED_ORIGINS</code> in <code>.env</code>.</p>
+</blockquote>
+<div><h4>Manual Setup</h4><span id="user-content-manual-setup"></span></div>
+<details>
+<summary>Click to expand</summary>
+<p><strong>Prerequisites:</strong> Python 3.11+, Node.js 20.19+, Yarn</p>
+<p><strong>Backend:</strong></p>
+<div><pre><span>cd</span> backend
+cp .env.example .env
+pip install -r requirements.txt
+uvicorn app.main:app --host 0.0.0.0 --port 8100 --reload</pre></div>
+<p><strong>Frontend</strong> (new terminal):</p>
+<div><pre><span>cd</span> frontend
+cp .env.example .env
+yarn install
+yarn dev</pre></div>
+<p>Open <code>http://localhost:3000</code>.</p>
+</details>
+<div><h4>Upgrading from v1.1.x</h4><span id="user-content-upgrading-from-v11x"></span></div>
+<p>Back up your data first, then pull the new version. The database is migrated automatically on start.</p>
+<div><pre><span><span>#</span> The volume is named &lt;folder&gt;_abusebox-data; `docker volume ls` shows it.</span>
+docker run --rm -v abusebox_abusebox-data:/data -v <span><span>"</span><span>$PWD</span><span>"</span></span>:/backup alpine tar czf /backup/abusebox-data.tgz -C /data <span>.</span>
+git pull
+docker compose up -d --build</pre></div>
+<p>Things that changed:</p>
+<ul>
+<li><strong>Everyone is signed out once.</strong> Older Docker setups used a published JWT secret; v1.2.0 generates a private one (or uses your <code>APP_SECRET_KEY</code>).</li>
+<li><strong>Change the admin password.</strong> Older Docker setups ignored <code>DEFAULT_ADMIN_PASSWORD</code> from <code>.env</code>, so the admin account probably still uses <code>password123</code>. A banner reminds you until you change it in <strong>Settings → Security</strong>.</li>
+<li><strong>The <code>/tools/*</code> API needs a token.</strong> Only <code>/blacklist/quick-check/</code> stays public. See <a href="#user-content-api-endpoints">API Endpoints</a>.</li>
+<li><strong>No public sign-up.</strong> Admins add users in <strong>Settings → Users</strong>.</li>
+<li><strong>The scheduler is on by default</strong> unless you turned it off in Settings before.</li>
+</ul>
+<hr>
+<div><h3>Snort3 integration</h3><span id="user-content-snort3-integration"></span></div>
+<p>AbuseBox works in both directions with Snort3: alerts flow in for correlation,
+and detection rules flow back out.</p>
+<div><pre><code>   Snort3 sensor                 AbuseBox                    Snort3 sensor
+        |                            |                            |
+        |  alert_json --&gt; agent --&gt;  |  correlate to assets       |
+        |                            |  deduplicate floods        |
+        |                            |  triage queue              |
+        |                            |                            |
+        |                            |  generate rules ---------&gt; |
+        |                            |  from blacklists,          |
+        |                            |  repeat attackers,         |
+        |                            |  lookalike domains         |
+</code></pre></div>
+<div><h4>Sending alerts from a sensor</h4><span id="user-content-sending-alerts-from-a-sensor"></span></div>
+<ol>
+<li>
+<p>Configure Snort3 to write JSON alerts. A working <code>snort.lua</code> and a starter
+<code>local.rules</code> are in <a href="https://github.com/abdulmanan69/AbuseBox/blob/main/deploy/snort/"><code>deploy/snort/</code></a>:</p>
+<div><pre><span>alert_json</span> <span>=</span> {
+  <span>file</span> <span>=</span> <span>true</span>,
+  <span>limit</span> <span>=</span> <span>100</span>,
+  <span>fields</span> <span>=</span> <span><span>'</span>timestamp pkt_num proto pkt_gen pkt_len dir src_addr src_port dst_addr dst_port service rule action msg priority class<span>'</span></span>
+}</pre></div>
+</li>
+<li>
+<p>Create an API key in <strong>Administration → API keys</strong> with the <code>snort:ingest</code>
+scope. The plaintext is shown once; only a SHA-256 digest is stored.</p>
+</li>
+<li>
+<p>Run the agent on the sensor host. It needs nothing beyond Python 3:</p>
+<div><pre><span>export</span> ABUSEBOX_URL=https://abusebox.example.com
+<span>export</span> ABUSEBOX_API_KEY=abx_...
+./deploy/snort3-agent.py --log /var/log/snort/alert_json.txt --sensor dmz-01</pre></div>
+<p>The agent checkpoints its byte offset and the log's inode, so it resumes
+after a restart, follows log rotation, and retries with backoff when the
+server is unreachable rather than dropping alerts.</p>
+</li>
+</ol>
+<p>No sensor to hand? Use <strong>Import log</strong> on the Intrusion Alerts page to replay an
+existing alert file, or POST raw text to <code>/snort/ingest/raw/</code>.</p>
+<div><h4>What happens to an alert</h4><span id="user-content-what-happens-to-an-alert"></span></div>
+<ul>
+<li><strong>Deduplicated</strong> on <code>sensor|gid:sid|src|dst</code> inside a time window. A port scan
+produces thousands of identical alerts; the first is stored and the rest
+increment <code>hit_count</code>. Ports are excluded from the key on purpose, since a
+scan varies the port on every packet.</li>
+<li><strong>Correlated</strong> to a monitored asset when either endpoint matches. Domain
+assets are resolved, and that IP-to-asset index is cached for five minutes so
+ingest stays fast.</li>
+<li><strong>Graded</strong> from Snort's priority: 1 to critical, 2 to high, 3 to medium,
+4 and above to low.</li>
+</ul>
+<div><h4>Generating rules</h4><span id="user-content-generating-rules"></span></div>
+<p>The <strong>Rule Generator</strong> builds a deployable ruleset from what AbuseBox has
+already found:</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Rule produced</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blacklisted assets</td>
+<td>Alert on traffic involving the asset</td>
+</tr>
+<tr>
+<td>Repeat attackers</td>
+<td>Alert on source IPs that keep triggering critical/high alerts</td>
+</tr>
+<tr>
+<td>Lookalike domains</td>
+<td>Alert on DNS queries and HTTP Host headers for the lookalike</td>
+</tr>
+</tbody>
+</table>
+<p>Generated SIDs start at <strong>9000000</strong> - clear of the vendor range (up to 1000000)
+and the conventional local range (1000000-1999999) - so a rule update never
+collides. Private and reserved addresses are never turned into rules, because
+such a rule would alert on ordinary internal traffic.</p>
+<p>Domain rules match the longest <em>label</em> rather than the dotted name: DNS puts
+length-prefixed labels on the wire, so the bytes for <code>paypa1.com</code> are
+<code>\x06paypa1\x03com\x00</code> and the dotted string never appears in the packet.</p>
+<div><pre><span><span>#</span> Deploy an exported ruleset</span>
+cp abusebox.rules /etc/snort/rules/
+<span><span>#</span> add to snort.lua:  include $RULE_PATH/abusebox.rules</span>
+snort -c /etc/snort/snort.lua -R abusebox.rules -T   <span><span>#</span> validate before reload</span></pre></div>
+<p>The built-in validator catches the structural mistakes Snort rejects, but it is
+not a substitute for <code>snort -T</code>: only Snort can confirm a rule loads against
+your configuration.</p>
+<div><h4>Running Snort3 with Docker Compose</h4><span id="user-content-running-snort3-with-docker-compose"></span></div>
+<div><pre>docker compose --profile snort up -d</pre></div>
+<p>Snort has to see the traffic it inspects, which a bridge network hides, so that
+profile uses the host network namespace with <code>NET_ADMIN</code>/<code>NET_RAW</code> and reads
+<code>SNORT_IFACE</code>. On Docker Desktop (macOS/Windows) there is no host interface to
+tap: run Snort3 on the monitored host itself and point only the agent at
+AbuseBox.</p>
+<hr>
+<div><h3>Enterprise deployment</h3><span id="user-content-enterprise-deployment"></span></div>
+<div><h4>Roles</h4><span id="user-content-roles"></span></div>
+<p>Authorisation is enforced on the server. The interface also hides what a role
+cannot do, but that is a convenience, not the control: a viewer who crafts the
+request by hand still gets a 403.</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Can</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>viewer</code></td>
+<td>Read dashboards, scan results and alerts. Change nothing.</td>
+</tr>
+<tr>
+<td><code>analyst</code></td>
+<td>Run scans, manage assets, acknowledge alerts, generate rules.</td>
+</tr>
+<tr>
+<td><code>admin</code></td>
+<td>Everything, plus users, API keys, settings and retention.</td>
+</tr>
+</tbody>
+</table>
+<p>New accounts default to <code>viewer</code>. Accounts created before roles existed are
+assigned one at startup from their previous admin flags, so an upgrade never
+locks out an administrator. An admin cannot demote or deactivate their own
+account, and the last active admin cannot be removed.</p>
+<div><h4>API keys</h4><span id="user-content-api-keys"></span></div>
+<p>Sensors and CI jobs cannot complete an interactive login, so they authenticate
+with a scoped key in the <code>X-API-Key</code> header. Keys carry <code>snort:ingest</code>,
+<code>scan:read</code> or <code>scan:run</code>; usage (count, last IP, last time) is tracked so an
+unused or compromised key is visible. Revoked keys are kept rather than deleted,
+so the audit trail still resolves which credential performed a past action.</p>
+<div><h4>Audit trail</h4><span id="user-content-audit-trail"></span></div>
+<p>Append-only, admin-only, and separate from the asset activity log. It records
+logins and failed logins (by attempted username, so credential stuffing is
+visible), user and role changes, key issuance and revocation, alert triage and
+rule exports - each with actor, source IP, user agent and outcome.</p>
+<p>Retention is deliberately manual (<strong>Administration → Data retention</strong>) rather
+than automatic, so deleting audit history is an attributable act. That
+operation is itself audited.</p>
+<div><h4>Self-hardening</h4><span id="user-content-self-hardening"></span></div>
+<p>AbuseBox ships a scanner that grades other people's security headers, so it
+sets the same ones on its own responses: a strict <code>Content-Security-Policy</code>,
+<code>X-Frame-Options</code>, <code>nosniff</code>, <code>Referrer-Policy</code>, <code>Permissions-Policy</code> and the
+cross-origin isolation headers. The <code>Server</code> banner is suppressed.</p>
+<p>HSTS is sent <strong>only</strong> when the request arrived over TLS. Sending it over plain
+HTTP would tell a browser to refuse <code>http://localhost</code> for a year, which breaks
+local access in a way that persists long after the header is removed.</p>
+<div><h4>PostgreSQL</h4><span id="user-content-postgresql"></span></div>
+<p>SQLite is fine for a single operator but serialises writers, and the background
+scheduler writes alongside the API. For anything multi-user:</p>
+<div><pre>docker compose --profile postgres up -d
+<span><span>#</span> then in .env:</span>
+DATABASE_URL=postgresql+psycopg2://abusebox:<span>&lt;</span>password<span>&gt;</span>@postgres:5432/abusebox</pre></div>
+<div><h4>Metrics</h4><span id="user-content-metrics"></span></div>
+<p><code>GET /metrics</code> exposes Prometheus counters and latency histograms. It is
+unauthenticated on purpose: a scraper is usually a sidecar that cannot hold a
+credential, and the output is counters only, with no scan results, hostnames or
+alert contents. Restrict it at the network layer if your deployment needs that.</p>
+<p>Series are labelled by matched <em>route template</em>, not raw path, so
+<code>/snort/alerts/{alert_id}</code> is one series rather than one per alert id.</p>
+<div><h4>Not included</h4><span id="user-content-not-included"></span></div>
+<p>Stated plainly, because a half-built version of any of these would be worse
+than none: <strong>SSO/SAML/OIDC</strong>, <strong>multi-tenancy</strong> (one organisation per
+deployment) and <strong>HA/clustering</strong> (a single API container; Postgres can be made
+highly available independently). Rate limiting currently covers login and the
+public blacklist check, not every endpoint.</p>
+<hr>
+<div><h3>External scanners</h3><span id="user-content-external-scanners"></span></div>
+<p>Eight industry tools feed one normalised finding model. How each is driven
+depends on what the tool actually permits - stated plainly, because the
+difference matters when planning a deployment.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>How it runs</th>
+<th>What you need</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nmap</strong></td>
+<td>In this container</td>
+<td>Nothing. Installed in the image.</td>
+</tr>
+<tr>
+<td><strong>Ncat</strong></td>
+<td>In this container</td>
+<td>Nothing. Installed in the image.</td>
+</tr>
+<tr>
+<td><strong>OpenVAS / Greenbone</strong></td>
+<td>Live over GMP</td>
+<td>Your own Greenbone server, or the bundled compose profile</td>
+</tr>
+<tr>
+<td><strong>Rapid7 Nexpose / InsightVM</strong></td>
+<td>Live over REST API v3</td>
+<td>Your licensed console</td>
+</tr>
+<tr>
+<td><strong>Microsoft MBSA</strong></td>
+<td>Live via the Windows connector</td>
+<td>A Windows host with MBSA installed</td>
+</tr>
+<tr>
+<td><strong>GFI LanGuard</strong></td>
+<td>Live via the Windows connector</td>
+<td>A Windows host with LanGuard installed</td>
+</tr>
+<tr>
+<td><strong>Titania Nipper</strong></td>
+<td>Live via the Windows connector</td>
+<td>A licensed host with Nipper installed</td>
+</tr>
+<tr>
+<td><strong>Core Impact</strong></td>
+<td>Live via the Windows connector</td>
+<td>A licensed host with Core Impact installed</td>
+</tr>
+</tbody>
+</table>
+<p>Every one of them is driven by the platform. Nothing is import-only, though a
+manual XML upload still works for all eight and goes through the same parser,
+so both routes produce identical findings.</p>
+<div><h4>Nmap and Ncat</h4><span id="user-content-nmap-and-ncat"></span></div>
+<p>Both run inside the backend container and need no configuration.</p>
+<p>Nmap offers five profiles - Quick, Standard, Service detail, Vulnerability
+scripts and Host discovery - each with its own timeout. Callers pick a
+profile; they never supply nmap arguments. That removes a whole class of
+attacks based on nmap's own options, and keeps scans predictable.</p>
+<p>Ncat grabs service banners, including over TLS with SNI, and can send a
+protocol probe to services that stay silent until spoken to.</p>
+<p>Safety, since this is where user input reaches a subprocess:</p>
+<ul>
+<li>An argument list, never a shell string, so there is nothing to inject into</li>
+<li>Named profiles only; no raw flags are ever accepted</li>
+<li>Targets pass the same public-address guard as the rest of the platform, so
+loopback, link-local and cloud-metadata addresses are refused</li>
+<li>Output goes to stdout (<code>-oX -</code>), so no user-controlled path is written</li>
+<li>Every profile is bounded by a timeout</li>
+</ul>
+<div><h4>OpenVAS / Greenbone (live over GMP)</h4><span id="user-content-openvas--greenbone-live-over-gmp"></span></div>
+<p>Speaks the Greenbone Management Protocol directly: XML over a TLS socket on
+port 9390, the same protocol <code>gvm-tools</code> uses. Implemented against the
+standard library rather than <code>python-gvm</code>, because the surface used here is
+six commands and a security tool benefits from one less dependency.</p>
+<div><pre><span><span>#</span> Stand up Greenbone Community Edition</span>
+docker compose --profile openvas up -d
+<span><span>#</span> The first start downloads a multi-GB feed. Allow 30-60 minutes.</span></pre></div>
+<p>Then in <code>.env</code>:</p>
+<div><pre><span>OPENVAS_HOST</span><span>=</span><span>greenbone</span>
+<span>OPENVAS_USERNAME</span><span>=</span><span>admin</span>
+<span>OPENVAS_PASSWORD</span><span>=</span><span>your-password</span></pre></div>
+<p>From <strong>Network Scanning -&gt; OpenVAS</strong> you can start a scan, poll its progress
+and pull the report. A scan runs for minutes to hours, so the API starts the
+work and returns a task id rather than holding an HTTP request open.</p>
+<p>The live pull and a manual XML upload go through the same parser, so both
+produce identical findings.</p>
+<div><h4>Rapid7 Nexpose / InsightVM (live over REST)</h4><span id="user-content-rapid7-nexpose--insightvm-live-over-rest"></span></div>
+<p>Drives the console you already licence, via API v3.</p>
+<div><pre><span>NEXPOSE_URL</span><span>=</span><span>https://console.example.com:3780</span>
+<span>NEXPOSE_USERNAME</span><span>=</span><span>admin</span>
+<span>NEXPOSE_PASSWORD</span><span>=</span><span>your-password</span></pre></div>
+<p>Scans run against a <strong>site</strong>, not a free-form address: the console owns what
+is in scope, which is the right place for that decision. It also means this
+integration cannot point a licensed scanner at something the console was
+never configured to assess.</p>
+<div><h4>MBSA, LanGuard, Nipper and Core Impact (live via the connector)</h4><span id="user-content-mbsa-languard-nipper-and-core-impact-live-via-the-connector"></span></div>
+<p>These four are licensed desktop products and cannot run in a Linux
+container. What they do have is a scriptable interface, so
+<a href="https://github.com/abdulmanan69/AbuseBox/blob/main/deploy/windows-connector.py"><code>deploy/windows-connector.py</code></a> runs on the
+Windows host where they are installed, invokes them, and posts the results
+back. Standard library only, so there is nothing to install on the scanning
+host.</p>
+<div><pre><span>setx</span> ABUSEBOX_URL      https://abusebox.example.com
+<span>setx</span> ABUSEBOX_API_KEY  abx_...
+
+python windows-connector.py --tool all --target localhost
+python windows-connector.py --tool nipper --config-file C:\configs\router.conf</pre></div>
+<p>Create the key in <strong>Administration -&gt; API keys</strong> with the <code>snort:ingest</code>
+scope. Run it from Task Scheduler and the findings stay current without
+anyone exporting a report by hand.</p>
+<p>Core Impact is the awkward one, because its automation surface varies by
+version and licence, so the connector offers two modes:</p>
+<div><pre><span><span>rem</span> Drive the console's Python automation to run an RPT</span>
+python windows-connector.py --tool core-impact --target 192.0.2.10
+
+<span><span>rem</span> Or watch the console's report folder and ship anything new</span>
+python windows-connector.py --tool core-impact --report-dir <span><span>"</span>C:\Core Impact\reports<span>"</span></span>
+eports<span><span>"</span><span></span></span></pre></div>
+<p>Harvest mode is checkpointed by modification time, so a scheduled run does
+not re-upload the same assessment every time it fires. Use it if you are
+unsure: it works on every licence, including ones with scripting disabled,
+and still means nobody exports a report by hand.</p>
+<div><h4>Importing a report</h4><span id="user-content-importing-a-report"></span></div>
+<p>Any supported tool's XML export can be dropped into <strong>Network Scanning -&gt;
+Import</strong>. The format is auto-detected from the document, so you do not have
+to say which tool produced it.</p>
+<p>Two detection notes worth knowing: Nipper and OpenVAS both use <code>&lt;report&gt;</code> as
+their root element, so Nipper is identified by its <code>&lt;part&gt;&lt;section&gt;</code>
+structure and OpenVAS is required to show an actual <code>&lt;result&gt;</code>. Nexpose must
+be exported with the <strong>XML Export 2.0</strong> template, which is the one that
+includes the <code>&lt;VulnerabilityDefinitions&gt;</code> block the parser joins against.</p>
+<p>HTML and PDF reports cannot be parsed. Maximum 8 MB.</p>
+<div><h4>One severity scale</h4><span id="user-content-one-severity-scale"></span></div>
+<p>Eight tools means eight severity vocabularies: Nexpose grades 0-10, OpenVAS
+says "High" and also gives CVSS, MBSA says "Check failed", Nipper says
+"Critical", and nmap has no severity concept at all.</p>
+<p>Two rules keep the mapping honest:</p>
+<ul>
+<li><strong>CVSS wins when present.</strong> A numeric score is objective; a vendor's word
+for it is partly a marketing decision. The original label is still stored
+on the finding, so nothing is lost.</li>
+<li><strong>Unknown maps to info, never to critical.</strong> A parser meeting a severity
+string it does not recognise must not manufacture an emergency.</li>
+</ul>
+<div><h4>Cross-tool correlation</h4><span id="user-content-cross-tool-correlation"></span></div>
+<p>This is what the normalisation is for. Findings are grouped on a fingerprint
+keyed on the CVE where there is one - the only identifier different vendors
+reliably agree on - and on a normalised title where there is not.</p>
+<p><strong>Findings -&gt; Confirmed by more than one tool</strong> then answers the question
+that actually matters: where do independent scanners agree? Two tools
+reporting the same CVE on the same host and port is a far stronger signal
+than either alone, and a finding only one tool saw is the first thing to
+verify by hand.</p>
+<p>Where tools disagree about <em>how bad</em> something is, that disagreement is shown
+rather than silently resolved in favour of one of them.</p>
+<hr>
+<div><h3>Contextual risk prioritisation</h3><span id="user-content-contextual-risk-prioritisation"></span></div>
+<p>Eight scanners produce findings that repeat and contradict each other, and the
+usual answer - sort by CVSS - cannot express the three things that decide what
+actually gets fixed first: whether the finding is real, whether anyone is
+attacking it, and whether your own analysts would dismiss it.</p>
+<p><strong>Dashboard -&gt; Risk Prioritisation</strong> answers those separately and shows its
+working:</p>
+<ul>
+<li><strong>Is it real?</strong> Dempster-Shafer evidence fusion across every scanner that
+looked, each discounted by a reliability figure learned from your triage.
+The output is a belief interval, not a point score, so "one tool said so and
+nothing corroborated it" is visibly different from "four tools agree".</li>
+<li><strong>Is anyone exploiting it?</strong> Snort3 alerts are joined to findings on host and
+port. A host appearing as the <em>source</em> of attack traffic is treated as a
+suspected compromise and listed above everything else.</li>
+<li><strong>Would an analyst dismiss it?</strong> A logistic-regression model trained on your
+own confirmed/false-positive decisions, which refuses to train on fewer than
+20 labels rather than guessing.</li>
+<li><strong>Does it beat sorting by CVSS?</strong> An evaluation harness reports precision@k,
+NDCG and average precision against a CVSS-only baseline, plus ablations for
+each component, scored on analyst triage as ground truth.</li>
+</ul>
+<p>A medium under live attack can outrank a critical nobody is touching. That
+inversion is the point, and the rationale for every position is shown on the
+finding.</p>
+<p><a href="https://github.com/abdulmanan69/AbuseBox/blob/main/docs/risk-prioritisation.md"><strong>Full method, justification and limitations -&gt;</strong></a></p>
+<div><pre><span><span>#</span> generate a demonstration estate (fabricated data, throwaway database)</span>
+DATABASE_URL=sqlite:////tmp/demo.db python scripts/seed_demo.py --hosts 40</pre></div>
+<div><h3>Automated response</h3><span id="user-content-automated-response"></span></div>
+<p>Everything else in AbuseBox answers questions. This acts on the answers.</p>
+<p><strong>Dashboard -&gt; Automated Response</strong> blocks the addresses attacking you,
+contains hosts that have started attacking other people, writes the remediation
+steps for the findings it ranked, re-scans to confirm a fix worked, and
+notifies when something needs a human now.</p>
+<p>Two decisions make that safe enough to ship.</p>
+<p><strong>Autonomy is gated on evidence.</strong> A SOAR playbook fires on a boolean: one bad
+detection and a thoroughly corroborated one authorise the same action. Here the
+belief interval from the fusion engine decides how much autonomy an action gets</p>
+<ul>
+<li>proportional to confidence, inversely proportional to how much damage it
+could do. Sending a webhook needs 25% belief; cutting a host off the network
+needs 85%, almost no unresolved evidence, and tools that agree. The gate reports
+which criterion failed, so "belief 0.61, needs 0.85" replaces "not confident
+enough". Evidence of active exploitation raises an item's priority and never
+lowers the bar to act on it.</li>
+</ul>
+<p><strong>The platform holds no firewall credentials.</strong> Enforcement is pull-based: it
+publishes what is in force and your perimeter fetches it on a timer. Giving
+AbuseBox a firewall token would make this service the most valuable target on
+your network, since anything that can write arbitrary rules is worth more than
+the findings it stores. Pulling inverts that, and revoking the whole capability
+is deleting one cron line.</p>
+<div><pre><span><span>#</span> nftables - replaces the set atomically, so re-pulling is safe</span>
+<span>*</span>/5 <span>*</span> <span>*</span> <span>*</span> <span>*</span> curl -sf -H <span><span>"</span>X-API-Key: abx_...<span>"</span></span>     https://abusebox.example.com/response/feed/nftables <span>|</span> nft -f -</pre></div>
+<p>Nothing is ever sent to an attacking address. Every artefact is a rule for your
+own perimeter: no scan-back, no probe, no retaliation. You cannot block your own
+assets or a public resolver. Everything applied automatically expires, automatic
+actions are capped per hour, and every decision keeps a snapshot of the evidence
+that produced it.</p>
+<p>The default mode is <code>observe</code>: it records what it would do and applies nothing.
+Run it that way for a fortnight, read the plan each morning, then decide.</p>
+<p><a href="https://github.com/abdulmanan69/AbuseBox/blob/main/docs/automated-response.md"><strong>Method, guardrails and limitations -&gt;</strong></a></p>
+<div><h3>Configuration</h3><span id="user-content-configuration"></span></div>
+<p>Create a <code>.env</code> file in the project root (Docker Compose reads it automatically, and values in it override the compose defaults):</p>
+<div><pre><span><span>#</span> Leave empty to auto-generate a secret (stored next to the database)</span>
+<span>APP_SECRET_KEY</span><span>=</span>
+<span>APP_DEBUG</span><span>=</span><span>false</span>
+<span>APP_CORS_ALLOWED_ORIGINS</span><span>=</span><span>http://localhost:3000</span>
+<span>VITE_ALLOWED_HOSTS</span><span>=</span><span>localhost,127.0.0.1</span>
+<span>DATABASE_URL</span><span>=</span><span>sqlite:///./app.db</span>   <span><span>#</span> ignored by Docker Compose (always uses the data volume)</span>
+
+<span><span>#</span> Default admin, created on first start only</span>
+<span>DEFAULT_ADMIN_USERNAME</span><span>=</span><span>admin</span>
+<span>DEFAULT_ADMIN_PASSWORD</span><span>=</span><span>password123</span>
+<span>DEFAULT_ADMIN_EMAIL</span><span>=</span><span>admin@abusebox.local</span>
+<span>DEFAULT_ADMIN_PHONE</span><span>=</span><span>11111111</span>
+
+<span><span>#</span> Optional: AbuseIPDB (free key at https://www.abuseipdb.com/account/api)</span>
+<span>ABUSEIPDB_API_KEY</span><span>=</span>
+
+<span><span>#</span> Scheduled monitoring</span>
+<span>SCHEDULER_ENABLED</span><span>=</span><span>true</span>
+<span>SCHEDULER_INTERVAL_MINUTES</span><span>=</span><span>360</span>
+
+<span><span>#</span> Automated response. The default changes nothing: it records what it would do</span>
+<span><span>#</span> and applies nothing. Read docs/automated-response.md before changing it.</span>
+<span>RESPONSE_MODE</span><span>=</span><span>observe</span>                     <span><span>#</span> observe | propose | auto</span>
+<span>RESPONSE_NEVER_BLOCK</span><span>=</span>                     <span><span>#</span> comma-separated; your upstreams, VPN egress</span>
+<span>RESPONSE_AUTO_EXPIRY_HOURS</span><span>=</span><span>24</span>             <span><span>#</span> everything automatic lifts itself</span>
+<span>RESPONSE_MAX_AUTO_PER_HOUR</span><span>=</span><span>10</span>             <span><span>#</span> ceiling, so a forged-source flood cannot</span>
+                                          <span><span>#</span> have the platform write rules for an attacker</span>
+<span>RESPONSE_ALLOW_UNENROLLED_ISOLATION</span><span>=</span><span>false</span> <span><span>#</span> isolating a private address you have not enrolled</span>
+<span>RESPONSE_DEMO_ALLOW_TESTNET</span><span>=</span><span>false</span>         <span><span>#</span> demonstration only; must stay false in production</span>
+
+<span><span>#</span> Email alerts (optional)</span>
+<span>SMTP_HOST</span><span>=</span>
+<span>SMTP_PORT</span><span>=</span><span>587</span>
+<span>SMTP_USERNAME</span><span>=</span>
+<span>SMTP_PASSWORD</span><span>=</span>
+<span>SMTP_FROM_EMAIL</span><span>=</span>
+<span>SMTP_USE_TLS</span><span>=</span><span>true</span>
+
+<span><span>#</span> Webhook alerts (optional)</span>
+<span>WEBHOOK_URL</span><span>=</span></pre></div>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>APP_SECRET_KEY</code></td>
+<td>JWT signing secret. If unset, a random one is generated and saved as <code>.secret_key</code> next to the database</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>APP_DEBUG</code></td>
+<td>Show error tracebacks (development only)</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>APP_CORS_ALLOWED_ORIGINS</code></td>
+<td>Comma-separated browser origins allowed to call the API</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>DATABASE_URL</code></td>
+<td>Database connection string (SQLite default)</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>ABUSEIPDB_API_KEY</code></td>
+<td>Enables AbuseIPDB reputation checks</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>SCHEDULER_ENABLED</code></td>
+<td>Run periodic background checks (default: <code>true</code>; can also be changed in Settings)</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>SCHEDULER_INTERVAL_MINUTES</code></td>
+<td>Check interval in minutes (default: 360)</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>SMTP_HOST</code></td>
+<td>SMTP server for email alerts</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>WEBHOOK_URL</code></td>
+<td>Webhook URL for alerts (Slack and Discord URLs get chat messages). A URL set in Settings → Notifications takes precedence</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>DNSBL_NAMESERVERS</code></td>
+<td>Comma-separated DNS resolvers for blacklist lookups. Spamhaus and some others refuse public resolvers; point this at your own recursive resolver for complete results</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>DNS_TOOLS_NAMESERVERS</code></td>
+<td>Resolvers for the DNS audit, subdomain and typosquat scanners. Defaults to public resolvers, because Docker's embedded DNS does not answer DS/DNSKEY/CAA queries</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>DNS Records, SSL Checker, WHOIS, SPF/DKIM/DMARC, and Server Status work out of the box with no API keys.</p>
+</blockquote>
+<p>Frontend config (<code>frontend/.env</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>VITE_BASE_URL</code></td>
+<td>Backend URL for Vite proxy (default: <code>http://localhost:8100</code>)</td>
+</tr>
+<tr>
+<td><code>VITE_ALLOWED_HOSTS</code></td>
+<td>Hostnames the dev server answers to (default: <code>localhost,127.0.0.1</code>)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div><h3>API Endpoints</h3><span id="user-content-api-endpoints"></span></div>
+<p>Only the blacklist quick check is public (rate limited to 10 requests per minute per IP). Every other endpoint needs a bearer token from <code>POST /user/login/</code>:</p>
+<div><pre><code>GET  /blacklist/quick-check/?hostname=example.com      # public
+GET  /tools/abuseipdb/?hostname=8.8.8.8
+GET  /tools/whois/?hostname=example.com
+GET  /tools/dns/?hostname=example.com
+GET  /tools/ssl/?hostname=example.com
+GET  /tools/email-security/?hostname=example.com&amp;dkim_selectors=s1,s2
+GET  /tools/server-status/?hostname=example.com
+GET  /tools/subnet/?cidr=203.0.113.0/24
+GET  /tools/risk-score/?hostname=example.com           # all scanners, one score
+GET  /tools/security-headers/?hostname=example.com
+GET  /tools/tls-audit/?hostname=example.com
+GET  /tools/port-scan/?hostname=example.com&amp;ports=22,80,443
+GET  /tools/exposure-scan/?hostname=example.com
+GET  /tools/dns-audit/?domain=example.com
+GET  /tools/subdomains/?domain=example.com&amp;wordlist=true
+GET  /tools/fingerprint/?hostname=example.com
+GET  /tools/typosquat/?domain=example.com
+
+POST /snort/ingest/                                    # sensor, via X-API-Key
+POST /snort/ingest/raw/                                # raw alert_json or alert_fast text
+POST /snort/upload/                                    # upload an alert log
+GET  /snort/alerts/?severity=critical&amp;acknowledged=false
+GET  /snort/alerts/stats/?hours=24
+POST /snort/alerts/acknowledge/
+GET  /snort/sensors/
+POST /snort/rules/generate/
+GET  /snort/rules/export/                              # downloads abusebox.rules
+POST /snort/rules/validate/
+
+GET  /admin/overview/                                  # admin only
+GET  /admin/api-keys/   POST /admin/api-keys/   DELETE /admin/api-keys/{id}
+GET  /admin/audit-log/?action=auth&amp;outcome=failure
+POST /admin/retention/run/
+GET  /metrics                                          # Prometheus, unauthenticated
+
+GET  /scanners/catalog/                                # which tools, and how each is driven
+POST /scanners/nmap/                                   # live scan
+POST /scanners/ncat/                                   # live banner grab
+POST /scanners/import/                                 # any supported report, auto-detected
+GET  /scanners/findings/?severity=critical&amp;open_only=true
+GET  /scanners/correlation/?min_sources=2              # confirmed by 2+ tools
+
+GET  /scanners/openvas/status/   POST /scanners/openvas/scan/
+GET  /scanners/openvas/task/{id} POST /scanners/openvas/report/{id}/import/
+GET  /scanners/nexpose/status/   GET  /scanners/nexpose/sites/
+POST /scanners/nexpose/scan/     POST /scanners/nexpose/scan/{id}/import/
+POST /tools/bulk-check/                  # {"hostnames": ["example.com", "8.8.8.8"]}
+POST /tools/bulk-check-upload/           # multipart file: .txt, .csv or .xlsx
+GET  /tools/export/blacklist/?hostname=example.com
+GET  /tools/export/subnet/?cidr=203.0.113.0/24
+POST /hostname/bulk/                     # up to 300 assets
+POST /hostname/cidr-import/
+POST /hostname/{id}/recheck/
+POST /hostname/bulk-action/             # {"ids": [1, 2], "action": "recheck"}
+GET  /hostname/list/?include_result=false
+GET  /hostname/{id}/checks/{check_id}
+GET  /hostname/{id}/events/
+GET  /events/?severity=critical
+GET  /settings/scheduler/status/
+POST /settings/scheduler/run/            # admin only: check due assets now
+PUT  /settings/notifications/            # admin only
+POST /settings/notifications/test/       # admin only
+POST /user/change-password/
+POST /user/create/                       # admin only
+GET  /user/list/                         # admin only
+PATCH /user/{id}/                        # admin only
+</code></pre></div>
+<div><pre>TOKEN=<span><span>$(</span>curl -s -X POST localhost:8100/user/login/ -H <span><span>'</span>Content-Type: application/json<span>'</span></span> \</span>
+<span>  -d <span><span>'</span>{"username":"admin","password":"your-password"}<span>'</span></span> <span>|</span> jq -r .access<span>)</span></span>
+curl -s -H <span><span>"</span>Authorization: Bearer <span>$TOKEN</span><span>"</span></span> <span><span>"</span>localhost:8100/tools/dns/?hostname=example.com<span>"</span></span></pre></div>
+<p>Full interactive docs available after startup:</p>
+<ul>
+<li><strong>Swagger UI:</strong> <code>http://localhost:8100/swagger/</code></li>
+<li><strong>ReDoc:</strong> <code>http://localhost:8100/redoc/</code></li>
+</ul>
+<hr>
+<div><h3>Tech Stack</h3><span id="user-content-tech-stack"></span></div>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backend</td>
+<td>Python 3.11, FastAPI, SQLAlchemy 2, PyJWT, dnspython</td>
+</tr>
+<tr>
+<td>Frontend</td>
+<td>React 18, React Router 7, Vite 6, Tailwind CSS 3, Headless UI, Recharts</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>SQLite (swappable via <code>DATABASE_URL</code>)</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>Docker + Docker Compose; images published to GHCR</td>
+</tr>
+<tr>
+<td>CI</td>
+<td>GitHub Actions: backend tests, frontend lint and build</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div><h3>Project Structure</h3><span id="user-content-project-structure"></span></div>
+<div><pre><code>abusebox/
+├── backend/
+│   ├── app/
+│   │   ├── api/routers/       # auth, blacklist, dmarc, events, hostname, settings, tools
+│   │   ├── core/              # config, JWT security, SSRF guards, client IP, UTC helpers
+│   │   ├── db/                # SQLAlchemy session, seed data
+│   │   ├── models/            # users, assets, check history, events, DMARC, settings
+│   │   ├── schemas/           # Pydantic schemas
+│   │   └── services/          # checks: dnsbl, abuseipdb, dns, ssl, whois, email security,
+│   │                          #   server status, subnet, DMARC parser, export
+│   │                          # monitoring: monitoring (save + events + alerts), health,
+│   │                          #   events, scheduler, notifications
+│   └── tests/                 # pytest (offline suite + live DNSBL cross-checks)
+├── frontend/
+│   └── src/
+│       ├── pages/             # Landing, Login, Dashboard, Assets, Asset detail, Activity,
+│       │                      # Settings, Check &amp; Lookup tools
+│       ├── components/        # shared UI (forms, alerts, activity feed, command palette),
+│       │                      # dashboard, blacklist tables, dialogs
+│       ├── services/          # API clients, auth, theme, current user
+│       └── routes/            # React Router config
+├── files/                     # logo and README screenshots
+├── docker-compose.yml
+└── .env                       # your configuration (not committed)
+</code></pre></div>
+<hr>
+<div><h3>Releases</h3><span id="user-content-releases"></span></div>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Highlights</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>v1.2.0</strong></td>
+<td>October 7, 2026</td>
+<td>Needs-attention dashboard, activity log, recovery/outage/expiry alerts (Slack, Discord, webhooks), bulk actions and table view, check history, user management, command palette; scheduler fix (#20), security hardening, dependency updates, accessibility and dark mode overhaul</td>
+</tr>
+<tr>
+<td><strong>v1.1.2</strong></td>
+<td>March 26, 2026</td>
+<td>Bulk asset import, CIDR import, auto-refresh auth, persistent DB, DNSBL false positive fix, community bug fixes</td>
+</tr>
+<tr>
+<td><strong>v1.1.1</strong></td>
+<td>March 25, 2026</td>
+<td>UX polish, responsive mobile layout, asset re-check, code splitting, security fixes</td>
+</tr>
+<tr>
+<td><strong>v1.1.0</strong></td>
+<td>March 23, 2026</td>
+<td>Asset management, DNS/SSL/DMARC tools, bulk &amp; subnet check, scheduled monitoring, dark mode, 60+ DNSBL providers</td>
+</tr>
+<tr>
+<td><strong>v1.0.1</strong></td>
+<td>March 19, 2026</td>
+<td>AbuseIPDB, WHOIS lookup, server status checker, security hardening</td>
+</tr>
+<tr>
+<td><strong>v1.0.0</strong></td>
+<td>March 2, 2026</td>
+<td>Initial release — DNSBL monitoring, dashboard, delist workflow</td>
+</tr>
+</tbody>
+</table>
+<p>See <a href="https://github.com/abdulmanan69/AbuseBox/blob/main/CHANGELOG.md">CHANGELOG.md</a> for full details.</p>
+<hr>
+<div><h3>Contributing</h3><span id="user-content-contributing"></span></div>
+<p>Contributions are welcome! Please read <a href="https://github.com/abdulmanan69/AbuseBox/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a> before submitting a PR.</p>
+<div><h3>License</h3><span id="user-content-license"></span></div>
+<p>MIT — see <a href="https://github.com/abdulmanan69/AbuseBox/blob/main/LICENSE">LICENSE</a> for details.</p>
+<hr>
+<div align="center">
+<p><strong>If AbuseBox helps you, consider giving it a star!</strong></p>
+<p><a href="https://github.com/bekkaze/abusebox/stargazers"><img src="https://camo.githubusercontent.com/65cf8573571c6689d2b63e43fec4b121bd90f89124e0e208c06520f76caa45eb/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f73746172732f62656b6b617a652f6162757365626f783f7374796c653d736f6369616c" alt="GitHub stars" loading="lazy" decoding="async"></a></p>
+</div>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/apexquant/"><span>Python</span><h3>apexquant</h3></a><a class="related__card" href="/projects/leadclean/"><span>Python</span><h3>leadclean</h3></a><a class="related__card" href="/projects/atlas/"><span>Python</span><h3>atlas</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

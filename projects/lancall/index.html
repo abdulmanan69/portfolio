@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LanCall: A peer-to-peer voice calling application… | Abdul Manan</title>
+<meta name="description" content="LanCall by Abdul Manan. A peer-to-peer voice calling application that works over LAN (Local Area Network) using WebRTC technology. This application allows…" />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/lancall/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="LanCall: A peer-to-peer voice calling application… | Abdul Manan" />
+<meta property="og:description" content="LanCall by Abdul Manan. A peer-to-peer voice calling application that works over LAN (Local Area Network) using WebRTC technology. This application allows…" />
+<meta property="og:url" content="https://abdulmanan.tech/projects/lancall/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="LanCall: A peer-to-peer voice calling application… | Abdul Manan" />
+<meta name="twitter:description" content="LanCall by Abdul Manan. A peer-to-peer voice calling application that works over LAN (Local Area Network) using WebRTC technology. This application allows…" />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">LanCall</span></nav>
+<h1>LanCall</h1>
+<p class="project-page__lead">A peer-to-peer voice calling application that works over LAN (Local Area Network) using WebRTC technology. This application allows users on the same network to make voice calls directly between devices without any external servers.</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>JavaScript</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2025-10-02">2 Oct 2025</time></dd></div><div><dt>License</dt><dd>MIT</dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/lancall" rel="noopener">View source on GitHub</a></div>
+<aside class="project-writing"><h2>Write-up</h2><ul><li><a href="/blog/lancall-webrtc-lan-voice-calls/">LanCall — WebRTC Voice Calls Over Your LAN</a></li></ul></aside>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><h3>LAN Voice Call Application</h3><span id="user-content-lan-voice-call-application"></span></div>
+
+<div><h4>Features</h4><span id="user-content-features"></span></div>
+<ul>
+<li><strong>Peer-to-Peer Communication</strong>: Direct voice communication between devices using WebRTC</li>
+<li><strong>LAN Only</strong>: Works exclusively on local networks for privacy and security</li>
+<li><strong>Cross-Platform</strong>: Compatible with Windows, macOS, Linux, Android, and iOS browsers</li>
+<li><strong>No External Dependencies</strong>: All communication happens directly between devices</li>
+<li><strong>Secure</strong>: Uses HTTPS and WSS (WebSocket Secure) with self-signed certificates</li>
+<li><strong>Easy Setup</strong>: Simple installation and startup process</li>
+</ul>
+<div><h4>How It Works</h4><span id="user-content-how-it-works"></span></div>
+<p>The application uses WebRTC (Web Real-Time Communication) technology to establish direct peer-to-peer connections between devices on the same network. It consists of two main components:</p>
+<ol>
+<li><strong>HTTPS Server</strong>: Serves the web application files (HTML, CSS, JavaScript)</li>
+<li><strong>WebSocket Signaling Server</strong>: Facilitates the initial connection setup between peers</li>
+</ol>
+<div><h5>Architecture</h5><span id="user-content-architecture"></span></div>
+<div><pre><code>[Device A] ----\
+                \
+                 [Signaling Server] &lt;---&gt; [HTTPS Server]
+                /
+[Device B] ----/
+</code></pre></div>
+<ol>
+<li>Devices connect to the signaling server to exchange connection information</li>
+<li>Once connection details are exchanged, devices establish a direct P2P connection</li>
+<li>Voice data flows directly between devices (not through the server)</li>
+</ol>
+<div><h4>Prerequisites</h4><span id="user-content-prerequisites"></span></div>
+<ul>
+<li>Python 3.6 or higher</li>
+<li>pip (Python package installer)</li>
+</ul>
+<div><h4>Installation</h4><span id="user-content-installation"></span></div>
+<ol>
+<li>Clone or download this repository</li>
+<li>Navigate to the project directory</li>
+<li>Run the startup script:</li>
+</ol>
+<div><h5>Windows</h5><span id="user-content-windows"></span></div>
+<div><pre>start_server.bat</pre></div>
+<div><h5>Linux/macOS/Other</h5><span id="user-content-linuxmacosother"></span></div>
+<div><pre>python start_server.py</pre></div>
+<p>The script will automatically:</p>
+<ul>
+<li>Install required Python packages (pyOpenSSL, websockets)</li>
+<li>Generate self-signed SSL certificates if they don't exist</li>
+<li>Start both the HTTPS server (port 8443) and WebSocket signaling server (port 8765)</li>
+</ul>
+<div><h4>Usage</h4><span id="user-content-usage"></span></div>
+<ol>
+<li>Run the startup script on one device (this will be your "server" device)</li>
+<li>Note the IP address displayed in the terminal</li>
+<li>On the same device or another device on the same network, open a browser and navigate to:
+<div><pre><code>https://[SERVER_IP]:8443
+</code></pre></div>
+</li>
+<li>Accept the browser security warning (self-signed certificate)</li>
+<li>Allow microphone access when prompted</li>
+<li>Other devices on the same network can join by visiting the same URL</li>
+<li>Click on other devices in the list to initiate a voice call</li>
+</ol>
+<div><h4>Project Structure</h4><span id="user-content-project-structure"></span></div>
+<div><pre><code>lan-voice-call/
+├── index.html          # Main HTML file
+├── style.css           # Styling
+├── app.js              # Client-side JavaScript application
+├── https_server.py     # HTTPS server for serving web files
+├── signaling_server.py # WebSocket signaling server
+├── start_server.py     # Python startup script
+├── start_server.bat    # Windows batch startup script
+├── generate_cert.py    # SSL certificate generator
+├── server.crt          # SSL certificate (generated)
+├── server.key          # SSL private key (generated)
+└── README.md           # This file
+</code></pre></div>
+<div><h4>Security Notes</h4><span id="user-content-security-notes"></span></div>
+<ul>
+<li>Uses self-signed SSL certificates for HTTPS and WSS</li>
+<li>Browsers will show security warnings - this is expected for self-signed certificates</li>
+<li>All communication is encrypted</li>
+<li>No data leaves your local network</li>
+<li>Microphone access is only used for the voice call feature</li>
+</ul>
+<div><h4>Troubleshooting</h4><span id="user-content-troubleshooting"></span></div>
+<div><h5>Certificate Errors</h5><span id="user-content-certificate-errors"></span></div>
+<p>If you encounter certificate errors:</p>
+<ol>
+<li>Make sure you're accessing the correct IP address</li>
+<li>Accept the browser security warning</li>
+<li>If problems persist, delete <code>server.crt</code> and <code>server.key</code> files and restart the server</li>
+</ol>
+<div><h5>Connection Issues</h5><span id="user-content-connection-issues"></span></div>
+<ul>
+<li>Ensure all devices are on the same network</li>
+<li>Check firewall settings</li>
+<li>Make sure ports 8443 (HTTPS) and 8765 (WebSocket) are not blocked</li>
+</ul>
+<div><h5>Audio Issues</h5><span id="user-content-audio-issues"></span></div>
+<ul>
+<li>Check browser microphone permissions</li>
+<li>Ensure no other applications are using the microphone</li>
+<li>Try refreshing the page</li>
+</ul>
+<div><h4>Dependencies</h4><span id="user-content-dependencies"></span></div>
+<ul>
+<li>Python 3.6+</li>
+<li>pyOpenSSL</li>
+<li>websockets</li>
+</ul>
+<p>These are automatically installed by the startup scripts.</p>
+<div><h4>License</h4><span id="user-content-license"></span></div>
+<p>This project is open source and available under the MIT License.</p>
+<div><h4>Contributing</h4><span id="user-content-contributing"></span></div>
+<p>Contributions are welcome! Please feel free to submit a Pull Request.</p>
+<div><h4>Acknowledgments</h4><span id="user-content-acknowledgments"></span></div>
+<ul>
+<li>WebRTC for enabling real-time communication</li>
+<li>Python for the server implementation</li>
+<li>All contributors to the open-source libraries used in this project</li>
+</ul>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/dispatchdesk/"><span>JavaScript</span><h3>dispatchdesk</h3></a><a class="related__card" href="/projects/entrypoint/"><span>JavaScript</span><h3>entrypoint</h3></a><a class="related__card" href="/projects/audio-editor/"><span>JavaScript</span><h3>audio-editor</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

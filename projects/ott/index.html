@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ott: Search uses TMDB&#x27;s movie and TV metadata… | Abdul Manan</title>
+<meta name="description" content="ott by Abdul Manan. Search uses TMDB&#x27;s movie and TV metadata API. Create a TMDB API Read Access Token and put it in .env.local as TMDB_ACCESS_TOKEN=...; the…" />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/ott/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="ott: Search uses TMDB&#x27;s movie and TV metadata… | Abdul Manan" />
+<meta property="og:description" content="ott by Abdul Manan. Search uses TMDB&#x27;s movie and TV metadata API. Create a TMDB API Read Access Token and put it in .env.local as TMDB_ACCESS_TOKEN=...; the…" />
+<meta property="og:url" content="https://abdulmanan.tech/projects/ott/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ott: Search uses TMDB&#x27;s movie and TV metadata… | Abdul Manan" />
+<meta name="twitter:description" content="ott by Abdul Manan. Search uses TMDB&#x27;s movie and TV metadata API. Create a TMDB API Read Access Token and put it in .env.local as TMDB_ACCESS_TOKEN=...; the…" />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">ott</span></nav>
+<h1>ott</h1>
+<p class="project-page__lead">Search uses TMDB&#x27;s movie and TV metadata API. Create a TMDB API Read Access Token and put it in .env.local as TMDB_ACCESS_TOKEN=...; the token is read by the Vite server proxy and is not included in browser bundles. .env.local is ignored by Git. Restart Vite after changing it.</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>TypeScript</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-10-31">31 Oct 2026</time></dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/ott" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><h3>Sammy Flix</h3><span id="user-content-sammy-flix"></span></div>
+<p>A static movie and TV discovery catalog built with React, TypeScript, and Vite. The visitor does not get an API-key popup. Search and discovery call TMDB directly with the configured v3 API key. Search shows a live TMDB suggestions dropdown, and every title's detail view shows TMDB "More like this" recommendations.</p>
+<div><h4>TMDB key visibility</h4><span id="user-content-tmdb-key-visibility"></span></div>
+<p>A key included in a static GitHub Pages app is public: anyone can inspect the browser bundle and reuse the key against TMDB. This setup uses the TMDB <strong>v3 API key</strong> you chose, not the more sensitive Read Access Token. Monitor your TMDB usage and rotate the key if it is abused. Do not use this public-key configuration for credentials that must remain secret.</p>
+<div><h4>GitHub Pages</h4><span id="user-content-github-pages"></span></div>
+<p>The site is published at <a href="https://abdulmanan69.github.io/ott/">https://abdulmanan69.github.io/ott/</a>. The GitHub Actions Pages workflow reads the TMDB v3 API key from the <code>VITE_TMDB_API_KEY</code> repository variable. After changing it, rerun <strong>Actions &gt; Deploy Sammy Flix to GitHub Pages</strong> or push a new commit. The TMDB key is public in the built site.</p>
+<div><h4>Local development</h4><span id="user-content-local-development"></span></div>
+<p>Put <code>VITE_TMDB_API_KEY</code> in <code>.env.local</code>, then run:</p>
+<div><pre>npm install
+npm run dev</pre></div>
+<p><code>.env.local</code> is ignored by Git. The old <code>TMDB_ACCESS_TOKEN</code> server-side local proxy remains available if no v3 key is configured. Live TMDB data requires an internet connection.</p>
+<div><h4>Playback</h4><span id="user-content-playback"></span></div>
+<p>The player URL prefixes are set directly in <code>src/App.tsx</code>: <code>https://nxsha.space/embed/tv/</code> and <code>https://nxsha.space/embed/movie/</code>. TMDB IDs are appended to those prefixes; TV titles use season 1, episode 1. Playback sources must be authorized and allow embedding. The player iframe is sandboxed without <code>allow-popups</code> or <code>allow-top-navigation</code>, so ad scripts inside the embed cannot open new tabs or redirect the page. UI the provider draws inside its own player (server pickers, app promos) cannot be removed from outside the iframe.</p>
+<div><h4>Attribution</h4><span id="user-content-attribution"></span></div>
+<p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/gamesite/"><span>TypeScript</span><h3>gamesite</h3></a><a class="related__card" href="/projects/qalam-studio/"><span>TypeScript</span><h3>qalam-studio</h3></a><a class="related__card" href="/projects/vici-evalution/"><span>TypeScript</span><h3>vici-evalution</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

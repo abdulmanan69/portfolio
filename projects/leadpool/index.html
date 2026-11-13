@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeadPool: Self-hosted, enterprise-grade platform… | Abdul Manan</title>
+<meta name="description" content="LeadPool by Abdul Manan. Self-hosted, enterprise-grade platform for selling lead data to B2B clients." />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/leadpool/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="LeadPool: Self-hosted, enterprise-grade platform… | Abdul Manan" />
+<meta property="og:description" content="LeadPool by Abdul Manan. Self-hosted, enterprise-grade platform for selling lead data to B2B clients." />
+<meta property="og:url" content="https://abdulmanan.tech/projects/leadpool/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="LeadPool: Self-hosted, enterprise-grade platform… | Abdul Manan" />
+<meta name="twitter:description" content="LeadPool by Abdul Manan. Self-hosted, enterprise-grade platform for selling lead data to B2B clients." />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">LeadPool</span></nav>
+<h1>LeadPool</h1>
+<p class="project-page__lead">Self-hosted, enterprise-grade platform for selling lead data to B2B clients.</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>TypeScript</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-11-04">4 Nov 2026</time></dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/LeadPool" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><span id="user-content-leadpool"></span></div>
+
+<ul>
+<li><strong>Pools</strong> — one per data type (auto warranty, medical, solar, …), each with its own admin-defined columns.</li>
+<li><strong>Imports</strong> — CSV/XLSX, millions of rows, streamed and deduplicated by phone/email identity.</li>
+<li><strong>Clients</strong> — their own portal: browse pools as products, pick an <strong>age tier</strong> (1 day … 120+ days), filter, see live availability + price, order, download CSV or Excel.</li>
+<li><strong>Mixed orders</strong> — several age tiers in one order, split by percentage of a total ("50% fresh · 30% this month · 20% aged") or by exact lead counts; each tier is filled from its own age window, priced on its own and refunded on its own if short.</li>
+<li><strong>Repeat orders</strong> — any order (one tier or a mix, with filters) placed automatically every day, on chosen weekdays or monthly, at a time in the client's own zone; paid from the balance, sent to their email / WhatsApp / Teams / cloud; skipped (never charged) when the balance is short and paused after 3 skips.</li>
+<li><strong>Lead returns</strong> — clients send back bad leads within a window after delivery, up to a share of each order; staff approve per lead, approved leads are credited at the price paid and taken off sale. One switch turns the feature on or off for everyone (Settings → Lead returns), and it can be switched off per client.</li>
+<li><strong>Sortable, filterable tables</strong> — click any column heading to sort (again to reverse, a third time to clear); the filter button next to it narrows by text, a pick-list, a number / money range or a date range (Today, 7 / 30 / 90 days, or from–to). Big lists (orders, returns, wallet history, audit log, a pool's leads) sort and filter in the database across every record, not just the page on screen; each table remembers its view while you move around.</li>
+<li><strong>Hard rule</strong> — a client never receives the same lead, or the same person (any matching phone or email), twice.</li>
+<li><strong>Suppression</strong> — clients upload their own lists; staff maintain a global DNC applied to everyone.</li>
+<li><strong>Money</strong> — prepaid balances in micro-dollars, holds at order time, automatic refunds, append-only ledger.</li>
+<li><strong>Approval flow</strong> — per client: auto-deliver instantly, or send each request to the admin queue.</li>
+<li><strong>Two-factor sign-in</strong> — authenticator-app codes (TOTP) + single-use recovery codes for staff and client users; admins can require it for all staff.</li>
+<li><strong>Reports</strong> — revenue, leads, orders, fill rate and price per lead for any period (vs. the previous one), by client, pool and lead age; export as a multi-sheet Excel workbook or daily CSV.</li>
+<li><strong>Email notifications</strong> — order delivered / declined / unfilled, funds added, low balance (clients); approval needed, import finished (staff). Transactional outbox with retries; each user can mute them.</li>
+<li><strong>Delivery channels</strong> — send order files to clients by Email, WhatsApp, Microsoft Teams, OneDrive or Dropbox: staff connect each once, set per-client destinations, send from any order or automatically on delivery; clients can manage their own destinations in the portal.</li>
+<li><strong>Two looks</strong> — Modern (frosted clay, light/dark) or Classic (flat enterprise CRM), menu on the side or top, full or compact width — per browser, in both apps.</li>
+</ul>
+<div><h3>Architecture</h3><span id="user-content-architecture"></span></div>
+<div><pre><code>apps/api        Fastify 5 REST API (OpenAPI docs at /api/docs in dev)
+apps/worker     pg-boss jobs: imports, fulfillment, CSV exports, suppression, index builds, email,
+                channel sends (packages/db/src/channels), maintenance
+                (Excel copies of an order are built by the API on first request, then cached)
+apps/admin      Staff console (Vite + React 19 + TanStack Router/Query + Tailwind 4)   → :5173
+apps/portal     Client portal (same stack and design system)                          → :5174
+packages/db     SQL migrations, Drizzle schema, fulfillment engine, wallet, exports, scripts
+packages/shared Zod API contract, money/format helpers, identity normalisation, permissions
+packages/ui     "Frosted clay" design system shared by both apps
+</code></pre></div>
+<p>PostgreSQL 18 is the only infrastructure dependency (the job queue also lives in Postgres).
+Leads are LIST-partitioned per pool; order picking walks an index freshest-first in bounded pages,
+so cost depends on the order size — not on how many leads a pool holds.</p>
+<div><h3>Quick start — everything runs in Docker (Windows, macOS, Linux)</h3><span id="user-content-quick-start--everything-runs-in-docker-windows-macos-linux"></span></div>
+<p>The only thing the machine needs is <strong>Docker Desktop</strong> (or Docker Engine with Compose 2.22+). The database,
+migrations, API, worker, admin console and client portal all run in containers, so the same folder runs the
+same way on any computer.</p>
+<div><pre>cp .env.example .env
+<span><span>#</span> Put 64 random hex characters in IDENTITY_PEPPER — for example from:</span>
+docker run --rm node:24-alpine node -e <span><span>"</span>console.log(require('crypto').randomBytes(32).toString('hex'))<span>"</span></span>
+
+docker compose up -d --build                 <span><span>#</span> database, migrations, API, worker, admin, portal</span>
+docker compose <span>exec</span> -w /app api pnpm db:seed <span><span>#</span> first time only: demo data (~40 s)</span>
+docker compose watch                         <span><span>#</span> leave running while you work: saved files sync in, apps reload</span></pre></div>
+<table>
+<thead>
+<tr>
+<th>App</th>
+<th>URL</th>
+<th>Demo login (password <code>ChangeMe!2026</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Admin console</td>
+<td><a href="http://localhost:5173">http://localhost:5173</a></td>
+<td><code>admin@leadpool.local</code> (super admin) · <code>maya@leadpool.local</code> (manager) · <code>ops@leadpool.local</code> (viewer)</td>
+</tr>
+<tr>
+<td>Client portal</td>
+<td><a href="http://localhost:5174">http://localhost:5174</a></td>
+<td><code>jordan@apexauto.example</code> (auto-deliver) · <code>dana@harborhealth.example</code> (approval flow) · <code>chris@blueriver.example</code></td>
+</tr>
+</tbody>
+</table>
+<p>The API (<a href="http://localhost:4000">http://localhost:4000</a>) and the database (port 5432) are reachable from this computer only.</p>
+<p><strong>How live editing works:</strong> <code>docker compose watch</code> copies every file you save into the containers — the API
+and worker restart, the admin and portal hot-reload in the browser. Changing <code>pnpm-lock.yaml</code> (a new
+dependency) rebuilds the image automatically. The containers keep their own Linux <code>node_modules</code>; nothing
+from the host's is used. After changing <code>docker-compose.yml</code> or the <code>Dockerfile</code>, start with
+<code>docker compose up -d --build</code> — a plain <code>up -d</code> recreates the containers from the last built image, which
+leaves out everything synced in since then.</p>
+<div><h4>Everyday commands</h4><span id="user-content-everyday-commands"></span></div>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docker compose up -d --build</code></td>
+<td>Start or update everything (rebuilds only what changed; migrations run first)</td>
+</tr>
+<tr>
+<td><code>docker compose watch</code></td>
+<td>Live code sync while you edit</td>
+</tr>
+<tr>
+<td><code>docker compose ps</code> · <code>docker compose logs -f api worker</code></td>
+<td>Status · follow logs</td>
+</tr>
+<tr>
+<td><code>docker compose restart api</code></td>
+<td>Restart one service</td>
+</tr>
+<tr>
+<td><code>docker compose down</code></td>
+<td>Stop everything — data stays (the <code>pgdata</code> volume and <code>./storage</code>)</td>
+</tr>
+<tr>
+<td><code>docker compose down -v</code></td>
+<td>Stop <strong>and delete the database</strong></td>
+</tr>
+</tbody>
+</table>
+<div><h4>Tools, run inside the stack</h4><span id="user-content-tools-run-inside-the-stack"></span></div>
+<p><code>exec api …</code> runs in the API container, which holds every package; <code>-w /app</code> runs from the repo root.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docker compose exec -w /app api pnpm db:seed [--reset]</code></td>
+<td>Demo data: 3 staff, 4 pools, ~200k leads, 5 clients, 30 days of real orders (<code>--reset</code> wipes first)</td>
+</tr>
+<tr>
+<td><code>docker compose exec -w /app api pnpm db:migrate</code></td>
+<td>Apply pending SQL migrations (<code>packages/db/migrations</code>; also automatic on <code>up</code>)</td>
+</tr>
+<tr>
+<td><code>docker compose exec -w /app api pnpm typecheck</code></td>
+<td>TypeScript across the monorepo</td>
+</tr>
+<tr>
+<td><code>docker compose exec -w /app api pnpm test</code></td>
+<td>Unit tests + fulfillment concurrency tests (creates a throwaway <code>leadpool_test</code> DB)</td>
+</tr>
+<tr>
+<td><code>docker compose exec -w /app api pnpm lint</code></td>
+<td>Biome lint + format check</td>
+</tr>
+<tr>
+<td><code>docker compose exec api pnpm smoke</code></td>
+<td>End-to-end HTTP check against the running stack (103 assertions: archiving + restoring pool columns and tiers, import, orders, mixed orders, repeat orders, lead returns and their on/off switches, table sorting + filtering, dedup, CSV + Excel exports, suppression, approvals, emails, reports, money — each run imports its own fresh leads and tops up the demo client; expects the demo client <em>Apex Auto Protect</em> on instant delivery and lead returns switched on in Settings)</td>
+</tr>
+<tr>
+<td><code>docker compose exec api pnpm smoke:mfa</code></td>
+<td>Two-factor end-to-end check (76 assertions; uses throwaway users and cleans up)</td>
+</tr>
+<tr>
+<td><code>docker compose exec api pnpm smoke:channels</code></td>
+<td>Delivery-channels check (40 assertions: channel save/test, secrecy, client destinations, manual + automatic sends through the Email channel in file mode, portal access and permissions; restores what it touched)</td>
+</tr>
+<tr>
+<td><code>docker compose exec api node --import tsx scripts/create-admin.ts --email … --name … --password …</code></td>
+<td>Bootstrap / reset a super admin — also clears their 2FA (break-glass)</td>
+</tr>
+<tr>
+<td><code>docker compose exec -w /app/packages/db api pnpm bench</code></td>
+<td>EXPLAIN + timings for the pick/preview queries</td>
+</tr>
+<tr>
+<td><code>docker compose exec postgres psql -U leadpool</code></td>
+<td>SQL shell</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Testing from other devices (phones, other laptops on the same Wi-Fi/LAN):</strong> open
+<code>http://&lt;this-computer's-IP&gt;:5173</code> (admin) or <code>:5174</code> (portal) — find the IP with <code>ipconfig</code> (Windows) /
+<code>ipconfig getifaddr en0</code> (macOS); on Windows the computer's name works too. The apps reach the API through the
+dev-server proxy. If another device can't connect, allow Docker (or TCP 5173–5174) through the firewall for
+the network you're on. Anyone on that network can reach the apps, so change the demo passwords before
+testing on a shared network.</p>
+<div><h4>Move it to another computer</h4><span id="user-content-move-it-to-another-computer"></span></div>
+<p>Everything is in three places: the <strong>project folder</strong>, <strong><code>.env</code></strong> (it holds <code>IDENTITY_PEPPER</code> — the data's
+phone/email keys only match with the same value, so it must travel with the data) and <strong>the data</strong> (the
+database plus <code>./storage</code>).</p>
+<div><pre><span><span>#</span> old computer — export the database into the project folder</span>
+docker compose <span>exec</span> -T postgres pg_dump -U leadpool -d leadpool -Fc -f /tmp/leadpool.dump
+docker compose cp postgres:/tmp/leadpool.dump ./leadpool.dump
+
+<span><span>#</span> copy the project folder (with .env, storage/ and leadpool.dump) to the new computer, then there:</span>
+docker compose up -d postgres
+docker compose cp ./leadpool.dump postgres:/tmp/leadpool.dump
+docker compose <span>exec</span> -T postgres pg_restore -U leadpool -d leadpool --no-owner /tmp/leadpool.dump
+docker compose up -d --build</pre></div>
+<p>The same dump restores into the production stack (<code>docker-compose.prod.yml</code>, service <code>postgres</code>) when you
+go live.</p>
+<div><h4>Without Docker</h4><span id="user-content-without-docker"></span></div>
+<p>Node 24 LTS + pnpm (<code>corepack enable</code>): <code>pnpm install</code>, then either <code>docker compose up -d postgres</code> or
+<code>pnpm db:local</code> (embedded Postgres 18 in <code>./.pgdata</code>), then <code>pnpm db:seed</code> and <code>pnpm dev</code>. Every tool command
+above works as <code>pnpm …</code> from the repo root. Don't run these apps on the host while the Docker apps are up
+(same ports). Moving data from the embedded database into Docker: start the embedded one on a spare port
+(<code>pg_ctl -D .pgdata -o "-p 5433" start</code>, from <code>@embedded-postgres/*/native/bin</code>), then
+<code>docker compose exec postgres pg_dump -h host.docker.internal -p 5433 -U leadpool -d leadpool -Fc -f /tmp/db.dump</code>
+and <code>docker compose exec postgres pg_restore -U leadpool -d leadpool --no-owner /tmp/db.dump</code>.</p>
+<div><h3>How the guarantees are enforced</h3><span id="user-content-how-the-guarantees-are-enforced"></span></div>
+<table>
+<thead>
+<tr>
+<th>Guarantee</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Never the same lead twice</td>
+<td><code>deliveries</code> primary key <code>(org, pool, lead)</code> — inserts have no <code>ON CONFLICT</code>, a violation aborts the transaction</td>
+</tr>
+<tr>
+<td>Never the same person twice</td>
+<td>Every phone/email is normalised and HMAC-hashed into <code>leads.keys</code>; picks exclude any key in <code>client_delivered_keys</code></td>
+</tr>
+<tr>
+<td>No race between a client's orders</td>
+<td>Per-client advisory lock + <code>FOR NO KEY UPDATE SKIP LOCKED</code> on picked leads</td>
+</tr>
+<tr>
+<td>Exclusive / shared caps</td>
+<td><code>buyers_count</code> updated in the same transaction; lead flips to sold-out at the pool's <code>max_buyers</code></td>
+</tr>
+<tr>
+<td>Suppression</td>
+<td>Client keys checked at pick time; global DNC flags leads as suppressed on upload and import</td>
+</tr>
+<tr>
+<td>Money</td>
+<td>Hold at submit (conditional wallet update), refund of any shortfall on completion, idempotency keys, append-only ledger</td>
+</tr>
+</tbody>
+</table>
+<p><code>packages/db/src/fulfillment.test.ts</code> proves these under concurrent load.</p>
+<p><strong>Mixed orders.</strong> Every order has one or more <code>order_lines</code> (tier, snapshot, quantity, price); a mix
+has several, <code>orders.tier_id</code> is NULL and its snapshot label describes the mix. Fulfillment fills the
+lines freshest first, each from its own age window, inside the same per-client lock — keys delivered
+for one line are already in <code>client_delivered_keys</code> when the next line is picked, so a mix never
+repeats a person. <code>deliveries.line_no</code> records which line each lead was for (the file gets an
+<code>age_tier</code> column), <code>orders.charged_micros</code> accumulates line quantity × line price, and the refund is
+<code>held − charged</code>. All-or-nothing mixes roll back entirely if any line is short. In the portal:
+product → <strong>Mix ages</strong> (or <code>?mode=mix</code>); "Order again" on a mixed order rebuilds it (<code>?mix=tierId:qty,…</code>).</p>
+<div><h3>Deploy on your own server</h3><span id="user-content-deploy-on-your-own-server"></span></div>
+<p>One Linux VM with Docker is enough to start (4 vCPU / 8 GB RAM handles tens of millions of leads).</p>
+<div><pre>cp deploy/.env.production.example deploy/.env.production     <span><span>#</span> set hosts, POSTGRES_PASSWORD, IDENTITY_PEPPER</span>
+docker compose -f docker-compose.prod.yml --env-file deploy/.env.production up -d --build
+docker compose -f docker-compose.prod.yml --env-file deploy/.env.production run --rm -w /app/apps/api migrate \
+  node --import tsx scripts/create-admin.ts --email you@company.com --name <span><span>"</span>Your Name<span>"</span></span> --password <span><span>"</span>a-long-passphrase<span>"</span></span></pre></div>
+<p><strong>Try it on one machine first:</strong> set <code>ADMIN_HOST=:8080</code>, <code>PORTAL_HOST=:8081</code>, <code>COOKIE_SECURE=false</code> (and the
+matching <code>ADMIN_URL</code> / <code>PORTAL_URL</code>) in <code>deploy/.env.production</code>, add <code>-p leadpool-trial</code> to each command,
+then open <a href="http://localhost:8080">http://localhost:8080</a> and :8081. Demo data: <code>… run --rm migrate node --import tsx src/scripts/seed.ts</code>;
+throw the trial away with <code>… down -v</code>. The dev database (<code>docker compose up -d</code>) is a separate project and
+isn't touched.</p>
+<p>This runs Postgres 18, a one-shot migration, the API, the worker, and Caddy (automatic HTTPS for
+<code>ADMIN_HOST</code> / <code>PORTAL_HOST</code>, security headers, SPA hosting, <code>/api</code> reverse proxy). Uploads and
+exports live in the <code>storage</code> volume; back up <code>pgdata</code> + <code>storage</code> + your <code>.env.production</code>.</p>
+<div><h3>Operations notes</h3><span id="user-content-operations-notes"></span></div>
+<ul>
+<li>
+<p><strong><code>IDENTITY_PEPPER</code> must never change</strong> once data exists — dedup and suppression depend on it, and it also derives the keys that encrypt two-factor secrets and delivery-channel credentials. Back it up with your database backups.</p>
+</li>
+<li>
+<p><strong>Two-factor:</strong> users turn it on under Settings → Security (password re-check → QR code → code → recovery codes). A user who loses their phone and recovery codes is reset by an admin (Staff / client Users → edit → Reset 2FA) or, for client users, by their org owner. Settings → General → "Require two-factor for all staff" can only be switched on by an admin who already uses 2FA.</p>
+</li>
+<li>
+<p>Production: set <code>NODE_ENV=production</code>, <code>COOKIE_SECURE=true</code>, serve admin/portal/API behind HTTPS on one origin per app (the SPAs call <code>/api</code> on their own origin), and enable Postgres backups with point-in-time recovery before real money flows.</p>
+</li>
+<li>
+<p>Exports live in <code>STORAGE_DIR/exports</code> and are purged after the configured lifetime (Settings → General). An Excel copy expires with its CSV; "Rebuild export" drops both.</p>
+</li>
+<li>
+<p><strong>Archiving a pool column or age tier never deletes anything.</strong> Archived ones are listed under the live ones (pool → Columns / Age tiers → <em>Archived …</em>) with <strong>Restore</strong>. A restored column goes back to the end of the list with the values leads already carry — filtering and the lead-date role stay off until switched on; leads imported while it was archived simply don't have it. A restored tier comes back switched off and is refused while it would overlap a live tier. An archived column's key can't be reused for a new column (the values are stored under it) — restore it instead.</p>
+</li>
+<li>
+<p><strong>Email:</strong> connect your mail server in Settings → Delivery channels → Email (host, port, security, sign-in, from address — presets for Microsoft 365, Google Workspace, SendGrid, Mailgun, Amazon SES) and click <strong>Test</strong>; it is used for every email the platform sends. Alternatively set <code>SMTP_URL</code> + <code>MAIL_FROM</code> in the environment (the channel wins when both exist). Also set <code>PORTAL_URL</code> and <code>ADMIN_URL</code> (see <code>deploy/.env.production.example</code>). With neither, every email is written to <code>STORAGE_DIR/mail/&lt;day&gt;/*.eml</code> — Settings → Notifications shows which mode is active, lets you send a test and lists the last 50 emails with any errors. Failed sends retry with backoff (2 → 32 minutes) before being marked failed.</p>
+</li>
+<li>
+<p>Both apps have a light and a dark theme (sun/moon button in the sidebar header), remembered per browser. The inline pre-paint script in <code>apps/admin/index.html</code> and <code>apps/portal/index.html</code> is identical, so one <code>sha256-…</code> in <code>deploy/Caddyfile</code>'s CSP covers both — if you edit it, change both files and update that hash.</p>
+</li>
+<li>
+<p><strong>Sidebar</strong> — the panel button at the top of the sidebar hides it (remembered per browser); the small tab on the left edge of the page brings it back (in Classic, a blue tab with an arrow). Below 1024px wide the sidebar is a slide-in menu behind the ☰ button.</p>
+</li>
+<li>
+<p><strong>Appearance</strong> — both the admin and the client portal (palette button in the sidebar header / top bar, or Settings → Appearance), applied instantly and remembered per browser:</p>
+<ul>
+<li><em>Style</em> — <strong>Modern</strong> (the frosted-clay look) or <strong>Classic</strong>, a flat, dense enterprise-CRM skin (Tahoma 12px, blue applet bars, tab strips, yellow row selection; light only, no blur, shadows or animations).</li>
+<li><em>Menu</em> — icon rail + sidebar on the <strong>side</strong>, or tabs across the <strong>top</strong> with a row of contextual shortcuts.</li>
+<li><em>Width</em> — <strong>full</strong> width or a <strong>centred compact</strong> frame (1320px).</li>
+</ul>
+<p>They are <code>data-kit</code> / <code>data-nav</code> / <code>data-width</code> attributes on <code>&lt;html&gt;</code>. The classic skin is <code>packages/ui/src/styles/classic.css</code>: unlayered rules scoped to <code>[data-kit="classic"]</code> that restyle the shared components through their <code>lp-*</code> hook classes — a new screen built from <code>@leadpool/ui</code> components gets both looks for free.</p>
+</li>
+</ul>
+<div><h3>Repeat orders</h3><span id="user-content-repeat-orders"></span></div>
+<p>A client saves any order as a repeat order from the product page (step 4, <strong>Repeat</strong>) — or from
+<code>/repeat</code> in the portal — and it's placed for them automatically:</p>
+<ul>
+<li><strong>When</strong> — every day, weekdays, chosen weekdays or monthly (day 1–28), at a time in their own time
+zone (daylight saving handled; a time skipped by the clock change runs just after it). Optional end date.</li>
+<li><strong>How</strong> — the worker's <code>schedule-run</code> job sweeps every minute and places each due run through the
+normal order path: balance hold, approval queue for approval-mode clients, fulfilment, file, emails.
+A slot runs at most once (row claim + an idempotency key per slot), and missed slots aren't made up.</li>
+<li><strong>Where</strong> — each run's file goes to the channels picked on the repeat order (the client's destinations
+under Settings → Delivery), on top of any auto-send destinations.</li>
+<li><strong>Money</strong> — a run the balance can't cover is <strong>skipped</strong> (nothing charged, the client is emailed);
+after 3 skips in a row it pauses itself. A product, tier or filter that no longer works pauses it too.</li>
+<li><strong>Controls</strong> — the client can edit quantities / schedule / destinations, pause, resume, "Run now"
+(an extra order) or end it; staff see every client's repeat orders on the client → <strong>Repeat orders</strong> tab
+and can pause, resume or end them. Every order a repeat order places links back to it.</li>
+</ul>
+<p>Tables: <code>order_schedules</code>, <code>order_schedule_runs</code>, <code>orders.schedule_id</code> (<code>packages/db/src/schedules.ts</code>;
+the cadence maths is <code>packages/shared/src/schedule.ts</code>).</p>
+<div><h3>Lead returns</h3><span id="user-content-lead-returns"></span></div>
+<ul>
+<li><strong>Policy</strong> — Settings → <strong>Lead returns</strong>: the on/off switch for every client, the <strong>return window</strong> (days
+after delivery), the <strong>return limit</strong> (% of an order, at least one lead) and which <strong>reasons</strong> clients can
+pick. The same tab shows returns waiting, the last 30 days (credited, returned, return rate) and the
+clients with their own rules. Turning it off hides returns from every portal at once and drops them from
+the staff menus once nothing is left to review; returns already sent stay in the queue.</li>
+<li><strong>Per client</strong> — client → Settings → <em>Lead returns for this client</em>: switch it off for one client, or give
+them their own window / limit (empty = the default).</li>
+<li><strong>Client</strong> — order page → <strong>Returns</strong> → <em>Return leads</em>: paste lead IDs from the file, phones (any
+format) or emails, or load the edited CSV; the portal shows what matched, what didn't and what's over
+the limit. Pick a reason (disconnected, wrong person, duplicate, bad email, fake, no consent, other).</li>
+<li><strong>Staff</strong> — <strong>Lead returns</strong> (rail badge) → each return shows the leads with their details, the share of
+the order and the client's 90-day return rate. Untick leads that aren't bad and <strong>Approve</strong> — approved
+leads are credited at the price paid for them (per line for mixed orders, <code>return_credit</code> in the
+ledger) and set to archived so nobody else buys them; the rest are rejected. The client gets an email.</li>
+<li>A delivered lead can be returned once; the allowance is enforced under the order's row lock, and
+rejected leads free their share of it again.</li>
+</ul>
+<p>Tables: <code>lead_returns</code>, <code>lead_return_items</code>, <code>orders.returned_qty</code> / <code>returned_micros</code>,
+<code>client_orgs.returns_enabled</code> (<code>packages/db/src/returns.ts</code>).</p>
+<div><h3>Tables: sort and filter</h3><span id="user-content-tables-sort-and-filter"></span></div>
+<p>Every data table uses the shared <code>DataTable</code> (<code>packages/ui/src/components/table.tsx</code>). A column with a value
+(<code>accessorFn</code> / <code>accessorKey</code>) sorts when its heading is clicked; <code>meta.filter</code> adds the filter button —
+<code>text</code>, <code>select</code> (with <code>meta.filterOptions</code>), <code>number</code>, <code>money</code> (micro-dollars) or <code>date</code>.</p>
+<ul>
+<li><strong>Small lists</strong> (clients, staff, imports, suppression lists, reports, …) sort and filter in the browser;
+<code>stateKey</code> remembers the view for the tab.</li>
+<li><strong>Big lists</strong> (orders, returns, wallet history, audit log, a pool's leads) pass <code>useTableState()</code> to the
+table and its query: the API gets <code>sort</code>, <code>dir</code> and <code>filter</code> (JSON) and <code>planTableQuery</code>
+(<code>packages/db/src/table-query.ts</code>) turns them into SQL. Each list declares its sortable / filterable
+columns up front, so a column id can only pick a known expression and every value is a bound parameter;
+paging stays keyset-based (the cursor carries the sort it was made for). Sorting a pool's leads by a
+lead field has a 10-second statement limit.</li>
+</ul>
+<div><h3>Guided tours</h3><span id="user-content-guided-tours"></span></div>
+<p>Both apps explain themselves with <a href="https://driverjs.com">driver.js</a> tours, themed per kit (Modern light / dark:
+frosted card, soft entrance, mint ring around the highlighted part; Classic: flat applet window, no motion).</p>
+<ul>
+<li><strong>Welcome tour</strong> — on first sign-in: the menu, status counts, account, appearance and the compass button.
+When it ends with <em>Done</em>, the current page's tour follows.</li>
+<li><strong>Page tours</strong> — every page (and every tab of a pool, client or Settings) has one, shown once on the first
+visit. Replay any time with the <strong>compass</strong> button in the page header or the account menu (<em>Take the tour of
+this page</em> / <em>Welcome tour</em>).</li>
+<li><strong>Preferences</strong> — Settings → Appearance → <em>Guided tours</em>: turn first-visit tours off, restart the welcome
+tour, or <strong>Show every tour again</strong>.</li>
+<li><strong>Never in the way</strong> — a tour waits while a dialog, menu or drawer is open, closes when you navigate, skips
+steps whose part isn't on screen (a hidden column, a button your role doesn't have, the rail on a phone) and
+only starts automatically once the page's data has loaded. Esc, the × or <em>Skip tour</em> close it; a skipped
+tour counts as seen.</li>
+<li><strong>Where it's stored</strong> — per user on the server (<code>staff_users</code> / <code>client_users</code> <code>.tours_seen</code>, <code>.tours_auto</code>;
+<code>GET</code> / <code>PATCH /api/{admin,portal}/auth/tours</code>), so it follows people across browsers.</li>
+</ul>
+<p>Writing a tour: add <code>data-tour="name"</code> to the element (or the <code>tour</code> prop on <code>Tabs</code>, <code>PillTabs</code>, <code>Segmented</code>,
+<code>DataTable</code>), describe the steps in <code>apps/&lt;app&gt;/src/tours/&lt;page&gt;.ts</code> (<code>TourDefinition</code>: id <code>admin.&lt;page&gt;</code> /
+<code>portal.&lt;page&gt;</code>, <code>**bold**</code> in bodies) and call <code>usePageTour(tour, { ready })</code> in the page — or in each tab, so
+every tab gets its own. Engine and styles: <code>packages/ui/src/tour/tour.tsx</code>, <code>packages/ui/src/styles/tour.css</code>.</p>
+<div><h3>Delivery channels</h3><span id="user-content-delivery-channels"></span></div>
+<p>Besides the portal download, delivered orders can be pushed to clients through five channels. Staff connect
+them once; each client then gets its own destination.</p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>What the client receives</th>
+<th>You need</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Email</strong></td>
+<td>The file attached (or a portal link above the size limit you set)</td>
+<td>SMTP host + sign-in, or <code>SMTP_URL</code></td>
+</tr>
+<tr>
+<td><strong>WhatsApp</strong></td>
+<td>The file as a document message from your business number</td>
+<td>Meta for Developers → WhatsApp: Phone Number ID + a permanent access token. Free-form messages only reach people who wrote to you in the last 24 h — outside that window pick <em>Approved template</em> and enter its name, language and variables. Without a number on file, the send dialog offers a wa.me link instead</td>
+</tr>
+<tr>
+<td><strong>Microsoft Teams</strong></td>
+<td>An Adaptive Card in their channel (order, product, rows, portal button, cloud links)</td>
+<td>In Teams: channel → Connectors (or Workflows) → <em>Incoming Webhook</em> → copy the URL. A test posts a card titled "Lead Portal test"</td>
+</tr>
+<tr>
+<td><strong>OneDrive</strong></td>
+<td>The file uploaded to your drive under a folder per client, plus a share link</td>
+<td><em>Token</em> mode: a Graph Explorer token with <code>Files.ReadWrite</code> (expires after ~1 h). <em>App</em> mode (recommended): an Azure app with <code>Files.ReadWrite.All</code> application permission — tenant ID, client ID, secret and the drive owner — which never expires</td>
+</tr>
+<tr>
+<td><strong>Dropbox</strong></td>
+<td>The file uploaded to your Dropbox under a folder per client, plus a shared link</td>
+<td>An app at Dropbox Developers with <code>files.content.write</code> + <code>sharing.write</code>; paste its key + secret and click <strong>Connect</strong> (refresh token — never expires), or paste a generated access token (expires after ~4 h)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Connect</strong> — Settings → Delivery channels (admins with <code>settings.manage</code>). Each tab has step-by-step
+setup, a <strong>Test</strong> button (sends a real test message or uploads a small test file) and 30-day stats.
+Credentials are write-only: they are encrypted at rest (AES-256-GCM) and the UI only ever shows
+"Saved …last 4". Changing anything resets the channel to <em>untested</em>.</li>
+<li><strong>Per client</strong> — client → <strong>Delivery</strong> tab: email addresses, WhatsApp number, Teams webhook, cloud folder
+name, file format (CSV / Excel) and <strong>Auto-send</strong>. Each card has its own <em>Send test</em>.</li>
+<li><strong>Send</strong> — order page → <strong>Send</strong>: tick channels, choose the format, add an optional note. The history under
+the delivery file shows every send with status, link and <strong>Retry</strong>. Needs the <code>orders.send</code> permission
+(managers and admins).</li>
+<li><strong>Auto-send</strong> — when an order's file is ready, every destination with Auto-send on is sent once.</li>
+<li><strong>Client portal</strong> — turn on <em>Clients can use …</em> in a channel's "Client portal" section and it
+appears under the client's Settings → Delivery: the owner edits their addresses / number / webhook and
+auto-send, and any user can <strong>Send to…</strong> from an order. Cloud folders stay under staff control.</li>
+<li><strong>How sends run</strong> — rows in <code>delivery_sends</code>, processed by the worker (<code>channel-send</code> queue, swept every
+minute). Cloud uploads go first so the email / WhatsApp / Teams messages carry their links. Failures retry
+up to 5 times (1 → 3 → 10 → 30 min); an authentication error marks the channel <em>needs attention</em>. Every
+send and failure is in the audit log.</li>
+<li><strong>Testing without real accounts</strong> — <code>CHANNEL_DEV_WEBHOOK_HOSTS</code> (non-production only) allows extra Teams
+webhook hosts, and <code>WHATSAPP_API_BASE</code>, <code>GRAPH_API_BASE</code>, <code>MS_LOGIN_BASE</code>, <code>DROPBOX_API_BASE</code> and
+<code>DROPBOX_CONTENT_BASE</code> point the adapters at a mock server. <code>packages/db/src/channels/channels.test.ts</code>
+covers each provider's request shapes and error handling.</li>
+</ul>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/gamesite/"><span>TypeScript</span><h3>gamesite</h3></a><a class="related__card" href="/projects/qalam-studio/"><span>TypeScript</span><h3>qalam-studio</h3></a><a class="related__card" href="/projects/vici-evalution/"><span>TypeScript</span><h3>vici-evalution</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

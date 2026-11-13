@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>authenticator: Two Windows desktop builds of the… | Abdul Manan</title>
+<meta name="description" content="authenticator by Abdul Manan. Two Windows desktop builds of the Google Authenticator one-time passcode generator — one driven by the original BlackBerry…" />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/authenticator/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="authenticator: Two Windows desktop builds of the… | Abdul Manan" />
+<meta property="og:description" content="authenticator by Abdul Manan. Two Windows desktop builds of the Google Authenticator one-time passcode generator — one driven by the original BlackBerry…" />
+<meta property="og:url" content="https://abdulmanan.tech/projects/authenticator/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="authenticator: Two Windows desktop builds of the… | Abdul Manan" />
+<meta name="twitter:description" content="authenticator by Abdul Manan. Two Windows desktop builds of the Google Authenticator one-time passcode generator — one driven by the original BlackBerry…" />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">authenticator</span></nav>
+<h1>authenticator</h1>
+<p class="project-page__lead">Two Windows desktop builds of the Google Authenticator one-time passcode generator — one driven by the original BlackBerry sources, one by the original Android sources — packaged so their output can be compared side by side.</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>Java</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-09-24">24 Sep 2026</time></dd></div><div><dt>License</dt><dd>Apache-2.0</dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/authenticator" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><h3>Authenticator for Windows</h3><span id="user-content-authenticator-for-windows"></span></div>
+<p>Two Windows desktop builds of the Google Authenticator one-time passcode
+generator — one driven by the original <strong>BlackBerry</strong> sources, one by the
+original <strong>Android</strong> sources — packaged so their output can be compared
+side by side.</p>
+<p>Developed by <strong>Abdul Manan</strong> — <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></p>
+<p><a href="https://github.com/abdulmanan69/authenticator/blob/main/LICENSE"><img src="https://camo.githubusercontent.com/7e34f1269b5c674af226dac5846f4cbd128aa3d9eab0967e8590155f48e61ccf/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e63652d417061636865253230322e302d626c75652e737667" alt="Licence" loading="lazy" decoding="async"></a></p>
+<table>
+<thead>
+<tr>
+<th>Edition</th>
+<th>Executable</th>
+<th>Passcode engine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BlackBerry core</td>
+<td><code>GoogleAuthenticatorBlackBerry.exe</code></td>
+<td><code>upstream/blackberry</code></td>
+</tr>
+<tr>
+<td>Android core</td>
+<td><code>GoogleAuthenticatorAndroid.exe</code></td>
+<td><code>upstream/android</code></td>
+</tr>
+</tbody>
+</table>
+<p>Both ship in one installer, share a single bundled Java runtime, and keep
+separate account vaults so neither can disturb the other.</p>
+<div><h4>Why two</h4><span id="user-content-why-two"></span></div>
+<p>The two Google implementations were written years apart, by different teams, on
+different crypto stacks — Bouncy Castle SHA-1 on BlackBerry, JCE <code>HMACSHA1</code> on
+Android. Running both on the same secret is a direct check that each still
+produces RFC-correct codes, and a way to see the one place they genuinely differ
+(see <em>Known difference</em> below).</p>
+<div><h4>Install</h4><span id="user-content-install"></span></div>
+<p>Download <code>GoogleAuthenticator-Setup.exe</code> from
+<a href="https://github.com/abdulmanan69/authenticator/releases">Releases</a>, and run it.</p>
+<p>Per-user install — no administrator rights. Files go to
+<code>%LOCALAPPDATA%\Programs\GoogleAuthenticator</code>, two Start Menu shortcuts are
+created, and an entry appears under Apps &amp; features. Remove from there, or with
+<code>uninstall.exe</code> in the install folder.</p>
+<p>Java is <strong>not</strong> required; a trimmed runtime (<code>java.base</code>, <code>java.desktop</code>,
+<code>java.logging</code>, <code>jdk.unsupported</code>) is bundled.</p>
+<div><h4>Adding accounts</h4><span id="user-content-adding-accounts"></span></div>
+<p><strong>Scan QR image</strong> — pick a saved screenshot or photo of a setup QR code.
+Decoding uses ZXing, tries both binarizers and both polarities, and accepts
+either an <code>otpauth://</code> link or a bare base-32 secret.</p>
+<p>Three test images are in <a href="https://github.com/abdulmanan69/authenticator/blob/main/windows/samples/"><code>windows/samples/</code></a> — open the same
+one in both editions and the codes should match.</p>
+<p><strong>Add manually</strong> — type a name and a base-32 secret, or paste an <code>otpauth://</code>
+link straight into the secret box. Choose TOTP or HOTP and, for HOTP, a starting
+counter. The secret is validated with <em>that edition's own decoder</em>, so a key the
+Android <code>Base32String</code> rejects will not silently pass in the BlackBerry build.</p>
+<div><h4>Verifying the two agree</h4><span id="user-content-verifying-the-two-agree"></span></div>
+<div><pre>cd windows
+powershell <span>-</span>ExecutionPolicy Bypass <span>-</span>File build.ps1
+powershell <span>-</span>ExecutionPolicy Bypass <span>-</span>File verify.ps1</pre></div>
+<p><code>verify.ps1</code> runs <code>tools/CrossCheck.java</code> and <code>tools/QrCheck.java</code>:</p>
+<div><pre><code>== RFC 4226 HOTP vectors ==
+  c=0 rfc=755224 bb=755224 android=755224  PASS
+  ... all 10 PASS
+== live TOTP, both engines, same instant ==
+  JBSWY3DPEHPK3PXP  bb=559222 android=559222  MATCH
+== 4000 random secret/counter pairs ==
+  checked=4000 differ=0
+== countdown agreement ==
+  bb=30s android=30s  AGREE
+ALL CHECKS PASSED
+QR ROUND-TRIP PASSED
+</code></pre></div>
+<div><h4>Passcode logic is not mine</h4><span id="user-content-passcode-logic-is-not-mine"></span></div>
+<p>No passcode arithmetic was written for this port. Every file below is a
+byte-for-byte copy of its upstream original, which is committed alongside it so
+the two can be diffed.</p>
+<p><strong>BlackBerry</strong> — from <code>upstream/blackberry/src</code>:
+<code>PasscodeGenerator.java</code>, <code>Base32String.java</code>, <code>Base32Legacy.java</code>, and the 11
+vendored <code>org/bouncycastle/**</code> files supplying SHA-1 and HMAC.</p>
+<p><strong>Android</strong> — from <code>upstream/android/java</code>:
+<code>otp/PasscodeGenerator.java</code>, <code>otp/TotpCounter.java</code>,
+<code>otp/OtpSourceException.java</code>, <code>time/Clock.java</code>, <code>time/SystemWallClock.java</code>,
+<code>util/Base32String.java</code>.</p>
+<p>Two adapters were added, because the upstream call sites are platform-bound:</p>
+<ul>
+<li><strong><code>OtpCore.java</code></strong> — a lift of <code>AuthenticatorScreen.computePin</code>. That class
+binds <code>net.rim.*</code>.</li>
+<li><strong><code>AndroidOtpCore.java</code></strong> — reassembles <code>OtpProvider.getCurrentCode</code>,
+<code>OtpProvider.computePin</code> and <code>AccountDb.getSigningOracle</code>. Those read through
+Android SQLite and SharedPreferences. Its one deviation: a secret that fails
+to decode raises <code>OtpSourceException</code> rather than returning null and then
+throwing <code>NullPointerException</code>.</li>
+</ul>
+<p>Both editions are 6-digit, SHA-1, 30-second TOTP.</p>
+<div><h5>Known difference</h5><span id="user-content-known-difference"></span></div>
+<p>The BlackBerry <code>PasscodeGenerator</code> accepts a <code>passCodeLength</code> but hardcodes
+<code>PIN_MODULO = 10^6</code>, so a non-default length yields six real digits zero-padded
+to the requested width. The Android version indexes <code>DIGITS_POWER[codeLength]</code>
+and is correct. Both apps use 6 digits, so the two agree in practice; the
+BlackBerry bug is <strong>preserved, not patched</strong>, because the point of this repo is
+to run the original code unchanged.</p>
+<div><h4>Storage</h4><span id="user-content-storage"></span></div>
+<p>Neither original storage layer is portable — BlackBerry used a signed
+<code>PersistentStore</code>, Android used SQLite behind the OS keystore. Each edition
+instead keeps an AES-256-GCM vault keyed by PBKDF2-HMAC-SHA256 (210,000
+iterations) over a master password set on first run.</p>
+<table>
+<thead>
+<tr>
+<th>Edition</th>
+<th>Vault</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BlackBerry core</td>
+<td><code>%APPDATA%\GoogleAuthenticator\vault.dat</code></td>
+</tr>
+<tr>
+<td>Android core</td>
+<td><code>%APPDATA%\GoogleAuthenticatorAndroid\vault.dat</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>There is no password recovery.</strong> Uninstalling leaves both vaults in place.</p>
+<div><h4>Build</h4><span id="user-content-build"></span></div>
+<div><pre>cd windows
+powershell <span>-</span>ExecutionPolicy Bypass <span>-</span>File build.ps1</pre></div>
+<p>Needs JDK 21 (<code>javac</code>, <code>jar</code>, <code>jlink</code>, <code>jpackage</code>) and the in-box .NET Framework
+compiler at <code>C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe</code>. No WiX,
+Inno Setup or NSIS — the installer is a small C# WinForms program with the
+payload embedded as a resource.</p>
+<div><h4>Layout</h4><span id="user-content-layout"></span></div>
+<div><pre><code>windows/
+  src/        both OTP cores (verbatim) + the shared Swing UI
+  lib/        guava-27.1-android.jar, zxing-core-3.5.3.jar
+  assets/     icon.png, icon.ico
+  tools/      CrossCheck.java, QrCheck.java
+  installer/  Setup.cs, Uninstaller.cs
+  build.ps1   rebuild everything
+  verify.ps1  compare the two editions
+upstream/
+  blackberry/ unmodified, from google/google-authenticator
+  android/    unmodified, from google/google-authenticator-android
+</code></pre></div>
+<div><h4>Licence</h4><span id="user-content-licence"></span></div>
+<p>Apache 2.0 — see <a href="https://github.com/abdulmanan69/authenticator/blob/main/LICENSE">LICENSE</a> and <a href="https://github.com/abdulmanan69/authenticator/blob/main/NOTICE">NOTICE</a>. Passcode generation is
+Google code under the same licence; ZXing and Guava are Apache 2.0; the Bouncy
+Castle files vendored in the BlackBerry tree are MIT.</p>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/cueline/"><span>C++</span><h3>cueline</h3></a><a class="related__card" href="/projects/apexquant/"><span>Python</span><h3>apexquant</h3></a><a class="related__card" href="/projects/dispatchdesk/"><span>JavaScript</span><h3>dispatchdesk</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

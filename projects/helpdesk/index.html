@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Helpdesk: self-hosted ticket system for your… | Abdul Manan</title>
+<meta name="description" content="Helpdesk by Abdul Manan. self-hosted ticket system for your company. Employees raise issues, managers assign them." />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/helpdesk/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="Helpdesk: self-hosted ticket system for your… | Abdul Manan" />
+<meta property="og:description" content="Helpdesk by Abdul Manan. self-hosted ticket system for your company. Employees raise issues, managers assign them." />
+<meta property="og:url" content="https://abdulmanan.tech/projects/helpdesk/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Helpdesk: self-hosted ticket system for your… | Abdul Manan" />
+<meta name="twitter:description" content="Helpdesk by Abdul Manan. self-hosted ticket system for your company. Employees raise issues, managers assign them." />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">Helpdesk</span></nav>
+<h1>Helpdesk</h1>
+<p class="project-page__lead">self-hosted ticket system for your company. Employees raise issues, managers assign them</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>TypeScript</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-11-04">4 Nov 2026</time></dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/Helpdesk" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><span id="user-content-helpdesk"></span></div>
+<p>A self-hosted ticket system for your company. Employees raise issues, managers assign them,
+officers fix them, and the person who raised the issue confirms the fix. Every person has a
+role, and admins decide exactly what each role can do. It runs on one Ubuntu server and
+installs with one command.</p>
+<p>Built on <a href="https://github.com/Peppermint-Lab/peppermint">Peppermint</a>, customized by
+<a href="https://abdulmanan.tech">Abdul Manan</a>.</p>
+<div><h3>Contents</h3><span id="user-content-contents"></span></div>
+<ul>
+<li><a href="#user-content-what-it-does">What it does</a></li>
+<li><a href="#user-content-roles--permissions">Roles &amp; permissions</a></li>
+<li><a href="#user-content-documents">Documents</a></li>
+<li><a href="#user-content-equipment">Equipment</a></li>
+<li><a href="#user-content-switching-parts-of-the-app-off">Switching parts of the app off</a></li>
+<li><a href="#user-content-single-sign-on">Single sign-on</a></li>
+<li><a href="#user-content-email">Email</a></li>
+<li><a href="#user-content-webhooks">Webhooks</a></li>
+<li><a href="#user-content-install-on-a-fresh-ubuntu-server">Install on a fresh Ubuntu server</a></li>
+<li><a href="#user-content-install-on-a-fresh-windows-server">Install on a fresh Windows Server</a></li>
+<li><a href="#user-content-use-a-domain-name-with-https">Use a domain name with HTTPS</a></li>
+<li><a href="#user-content-everyday-commands">Everyday commands</a></li>
+<li><a href="#user-content-backups-and-restore">Backups and restore</a></li>
+<li><a href="#user-content-updating">Updating</a></li>
+<li><a href="#user-content-moving-to-a-new-server">Moving to a new server</a></li>
+<li><a href="#user-content-settings-env">Settings (.env)</a></li>
+<li><a href="#user-content-run-it-on-your-own-pc">Run it on your own PC</a></li>
+<li><a href="#user-content-troubleshooting">Troubleshooting</a></li>
+<li><a href="#user-content-security-checklist">Security checklist</a></li>
+<li><a href="#user-content-how-it-is-built">How it is built</a></li>
+<li><a href="#user-content-license-and-credits">License and credits</a></li>
+</ul>
+<div><h3>What it does</h3><span id="user-content-what-it-does"></span></div>
+<p>Built-in roles, from most to least senior (admins can rename them, change what each can do,
+and add their own; see <a href="#user-content-roles--permissions">Roles &amp; permissions</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>What they can do out of the box</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Admin</strong></td>
+<td>Everything, including roles, permissions and settings.</td>
+</tr>
+<tr>
+<td><strong>Senior Manager</strong></td>
+<td>Sees and assigns everything in their reporting line, organises it, closes issues, sees team reports, and can promote people to roles below their own.</td>
+</tr>
+<tr>
+<td><strong>Manager</strong></td>
+<td>Runs a team: assigns issues to their deputies and officers, closes issues, organises their team and sees team reports.</td>
+</tr>
+<tr>
+<td><strong>Deputy Manager</strong></td>
+<td>Supports a manager: assigns issues to the officers who report to them and sees their reports.</td>
+</tr>
+<tr>
+<td><strong>Officer</strong></td>
+<td>Works on issues: takes them from the queue, updates them, marks them done and sets their availability.</td>
+</tr>
+<tr>
+<td><strong>User</strong></td>
+<td>Raises issues, sees only their own, and confirms a fix or reopens the issue.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>How an issue moves:</strong> a user raises it → it goes straight to the staff member who handles
+that user (or waits as unassigned until someone takes or assigns it) → they mark it done →
+the user confirms (closed) or reopens it.</p>
+<p><strong>Teams follow reporting lines.</strong> Everyone can report to someone more senior (Officer →
+Deputy Manager → Manager → Senior Manager). A person's team is everyone below them, so a
+manager automatically sees and assigns their deputies' and officers' work.</p>
+<p>Also included:</p>
+<ul>
+<li><strong>Deadlines (SLA):</strong> every priority has a target time, so each issue gets a due date and late issues are flagged.</li>
+<li><strong>Your own fields:</strong> admins control issue types, priorities, categories and which fields are required (<em>Admin → Issue settings</em>).</li>
+<li><strong>Analytics:</strong> issues raised vs finished per day; open issues by stage; breakdowns by priority, type and category; top clients; workload per person; and a heat map of the busiest weekdays and hours.</li>
+<li><strong>Reports:</strong> by month or any date range, for the whole company, a team or one person. Print to PDF or download as CSV. Officers get their own report.</li>
+<li><strong>Performance:</strong> completion times, done and confirmed counts, reopened issues.</li>
+<li><strong>Your brand:</strong> your logo and company name across the app and the sign-in page (<em>Admin → Branding</em>).</li>
+<li><strong>Single sign-on:</strong> staff sign in with their company account (Microsoft Entra ID, Google Workspace, Okta, Keycloak, ADFS, OneLogin and others) through OpenID Connect, SAML 2.0 or OAuth 2.0. See <a href="#user-content-single-sign-on">Single sign-on</a>.</li>
+<li><strong>On every issue:</strong> attachments (drag and drop, image preview, up to 25 MB each), time logged, linked issues (<em>related</em>, <em>duplicate of</em>, <em>blocks</em>) and comments their author can edit.</li>
+<li><strong>Board and list views:</strong> drag cards between columns to change status, priority or type; filters for status, priority, type and person; quick actions from the ⋯ menu.</li>
+<li><strong>Email:</strong> Microsoft 365 (without passwords), Google or any SMTP server for outgoing mail. Email queues turn messages sent to a mailbox into issues, and replies into comments. Everyone chooses which emails they get. See <a href="#user-content-email">Email</a>.</li>
+<li><strong>Webhooks:</strong> signed messages to Slack, Microsoft Teams, Discord or your own systems when issues are created, assigned, commented on or change status.</li>
+<li><strong>Documents:</strong> runbooks, guides and notes, kept private or shared with chosen roles, named colleagues or the whole company, so work carries on when the person who usually does it is away. See <a href="#user-content-documents">Documents</a>.</li>
+<li><strong>Equipment:</strong> laptops, phones and accessories with your own categories and icons — hand them out, let people confirm what arrived, take requests and read the totals. See <a href="#user-content-equipment">Equipment</a>.</li>
+<li><strong>Customers:</strong> a portal where outside clients raise and follow their own issues, and a client list with notes.</li>
+<li><strong>Notifications:</strong> in the app (with a history page) and by email.</li>
+<li><strong>Forgot password:</strong> a 6-digit code by email that works for 30 minutes.</li>
+</ul>
+<div><h3>Roles &amp; permissions</h3><span id="user-content-roles--permissions"></span></div>
+<p>Open <em>Admin → Roles &amp; permissions</em>. Everyone has exactly one role; the role decides what they
+can see and do. The server checks every action, so hiding a button is never the only protection.</p>
+<ul>
+<li><strong>Edit roles:</strong> pick a role on the left and tick what it can do. There are 42 permissions in
+six groups: <em>Issues</em>, <em>People &amp; teams</em>, <em>Documents</em>, <em>Equipment</em>, <em>Reports &amp; analytics</em> and <em>Administration</em>. Each one
+says what it allows, and the powerful ones are marked. Turning one on also turns on anything it
+needs (for example <em>Take issues</em> needs <em>Work on issues</em>).</li>
+<li><strong>Compare all roles:</strong> every role side by side in one grid. Tick boxes across several roles and
+save them together.</li>
+<li><strong>New role / Duplicate:</strong> create your own roles (for example <em>Team Lead</em> or <em>HR Officer</em>), or copy
+an existing one and adjust it.</li>
+<li><strong>Seniority (1–99):</strong> sets the order. People can only manage roles, and people, below their own
+seniority, and can only hand out permissions they have themselves. The Admin role is always at
+the top with every permission.</li>
+<li><strong>Default for new accounts:</strong> the role given to people who sign up, or sign in with single
+sign-on, for the first time (the built-in <em>User</em> role unless you change it).</li>
+<li><strong>Delete:</strong> custom roles can be deleted; you choose which role their members move to. Built-in
+roles can be renamed and changed but not deleted.</li>
+</ul>
+<p><em>Admin → People</em> lists everyone with a search and a filter per role. Change one person's role
+in place, or tick many people and change all their roles at once. <em>Team</em> shows the reporting
+lines as a tree and who handles each user's issues.</p>
+<p>Every change to roles, permissions, accounts, reporting lines, sign-in settings, webhooks and
+clients is written to <em>Admin → Audit log</em> with who made it and when.</p>
+<div><h3>Documents</h3><span id="user-content-documents"></span></div>
+<p><em>Documents</em> is the company's written knowledge: how a printer is reset, which supplier to ring,
+the steps for a new starter. Write it once and the work carries on when the person who usually
+does it is on leave.</p>
+<p>Every document has an <strong>audience</strong>, set by its author from the <strong>Share</strong> button:</p>
+<table>
+<thead>
+<tr>
+<th>Audience</th>
+<th>Who can open it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Only me</strong></td>
+<td>Nobody else, except the people whose role lets them review their team's or the company's documents.</td>
+</tr>
+<tr>
+<td><strong>Chosen roles and people</strong></td>
+<td>Everyone with a ticked role (for example every <em>Officer</em>, including people given that role later), plus anyone ticked by name.</td>
+</tr>
+<tr>
+<td><strong>Everyone in the company</strong></td>
+<td>All staff.</td>
+</tr>
+</tbody>
+</table>
+<p>Customers on the portal never see documents, whatever the audience.</p>
+<p>The list has two tabs: <strong>My documents</strong> and <strong>Shared with me</strong> (which reads <em>Shared with me &amp;
+my team</em> for anyone who can see their team's). Search finds a document by title. Only the author
+can change or delete a document; everyone else opens it read-only, with the author's name at the
+top. Opening a document to a wider audience, or deleting someone else's, is written to the audit
+log.</p>
+<p>Five permissions decide who does what (<em>Admin → Roles &amp; permissions → Documents</em>):</p>
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>What it allows</th>
+<th>On by default for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Write documents</strong></td>
+<td>Write their own documents.</td>
+<td>Everyone, down to <em>User</em>.</td>
+</tr>
+<tr>
+<td><strong>Share documents</strong></td>
+<td>Choose roles, people or the whole company as the audience. Picking people <em>by name</em> also needs <em>See the staff directory</em>; without it they share with whole roles instead.</td>
+<td><em>Officer</em> and above.</td>
+</tr>
+<tr>
+<td><strong>See their team's documents</strong></td>
+<td>Open anything written by someone in their reporting line, including private ones.</td>
+<td><em>Deputy Manager</em> and above.</td>
+</tr>
+<tr>
+<td><strong>See every document</strong></td>
+<td>Open every document in the company.</td>
+<td><em>Senior Manager</em> and <em>Admin</em>.</td>
+</tr>
+<tr>
+<td><strong>Edit or delete any document</strong></td>
+<td>Change or remove other people's documents.</td>
+<td><em>Admin</em>.</td>
+</tr>
+</tbody>
+</table>
+<p>So out of the box: senior staff publish guidance that officers and users can read, officers
+write their own runbooks and share them, users keep private notes, and a manager can still open
+what their own team wrote.</p>
+<div><h3>Equipment</h3><span id="user-content-equipment"></span></div>
+<p><em>Equipment</em> tracks what the company owns and who has it: laptops, phones, keyboards, chairs —
+whatever you hand out. It answers the everyday questions on its own: who has the spare MacBook,
+what is free to give a new starter, who still hasn't confirmed the headset that was posted to
+them, and which warranties run out next quarter.</p>
+<p><strong>Categories are yours to build</strong> (<em>Equipment → Categories</em>). Each one gets a name, an icon from
+a picker of 31 (laptop, keyboard, headset, printer, vehicle and so on), a colour, and optionally
+the person who looks after that kind of kit. Sub-categories go one level deep — <em>Accessories</em>
+with <em>Keyboards</em>, <em>Mice</em>, <em>Headsets</em>, <em>Docks &amp; cables</em>, <em>Chargers</em> under it. A starter set is
+already there; rename, re-icon or delete any of it. A category holding equipment can't be deleted
+until its items are moved.</p>
+<p><strong>How an item moves:</strong></p>
+<ol>
+<li>Someone with <em>Add and edit equipment</em> adds it. It gets a tag automatically (<code>LAP-0001</code>) unless
+you type your own, and starts <strong>in stock</strong>.</li>
+<li>A manager hands it to a person. It becomes <strong>waiting to be confirmed</strong>, and that person is
+notified.</li>
+<li>The person presses <strong>I have received it</strong>. Now it is <strong>with a person</strong>, and the date is kept.</li>
+<li>When it comes back it returns to <strong>in stock</strong>; it can also be marked <strong>in repair</strong>, <strong>retired</strong>
+or <strong>lost</strong>.</li>
+</ol>
+<p>Every step is written to the item's own history, so you can read its whole life at a glance.</p>
+<p><strong>Asking for equipment</strong> (<em>Equipment → Requests</em>). Anyone can say what they need and why. Whoever
+looks after their team answers: turn it down with a note, or approve it — and pick a free item in
+the same dialog, which hands it over on the spot. Confirming receipt closes the request off.</p>
+<p><strong>Reports</strong> (<em>Equipment → Reports</em>) show totals by status and category, who holds the most, items
+still waiting to be confirmed and warranties ending within 90 days — all limited to what that
+person is allowed to see.</p>
+<p>Seven permissions decide who does what (<em>Admin → Roles &amp; permissions → Equipment</em>):</p>
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>What it allows</th>
+<th>On by default for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ask for equipment</strong></td>
+<td>Ask for something, and see what they hold.</td>
+<td>Everyone, down to <em>User</em>.</td>
+</tr>
+<tr>
+<td><strong>See their team's equipment</strong></td>
+<td>What everyone in their reporting line holds, plus what is free.</td>
+<td><em>Officer</em> and above.</td>
+</tr>
+<tr>
+<td><strong>See all equipment</strong></td>
+<td>Every item in the company.</td>
+<td><em>Senior Manager</em> and <em>Admin</em>.</td>
+</tr>
+<tr>
+<td><strong>Hand equipment out</strong></td>
+<td>Give items to their own reporting line, take them back, answer requests.</td>
+<td><em>Deputy Manager</em> and above.</td>
+</tr>
+<tr>
+<td><strong>Hand equipment to anyone</strong></td>
+<td>Give items to any member of staff, not only their team.</td>
+<td><em>Senior Manager</em> and <em>Admin</em>.</td>
+</tr>
+<tr>
+<td><strong>Add and edit equipment</strong></td>
+<td>Add items, change details, build the categories.</td>
+<td><em>Admin</em>.</td>
+</tr>
+<tr>
+<td><strong>See equipment reports</strong></td>
+<td>The totals above.</td>
+<td><em>Manager</em> and above.</td>
+</tr>
+</tbody>
+</table>
+<p>So out of the box a deputy equips their own officers, a manager equips their whole team and reads
+the numbers, a senior manager reaches the entire company, and everyone else can ask for what they
+need and confirm what arrives. Customers on the portal never see equipment at all.</p>
+<div><h3>Switching parts of the app off</h3><span id="user-content-switching-parts-of-the-app-off"></span></div>
+<p><em>Admin → Features</em> has a switch for each optional part of the helpdesk:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Equipment</strong></td>
+<td>Laptops, phones and accessories: who holds what, requests, handovers and reports.</td>
+</tr>
+<tr>
+<td><strong>Documents</strong></td>
+<td>Runbooks, guides and notes shared with roles, people or everyone.</td>
+</tr>
+<tr>
+<td><strong>Clients</strong></td>
+<td>The outside companies you work with, and the issues raised for them.</td>
+</tr>
+<tr>
+<td><strong>Webhooks</strong></td>
+<td>Signed messages to Slack, Teams or your own systems.</td>
+</tr>
+<tr>
+<td><strong>Analytics &amp; reports</strong></td>
+<td>Charts, team performance and the monthly report.</td>
+</tr>
+</tbody>
+</table>
+<p>Switched off, a part of the app <strong>stops existing</strong>: it leaves the menu, its pages can't be opened
+even by typing the address, and the server answers "not found" for its API — so nothing half-works
+and nothing is left for someone to poke at. <strong>Nothing is deleted.</strong> Switch it back on and every
+item, document and setting is exactly where you left it.</p>
+<p>Only roles with <em>Turn parts of the app on and off</em> can change this (the Admin role by default),
+and every change is written to the audit log with who made it.</p>
+<p>Issues, people, roles, email and sign-in are the core of the helpdesk and cannot be switched off.</p>
+<div><h3>Single sign-on</h3><span id="user-content-single-sign-on"></span></div>
+<p>Open <em>Admin → Sign-in &amp; SSO</em>. Passwords always keep working, so nobody is locked out if the
+identity provider is down.</p>
+<ol>
+<li><strong>Choose the type:</strong> OpenID Connect (most modern providers), SAML 2.0 (ADFS and other
+enterprise providers) or OAuth 2.0 (GitHub, or providers without OpenID Connect).</li>
+<li><strong>Register the helpdesk with your provider.</strong> The page shows the exact address to copy
+(redirect URI, or for SAML the entity ID and ACS URL). Open the page at the address people
+really use, for example <code>https://helpdesk.yourcompany.com</code>, before you copy it.</li>
+<li><strong>Paste the provider's details</strong> and press <strong>Check settings</strong>. The page contacts the
+provider (or reads the SAML metadata and certificate) and says what is wrong, if anything.</li>
+<li><strong>New people:</strong> choose whether accounts are created on first sign-in (with the default role),
+and limit that to your email domains, for example <code>yourcompany.com</code>.</li>
+<li>Switch it on and <strong>Save</strong>. The login page now shows <em>Sign in with …</em>. Test it in a private window.</li>
+</ol>
+<p><em>Recent sign-in problems</em> at the bottom of the page lists failed attempts and why, which helps
+while you set it up.</p>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>What to enter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Microsoft Entra ID</td>
+<td>OpenID Connect. Issuer <code>https://login.microsoftonline.com/&lt;tenant ID&gt;/v2.0</code>, the app's client ID and a client secret. Add the redirect URI as a <em>Web</em> platform.</td>
+</tr>
+<tr>
+<td>Google Workspace</td>
+<td>OpenID Connect. Issuer <code>https://accounts.google.com</code>, a <em>Web application</em> OAuth client ID and secret.</td>
+</tr>
+<tr>
+<td>Okta, OneLogin, JumpCloud</td>
+<td>OpenID Connect (issuer = your org URL) or SAML (paste the metadata XML).</td>
+</tr>
+<tr>
+<td>Keycloak</td>
+<td>OpenID Connect with issuer <code>https://&lt;host&gt;/realms/&lt;realm&gt;</code>. For SAML, turn off <em>Client signature required</em>.</td>
+</tr>
+<tr>
+<td>ADFS</td>
+<td>SAML: download the federation metadata XML and paste or upload it.</td>
+</tr>
+</tbody>
+</table>
+<p>For SAML, the provider must sign the response or the assertion. Leave assertion encryption off,
+and send the email address as the Name ID or as an attribute called <code>email</code>.</p>
+<div><h3>Email</h3><span id="user-content-email"></span></div>
+<ul>
+<li><strong>Outgoing mail</strong> (<em>Admin → Outgoing email</em>): choose <strong>Microsoft 365</strong>, <strong>Google</strong> or <strong>another SMTP
+server</strong>, then use <strong>Send test email</strong>. Microsoft 365 uses an app registration instead of a
+password: in Microsoft Entra, register an app, add the <em>Office 365 Exchange Online</em> application
+permission <code>SMTP.SendAsApp</code>, grant admin consent, create a client secret, and give the app access
+to the mailbox in Exchange Online. The page walks through it.</li>
+<li><strong>Email queues</strong> (<em>Admin → Email queues</em>): connect a mailbox (Microsoft 365 with
+<code>IMAP.AccessAsApp</code>, Google, or any IMAP server). New messages become issues. A reply to an issue
+email becomes a comment. Use <strong>Check connection</strong> before saving, and pause a queue with its switch.</li>
+<li><strong>What gets emailed, once outgoing mail is set up:</strong> the person who raised an issue hears
+when it is <strong>logged</strong>, when it is <strong>marked resolved</strong> (asking them to confirm), when it is
+<strong>closed</strong>, and when it is <strong>reopened</strong>; whoever is <strong>assigned</strong> an issue is told which one;
+and public <strong>replies</strong> go to the issue's contact. Each person chooses which of these they want
+under <em>Settings -&gt; Notifications</em>. A mail problem never blocks the action that caused it.</li>
+<li><strong>The emails themselves</strong> share one clean design: your company name, a card with the
+reference, title, who raised it and the priority, a button straight to the issue, and a
+plain-text version for mail clients that want one. Admins can rewrite any of them under
+<em>Admin -&gt; Outgoing email -&gt; Templates</em>: the editor lists the placeholders, previews the result
+with example values, and <strong>Use the built-in design</strong> puts the helpdesk's own version back.
+Installs made before this design was added pick it up automatically.</li>
+<li><strong>Password reset emails</strong> and links in messages use the helpdesk's address from <code>APP_URL</code>
+(set by <code>setup.sh</code>).</li>
+</ul>
+<div><h3>Webhooks</h3><span id="user-content-webhooks"></span></div>
+<p><em>Admin → Webhooks</em> sends a message to another system when an issue is created, assigned,
+commented on or changes status. Slack, Microsoft Teams and Discord addresses get messages in
+their own format; anything else gets JSON. Use <strong>Send test</strong> to check it.</p>
+<p>When you set a secret, every message carries <code>X-Helpdesk-Timestamp</code> and
+<code>X-Helpdesk-Signature: sha256=&lt;hex&gt;</code>, the HMAC-SHA256 of <code>"&lt;timestamp&gt;.&lt;body&gt;"</code> with the secret.
+Recompute it on your side and compare to be sure a message really came from the helpdesk.</p>
+<div><h3>Install on a fresh Ubuntu server</h3><span id="user-content-install-on-a-fresh-ubuntu-server"></span></div>
+<div><h4>What you need</h4><span id="user-content-what-you-need"></span></div>
+<ul>
+<li>A server running <strong>Ubuntu 24.04 or 22.04</strong> (Debian 12 also works). It can be completely
+empty: the installer installs Docker and everything else itself.</li>
+<li><strong>2 GB of memory</strong> or more (4 GB recommended), 2 CPU cores, and <strong>20 GB of disk</strong>.</li>
+<li>SSH access as root, or as a user who can use <code>sudo</code>.</li>
+<li>Optional: a domain name, if you want HTTPS (see <a href="#user-content-use-a-domain-name-with-https">below</a>).</li>
+</ul>
+<div><h4>Step 1: copy the project to the server</h4><span id="user-content-step-1-copy-the-project-to-the-server"></span></div>
+<p>On your Windows PC, open PowerShell in the folder that <strong>contains</strong> the project folder, then pack and upload it:</p>
+<div><pre>tar <span>-</span>czf helpdesk.tar.gz <span>--</span>exclude<span>=</span>.env <span>--</span>exclude<span>=</span>backups <span>--</span>exclude<span>=</span>node_modules <span>--</span>exclude<span>=</span>.next peppermint<span>-</span>main
+scp helpdesk.tar.gz USER<span>@SERVER_IP</span>:~<span>/</span></pre></div>
+<p>(The <code>--exclude</code> parts keep settings and files from your PC out of the upload, so they can
+never overwrite the server's own.)</p>
+<p>On the server, unpack it into <code>/opt/helpdesk</code>:</p>
+<div><pre>ssh USER@SERVER_IP
+sudo mkdir -p /opt/helpdesk
+sudo tar -xzf <span>~</span>/helpdesk.tar.gz -C /opt/helpdesk --strip-components=1</pre></div>
+<p>(With Git instead: <code>sudo git clone YOUR_REPO_URL /opt/helpdesk</code>. With WinSCP, just copy the folder over.)</p>
+<div><h4>Step 2: run the installer</h4><span id="user-content-step-2-run-the-installer"></span></div>
+<div><pre><span>cd</span> /opt/helpdesk
+sudo bash setup.sh</pre></div>
+<p>It asks four questions. Press Enter to accept a suggestion:</p>
+<ol>
+<li><strong>Domain name</strong>: press Enter to use the server's IP address, or type a domain such as
+<code>helpdesk.yourcompany.com</code> to get HTTPS.</li>
+<li><strong>Admin email</strong> for the first account.</li>
+<li><strong>Admin password</strong>: press Enter to get a strong generated one.</li>
+<li><strong>Company name</strong> shown in the app.</li>
+</ol>
+<p>After that it runs on its own. The first install takes about 10–20 minutes, mostly
+building the app, and ends like this:</p>
+<div><pre><code>==================================================================
+  Your helpdesk is live!
+==================================================================
+
+  Open:          http://203.0.113.10
+  Admin email:   you@yourcompany.com
+  Password:      ****************
+</code></pre></div>
+<div><h4>Step 3: sign in and set it up</h4><span id="user-content-step-3-sign-in-and-set-it-up"></span></div>
+<ol>
+<li>Open the address and sign in with the admin account.</li>
+<li><em>Admin → Branding</em>: upload your logo and check the company name.</li>
+<li><em>Admin → Issue settings</em>: issue types, priorities with their deadlines, categories and required fields.</li>
+<li><em>Admin → Roles &amp; permissions</em>: check what each role can do and adjust it for your company.</li>
+<li><em>Admin → People</em>: add people and give each a role. Then use the <strong>Team</strong> page to set who
+reports to whom and which staff member handles each user's issues.</li>
+<li><em>Admin → Outgoing email</em>: connect a mailbox so people get email notifications and password resets.</li>
+<li>Optional: <em>Admin → Sign-in &amp; SSO</em> so staff sign in with their company account (see
+<a href="#user-content-single-sign-on">Single sign-on</a>), and <em>Admin → Email queues</em> to turn emails into issues.</li>
+</ol>
+<div><h4>What <code>setup.sh</code> does</h4><span id="user-content-what-setupsh-does"></span></div>
+<ol>
+<li>Checks the system, memory, free disk space and that all project files are present.</li>
+<li>Asks for the settings and saves them in <code>.env</code>, with a random database password and
+login secret. Only root can read the file.</li>
+<li>Installs a few basic tools and, on servers with less than about 3.5 GB of memory, adds a
+swap file so the build doesn't run out of memory.</li>
+<li>Installs Docker Engine and Docker Compose from Docker's official repository and starts Docker on boot.</li>
+<li>Opens ports 80 and 443 in the <code>ufw</code> firewall (if it's on) and checks nothing else is using them.</li>
+<li>Builds the app and starts three containers: <strong>db</strong> (PostgreSQL 18), <strong>app</strong> (the helpdesk)
+and <strong>proxy</strong> (Caddy, the web server that also handles HTTPS).</li>
+<li>Checks the site answers, then schedules a daily backup at 02:30.</li>
+</ol>
+<p>Everything is logged to <code>/var/log/helpdesk-setup.log</code>. <strong>It is safe to run again</strong>: it keeps
+your settings and data, rebuilds the app and restarts it.</p>
+<p>To install without any questions (for scripts), pass everything as options:</p>
+<div><pre>sudo bash setup.sh --yes --domain helpdesk.example.com --email you@example.com --company <span><span>"</span>Acme Ltd<span>"</span></span></pre></div>
+<p><code>sudo bash setup.sh --help</code> lists all options.</p>
+<div><h3>Install on a fresh Windows Server</h3><span id="user-content-install-on-a-fresh-windows-server"></span></div>
+<p>Prefer Windows? There is an installer for it. Copy this folder onto the server, open the
+<code>windows</code> folder, then right-click <strong>Install Helpdesk.bat</strong> and choose <strong>Run as administrator</strong>.</p>
+<p>It installs Node.js and PostgreSQL if they are missing, creates the database with a strong
+password, writes <code>.env</code>, builds the app, starts it, registers it to start again whenever Windows
+starts, opens the firewall, and prints the address and the first sign-in. Roughly 10-20 minutes
+on a clean server.</p>
+<div><pre>powershell <span>-</span>ExecutionPolicy Bypass <span>-</span>File windows\install.ps1 <span>-</span>DryRun    <span><span>#</span> check without changing anything</span>
+powershell <span>-</span>ExecutionPolicy Bypass <span>-</span>File windows\install.ps1 <span>-</span>Port <span>8080</span> <span><span>#</span> if 80 is taken</span>
+powershell <span>-</span>File windows\manage.ps1 status                              <span><span>#</span> is it running</span>
+powershell <span>-</span>File windows\manage.ps1 backup                              <span><span>#</span> save the database</span>
+powershell <span>-</span>File windows\manage.ps1 update                              <span><span>#</span> backup, rebuild, restart</span></pre></div>
+<p>Full details, including what to do when PostgreSQL is already installed and how to put it behind
+HTTPS, are in <a href="https://github.com/abdulmanan69/Helpdesk/blob/main/windows/README.md">windows/README.md</a>.</p>
+<div><h3>Use a domain name with HTTPS</h3><span id="user-content-use-a-domain-name-with-https"></span></div>
+<ol>
+<li>
+<p>At your domain provider, create an <strong>A record</strong>, for example
+<code>helpdesk.yourcompany.com → your server's public IP address</code>.</p>
+</li>
+<li>
+<p>Make sure ports <strong>80 and 443</strong> are open to the internet, including in your cloud provider's
+firewall (it may be called a "security group").</p>
+</li>
+<li>
+<p>Run the installer with the domain. This works for a new install and for an existing one:</p>
+<div><pre><span>cd</span> /opt/helpdesk
+sudo bash setup.sh --domain helpdesk.yourcompany.com</pre></div>
+</li>
+</ol>
+<p>Caddy gets a free certificate from Let's Encrypt, renews it automatically, and sends
+<code>http://</code> visitors to <code>https://</code>.</p>
+<ul>
+<li><strong>Using Cloudflare?</strong> Set the record to <em>DNS only</em> (grey cloud) until the certificate has been
+issued. After that you can turn the orange cloud on with SSL mode <em>Full (strict)</em>.</li>
+<li><strong>Going back to the IP address:</strong> <code>sudo bash setup.sh --no-domain</code></li>
+</ul>
+<div><h3>Everyday commands</h3><span id="user-content-everyday-commands"></span></div>
+<p>Run these inside <code>/opt/helpdesk</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sudo ./manage.sh status</code></td>
+<td>Shows the three services, the web address, the latest backup and free disk space.</td>
+</tr>
+<tr>
+<td><code>sudo ./manage.sh logs</code></td>
+<td>Live logs of everything (Ctrl+C to stop). <code>logs app</code>, <code>logs db</code> or <code>logs proxy</code> for just one.</td>
+</tr>
+<tr>
+<td><code>sudo ./manage.sh stop</code></td>
+<td>Stops the helpdesk. Nothing is deleted.</td>
+</tr>
+<tr>
+<td><code>sudo ./manage.sh start</code></td>
+<td>Starts it again. It also starts by itself after a reboot.</td>
+</tr>
+<tr>
+<td><code>sudo ./manage.sh restart</code></td>
+<td>Restarts and applies any changes made in <code>.env</code>.</td>
+</tr>
+<tr>
+<td><code>sudo ./manage.sh backup</code></td>
+<td>Makes a backup now.</td>
+</tr>
+<tr>
+<td><code>sudo ./manage.sh restore FILE</code></td>
+<td>Replaces all data with a backup (see below).</td>
+</tr>
+<tr>
+<td><code>sudo ./manage.sh update</code></td>
+<td>Backs up, rebuilds the app from the files in the folder, and restarts.</td>
+</tr>
+<tr>
+<td><code>sudo ./manage.sh reset-password EMAIL</code></td>
+<td>Gives an account a new, generated password. Add a password after the email to choose it yourself. Without an email, it lists the admin accounts.</td>
+</tr>
+</tbody>
+</table>
+<div><h3>Backups and restore</h3><span id="user-content-backups-and-restore"></span></div>
+<ul>
+<li>
+<p><strong>Automatic:</strong> every night at 02:30 into <code>/opt/helpdesk/backups/</code>. The newest 14 are kept
+(change this with <code>BACKUP_KEEP</code> in <code>.env</code>).</p>
+</li>
+<li>
+<p><strong>Each backup</strong> is one file, <code>helpdesk-YYYYMMDD-HHMMSS.tar.gz</code>, holding the full database
+and all uploaded files.</p>
+</li>
+<li>
+<p><strong>Manual:</strong> <code>sudo ./manage.sh backup</code></p>
+</li>
+<li>
+<p><strong>Copy backups off the server.</strong> A backup on the same disk won't help if the server itself is
+lost. From your PC:</p>
+<div><pre>scp USER<span>@SERVER_IP</span>:<span>/</span>opt<span>/</span>helpdesk<span>/</span>backups<span>/</span>helpdesk<span>-*</span>.tar.gz .</pre></div>
+<p>(The backups folder belongs to root. If your SSH user isn't root, first run
+<code>sudo cp /opt/helpdesk/backups/*.tar.gz ~/ &amp;&amp; sudo chown $USER ~/helpdesk-*.tar.gz</code> on the
+server, then copy from <code>~/</code>.)</p>
+</li>
+</ul>
+<p><strong>Restore:</strong></p>
+<div><pre><span>cd</span> /opt/helpdesk
+sudo ./manage.sh restore backups/helpdesk-20260915-023000.tar.gz</pre></div>
+<p>It asks you to type <code>restore</code> to confirm. It then saves the current data as a
+<code>-before-restore</code> backup, and loads the database in a single step: if anything goes wrong
+halfway, the database stays exactly as it was.</p>
+<div><h3>Updating</h3><span id="user-content-updating"></span></div>
+<ol>
+<li>
+<p>Pack the new version on your PC with the same <code>tar ... --exclude=.env ...</code> command as in
+<a href="#user-content-step-1-copy-the-project-to-the-server">Step 1</a>, upload it, and unpack it over the old one.
+The server's <code>.env</code> and <code>backups/</code> are kept:</p>
+<div><pre>sudo tar -xzf <span>~</span>/helpdesk.tar.gz -C /opt/helpdesk --strip-components=1</pre></div>
+</li>
+<li>
+<p>Rebuild and restart. This makes a backup first, and any database changes are applied
+automatically when the app starts:</p>
+<div><pre><span>cd</span> /opt/helpdesk
+sudo ./manage.sh update</pre></div>
+</li>
+<li>
+<p>If a page looks old in your browser, press <strong>Ctrl+Shift+R</strong> once.</p>
+</li>
+</ol>
+<p>If you installed with Git, <code>manage.sh update</code> runs <code>git pull</code> for you first.</p>
+<div><h3>Moving to a new server</h3><span id="user-content-moving-to-a-new-server"></span></div>
+<ol>
+<li>On the old server, run <code>sudo ./manage.sh backup</code> and copy the new file from <code>backups/</code> to your PC.</li>
+<li>On the new server, copy the project over and run <code>sudo bash setup.sh</code> (see <a href="#user-content-install-on-a-fresh-ubuntu-server">Install</a>).</li>
+<li>Copy the backup into <code>/opt/helpdesk/backups/</code> on the new server and run
+<code>sudo ./manage.sh restore backups/THE-FILE.tar.gz</code>.</li>
+</ol>
+<p>Everyone signs in with the same accounts and passwords as before.</p>
+<div><h3>Settings (.env)</h3><span id="user-content-settings-env"></span></div>
+<p><code>setup.sh</code> writes <code>/opt/helpdesk/.env</code> for you. <code>.env.example</code> explains each setting.
+After changing something, run <code>sudo ./manage.sh restart</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Meaning</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SITE_ADDRESS</code></td>
+<td>A domain name (HTTPS), or <code>:80</code> for plain HTTP on the server's IP address.</td>
+<td><code>:80</code></td>
+</tr>
+<tr>
+<td><code>APP_URL</code></td>
+<td>The full address people open, used for links in emails and webhook messages. <code>setup.sh</code> fills it in from the web address.</td>
+<td>from setup</td>
+</tr>
+<tr>
+<td><code>HTTP_PORT</code>, <code>HTTPS_PORT</code></td>
+<td>Ports on the server. Change them only if 80/443 are taken; HTTPS certificates need 80 and 443.</td>
+<td><code>80</code>, <code>443</code></td>
+</tr>
+<tr>
+<td><code>ADMIN_EMAIL</code>, <code>ADMIN_PASSWORD</code>, <code>ADMIN_NAME</code></td>
+<td>The first admin account. Used <strong>only</strong> when the database is first created.</td>
+<td>from setup</td>
+</tr>
+<tr>
+<td><code>COMPANY_NAME</code></td>
+<td>Company name at the first start. Change it later in <em>Admin → Branding</em>.</td>
+<td><code>Helpdesk</code></td>
+</tr>
+<tr>
+<td><code>POSTGRES_PASSWORD</code></td>
+<td>Database password (random). <strong>Don't change it after installing</strong>: the database keeps the old one.</td>
+<td>random</td>
+</tr>
+<tr>
+<td><code>SECRET</code></td>
+<td>Signs logins (random). Changing it signs everyone out.</td>
+<td>random</td>
+</tr>
+<tr>
+<td><code>POSTGRES_USER</code>, <code>POSTGRES_DB</code></td>
+<td>Database user and database name.</td>
+<td><code>helpdesk</code></td>
+</tr>
+<tr>
+<td><code>BACKUP_KEEP</code></td>
+<td>How many backups to keep.</td>
+<td><code>14</code></td>
+</tr>
+</tbody>
+</table>
+<div><h3>Run it on your own PC</h3><span id="user-content-run-it-on-your-own-pc"></span></div>
+<p>To try it out or develop on Windows with <strong>Docker Desktop</strong>, open PowerShell in the project folder and run:</p>
+<div><pre>docker compose <span>-</span>p peppermint <span>-f</span> docker<span>-</span>compose.local.yml up <span>-</span>d <span>--</span>build</pre></div>
+<p>Then open <a href="http://localhost:3000">http://localhost:3000</a> and sign in with <code>admin@admin.com</code> / <code>1234</code>. Change that
+password straight away. This file uses fixed test passwords, so <strong>never use it on a real server</strong>.</p>
+<p>To try the real server setup on your PC instead, copy <code>.env.example</code> to <code>.env</code>, replace every
+<code>change-me</code> with a long random value (use only letters and digits for <code>POSTGRES_PASSWORD</code>), set
+<code>HTTP_PORT=8080</code>, then run <code>docker compose up -d --build</code> and open <a href="http://localhost:8080">http://localhost:8080</a>.</p>
+<div><h3>Troubleshooting</h3><span id="user-content-troubleshooting"></span></div>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$'\r': command not found</code> or <code>bad interpreter</code></td>
+<td>The files picked up Windows line endings. Run <code>sed -i 's/\r$//' setup.sh manage.sh</code>, then try again. (<code>sudo bash setup.sh</code> repairs this by itself.)</td>
+</tr>
+<tr>
+<td>"Port 80 is already used by apache2" (or nginx)</td>
+<td>Stop that program with <code>sudo systemctl disable --now apache2</code>, or use other ports: <code>sudo bash setup.sh --http-port 8080 --https-port 8443</code>.</td>
+</tr>
+<tr>
+<td>The build stops with "killed" or exit code 137</td>
+<td>The server ran out of memory. Use a server with at least 2 GB (the installer adds swap automatically), then run <code>setup.sh</code> again.</td>
+</tr>
+<tr>
+<td>A network error during the build</td>
+<td>Run <code>sudo bash setup.sh</code> again. Finished steps are cached, so it continues where it stopped.</td>
+</tr>
+<tr>
+<td>The site doesn't open from your browser</td>
+<td>Allow ports 80/443 in your cloud provider's firewall, and check <code>sudo ./manage.sh status</code>.</td>
+</tr>
+<tr>
+<td>HTTPS isn't working</td>
+<td>Check that the A record points to this server, that ports 80 and 443 are open, and that no AAAA (IPv6) record points somewhere else. Watch progress with <code>sudo ./manage.sh logs proxy</code>.</td>
+</tr>
+<tr>
+<td>A page looks old after an update</td>
+<td>Press Ctrl+Shift+R.</td>
+</tr>
+<tr>
+<td>Forgot the admin password</td>
+<td><code>sudo ./manage.sh reset-password you@yourcompany.com</code></td>
+</tr>
+<tr>
+<td>Anything else</td>
+<td><code>sudo ./manage.sh logs app</code> and <code>/var/log/helpdesk-setup.log</code> usually show the reason.</td>
+</tr>
+</tbody>
+</table>
+<div><h3>Security checklist</h3><span id="user-content-security-checklist"></span></div>
+<ul>
+<li><code>.env</code> holds the secrets and only root can read it. Never share it or commit it to Git.</li>
+<li>Only ports 80 and 443 are open to the outside. The database and the app's internal ports are not reachable from the internet.</li>
+<li>For real use, set up a <strong>domain with HTTPS</strong> so passwords are never sent unencrypted.</li>
+<li>Give everyone their own account with the lowest role they need, and remove accounts that are no longer used.</li>
+<li>With single sign-on, limit automatic accounts to your own email domains (<em>Admin → Sign-in &amp; SSO → New people</em>).</li>
+<li>Built in: repeated wrong passwords lock the address for 15 minutes; signing out, a password change or
+a reset ends the other sessions straight away; reset codes expire after 30 minutes and lock after 5 wrong tries.</li>
+<li>The sign-in is held in a cookie the browser will not give to page scripts (<code>HttpOnly</code>, <code>SameSite=Lax</code>, and
+<code>Secure</code> once <code>APP_URL</code> starts with <code>https://</code>), so a stray script can't walk off with someone's session.
+Document text is stored as editor blocks only, never as raw HTML.</li>
+<li>Keep the server updated: <code>sudo apt update &amp;&amp; sudo apt upgrade</code>. To install security updates automatically, run
+<code>sudo apt install unattended-upgrades</code> once.</li>
+<li>Sign in to the server with SSH keys rather than passwords.</li>
+<li>Keep copies of your backups somewhere other than the server.</li>
+</ul>
+<div><h3>How it is built</h3><span id="user-content-how-it-is-built"></span></div>
+<div><pre><code> browser ──► proxy (Caddy: ports 80/443, HTTPS certificates)
+               │
+               ▼
+             app  (web app on port 3000 + API on port 5003, run by PM2)
+               │
+               ▼
+             db   (PostgreSQL 18)
+
+ Stored data (Docker volumes): pgdata = database, uploads = attached files,
+                               caddy_data = HTTPS certificates
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>apps/client</code></td>
+<td>The web app (Next.js, React, Tailwind)</td>
+</tr>
+<tr>
+<td><code>apps/api</code></td>
+<td>The API (Fastify, Prisma). Database migrations run automatically at start.</td>
+</tr>
+<tr>
+<td><code>dockerfile</code></td>
+<td>Builds the app image</td>
+</tr>
+<tr>
+<td><code>docker-compose.yml</code></td>
+<td>The server setup: db, app, proxy</td>
+</tr>
+<tr>
+<td><code>docker-compose.local.yml</code></td>
+<td>Quick local testing on your PC</td>
+</tr>
+<tr>
+<td><code>Caddyfile</code></td>
+<td>Web server and HTTPS settings</td>
+</tr>
+<tr>
+<td><code>setup.sh</code></td>
+<td>The installer</td>
+</tr>
+<tr>
+<td><code>manage.sh</code></td>
+<td>Everyday commands</td>
+</tr>
+<tr>
+<td><code>.env.example</code></td>
+<td>Every setting, explained</td>
+</tr>
+</tbody>
+</table>
+<div><h3>License and credits</h3><span id="user-content-license-and-credits"></span></div>
+<ul>
+<li>Based on <a href="https://github.com/Peppermint-Lab/peppermint">Peppermint</a> by Jack Andrews and contributors.</li>
+<li>Licensed under the <strong>GNU AGPL v3</strong>; see the <code>license</code> file. In short: if people use a changed
+version of this software over a network, you must offer them its source code, including your changes.</li>
+<li>Made with ❤️ by <strong>Abdul Manan</strong>: <a href="https://abdulmanan.tech">abdulmanan.tech</a> ·
+<a href="https://www.linkedin.com/in/abdulxmanan">LinkedIn</a> · <a href="https://github.com/abdulmanan69">GitHub</a></li>
+</ul>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/gamesite/"><span>TypeScript</span><h3>gamesite</h3></a><a class="related__card" href="/projects/qalam-studio/"><span>TypeScript</span><h3>qalam-studio</h3></a><a class="related__card" href="/projects/vici-evalution/"><span>TypeScript</span><h3>vici-evalution</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

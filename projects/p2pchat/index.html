@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>p2pchat: A fully functional peer-to-peer chat… | Abdul Manan</title>
+<meta name="description" content="p2pchat by Abdul Manan. A fully functional peer-to-peer chat application using WebRTC, Supabase, and GitHub Pages. This application enables direct…" />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/p2pchat/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="p2pchat: A fully functional peer-to-peer chat… | Abdul Manan" />
+<meta property="og:description" content="p2pchat by Abdul Manan. A fully functional peer-to-peer chat application using WebRTC, Supabase, and GitHub Pages. This application enables direct…" />
+<meta property="og:url" content="https://abdulmanan.tech/projects/p2pchat/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="p2pchat: A fully functional peer-to-peer chat… | Abdul Manan" />
+<meta name="twitter:description" content="p2pchat by Abdul Manan. A fully functional peer-to-peer chat application using WebRTC, Supabase, and GitHub Pages. This application enables direct…" />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">p2pchat</span></nav>
+<h1>p2pchat</h1>
+<p class="project-page__lead">A fully functional peer-to-peer chat application using WebRTC, Supabase, and GitHub Pages. This application enables direct browser-to-browser communication without any backend servers for message transmission.</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>HTML</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2025-09-30">30 Sep 2025</time></dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/p2pchat" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><h3>Peer-to-Peer Chat Application</h3><span id="user-content-peer-to-peer-chat-application"></span></div>
+<p>A fully functional peer-to-peer chat application using WebRTC, Supabase, and GitHub Pages. This application enables direct browser-to-browser communication without any backend servers for message transmission.</p>
+<div><h4>Features</h4><span id="user-content-features"></span></div>
+<ul>
+<li>Real-time peer-to-peer text chat using WebRTC DataChannel</li>
+<li>Multi-user support with full mesh network topology</li>
+<li>Supabase Realtime Database for signaling</li>
+<li>Responsive design with dark mode toggle</li>
+<li>Random username generation</li>
+<li>Room-based chat with link sharing</li>
+<li>GitHub Pages deployment ready</li>
+<li>Automatic TURN server integration for better connectivity</li>
+</ul>
+<div><h4>Files Included</h4><span id="user-content-files-included"></span></div>
+<ul>
+<li><code>index.html</code> - Main application interface</li>
+<li><code>style.css</code> - Styling for the application</li>
+<li><code>app.js</code> - Core application logic</li>
+<li><code>config.js</code> - Supabase configuration</li>
+<li><code>turn_helper.js</code> - TURN server helper for Cloudflare integration</li>
+<li><code>README.md</code> - This documentation</li>
+<li><code>SUPABASE_SETUP.md</code> - Detailed Supabase setup guide</li>
+<li><code>supabase_schema.sql</code> - SQL schema for Supabase table</li>
+<li><code>fix_signals_table.sql</code> - Fix script for ID column issues</li>
+<li><code>supabase_test.html</code> - Supabase connection testing tool</li>
+<li><code>signals_table.csv</code> - CSV template for table import</li>
+<li><code>webrtc_test.html</code> - WebRTC connectivity testing tool</li>
+<li><code>turn_test.html</code> - TURN server testing tool</li>
+<li><code>WEBRTC_TROUBLESHOOTING.md</code> - Detailed WebRTC troubleshooting guide</li>
+</ul>
+<div><h4>Prerequisites</h4><span id="user-content-prerequisites"></span></div>
+<ol>
+<li>A free <a href="https://supabase.io/">Supabase</a> account</li>
+<li>A <a href="https://github.com/">GitHub</a> account</li>
+<li>Basic knowledge of web development</li>
+</ol>
+<div><h4>Setup Instructions</h4><span id="user-content-setup-instructions"></span></div>
+<div><h5>1. Supabase Setup</h5><span id="user-content-1-supabase-setup"></span></div>
+<div><h6>Create a Supabase Project</h6><span id="user-content-create-a-supabase-project"></span></div>
+<ol>
+<li>Go to <a href="https://app.supabase.io/">Supabase</a> and create a new project</li>
+<li>Note down your Project URL and anon key from <code>Settings &gt; API</code></li>
+</ol>
+<div><h6>Create the Signals Table</h6><span id="user-content-create-the-signals-table"></span></div>
+<p>You can either:</p>
+<ol>
+<li>Use the <code>supabase_schema.sql</code> file and run it in the Supabase SQL editor, or</li>
+<li>Follow the manual steps in <code>SUPABASE_SETUP.md</code></li>
+</ol>
+<p><strong>Important</strong>: Make sure the <code>id</code> column is properly configured as an auto-incrementing primary key. See the "Fixing ID Column Issues" section in SUPABASE_SETUP.md if you encounter errors.</p>
+<div><h6>Configure Row Level Security (RLS)</h6><span id="user-content-configure-row-level-security-rls"></span></div>
+<p><strong>Policy 1: Enable read access for all</strong></p>
+<ul>
+<li>Name: <code>Enable read access for all</code></li>
+<li>Operation: <code>SELECT</code></li>
+<li>Using expression: <code>true</code></li>
+</ul>
+<p><strong>Policy 2: Enable insert access for all</strong></p>
+<ul>
+<li>Name: <code>Enable insert access for all</code></li>
+<li>Operation: <code>INSERT</code></li>
+<li>With check expression: <code>true</code></li>
+</ul>
+<p>These policies allow all users to read and insert signaling data, which is necessary for the WebRTC peer discovery and connection process. The room_id field ensures users only see signals from their room.</p>
+<div><h5>2. Configure the Application</h5><span id="user-content-2-configure-the-application"></span></div>
+<ol>
+<li>Open <code>config.js</code> in your code editor</li>
+<li>Replace the placeholder values with your Supabase credentials:
+<div><pre><span>const</span> <span>SUPABASE_URL</span> <span>=</span> <span>'https://your-project.supabase.co'</span><span>;</span>
+<span>const</span> <span>SUPABASE_ANON_KEY</span> <span>=</span> <span>'your-anon-key-here'</span><span>;</span></pre></div>
+</li>
+</ol>
+<div><h5>3. Test Locally</h5><span id="user-content-3-test-locally"></span></div>
+<ol>
+<li>Open <code>index.html</code> in your browser</li>
+<li>Create a room by entering a room ID and clicking "Join Room"</li>
+<li>Copy the room link and open it in another browser or private/incognito window</li>
+<li>Test sending messages between browsers</li>
+</ol>
+<p>Note: For testing with multiple users on the same machine, use different browsers or private/incognito windows to ensure proper WebRTC functionality.</p>
+<p>You can also use <code>supabase_test.html</code> to verify your Supabase connection is working properly.</p>
+<div><h4>Deployment to GitHub Pages</h4><span id="user-content-deployment-to-github-pages"></span></div>
+<div><h5>Method 1: GitHub Repository</h5><span id="user-content-method-1-github-repository"></span></div>
+<ol>
+<li>Create a new GitHub repository</li>
+<li>Push your code to the repository:
+<div><pre>git init
+git add <span>.</span>
+git commit -m <span><span>"</span>Initial commit<span>"</span></span>
+git branch -M main
+git remote add origin https://github.com/your-username/your-repo-name.git
+git push -u origin main</pre></div>
+</li>
+<li>Go to your repository settings on GitHub</li>
+<li>Scroll down to "Pages" section</li>
+<li>Under "Source", select "Deploy from a branch"</li>
+<li>Select "main" branch and "/ (root)" folder</li>
+<li>Click "Save"</li>
+<li>Your app will be available at <code>https://your-username.github.io/your-repo-name/</code></li>
+</ol>
+<div><h5>Method 2: GitHub Pages from Folder</h5><span id="user-content-method-2-github-pages-from-folder"></span></div>
+<p>If you have GitHub Desktop installed:</p>
+<ol>
+<li>Create a new repository using GitHub Desktop</li>
+<li>Drag all files into the repository folder</li>
+<li>Commit and push the changes</li>
+<li>Follow steps 3-8 from Method 1</li>
+</ol>
+<div><h4>How It Works</h4><span id="user-content-how-it-works"></span></div>
+<ol>
+<li>
+<p><strong>Signaling</strong>: When a user joins a room, the app uses Supabase Realtime to broadcast their presence. Other users in the room receive this signal and initiate WebRTC connections.</p>
+</li>
+<li>
+<p><strong>Connection</strong>: Each user creates a direct peer-to-peer connection with every other user in the room using WebRTC DataChannel, forming a full mesh network.</p>
+</li>
+<li>
+<p><strong>Messaging</strong>: All messages are sent directly between browsers through the DataChannel, with no server involvement after the initial connection.</p>
+</li>
+<li>
+<p><strong>Multi-user Support</strong>: The app supports multiple users in the same room by establishing a full mesh network where each user connects directly to every other user.</p>
+</li>
+<li>
+<p><strong>TURN Server Integration</strong>: The application automatically fetches TURN server credentials from Cloudflare's free service to improve connectivity through restrictive networks.</p>
+</li>
+</ol>
+<div><h4>Security Notes</h4><span id="user-content-security-notes"></span></div>
+<ul>
+<li>The application uses Supabase's anon key which is safe to expose in client-side code</li>
+<li>Row Level Security ensures users can only access data from their room</li>
+<li>No sensitive information is stored in the database</li>
+<li>All communication after connection establishment is peer-to-peer</li>
+<li>TURN credentials are fetched securely from Cloudflare</li>
+</ul>
+<div><h4>Troubleshooting</h4><span id="user-content-troubleshooting"></span></div>
+<div><h5>Common Issues and Solutions</h5><span id="user-content-common-issues-and-solutions"></span></div>
+<ol>
+<li>
+<p><strong>No data appears in Supabase table</strong>:</p>
+<ul>
+<li>Check browser console for JavaScript errors</li>
+<li>Verify Supabase credentials in <code>config.js</code> are correct</li>
+<li>Confirm the <code>signals</code> table exists with the correct schema</li>
+<li>Ensure RLS policies are properly configured</li>
+<li>Check Supabase dashboard for any error messages</li>
+</ul>
+</li>
+<li>
+<p><strong>Connection Issues</strong>:</p>
+<ul>
+<li>Ensure you're using a supported browser (Chrome, Firefox, Edge)</li>
+<li>Check that both users are using the exact same room ID</li>
+<li>Make sure both users joined the room (the first user must be in the room when the second user joins)</li>
+<li>Some networks (especially corporate networks) may block WebRTC connections</li>
+</ul>
+</li>
+<li>
+<p><strong>Messages Not Sending</strong>:</p>
+<ul>
+<li>Check browser console for errors</li>
+<li>Ensure WebRTC is not blocked by browser extensions or firewall</li>
+<li>Verify that the WebRTC connection is established (check connection status)</li>
+<li>Confirm that data channels are opening properly</li>
+</ul>
+</li>
+<li>
+<p><strong>Supabase Errors</strong>:</p>
+<ul>
+<li>Double-check your Project URL and anon key</li>
+<li>Verify RLS policies are correctly configured</li>
+<li>Ensure the <code>signals</code> table has the correct schema</li>
+<li>Check that you're using the anon key and not the service key</li>
+<li><strong>"null value in column 'id' violates not-null constraint"</strong>: The ID column is not configured for auto-increment (see SUPABASE_SETUP.md)</li>
+</ul>
+</li>
+<li>
+<p><strong>WebRTC Connection Issues</strong>:</p>
+<ul>
+<li>Peers can't connect to each other</li>
+<li>Messages aren't being sent between peers</li>
+<li>ICE candidates aren't being generated</li>
+<li>Data channels aren't opening</li>
+<li>STUN servers are unreachable</li>
+</ul>
+<p>For WebRTC-specific issues, see WEBRTC_TROUBLESHOOTING.md for detailed troubleshooting steps.</p>
+</li>
+</ol>
+<div><h5>Debugging Steps</h5><span id="user-content-debugging-steps"></span></div>
+<ol>
+<li>Open the browser's developer tools (F12)</li>
+<li>Check the Console tab for any error messages</li>
+<li>Check the Network tab to see if requests to Supabase are successful</li>
+<li>Verify that the Supabase client is being initialized correctly</li>
+<li>Check that the Realtime subscription is working</li>
+<li>Look for any WebRTC-related errors</li>
+</ol>
+<div><h5>Testing the Supabase Connection</h5><span id="user-content-testing-the-supabase-connection"></span></div>
+<ol>
+<li>Make sure you can access your Supabase project URL in the browser</li>
+<li>Verify that your anon key is correct by checking it in the Supabase dashboard</li>
+<li>Try manually inserting a record into the signals table through the Supabase SQL editor:
+<div><pre><span>INSERT INTO</span> signals (room_id, sender, sender_name, type) 
+<span>VALUES</span> (<span><span>'</span>test-room<span>'</span></span>, <span><span>'</span>test-user<span>'</span></span>, <span><span>'</span>Test User<span>'</span></span>, <span><span>'</span>test<span>'</span></span>);</pre></div>
+</li>
+</ol>
+<p>You can also use the <code>supabase_test.html</code> file included in the project to test your Supabase connection.</p>
+<div><h5>Testing WebRTC Connectivity</h5><span id="user-content-testing-webrtc-connectivity"></span></div>
+<p>Use the <code>webrtc_test.html</code> file to test:</p>
+<ol>
+<li>Browser WebRTC support</li>
+<li>STUN server connectivity</li>
+<li>ICE candidate generation</li>
+<li>Data channel functionality</li>
+</ol>
+<div><h5>Testing TURN Server Connectivity</h5><span id="user-content-testing-turn-server-connectivity"></span></div>
+<p>Use the <code>turn_test.html</code> file to test:</p>
+<ol>
+<li>TURN server credential fetching</li>
+<li>TURN server connectivity</li>
+<li>ICE candidate analysis with TURN servers</li>
+</ol>
+<p>See WEBRTC_TROUBLESHOOTING.md for detailed WebRTC troubleshooting steps.</p>
+<div><h4>Browser Support</h4><span id="user-content-browser-support"></span></div>
+<p>This application works on modern browsers that support WebRTC:</p>
+<ul>
+<li>Chrome 28+</li>
+<li>Firefox 22+</li>
+<li>Safari 11+</li>
+<li>Edge 15+</li>
+</ul>
+<p>Note: For the best experience, use the latest versions of these browsers. Some older versions may have compatibility issues with WebRTC features.</p>
+<div><h4>Limitations</h4><span id="user-content-limitations"></span></div>
+<ol>
+<li><strong>NAT Traversal</strong>: Some network configurations may prevent direct peer connections</li>
+<li><strong>Mobile Networks</strong>: Some mobile carriers restrict P2P connections</li>
+<li><strong>Scalability</strong>: Full mesh network becomes inefficient with many users (&gt;5)</li>
+<li><strong>Connection Persistence</strong>: Users must remain connected to maintain the chat session</li>
+<li><strong>TURN Server Availability</strong>: Cloudflare's TURN service may have rate limits or availability issues</li>
+</ol>
+<div><h4>Customization</h4><span id="user-content-customization"></span></div>
+<p>You can customize the application by modifying:</p>
+<ul>
+<li><code>style.css</code> for visual appearance</li>
+<li><code>app.js</code> for functionality changes</li>
+<li><code>index.html</code> for UI structure</li>
+</ul>
+<div><h4>License</h4><span id="user-content-license"></span></div>
+<p>This project is open source and available under the MIT License.</p>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/inventory/"><span>HTML</span><h3>inventory</h3></a><a class="related__card" href="/projects/call-back-tracker/"><span>HTML</span><h3>call-back-tracker</h3></a><a class="related__card" href="/projects/sticky-note-app/"><span>HTML</span><h3>sticky-note-app</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

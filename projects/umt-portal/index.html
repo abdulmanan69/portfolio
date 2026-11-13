@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>umt-portal: The portal sends no CORS headers and… | Abdul Manan</title>
+<meta name="description" content="umt-portal by Abdul Manan. The portal sends no CORS headers and X-Frame-Options: SAMEORIGIN, so no other website can read it or embed it in an iframe. The…" />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/umt-portal/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="umt-portal: The portal sends no CORS headers and… | Abdul Manan" />
+<meta property="og:description" content="umt-portal by Abdul Manan. The portal sends no CORS headers and X-Frame-Options: SAMEORIGIN, so no other website can read it or embed it in an iframe. The…" />
+<meta property="og:url" content="https://abdulmanan.tech/projects/umt-portal/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="umt-portal: The portal sends no CORS headers and… | Abdul Manan" />
+<meta name="twitter:description" content="umt-portal by Abdul Manan. The portal sends no CORS headers and X-Frame-Options: SAMEORIGIN, so no other website can read it or embed it in an iframe. The…" />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">umt-portal</span></nav>
+<h1>umt-portal</h1>
+<p class="project-page__lead">The portal sends no CORS headers and X-Frame-Options: SAMEORIGIN, so no other website can read it or embed it in an iframe. The extension reads the portal where you are already signed in; the web app receives that record by paste, bridge, sync link or file, and works offline from there.</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>JavaScript</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-09-29">29 Sep 2026</time></dd></div><div><dt>License</dt><dd>MIT</dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/umt-portal" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><h3>UMT Portal — Reimagined</h3><span id="user-content-umt-portal--reimagined"></span></div>
+<p>Two pieces that work together:</p>
+<ul>
+<li><strong><code>extension/</code></strong> — a Chrome/Edge extension that rebuilds the UMT Student Portal
+interface in place, and reads your records once so every screen loads instantly.</li>
+<li><strong><code>webapp/</code></strong> — a static TypeScript PWA for GitHub Pages that takes those records
+and reminds you before every class. See <a href="https://github.com/abdulmanan69/umt-portal/blob/main/webapp/README.md">webapp/README.md</a>.</li>
+</ul>
+
+<p><strong>Live app:</strong> <a href="https://abdulmanan69.github.io/umt-portal/">https://abdulmanan69.github.io/umt-portal/</a></p>
+<p><strong>Walkthrough:</strong> <a href="https://github.com/abdulmanan69/umt-portal/blob/main/video/umt-companion-demo.mp4"><code>video/umt-companion-demo.mp4</code></a> - a
+minute from first open to a class reminder.</p>
+<div><h4>Install it on your phone</h4><span id="user-content-install-it-on-your-phone"></span></div>
+<ol>
+<li>Open the link above in <strong>Chrome</strong> (Android) or <strong>Safari</strong> (iPhone).</li>
+<li>Android: tap the menu, then <strong>Install app</strong> or <strong>Add to Home screen</strong>.
+iPhone: tap Share, then <strong>Add to Home Screen</strong>.</li>
+<li>Open it from the home screen, choose <strong>Paste from the portal</strong>, and follow the
+three steps on screen.</li>
+<li>Settings, then <strong>Remind me before class</strong>, and allow notifications.</li>
+</ol>
+<p>Installed on Android, the app can also wake in the background to remind you. On
+iPhone reminders arrive while the app is open, which is a limit of the platform,
+not of this app.</p>
+<hr>
+<div><h4>The extension</h4><span id="user-content-the-extension"></span></div>
+<p>A Chrome/Edge extension that rebuilds the interface of the UMT Student Portal
+(<code>online.umt.edu.pk</code>) without touching the portal itself. It restyles every screen,
+makes the whole thing work on a phone, and adds an academic overview built from
+your own transcript record.</p>
+<p>Nothing is sent anywhere. The extension runs only on <code>online.umt.edu.pk</code>, reads the
+pages you are already signed in to, and keeps its cache in your own browser.</p>
+<div><h4>Install</h4><span id="user-content-install"></span></div>
+<ol>
+<li>Open <code>chrome://extensions</code> (or <code>edge://extensions</code>).</li>
+<li>Turn on <strong>Developer mode</strong>.</li>
+<li>Click <strong>Load unpacked</strong> and choose the <code>extension</code> folder inside this project.</li>
+<li>Open <a href="https://online.umt.edu.pk">https://online.umt.edu.pk</a> and sign in as usual.</li>
+</ol>
+<p>To update after editing any file, press the reload icon on the extension card.</p>
+<div><h4>What it does</h4><span id="user-content-what-it-does"></span></div>
+<p><strong>Every page</strong></p>
+<ul>
+<li>A lifted dark theme built on indigo rather than near-black, with an ambient colour
+wash so no screen reads as flat grey. Light theme included, toggle in the top bar.</li>
+<li>Hover never swaps a colour: surfaces lift and borders brighten, text stays put.</li>
+<li>Hovering a table row is unmistakable - the row lifts to a clearly brighter surface,
+its text brightens, and an amber edge marks where the row begins.</li>
+<li>A single type
+system: Space Grotesk for headings, IBM Plex Sans for text, IBM Plex Mono for
+IDs, codes, grades and credit hours. All three fonts ship inside the extension,
+so nothing is fetched from a font CDN.</li>
+<li>A sidebar with grouped sections, an active-page marker, and a collapsed icon rail
+(Ctrl+B, remembered between visits).</li>
+<li>A top bar that names the page you are on, shows who is signed in, and carries
+search and the theme switch.</li>
+<li>Search: press <strong>Ctrl+K</strong> or <strong>/</strong> to jump to any portal page by name.</li>
+<li>Tables turn into readable cards below 700px, so nothing needs sideways scrolling.</li>
+<li>Announcements that the portal scrolls in a marquee are shown as a normal banner.</li>
+<li>Icons the portal ships but cannot render (its regular Font Awesome face is missing)
+are corrected to the solid face.</li>
+</ul>
+<p><strong>Dashboard</strong></p>
+<ul>
+<li>A hero banner over the UMT campus photograph the portal already ships, carrying
+your name, programme, ID, credits, and quick links to transcript, attendance and
+fee voucher.</li>
+<li>A CGPA dial that fills on load, with the semester trend line beneath it.</li>
+<li>Stat cards: CGPA, credits earned, latest semester with its change, best semester,
+and semesters on record.</li>
+<li><strong>Your degree so far</strong> — one row per semester, one chip per course, coloured by
+grade band and sized by credit hours, so a whole degree reads at a glance.</li>
+<li>Two columns on a wide screen: your record on the left, the portal's service tiles
+on the right, each tile carrying its own artwork as a backdrop.</li>
+</ul>
+<p><strong>This semester</strong></p>
+<ul>
+<li>The timetable opens as a week board: one column per day you have class, each class
+a card with its time, course, room, type and mode. Today's column is marked, a
+class running right now is badged, and each course keeps the same colour all week.</li>
+<li>Above it, the next class you have: which one, what day, what time and which room.</li>
+<li>The panel headings carry the totals - classes and contact hours a week, courses
+and credit hours for the term.</li>
+<li>Registered courses become cards showing credit hours, core or elective, section,
+mode and how many times a week the course meets.</li>
+<li>Both keep a table view for anyone who prefers the original grid.</li>
+<li>Cards, chips, the dial and the trend line animate in once, and hold still for
+anyone who asks for reduced motion.</li>
+</ul>
+<p><strong>Transcript</strong></p>
+<ul>
+<li>The SSRS report is replaced by a readable view: the same header and stats, a
+labelled semester GPA chart, the degree map, and a clean table per semester.</li>
+<li><strong>Where you stand</strong> gathers the figures the Controller of Examinations reports -
+credit hours earned, credit hours for GPA, total grade points, CGPA, best semester -
+with a bar showing how your grades split across the whole degree.</li>
+<li>Each semester carries its credits, course count (and how many are labs), SGPA with
+the change from the semester before, CGPA at that point, and its own grade split.</li>
+<li>Every grade is one chip of the same size and shape, coloured by band, so a column
+of them can be read at a glance. Labs and repeats are tagged.</li>
+<li>A filter box narrows every semester at once by course, code or grade.</li>
+<li>Your saved copy paints instantly while the live report loads.</li>
+<li><strong>Official report</strong> brings the original portal report back, and <strong>Print this page</strong>
+produces a clean printout.</li>
+</ul>
+<p><strong>Payments</strong></p>
+<ul>
+<li>The fee report is read and rebuilt: total paid, last payment, largest payment and
+this year's total, then every payment grouped by year with its challan number and
+bank. Your saved copy paints instantly; the original report is a toggle away.</li>
+</ul>
+<p><strong>Road Map, Store, Advisor, Fee voucher</strong></p>
+<ul>
+<li>Report frames get a taller view, an open-in-new-tab, and an optional dark rendering
+that matches the theme.</li>
+<li>These reports build once per page load, so when the portal answers with "Object
+reference not set" the extension says so and offers a page reload rather than
+re-pointing the frame, which is what provokes the error in the first place.</li>
+<li>The portal also returns a blank report now and then, on its own, with or without
+this extension. Revealing an empty report shows what happened and offers a reload
+or the report in its own tab, rather than a white rectangle.</li>
+</ul>
+<p><strong>Requests</strong></p>
+<ul>
+<li>A count of all requests by status above the table.</li>
+</ul>
+<p><strong>Empty screens</strong></p>
+<ul>
+<li>"You have no registered courses" and similar screens get the obvious next action.</li>
+</ul>
+<p><strong>Sign-in screen</strong></p>
+<ul>
+<li>The form sits on a single card over the portal's own background photo, with the
+security code shown beside the field it belongs to (above it on a phone), the
+white UMT mark on the dark card, and the account links gathered into one row.</li>
+</ul>
+<p><strong>Toolbar popup</strong></p>
+<ul>
+<li>CGPA, credits, semesters and total paid at a glance, how old each record is, a
+refresh button, quick links and the theme switch.</li>
+</ul>
+<div><h4>How records are kept</h4><span id="user-content-how-records-are-kept"></span></div>
+<p>Your transcript changes about twice a year and your fee history every few months,
+so the extension does not re-read them on every visit.</p>
+<ul>
+<li><strong>Stored, not expired.</strong> Both records live in <code>localStorage</code> with the time they
+were read. Nothing is thrown away on a timer, so pages paint from your saved copy
+in well under a second instead of waiting ten to fifteen seconds for the portal
+report service.</li>
+<li><strong>Warmed in the background.</strong> A few seconds after any portal page settles, anything
+missing or older than its window (45 days for the transcript, 30 for payments) is
+read quietly out of sight. Nothing blocks, and a failure is silent because you
+already have the earlier copy on screen.</li>
+<li><strong>Refreshed when you ask.</strong> The refresh button in the top bar re-reads the records
+that matter on the page you are on, spins while it works, and tells you what landed.
+Every panel built from a record also carries an "Updated ..." line with its own
+refresh. The toolbar popup shows both ages and can trigger the same refresh in an
+open portal tab.</li>
+</ul>
+<div><h4>Where your data comes from</h4><span id="user-content-where-your-data-comes-from"></span></div>
+<p>Both records come from the portal's own reports, parsed in the page:</p>
+<ul>
+<li>the transcript from <code>/Reports/Transcript.aspx</code>, which answers with a 500 until the
+session has opened <code>/Transcript</code> once, so the extension falls back to loading that
+page out of sight and reading the report from there;</li>
+<li>the fee history from <code>/Reports/Payments.aspx</code>, which only ever renders inside its
+own page, so it is always read that way.</li>
+</ul>
+<p>Nothing else is fetched, and nothing leaves your browser.</p>
+<div><h4>Files</h4><span id="user-content-files"></span></div>
+<div><pre><code>extension/
+  manifest.json        MV3 manifest
+  src/theme.css        design tokens and every visual override
+  src/core.js          storage, helpers, route table
+  src/data.js          transcript fetch, parse, cache, derived stats
+  src/shell.js         theme, sidebar, top bar, command palette, tables, toasts
+  src/widgets.js       hero, stat cards, GPA ridge, degree map
+  src/pages.js         per-page behaviour
+  src/boot.js          start-up and ajax watching
+  fonts/               Space Grotesk, IBM Plex Sans, IBM Plex Mono (woff2)
+  icons/               toolbar icons
+  popup/               toolbar popup
+</code></pre></div>
+<div><h4>Keyboard</h4><span id="user-content-keyboard"></span></div>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl+K or /</td>
+<td>Open search</td>
+</tr>
+<tr>
+<td>Ctrl+B</td>
+<td>Collapse the sidebar, or open the drawer on a phone</td>
+</tr>
+<tr>
+<td>Esc</td>
+<td>Close search or the drawer</td>
+</tr>
+</tbody>
+</table>
+<div><h4>Notes</h4><span id="user-content-notes"></span></div>
+<ul>
+<li>Grades shown here are read from the portal and are not official. For anything
+official, request a transcript from the Office of the Controller of Examinations.</li>
+<li>The extension never stores your password and asks for no permission beyond
+<code>online.umt.edu.pk</code> and local storage.</li>
+<li>Checked against the live portal at 1440px and 390px across 20 screens (40 checks),
+including a full sign-in. The toolbar popup is the one piece that can only be exercised once
+the extension is loaded in Chrome.</li>
+</ul>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/dispatchdesk/"><span>JavaScript</span><h3>dispatchdesk</h3></a><a class="related__card" href="/projects/entrypoint/"><span>JavaScript</span><h3>entrypoint</h3></a><a class="related__card" href="/projects/audio-editor/"><span>JavaScript</span><h3>audio-editor</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

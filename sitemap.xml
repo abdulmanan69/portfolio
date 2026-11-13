@@ -2,113 +2,265 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://abdulmanan.tech/</loc>
-    <lastmod>2026-09-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-11-13</lastmod>
     <image:image><image:loc>https://abdulmanan.tech/og-image.png</image:loc></image:image>
   </url>
   <url>
+    <loc>https://abdulmanan.tech/projects/</loc>
+    <lastmod>2026-11-13</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/qalam-studio/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/active-noise-cancellation/</loc>
+    <lastmod>2026-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/cueline/</loc>
+    <lastmod>2026-11-13</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/apexquant/</loc>
+    <lastmod>2026-11-13</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/dispatchdesk/</loc>
+    <lastmod>2026-11-13</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/gamesite/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/vici-evalution/</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/hrms/</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/entrypoint/</loc>
+    <lastmod>2026-11-06</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/securepulse/</loc>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/abusebox/</loc>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/helpdesk/</loc>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/leadpool/</loc>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/leadclean/</loc>
+    <lastmod>2026-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/atlas/</loc>
+    <lastmod>2026-11-02</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/ott/</loc>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/audio-editor/</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/alysonautowarrantyus/</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/fruitefly/</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/gitmap/</loc>
+    <lastmod>2026-10-23</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/alysonwarranty/</loc>
+    <lastmod>2026-10-23</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/bookper/</loc>
+    <lastmod>2026-10-14</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/readme-studio/</loc>
+    <lastmod>2026-10-12</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/unruffled/</loc>
+    <lastmod>2026-10-08</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/bulwark/</loc>
+    <lastmod>2026-10-03</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/umt-portal/</loc>
+    <lastmod>2026-09-29</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/authenticator/</loc>
+    <lastmod>2026-09-24</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/pdf-toolkit/</loc>
+    <lastmod>2026-09-14</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/ar-drawing/</loc>
+    <lastmod>2026-09-03</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/invoiceapp/</loc>
+    <lastmod>2026-08-31</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/cv-maker/</loc>
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/leadslicer/</loc>
+    <lastmod>2026-07-23</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/monkeytype/</loc>
+    <lastmod>2026-07-17</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/saferoutes/</loc>
+    <lastmod>2026-07-05</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/deepneurax/</loc>
+    <lastmod>2026-03-12</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/handwrittenassignment/</loc>
+    <lastmod>2026-02-21</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/neurix/</loc>
+    <lastmod>2026-02-06</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/short-break-system/</loc>
+    <lastmod>2026-01-17</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/inventory/</loc>
+    <lastmod>2025-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/call-back-tracker/</loc>
+    <lastmod>2025-10-02</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/lancall/</loc>
+    <lastmod>2025-10-02</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/p2pchat/</loc>
+    <lastmod>2025-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/sticky-note-app/</loc>
+    <lastmod>2025-09-25</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/saferwebtweak/</loc>
+    <lastmod>2024-12-29</lastmod>
+  </url>
+  <url>
+    <loc>https://abdulmanan.tech/projects/bulkmessagesender/</loc>
+    <lastmod>2024-12-29</lastmod>
+  </url>
+  <url>
     <loc>https://abdulmanan.tech/blog/</loc>
-    <lastmod>2026-09-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-09-22</lastmod>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/bulwark-mcp-security-scanner/</loc>
     <lastmod>2026-09-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <image:image><image:loc>https://abdulmanan.tech/posts/images/bulwark-mcp-security-scanner.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/toolforge-browser-pdf-tools/</loc>
     <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <image:image><image:loc>https://abdulmanan.tech/posts/images/toolforge-browser-pdf-tools.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/cv-studio-free-resume-builder/</loc>
     <lastmod>2026-09-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <image:image><image:loc>https://abdulmanan.tech/posts/images/cv-studio-free-resume-builder.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/</loc>
     <lastmod>2026-09-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <image:image><image:loc>https://abdulmanan.tech/posts/images/leadslicer-split-csv-excel-files.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/</loc>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <image:image><image:loc>https://abdulmanan.tech/posts/images/saferoute-react-supabase-full-stack.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/</loc>
     <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <image:image><image:loc>https://abdulmanan.tech/posts/images/invoiceapp-offline-invoicing-small-business.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/</loc>
     <lastmod>2026-08-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <image:image><image:loc>https://abdulmanan.tech/posts/images/lancall-webrtc-lan-voice-calls.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/figma-to-code-workflow/</loc>
     <lastmod>2026-08-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <image:image><image:loc>https://abdulmanan.tech/posts/images/figma-to-code-workflow.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/javascript-tips-for-beginners/</loc>
     <lastmod>2026-08-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <image:image><image:loc>https://abdulmanan.tech/posts/images/javascript-tips-for-beginners.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/seo-for-developers/</loc>
     <lastmod>2026-08-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <image:image><image:loc>https://abdulmanan.tech/posts/images/seo-for-developers.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/responsive-web-design/</loc>
     <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <image:image><image:loc>https://abdulmanan.tech/posts/images/responsive-web-design.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/how-i-built-this-portfolio/</loc>
     <lastmod>2026-07-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <image:image><image:loc>https://abdulmanan.tech/posts/images/how-i-built-this-portfolio.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/clean-minimal-web-design/</loc>
     <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <image:image><image:loc>https://abdulmanan.tech/posts/images/clean-minimal-web-design.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://abdulmanan.tech/blog/learning-web-dev-as-a-student/</loc>
     <lastmod>2026-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <image:image><image:loc>https://abdulmanan.tech/posts/images/learning-web-dev-as-a-student.png</image:loc></image:image>
   </url>
 </urlset>

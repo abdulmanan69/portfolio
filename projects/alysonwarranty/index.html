@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>alysonwarranty: The website and admin dashboard… | Abdul Manan</title>
+<meta name="description" content="alysonwarranty by Abdul Manan. The website and admin dashboard for alysonwarranty.com." />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/alysonwarranty/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="alysonwarranty: The website and admin dashboard… | Abdul Manan" />
+<meta property="og:description" content="alysonwarranty by Abdul Manan. The website and admin dashboard for alysonwarranty.com." />
+<meta property="og:url" content="https://abdulmanan.tech/projects/alysonwarranty/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="alysonwarranty: The website and admin dashboard… | Abdul Manan" />
+<meta name="twitter:description" content="alysonwarranty by Abdul Manan. The website and admin dashboard for alysonwarranty.com." />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">alysonwarranty</span></nav>
+<h1>alysonwarranty</h1>
+<p class="project-page__lead">The website and admin dashboard for alysonwarranty.com</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>TypeScript</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-10-23">23 Oct 2026</time></dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/alysonwarranty" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><span id="user-content-alyson-warranty"></span></div>
+<p>The website and admin dashboard for alysonwarranty.com. It sells two products, kept apart
+everywhere in the code and the data:</p>
+<ul>
+<li><strong>Auto warranty</strong> (legally a vehicle service contract): <code>Lead.line = "vsc"</code>, 6-step quote form at
+<code>/quote/auto-warranty</code>, guide at <code>/extended-car-warranty</code>.</li>
+<li><strong>Home warranty</strong> (legally a home service contract): <code>Lead.line = "home"</code>, 4-step quote form at
+<code>/quote/home-warranty</code>, guide at <code>/home-warranty</code>.</li>
+</ul>
+<p>Neither product is insurance, and the copy never calls it that. Quotes end on a thank-you page
+with no prices; the team calls the person with plan options.</p>
+<p>Built with Next.js 15, TypeScript, Tailwind CSS, Prisma (PostgreSQL), React Hook Form and Zod.</p>
+<div><h3>What's included</h3><span id="user-content-whats-included"></span></div>
+<ul>
+<li>Home page with both products, repair-cost section, why-us, FAQ and reviews (hidden until real
+reviews are added in <code>src/lib/site.ts</code>)</li>
+<li><code>/quote</code> chooser, then one multi-step form per product with validation on every step (client
+and server), saved progress, ZIP → state detection and live vehicle models from the NHTSA API</li>
+<li>TCPA consent capture per product: exact text, version, IP, user agent, page URL, time</li>
+<li>TrustedForm hook, UTM / gclid / fbclid tracking, duplicate protection (24 hours)</li>
+<li>Admin dashboard (<code>/admin</code>): leads with product filter, lead detail (vehicle or property card,
+consent proof, history, status), CSV export, settings (business details, both consent texts),
+menus, legal pages, homepage content, blog, pages, health check</li>
+<li>Blog with categories, drafts and review flow, plus a REST API (<code>/api/blog-api/v1</code>, Bearer key)
+and the <code>scripts/blog-api.mjs</code> CLI for posts, uploads, menus, legal pages and homepage content</li>
+<li>SEO: per-page metadata, Organization / Service / FAQ schema, sitemap, <code>llms.txt</code>, IndexNow key,
+share images</li>
+<li>Audit log of every important action</li>
+</ul>
+<div><h3>Run it locally</h3><span id="user-content-run-it-locally"></span></div>
+<p>Requires Node.js 20 or newer and Docker (for the local PostgreSQL database).</p>
+<div><pre>npm install
+cp .env.example .env        <span><span>#</span> then edit ADMIN_PASSWORD and OG_SECRET</span>
+npm run db:up               <span><span>#</span> starts PostgreSQL on 127.0.0.1:5434</span>
+npm run db:deploy           <span><span>#</span> creates the tables</span>
+npm run dev</pre></div>
+<p>Open <a href="http://localhost:3000">http://localhost:3000</a> for the site and <a href="http://localhost:3000/admin">http://localhost:3000/admin</a> for the dashboard
+(login from <code>ADMIN_USER</code> / <code>ADMIN_PASSWORD</code>).</p>
+<p><strong>Production:</strong> see <a href="https://github.com/abdulmanan69/alysonwarranty/blob/main/DEPLOY.md">DEPLOY.md</a> (Docker Compose on Coolify: app + PostgreSQL + backups).</p>
+<div><h3>Where things are</h3><span id="user-content-where-things-are"></span></div>
+<div><pre><code>prisma/schema.prisma                     Database tables (Lead, Vehicle, Property, Consent, ...)
+src/lib/site.ts                          Business name, phone, email, footer note, CONSENT TEXTS
+src/lib/products.ts                      The two products and their disclosures
+src/lib/settings.ts                      Editable defaults (menus, homepage content, legal, SEO)
+src/lib/validation.ts                    All form rules (shared client + server)
+src/lib/legal-templates.ts               Starting Privacy Policy and Terms of Use
+src/components/VscQuoteForm.tsx          Auto warranty form
+src/components/HomeQuoteForm.tsx         Home warranty form
+src/app/api/vsc-leads/route.ts           Saves auto warranty submissions
+src/app/api/home-leads/route.ts          Saves home warranty submissions
+src/app/(site)/extended-car-warranty/    Auto warranty guide (pillar page)
+src/app/(site)/home-warranty/            Home warranty guide (pillar page)
+src/app/admin/                           Dashboard
+src/app/api/blog-api/v1/                 Blog and settings API
+scripts/blog-api.mjs                     CLI for the API
+</code></pre></div>
+<div><h3>Must be done by the client (not code)</h3><span id="user-content-must-be-done-by-the-client-not-code"></span></div>
+<ul>
+<li><strong>Phone number and email</strong> in Admin → Settings (the code ships with placeholders).</li>
+<li><strong>Consent texts</strong> for both forms from their lawyer (TCPA). The version changes automatically
+whenever a text is saved, so every lead records exactly what it agreed to.</li>
+<li><strong>Privacy Policy and Terms of Use</strong> reviewed by a lawyer, then marked approved in
+Admin → Legal &amp; privacy.</li>
+<li><strong>30-day money-back guarantee</strong> wording confirmed with each service contract provider.</li>
+<li><strong>Footer note</strong> describing the business, kept accurate for every state it sells in.</li>
+</ul>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/gamesite/"><span>TypeScript</span><h3>gamesite</h3></a><a class="related__card" href="/projects/qalam-studio/"><span>TypeScript</span><h3>qalam-studio</h3></a><a class="related__card" href="/projects/vici-evalution/"><span>TypeScript</span><h3>vici-evalution</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

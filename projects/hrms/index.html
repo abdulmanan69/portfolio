@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>hrms: One internal HR system that carries a… | Abdul Manan</title>
+<meta name="description" content="hrms by Abdul Manan. One internal HR system that carries a person from job applicant to employee on a single record, then drives their payroll and leave from…" />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/hrms/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="hrms: One internal HR system that carries a… | Abdul Manan" />
+<meta property="og:description" content="hrms by Abdul Manan. One internal HR system that carries a person from job applicant to employee on a single record, then drives their payroll and leave from…" />
+<meta property="og:url" content="https://abdulmanan.tech/projects/hrms/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="hrms: One internal HR system that carries a… | Abdul Manan" />
+<meta name="twitter:description" content="hrms by Abdul Manan. One internal HR system that carries a person from job applicant to employee on a single record, then drives their payroll and leave from…" />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">hrms</span></nav>
+<h1>hrms</h1>
+<p class="project-page__lead">One internal HR system that carries a person from job applicant to employee on a single record, then drives their payroll and leave from it. Built for Pakistani payroll rules (CNIC, EOBI, Provident Fund, withholding tax)</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>TypeScript</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-11-06">6 Nov 2026</time></dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/hrms" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><h3>WaveTech HRMS</h3><span id="user-content-wavetech-hrms"></span></div>
+<p>One internal HR system that carries a person from job applicant to employee on a single record, then drives their payroll and leave from it. Built for Pakistani payroll rules (CNIC, EOBI, Provident Fund, withholding tax). The full design is in <a href="https://github.com/abdulmanan69/hrms/blob/main/WaveTech%20HRMS%20%E2%80%94%20System%20Design.md">WaveTech HRMS — System Design.md</a>.</p>
+<p>Modules:</p>
+<ul>
+<li><strong>Recruitment</strong> – candidates, a drag-and-drop pipeline board, interviews, a contact log with follow-ups, and a hire action that creates the employee</li>
+<li><strong>Employees</strong> – the staff register, documents, and activation checks (CNIC and signed contract required)</li>
+<li><strong>Payroll</strong> – salary structures with history, monthly runs computed as A + B − C with mid-month proration, loans and advances, CSV and bank files, and printable payslips</li>
+<li><strong>Leave</strong> – leave types, a balance ledger, approvals (HR or line manager), and unpaid days that flow into payroll</li>
+<li><strong>Sales</strong> – sales credited to closers and fronters (the CRM's compliance-approved sales, or recorded by hand), slab-based incentives that flow into payroll</li>
+<li><strong>Attendance</strong> – shift days from the dialer (first and last call, reported by the QA platform), judged present, late, half day or absent by HR's rules; HR can set any day by hand</li>
+<li><strong>Shared core</strong> – users and roles, an audit trail, notifications, and self-service for each employee</li>
+</ul>
+<div><h4>Run it with Docker</h4><span id="user-content-run-it-with-docker"></span></div>
+<p>You need Docker Desktop (or Docker Engine with the Compose plugin).</p>
+<div><pre>cp .env.example .env          <span><span>#</span> then change POSTGRES_PASSWORD and ADMIN_PASSWORD</span>
+docker compose up -d --build</pre></div>
+<p>Open <a href="http://localhost:3000">http://localhost:3000</a> and sign in with <code>ADMIN_EMAIL</code> / <code>ADMIN_PASSWORD</code> from <code>.env</code>. The defaults are <code>admin@wavetech.pk</code> / <code>ChangeMe123!</code>.</p>
+<p>To try it with sample people, candidates, leave and 12 months of payroll, set <code>SEED_DEMO=true</code> in <code>.env</code> <strong>before the first start</strong>. Demo data loads only into an empty database. The demo also creates these sign-ins, all with the password <code>Demo1234!</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Email</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="mailto:finance@wavetech.pk">finance@wavetech.pk</a></td>
+<td>Payroll and finance</td>
+</tr>
+<tr>
+<td><a href="mailto:recruiter@wavetech.pk">recruiter@wavetech.pk</a></td>
+<td>Recruiter</td>
+</tr>
+<tr>
+<td><a href="mailto:manager@wavetech.pk">manager@wavetech.pk</a></td>
+<td>Manager (Sales team lead, approves their team's leave)</td>
+</tr>
+<tr>
+<td><a href="mailto:employee@wavetech.pk">employee@wavetech.pk</a></td>
+<td>Employee self-service</td>
+</tr>
+</tbody>
+</table>
+<p>To start over with an empty database, run <code>docker compose down -v</code> and then <code>docker compose up -d --build</code>. <strong>The <code>-v</code> flag deletes all data and uploaded files.</strong></p>
+<div><h5>Services</h5><span id="user-content-services"></span></div>
+<div><pre><code>web (nginx :3000) ──/api──▶ api (Fastify :8080) ──▶ postgres (:5432)
+</code></pre></div>
+<ul>
+<li><strong>api</strong> runs database migrations and the base seed at boot, then serves <code>/api/v1</code>. It also runs a leave-accrual job every 6 hours. The job is idempotent: each grant carries a unique reference.</li>
+<li><strong>web</strong> is the static React build. nginx proxies <code>/api</code> to the api container.</li>
+<li>Postgres and the API are published on <code>127.0.0.1</code> only. Only the web port is meant to be open.</li>
+</ul>
+<div><h5>Deploy on Coolify</h5><span id="user-content-deploy-on-coolify"></span></div>
+<p><code>docker-compose.coolify.yml</code> is the same stack without host ports or a <code>.env</code> file.</p>
+<ol>
+<li><strong>Create the resource.</strong> New Resource → Public Repository → <code>https://github.com/abdulmanan69/hrms</code>, branch <code>main</code>.</li>
+<li><strong>Pick the build.</strong> Build Pack <em>Docker Compose</em>, location <code>/docker-compose.coolify.yml</code>.</li>
+<li><strong>Set the domain</strong> on the <code>web</code> service, for example <code>https://hr.example.com</code>. The domain's DNS must point at the server first, so the HTTPS certificate can be issued.</li>
+<li><strong>Set the admin password.</strong> In Environment Variables, set <code>ADMIN_PASSWORD</code>, plus <code>ADMIN_EMAIL</code>, <code>COMPANY_NAME</code> and <code>COMPANY_SLUG</code> if they differ from the defaults. Coolify generates the database password.</li>
+<li><strong>Deploy.</strong> After each push to <code>main</code>, press <em>Redeploy</em> in Coolify. To redeploy on every push instead, add the webhook from the resource's <em>Webhooks</em> page to the GitHub repository.</li>
+</ol>
+<div><h5>Remote diagnostics</h5><span id="user-content-remote-diagnostics"></span></div>
+<p>See inside a running instance from any computer, without SSH or a login: problems, errors, logs, API timing and the database. It stays off until a token is set.</p>
+<ol>
+<li><strong>Make a token.</strong> On your computer, in this repository, run <code>node scripts/ops.mjs init --url https://your-hrms</code>. It writes <code>.ops.local</code> (git ignores it) with a new random token.</li>
+<li><strong>Give it to the server.</strong> Copy <code>OPS_TOKEN</code> from <code>.ops.local</code> to the server (Coolify: Environment Variables; Docker: <code>.env</code>) and redeploy.</li>
+<li><strong>Use it.</strong> Run <code>node scripts/ops.mjs status</code>.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>status</code></td>
+<td>API, database, connection pool, requests, webhooks, integrations and background jobs at a glance, a list of problems, every company's counts, recent starts</td>
+</tr>
+<tr>
+<td><code>errors [--since 24h] [--list]</code></td>
+<td>warnings and errors grouped by message, with stack traces</td>
+</tr>
+<tr>
+<td><code>logs [--since 1h] [--grep text] [--level warn] [--follow]</code></td>
+<td>everything logged, live with <code>--follow</code></td>
+</tr>
+<tr>
+<td><code>requests</code></td>
+<td>API timing per minute and per route, requests slower than 1 s</td>
+</tr>
+<tr>
+<td><code>db</code></td>
+<td>connections, running queries, table sizes</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Logs survive restarts and crashes.</strong> They are kept in the <code>ops_log</code> table for 14 days.</li>
+<li><strong>Secrets are masked</strong> before anything is stored: API keys, passwords, tokens, CNIC and account numbers.</li>
+<li><strong>No people's records.</strong> The endpoints return only counts, timings and log lines, and there is no SQL endpoint.</li>
+<li><strong>Limit who can call it.</strong> <code>OPS_ALLOWED_IPS</code> (IPs or IPv4 CIDR, comma-separated) restricts access further.</li>
+</ul>
+<div><h5>Backups</h5><span id="user-content-backups"></span></div>
+<p>Uploaded documents are stored compressed inside Postgres, so one dump holds everything:</p>
+<div><pre>docker compose <span>exec</span> postgres pg_dump -U hrms -Fc hrms <span>&gt;</span> backup-<span><span>$(</span>date +%F<span>)</span></span>.dump</pre></div>
+<div><h5>Files and PDFs</h5><span id="user-content-files-and-pdfs"></span></div>
+<ul>
+<li><strong>Uploads</strong> (employee documents, leave attachments) are compressed when they arrive, then stored in the <code>stored_files</code> table:
+<ul>
+<li>Photos and scans are turned upright, scaled to at most 2,400 px and re-saved as JPEG (or WebP if transparent). A 5 MB phone photo usually becomes 200–400 KB.</li>
+<li>PDF and Word files are compressed with Brotli and come back byte-for-byte identical. A PDF's internals are never rewritten, so a signed contract keeps a valid digital signature. Most PDFs are already compressed inside, so savings vary from a few percent to over 90% for text-only ones.</li>
+<li>A file is refused when its content doesn't match its type, for example a renamed <code>.exe</code>.</li>
+<li>Files left on disk by older versions are moved into the database at the next start.</li>
+</ul>
+</li>
+<li><strong>Payslip PDFs are never stored.</strong> They are generated from the payslip records whenever someone downloads one, either one payslip or a whole run with a page per payslip, so they always match the data.</li>
+</ul>
+<div><h4>Develop locally</h4><span id="user-content-develop-locally"></span></div>
+<div><pre><span><span>#</span> database</span>
+docker run -d --name hrms-dev-db -e POSTGRES_DB=hrms -e POSTGRES_USER=hrms -e POSTGRES_PASSWORD=hrms -p 127.0.0.1:5433:5432 postgres:16-alpine
+
+<span><span>#</span> api (http://localhost:8080)</span>
+<span>cd</span> server
+<span>echo</span> <span><span>"</span>DATABASE_URL=postgres://hrms:hrms@localhost:5433/hrms<span>"</span></span> <span>&gt;</span> .env
+<span>echo</span> <span><span>"</span>SEED_DEMO=true<span>"</span></span> <span>&gt;&gt;</span> .env
+npm install
+npm run dev
+
+<span><span>#</span> web (http://localhost:3000, proxies /api to :8080)</span>
+<span>cd</span> web
+npm install
+npm run dev</pre></div>
+<p>Useful scripts:</p>
+<ul>
+<li>server: <code>npm run typecheck</code>, <code>npm test</code> (payroll engine tests), <code>npm run generate</code> (new migration after a schema change)</li>
+<li>web: <code>npm run typecheck</code>, <code>npm run build</code></li>
+</ul>
+<div><h4>Code map</h4><span id="user-content-code-map"></span></div>
+<div><pre><code>server/src/
+  db/schema.ts           the whole data model (one file)
+  db/seed.ts             roles, first admin, leave types, departments, settings
+  db/seedDemo*.ts        sample data (SEED_DEMO=true)
+  auth/                  sessions (httpOnly cookie, SHA-256 stored), permissions, guards
+  lib/                   errors, audit + notify, dates, uploads, CSV
+  services/              shared logic: createEmployee + SIP IDs, leave ledger, payroll engine, settings
+  routes/                one file per module, mounted under /api/v1
+web/src/
+  components/ui.tsx      the UI kit every page uses
+  components/Layout.tsx  sidebar, top bar, notifications
+  pages/&lt;module&gt;/        pages per module
+  lib/                   api client, auth, formatting
+  illustrations/         registry.ts (every illustration by name), Illustration.tsx, svg/, LICENSES.md
+docs/BUILD_CONTRACT.md   conventions and design rules for adding to a module
+</code></pre></div>
+<div><h4>Connecting other apps</h4><span id="user-content-connecting-other-apps"></span></div>
+<p>Other systems (web apps, attendance devices, accounting, scripts) connect under <strong>Admin → Integrations</strong>:</p>
+<ul>
+<li><strong>API keys:</strong> read and send data through the same REST API the app uses. Each key works in one company, with only the permissions it was given.</li>
+<li><strong>Webhooks:</strong> signed <code>POST</code>s to your URL when something happens (new hire, leave approved, payroll paid …). Failed sends are retried for about a day.</li>
+<li><strong>Event feed:</strong> <code>GET /api/v1/integrations/events?after=</code> for systems that poll.</li>
+<li><strong>WebSocket:</strong> <code>/api/v1/ws</code> for a live connection. Events stream in, and API requests can go over the same socket.</li>
+</ul>
+<p>Full details and examples: <a href="https://github.com/abdulmanan69/hrms/blob/main/docs/INTEGRATIONS.md">docs/INTEGRATIONS.md</a>. Events are written in the same transaction as each change, so none are lost or invented. Payloads never include CNIC, bank details or date of birth.</p>
+<div><h4>Companies</h4><span id="user-content-companies"></span></div>
+<p>One installation serves several companies, and they are kept completely apart: people, SIP IDs, payroll, leave, documents, users, roles, settings, notifications and the audit trail.</p>
+<ul>
+<li><strong>The database enforces it, not just the code.</strong>
+<ul>
+<li>Every business row carries <code>company_id</code>.</li>
+<li>Postgres row-level security lets each request see and change only its own company's rows.</li>
+<li>Each API request runs in one short transaction pinned to the signed-in company, as the restricted role <code>hrms_app</code>. Both settings are transaction-local, so they can never carry over to the next request that reuses the same pooled connection.</li>
+<li>Application code that tries to read data outside a company context fails with an error instead of seeing every company.</li>
+</ul>
+</li>
+<li><strong>References can't cross companies.</strong> Links between records use composite keys <code>(company_id, id)</code>. So a payslip, leave request, document or manager link can only point at a record of the same company.</li>
+<li><strong>SIP IDs are per company.</strong> Every company starts at <code>YYYY-0001</code>.</li>
+<li><strong>Super admins</strong> (Admin → Companies) add, rename and disable companies, and switch into any company from the company name at the top of the sidebar. Everyone else only ever sees their own company.</li>
+<li><strong>One email in several companies</strong> means one account per company; sign-in then asks which company. A wrong password never reveals which companies an email belongs to.</li>
+<li><strong>Stale browser tabs are refused.</strong> Every request says which company its page was loaded for. If the session has since moved to another company (switched in another tab), the server refuses the request (<code>company_changed</code>) and the page reloads. So an old tab can never write into the wrong company.</li>
+<li><strong>Disabling a company</strong> signs its people out and blocks their sign-in; nothing is deleted.</li>
+</ul>
+<p>Cost per request: one extra round trip to the database (<code>set_config</code>) inside a transaction. Indexes lead with <code>company_id</code>, so the security filter uses them. Background jobs (leave accrual) run one company at a time, each in its own short transaction, and never overlap.</p>
+<p>The demo (<code>SEED_DEMO=true</code>) creates two companies. <code>consultant@hrpartners.pk</code> / <code>Demo1234!</code> has an account in both, to show the company picker at sign-in.</p>
+<div><h4>How the key rules are enforced</h4><span id="user-content-how-the-key-rules-are-enforced"></span></div>
+<ul>
+<li><strong>One person, one record.</strong> Hiring a candidate creates the employee from the candidate's details, so nothing is typed twice. The application keeps a link to the new SIP ID.</li>
+<li><strong>SIP ID</strong> is generated as <code>YYYY-####</code> from a per-year counter inside the same transaction. It can't be edited and is never reused.</li>
+<li><strong>Payroll is computed.</strong> Each payslip is A + B − C. A is split into rate periods for mid-month joiners and increments. B lines are entered by hand and survive recomputes. C covers PF, EOBI, withholding tax, loan installments and manual deductions. Amounts are whole PKR, so the totals always add up exactly.</li>
+<li><strong>Leavers are paid to their last day.</strong> Someone deactivated mid-month stays on that month's run and is paid up to the deactivation date.</li>
+<li><strong>Only reviewed figures are approved.</strong> If salary, leave or loans changed after a draft run was computed, approval is refused until the run is recomputed and reviewed again.</li>
+<li><strong>Leave is a ledger.</strong> Every grant, deduction, reversal and adjustment is a dated row with a running balance. Approved unpaid days reduce section A of that month's payslip.</li>
+<li><strong>Nothing is hard-deleted.</strong> Employees are deactivated, and candidates and documents are soft-deleted.</li>
+<li><strong>Every change is audited.</strong> Who made it, when, and the before and after values, shown under Admin → Audit trail.</li>
+<li><strong>Access is checked on the server.</strong> The UI hides what a role can't use, but every API route checks the permission itself. CNIC, bank details and date of birth are only sent to roles with <code>employees.sensitive</code>, or to the employee themself.</li>
+</ul>
+<div><h4>Defaults to confirm before real use</h4><span id="user-content-defaults-to-confirm-before-real-use"></span></div>
+<p>These come from the design's open questions. Each one is a setting, not hard-coded:</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Default</th>
+<th>Where to change it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PF rate</td>
+<td>8.33% of basic</td>
+<td>Payroll → Payroll rules</td>
+</tr>
+<tr>
+<td>EOBI employee share</td>
+<td>PKR 370 / month</td>
+<td>Payroll → Payroll rules</td>
+</tr>
+<tr>
+<td>Withholding tax</td>
+<td>Finance Act 2025 salaried slabs</td>
+<td>Payroll → Payroll rules</td>
+</tr>
+<tr>
+<td>Proration basis</td>
+<td>Calendar days</td>
+<td>Payroll → Payroll rules</td>
+</tr>
+<tr>
+<td>Leave entitlements</td>
+<td>Casual 10, Sick 8, Vacation 14 (7 carry forward), Unpaid</td>
+<td>Leave → Leave types</td>
+</tr>
+<tr>
+<td>Weekend and holidays</td>
+<td>Saturday and Sunday off, no holidays</td>
+<td>Leave → Leave types</td>
+</tr>
+<tr>
+<td>SIP ID format</td>
+<td><code>YYYY-####</code></td>
+<td><code>server/src/services/employees.ts</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/gamesite/"><span>TypeScript</span><h3>gamesite</h3></a><a class="related__card" href="/projects/qalam-studio/"><span>TypeScript</span><h3>qalam-studio</h3></a><a class="related__card" href="/projects/vici-evalution/"><span>TypeScript</span><h3>vici-evalution</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

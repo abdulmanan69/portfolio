@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>cueline: CueLine is a tiny native overlay for… | Abdul Manan</title>
+<meta name="description" content="cueline by Abdul Manan. CueLine is a tiny native overlay for pool/billiards: 8 Ball Pool on an Android emulator, on the Microsoft Store PC build, or on…" />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/cueline/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="cueline: CueLine is a tiny native overlay for… | Abdul Manan" />
+<meta property="og:description" content="cueline by Abdul Manan. CueLine is a tiny native overlay for pool/billiards: 8 Ball Pool on an Android emulator, on the Microsoft Store PC build, or on…" />
+<meta property="og:url" content="https://abdulmanan.tech/projects/cueline/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="cueline: CueLine is a tiny native overlay for… | Abdul Manan" />
+<meta name="twitter:description" content="cueline by Abdul Manan. CueLine is a tiny native overlay for pool/billiards: 8 Ball Pool on an Android emulator, on the Microsoft Store PC build, or on…" />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">cueline</span></nav>
+<h1>cueline</h1>
+<p class="project-page__lead">CueLine is a tiny native overlay for pool/billiards: 8 Ball Pool on an Android emulator, on the Microsoft Store PC build, or on streamed/mirrored phone screens. It finds the balls itself from the screen and draws aim line, ghost ball, cut angle and bank paths on top of the game while every click still reaches the game</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>C++</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-11-13">13 Nov 2026</time></dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/cueline" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><h3>CueLine — 68 KB click-through aim overlay</h3><span id="user-content-cueline--68-kb-click-through-aim-overlay"></span></div>
+<p>CueLine is a tiny native overlay for pool/billiards: 8 Ball Pool on an Android
+emulator, on the Microsoft Store PC build, or on streamed/mirrored phone screens.
+It <strong>finds the balls itself from the screen</strong> and draws aim line, ghost ball, cut
+angle and bank paths <strong>on top of the game while every click still reaches the
+game</strong> — ~80 KB, no installer, no runtime, no model file, no network, no account,
+no key.</p>
+<p>Built from <code>main.cpp</code> in this folder (Win32 + GDI, statically linked).
+<code>selftest.ps1</code> drives it with synthetic input and must print <code>PASS</code>.</p>
+<div><h4>Install</h4><span id="user-content-install"></span></div>
+<ol>
+<li>Put <code>CueLine.exe</code> anywhere (e.g. <code>C:\Tools\CueLine</code>). It keeps its config in
+<code>CueLine.ini</code> next to the exe.</li>
+<li>Run it — an unsigned build, so SmartScreen may ask once ("More info → Run
+anyway"). Nothing is installed and nothing is written outside that folder.</li>
+<li>Start the game. <strong>Windowed or borderless</strong>, never exclusive fullscreen.</li>
+</ol>
+<div><h4>Calibrate (once)</h4><span id="user-content-calibrate-once"></span></div>
+<ul>
+<li><code>Ctrl+Alt+T</code> → screen dims → drag a rectangle tightly around the <strong>play
+surface</strong> (cushion to cushion, inside the rails).</li>
+<li><code>Ctrl+Alt+M</code> → click the <strong>cue ball</strong>, then click the <strong>object ball</strong>.</li>
+<li><code>Ctrl+Alt+S</code> → saved; positions survive restarts.</li>
+</ul>
+<p><code>Esc</code> or right-click leaves any capture mode. Re-calibrate whenever you change
+emulator resolution, window size or DPI.</p>
+<div><h4>Reverse-engineering notes (what Cheto actually does)</h4><span id="user-content-reverse-engineering-notes-what-cheto-actually-does"></span></div>
+<p>Pulled from a public rebuild that ships their dataset
+(<code>aligujar7800-code/Cheto-8BP</code>, CC-BY dataset): the detector has <strong>7 classes</strong> —
+<code>Ball, Force, Guideline, Hole, Play_Area, Spin, White</code>.</p>
+<p>That tells the whole design:</p>
+<ul>
+<li>the table is <strong>not</strong> calibrated by hand — it comes from detected <code>Hole</code>
+positions and the <code>Play_Area</code> box (labels put the six holes at the corners and
+mid-rails, so pockets <em>are</em> the calibration),</li>
+<li><code>White</code> is the cue ball, <code>Guideline</code> is the game's own aim line,</li>
+<li><code>Force</code> and <code>Spin</code> are the <strong>on-screen widgets</strong> — Cheto reads your chosen
+power and english instead of inventing them,</li>
+<li>the Android build additionally reads ball positions straight out of game
+memory (<code>MemoryOffsets.kt</code>: ball X/Y/Z + type per 0x20-byte struct, plus
+<code>OFFSET_CUE_ANGLE</code> and <code>OFFSET_GAME_STATE</code>).</li>
+</ul>
+<p>Mirrored in CueLine: pockets derived from the play rectangle, the whitest blob
+as cue ball, a dedicated white pass because the guideline is glued to the cue
+ball, and two erosion passes to delete the 1–2 px guideline and shadows before
+blob analysis. Not mirrored (yet): Force/Spin widget reading, memory offsets.</p>
+<p>Accuracy on real frames from that dataset, cue ball located 2 px from the label;
+it still misses some object balls, so treat auto-targeting as a strong hint, not
+an oracle.</p>
+<div><h4>The prediction readout</h4><span id="user-content-the-prediction-readout"></span></div>
+<p>Everything is drawn live so nothing has to be solved in your head:</p>
+<ul>
+<li><strong>aim line</strong> — dashed, brightening toward the contact point: brightness = speed</li>
+<li><strong>ghost ball</strong> — exactly where the cue ball has to be at contact</li>
+<li><strong>object ball path</strong> — solid, in that ball's own colour, into the pocket, with
+the run-out after the pocket in a dimmer dash and an <strong>X where it dies</strong></li>
+<li><strong>cue ball path after contact</strong> — the tangent line (draw/stun/follow shifts it),
+reflected off cushions, fading as it loses speed, ending in an <strong>X stop point</strong></li>
+<li><strong>power meter</strong> bottom-left with the spin state; readout line with cut angle,
+difficulty, power %, aim length and object run length</li>
+</ul>
+<p><code>Ctrl+Alt+F</code> walks draw → stun → follow and the cue path bends accordingly, which
+is what the tangent/deflection actually does on the table.</p>
+<div><h4>Legal targets, power and auto-play</h4><span id="user-content-legal-targets-power-and-auto-play"></span></div>
+<p>Each blob is classified by its own pixels: white = cue ball, very dark = the 8,
+a white band through the middle = stripe, flat colour = solid, and the hue maps
+to the ball number, which is printed next to the ball. Targets are then filtered
+by the group you selected with <code>Ctrl+Alt+Y</code> (<code>auto</code> accepts both groups), and the
+8 is only considered on a second pass when nothing legal is reachable.</p>
+<p>Power is derived per shot: distance to the pocket + cue distance + cut angle →
+drag length, so the stop markers match the shot you are about to take instead of
+a constant. <code>Ctrl+Alt+L</code> keeps firing — shoot, wait for the rack to settle,
+re-scan, shoot again — until nothing is left or you press <code>L</code> again.</p>
+<p>Numbers are a heuristic (colour + stripe band), not OCR: they are right far more
+often than not, but treat them as guidance rather than gospel.</p>
+<div><h4>Controls — complete list</h4><span id="user-content-controls--complete-list"></span></div>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl+Alt+X</code></td>
+<td>auto-detect on / off (default <strong>on</strong>)</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+Z</code></td>
+<td>take the shot automatically (aim + drag + release)</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+,</code> / <code>.</code></td>
+<td>shot power − / + (<code>Z</code> drag distance)</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+Y</code></td>
+<td>group: auto → solids → stripes → 8 only</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+L</code></td>
+<td>auto-play loop: shoot, re-scan, shoot again</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+F</code></td>
+<td>spin: draw 2 → draw 1 → stun → follow 1 → follow 2</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+P</code></td>
+<td>predictive paths on / off</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+T</code></td>
+<td>calibrate the table rectangle</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+M</code></td>
+<td>place cue ball, then object ball (click, click)</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+A</code></td>
+<td>hide / show all drawing</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+G</code></td>
+<td>ghost ball + cut line on / off</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+B</code></td>
+<td>banks: 0 → 1 → 2</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+H</code></td>
+<td>shot readout (angle, difficulty, banks, distance)</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+C</code></td>
+<td>colour theme (4)</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+[</code> / <code>]</code></td>
+<td>ball size − / +</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+←→↑↓</code></td>
+<td>nudge the object ball 1 px (<code>Shift</code> = 10 px)</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+S</code></td>
+<td>save config</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+R</code></td>
+<td>clear both balls</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+F1</code></td>
+<td>help line on / off</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+Q</code></td>
+<td>quit</td>
+</tr>
+<tr>
+<td><code>Esc</code> / right-click</td>
+<td>leave the current capture mode</td>
+</tr>
+</tbody>
+</table>
+<div><h4>How it sees the balls</h4><span id="user-content-how-it-sees-the-balls"></span></div>
+<p>No model file, no OpenCV — about 120 lines of pixel maths, ~8 scans/second
+inside the calibrated rectangle only:</p>
+<ol>
+<li>the rectangle is grabbed with <code>BitBlt</code> from the screen,</li>
+<li>the <strong>felt colour</strong> is taken as the most frequent colour in that grab, so any
+table skin (green, blue, cloth, night mode) works,</li>
+<li>every pixel that differs from the felt enough and isn't near-black shadow
+becomes mask,</li>
+<li>connected regions are filtered by area, aspect ratio, fill ratio and radius —
+only round, ball-sized blobs survive,</li>
+<li>the <strong>whitest</strong> blob is the cue ball; every other blob is scored for a shot
+(cue distance + distance to pocket + cut angle) with an occlusion test so
+blocked balls are skipped, then the best is targeted,</li>
+<li>the ball radius is measured from the blobs, so you never set it by hand.</li>
+</ol>
+<p>Detected balls get a thin ring so you can see what it locked onto. If it loses
+track, <code>Ctrl+Alt+X</code> turns detection off and <code>Ctrl+Alt+M</code> goes back to manual.</p>
+<div><h4>What it draws</h4><span id="user-content-what-it-draws"></span></div>
+<ul>
+<li>dashed cue → ghost-ball line, ghost ball ring, object → pocket path with the
+target pocket ringed</li>
+<li>bank paths (1 or 2 rails) with rail impact points, chosen by shortest
+distance with a cut-angle limit of 80°</li>
+<li>readout: cut angle, difficulty word, bank count, aim distance</li>
+</ul>
+<p>Pockets are derived from the calibrated rectangle (portrait tables get side
+pockets mid-rail), so 8 Ball Pool in a portrait emulator window lines up
+correctly.</p>
+<div><h4>Why it is safe-ish</h4><span id="user-content-why-it-is-safe-ish"></span></div>
+<p>Pure drawing: no injection, no memory reading, no hooks, no network. The game
+server cannot see it. Emulator/mapper bans are about the emulator itself, not
+this overlay.</p>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/apexquant/"><span>Python</span><h3>apexquant</h3></a><a class="related__card" href="/projects/dispatchdesk/"><span>JavaScript</span><h3>dispatchdesk</h3></a><a class="related__card" href="/projects/gamesite/"><span>TypeScript</span><h3>gamesite</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

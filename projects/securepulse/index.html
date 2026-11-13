@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>securepulse: Continuous website security… | Abdul Manan</title>
+<meta name="description" content="securepulse by Abdul Manan. Continuous website security monitoring for agencies, freelancers and SMBs." />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/securepulse/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="securepulse: Continuous website security… | Abdul Manan" />
+<meta property="og:description" content="securepulse by Abdul Manan. Continuous website security monitoring for agencies, freelancers and SMBs." />
+<meta property="og:url" content="https://abdulmanan.tech/projects/securepulse/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="securepulse: Continuous website security… | Abdul Manan" />
+<meta name="twitter:description" content="securepulse by Abdul Manan. Continuous website security monitoring for agencies, freelancers and SMBs." />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">securepulse</span></nav>
+<h1>securepulse</h1>
+<p class="project-page__lead">Continuous website security monitoring for agencies, freelancers and SMBs.</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>TypeScript</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-11-04">4 Nov 2026</time></dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/securepulse" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><span id="user-content-securepulse"></span></div>
+
+<p>A site's security posture decays quietly. Certificates expire, security headers
+get dropped in a redeploy, DNS records drift during a migration. A one-off
+audit is out of date within two months. SecurePulse re-runs a twelve-point
+check every day and emails you the moment the grade falls.</p>
+<blockquote>
+<p><strong>Scope.</strong> SecurePulse performs <strong>passive configuration review only</strong>. It
+reads what a server already serves to any browser or crawler. It never
+exploits, fuzzes, brute-forces or port-scans anything. See
+<a href="#user-content-scanning-policy">Scanning policy</a>.</p>
+</blockquote>
+<hr>
+<div><h3>Status</h3><span id="user-content-status"></span></div>
+<p>Every claim below was verified by running it. See
+<a href="https://github.com/abdulmanan69/securepulse/blob/main/docs/TEST-RESULTS.md">docs/TEST-RESULTS.md</a> for the raw output.</p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>State</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scan engine (12 checks, weighted grade)</td>
+<td>Working, 35 unit tests + live tests against real sites</td>
+</tr>
+<tr>
+<td>Email + password auth, DB-backed sessions</td>
+<td>Working, verified end to end in a browser</td>
+</tr>
+<tr>
+<td>Password reset</td>
+<td>Working, verified end to end. 7 tests</td>
+</tr>
+<tr>
+<td>Domain management + DNS TXT verification</td>
+<td>Working</td>
+</tr>
+<tr>
+<td>Plan limits enforced server-side</td>
+<td>Working, 14 tests</td>
+</tr>
+<tr>
+<td>Stripe subscriptions</td>
+<td>Working in <strong>test mode</strong>. No live keys in this build. 8 tests including forged-webhook rejection</td>
+</tr>
+<tr>
+<td>Scheduled scans + email alerts</td>
+<td>Implemented; alert logic and email persistence tested. Not yet exercised by a real cron in production</td>
+</tr>
+<tr>
+<td>AI remediation summaries</td>
+<td>Working, with a deterministic template fallback when no API key is set</td>
+</tr>
+<tr>
+<td>Agency read-only API + key management</td>
+<td>Working, verified end to end. 7 tests</td>
+</tr>
+<tr>
+<td>CSV / JSON export, bulk scan</td>
+<td>Working</td>
+</tr>
+<tr>
+<td>Dashboard (overview, sites, reports, activity, settings)</td>
+<td>Working, with command palette, dark mode and scan-to-scan diffs</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>Configured for Vercel + Neon. <strong>Not deployed</strong> — no credentials were used</td>
+</tr>
+</tbody>
+</table>
+<p>Every feature listed on a plan in <code>src/lib/billing/plans.ts</code> is implemented
+and enforced server-side. Nothing is sold that does not exist.</p>
+<p><strong>Not built:</strong> server-side PDF generation (the client report is a
+print-optimised page that saves to PDF from any browser) and email
+verification on signup. Both are in <a href="#user-content-remaining-work">Remaining work</a>.</p>
+<hr>
+<div><h3>Quick start</h3><span id="user-content-quick-start"></span></div>
+<p>Requires Node 20+. Nothing else — no database to install, no credentials.</p>
+<div><pre>npm install
+npm run db:generate   <span><span>#</span> only if you change the schema</span>
+npm run db:migrate    <span><span>#</span> builds the local database</span>
+npm run dev           <span><span>#</span> http://localhost:3000</span></pre></div>
+<p>Then open the site and scan a domain. It works immediately, with no <code>.env</code> at
+all.</p>
+<p>Optionally seed a development account:</p>
+<div><pre>npm run seed          <span><span>#</span> demo@securepulse.local / correct horse battery staple</span></pre></div>
+<blockquote>
+<p><strong>Stop the dev server before running <code>seed</code>, <code>db:migrate</code> or <code>db:reset</code>.</strong>
+The local database is PGlite, which is an <em>embedded, single-process</em>
+Postgres. A running dev server holds the data directory open, so writes made
+by a separate script are not visible to it until you restart. This only
+affects local development; with <code>DATABASE_URL</code> set there is no such
+constraint.</p>
+</blockquote>
+<div><h4>Configuration</h4><span id="user-content-configuration"></span></div>
+<p>Copy <code>.env.example</code> to <code>.env.local</code>. Every variable is documented there.</p>
+<p>The app runs with nothing set. Each integration degrades to a clearly labelled
+disabled state rather than crashing:</p>
+<table>
+<thead>
+<tr>
+<th>Unset</th>
+<th>Behaviour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DATABASE_URL</code></td>
+<td>Uses PGlite against <code>.data/pg</code>. Real Postgres, zero setup.</td>
+</tr>
+<tr>
+<td><code>STRIPE_*</code></td>
+<td>Billing disabled. The UI says so; it never implies payments work.</td>
+</tr>
+<tr>
+<td><code>RESEND_API_KEY</code></td>
+<td>Emails are written to the <code>emails</code> table with full bodies, and not transmitted. That table is the dev inbox.</td>
+</tr>
+<tr>
+<td><code>ANTHROPIC_API_KEY</code></td>
+<td>Remediation summaries use a deterministic template built from the same findings.</td>
+</tr>
+</tbody>
+</table>
+<p>In <strong>production</strong>, <code>APP_SECRET</code> and <code>CRON_SECRET</code> are required and the server
+refuses to start without them.</p>
+<hr>
+<div><h3>What it checks</h3><span id="user-content-what-it-checks"></span></div>
+<p>Twelve checks weighted to 100 points. The weighting reflects consequence, not
+effort.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Points</th>
+<th>Checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Encryption &amp; certificates</td>
+<td>25</td>
+<td>HTTPS reachable and HTTP upgrade; certificate trusted and days to expiry; TLS version</td>
+</tr>
+<tr>
+<td>Security headers</td>
+<td>34</td>
+<td>HSTS; CSP (graded on whether it would stop anything); clickjacking; nosniff; Referrer-Policy; Permissions-Policy</td>
+</tr>
+<tr>
+<td>Cookies</td>
+<td>8</td>
+<td>Secure, HttpOnly, SameSite on cookies set by the homepage</td>
+</tr>
+<tr>
+<td>Email &amp; DNS</td>
+<td>15</td>
+<td>SPF (and whether it restricts); DMARC (and whether it enforces); CAA</td>
+</tr>
+<tr>
+<td>Page content</td>
+<td>9</td>
+<td>Mixed content; outdated front-end libraries</td>
+</tr>
+<tr>
+<td>Information disclosure</td>
+<td>6</td>
+<td>Exact software versions in response headers</td>
+</tr>
+<tr>
+<td>Disclosure policy</td>
+<td>3</td>
+<td><code>security.txt</code></td>
+</tr>
+<tr>
+<td>Exposed files</td>
+<td>penalty</td>
+<td><code>.env</code>, <code>.git</code>, database dumps. Verified domains only.</td>
+</tr>
+</tbody>
+</table>
+<div><h4>How the grade is computed</h4><span id="user-content-how-the-grade-is-computed"></span></div>
+<p>Three rules, each chosen so scores stay comparable across sites and over time,
+which is what makes the trend line and the regression alert mean anything:</p>
+<ol>
+<li><strong>The denominator is fixed at 100.</strong> Every check contributes its points
+whether it passed, failed, or could not be assessed. If an unreachable site
+silently shrank the denominator, it could out-score a working one.</li>
+<li><strong>Exposed files apply a flat penalty</strong> (30 points each) <em>after</em> the
+weighted total, rather than costing a slice of one category. A publicly
+readable <code>.env</code> must not leave a site looking healthy because its headers
+are tidy.</li>
+<li><strong>Grades:</strong> A+ ≥97, A ≥90, B ≥80, C ≥70, D ≥60, F below.</li>
+</ol>
+<p>Real results from the live suite: <code>github.com</code> → <strong>B (87)</strong>,
+<code>example.com</code> → <strong>F (51)</strong>, <code>neverssl.com</code> → <strong>F (25)</strong>.</p>
+<hr>
+<div><h3>Architecture</h3><span id="user-content-architecture"></span></div>
+<div><pre><code>src/
+  app/
+    page.tsx                     Landing page with the free public scanner
+    (auth)/                      Sign in, sign up, forgot / reset password
+    dashboard/
+      page.tsx                   Overview: portfolio, issues, certificate watch
+      sites/                     Site list, and detail with the trend chart
+      reports/                   Every scan, paginated and filterable
+      scans/[id]/                Findings, evidence, diff against last scan
+      activity/                  Audit log and the transactional email record
+      settings/                  Profile, password, API keys, danger zone
+      billing/                   Plan and Stripe portal
+    report/[id]/                 Print-optimised client report
+    api/
+      auth/*                     Session auth and password reset
+      account/*                  Profile, password, API keys, deletion
+      domains/[id]/verify        DNS TXT ownership proof
+      scans                      Authenticated scan (quota + rate limited)
+      scans/bulk                 Scan every site, stops cleanly at quota
+      scans/[id]/export          CSV / JSON download
+      scan/public                Anonymous scan (IP rate limited, passive only)
+      billing/{checkout,portal}  Stripe
+      stripe/webhook             The only thing that grants a paid plan
+      cron/scan                  Scheduled run, shared-secret authenticated
+      v1/*                       Agency read-only API, bearer-key authenticated
+  lib/
+    scanner/
+      hostname.ts                Input parsing + SSRF address blocklist
+      fetcher.ts                 Budgeted HTTP, guarded DNS, TLS inspection
+      checks/                    One module per category. Pure functions.
+      score.ts                   Weighting and grading
+      engine.ts                  Gathers evidence once, runs every check
+    auth/                        scrypt hashing, opaque DB-backed sessions
+    billing/                     Plan definitions, server-side limits, Stripe
+    email/                       Transactional email, logged before dispatch
+    ai/remediation.ts            Written summary, with template fallback
+    api-keys.ts                  Agency key issuance, auth and revocation
+    portfolio.ts                 Cross-site aggregates and scan-to-scan diffs
+</code></pre></div>
+<p><strong>The scanner is pure.</strong> <code>gatherEvidence()</code> does all the network work once;
+every check is a synchronous function from that evidence bundle to findings.
+That is why the entire scoring system is testable against fixtures with no
+network at all, and why adding a check cannot accidentally add a request.</p>
+<div><h4>Stack and why</h4><span id="user-content-stack-and-why"></span></div>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Choice</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Next.js App Router</td>
+<td>One deployable for marketing, app and API</td>
+<td></td>
+</tr>
+<tr>
+<td>Drizzle + Postgres</td>
+<td>SQL-first, no codegen step, same dialect everywhere</td>
+<td></td>
+</tr>
+<tr>
+<td>PGlite in dev</td>
+<td>Real Postgres in WASM. Zero-setup clone-and-run, and the <em>same</em> migrations run in production</td>
+<td></td>
+</tr>
+<tr>
+<td>First-party auth</td>
+<td>No third-party dependency or credential needed to run or test it. Opaque DB-backed sessions are revocable; a JWT is not</td>
+<td></td>
+</tr>
+<tr>
+<td>scrypt</td>
+<td>Ships in Node. No native module to compile, nothing in the auth path from npm</td>
+<td></td>
+</tr>
+<tr>
+<td>undici</td>
+<td>Lets the scanner validate resolved IPs <strong>at connect time</strong>, which is what closes the DNS-rebinding hole</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div><h3>Security</h3><span id="user-content-security"></span></div>
+<p>Full review in <a href="https://github.com/abdulmanan69/securepulse/blob/main/docs/SECURITY.md">docs/SECURITY.md</a>. The parts specific to
+this product:</p>
+<p><strong>SSRF is the defining risk.</strong> Users hand us a hostname and the server then
+requests it. Defence is layered: IP literals and internal suffixes are
+rejected at parse time; a custom DNS lookup is wired into the <em>connect</em> path
+so the address that gets validated is the address the socket uses, which a
+resolve-then-fetch pre-flight cannot guarantee; and redirects are followed
+manually so every hop is re-validated. Verified by a live test against a
+public hostname that resolves to loopback — the connection is refused.</p>
+<p><strong>Abuse controls.</strong> Every scan is capped at 24 HTTP requests. Anonymous scans
+are rate-limited per IP and never run path discovery. Rate limiting is stored
+in Postgres with an atomic upsert, not an in-process map, because on
+serverless a per-instance counter is not a limit at all (tested: 10 concurrent
+requests against a limit of 5 yield exactly 5 allowed).</p>
+<p><strong>Billing integrity.</strong> The Stripe webhook is the only thing that grants a paid
+plan. Signatures are verified against the raw body, and entitlement is derived
+from the <em>price that was billed</em>, never from anything the request claims.
+Tested: an unsigned, forged, wrong-secret or tampered payload is rejected and
+the plan stays free.</p>
+<p><strong>Entitlement is evaluated on read.</strong> A <code>past_due</code>, <code>canceled</code> or lapsed
+subscription resolves to <code>free</code> even if the stored plan column still says
+<code>pro</code>, so a webhook we never received cannot leave someone on a paid plan
+indefinitely.</p>
+<hr>
+<div><h3>Interface</h3><span id="user-content-interface"></span></div>
+<p>The dashboard is built to be read quickly by someone who looks after a dozen
+sites they did not build:</p>
+<ul>
+<li><strong>Overview</strong> rolls issues up <em>by check</em> rather than by site, because the
+answer to "what do I have to fix" is usually one header missing on nine of
+them. Certificates near expiry get their own list.</li>
+<li><strong>Command palette</strong> (<code>Cmd-K</code> / <code>Ctrl-K</code>) jumps to a site, runs a scan, or
+opens a page without navigating to find the control first. <code>?</code> lists every
+shortcut.</li>
+<li><strong>Reports</strong> show what <em>changed</em> since the previous scan, not only what is
+true now. That is the difference between monitoring and a spot check.</li>
+<li><strong>Findings</strong> filter by status, severity and category, carry their evidence,
+and every fix is one click to the clipboard. Any scan exports to CSV or JSON.</li>
+<li><strong>Dark mode</strong> is a selected palette, not an inversion: the accent is lifted
+and every status colour is re-stepped against the dark surface. It follows
+the system preference until you override it.</li>
+<li>Every status is carried by a word and a shape as well as a colour, so a
+report survives being printed in greyscale for a client.</li>
+</ul>
+<div><h3>Testing</h3><span id="user-content-testing"></span></div>
+<div><pre>npm <span>test</span>                              <span><span>#</span> 108 tests, no network, no credentials</span>
+LIVE=1 npx vitest run tests/live      <span><span>#</span> 11 more, against real sites</span>
+npm run typecheck <span>&amp;&amp;</span> npm run lint</pre></div>
+<p>Tests run against an <strong>in-memory PGlite</strong> database built by replaying the real
+migration files, so a broken migration fails the suite instead of failing a
+deploy. <code>tests/setup.ts</code> unsets <code>DATABASE_URL</code>, so the suite cannot reach a
+real database.</p>
+<hr>
+<div><h3>Deployment</h3><span id="user-content-deployment"></span></div>
+<p>See <a href="https://github.com/abdulmanan69/securepulse/blob/main/docs/DEPLOYMENT.md">docs/DEPLOYMENT.md</a> for the full walkthrough
+(Vercel + Neon + Stripe + Resend, and the cron setup).</p>
+<p>Nothing in this repository has been deployed, and no live credentials were
+used to build it.</p>
+<hr>
+<div><h3>Scanning policy</h3><span id="user-content-scanning-policy"></span></div>
+<p>SecurePulse requests: the homepage over HTTPS and HTTP, a TLS handshake on
+443, public DNS records, <code>/.well-known/security.txt</code>, and — <strong>only on
+DNS-verified domains</strong> — a small fixed list of commonly-leaked paths.</p>
+<p>It never exploits, fuzzes, brute-forces, port-scans, or sends volumetric
+traffic. Path discovery is gated on ownership proof specifically so the tool
+cannot be pointed at someone else's site as a reconnaissance service. Every
+scan is written to an audit log with its source address.</p>
+<p>A good grade means the configuration a browser can see is sound. It is <strong>not</strong>
+a penetration test and says nothing about application code, dependencies, or
+who has access to the server. The product states this on the report itself.</p>
+<hr>
+<div><h3>Remaining work</h3><span id="user-content-remaining-work"></span></div>
+<p>Honest list of what a paying customer would notice missing:</p>
+<ol>
+<li><strong>Server-side PDF.</strong> The client report is a print-optimised page. It works
+and saves to PDF from any browser, but a one-click <code>.pdf</code> download is what
+agencies will eventually ask for.</li>
+<li><strong>Email verification on signup.</strong> An account can be created with an address
+the user does not control. Low impact today, but it should be closed.</li>
+<li><strong>Scheduled runs have not been exercised against a live cron.</strong> The logic
+is tested; the trigger has not run in production.</li>
+<li><strong>Scan concurrency.</strong> The scheduled run processes domains serially with a
+batch cap of 25. Fine to a few hundred domains; needs a queue beyond that.</li>
+<li><strong>Email deliverability.</strong> Requires a verified sending domain with SPF and
+DKIM before alerts will land reliably.</li>
+<li><strong>Public report sharing</strong> was deliberately left out. A link that exposes a
+client's security weaknesses to anyone who has the URL needs expiry,
+revocation and a considered threat model. Half-building it would be worse
+than not having it.</li>
+</ol>
+<div><h3>Business documentation</h3><span id="user-content-business-documentation"></span></div>
+<ul>
+<li><a href="https://github.com/abdulmanan69/securepulse/blob/main/docs/DECISION.md">docs/DECISION.md</a> — why this product, and why not the alternatives</li>
+<li><a href="https://github.com/abdulmanan69/securepulse/blob/main/docs/GO-TO-MARKET.md">docs/GO-TO-MARKET.md</a> — pricing rationale and customer acquisition plan</li>
+<li><a href="https://github.com/abdulmanan69/securepulse/blob/main/docs/SECURITY.md">docs/SECURITY.md</a> — security review</li>
+<li><a href="https://github.com/abdulmanan69/securepulse/blob/main/docs/TEST-RESULTS.md">docs/TEST-RESULTS.md</a> — what was actually run, and the output</li>
+</ul>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/gamesite/"><span>TypeScript</span><h3>gamesite</h3></a><a class="related__card" href="/projects/qalam-studio/"><span>TypeScript</span><h3>qalam-studio</h3></a><a class="related__card" href="/projects/vici-evalution/"><span>TypeScript</span><h3>vici-evalution</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

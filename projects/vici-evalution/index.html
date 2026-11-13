@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>vici-evalution: Enterprise quality-assurance… | Abdul Manan</title>
+<meta name="description" content="vici-evalution by Abdul Manan. Enterprise quality-assurance platform for VICIdial call centers: syncs real call logs and recordings from one or many dialer…" />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/vici-evalution/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="vici-evalution: Enterprise quality-assurance… | Abdul Manan" />
+<meta property="og:description" content="vici-evalution by Abdul Manan. Enterprise quality-assurance platform for VICIdial call centers: syncs real call logs and recordings from one or many dialer…" />
+<meta property="og:url" content="https://abdulmanan.tech/projects/vici-evalution/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="vici-evalution: Enterprise quality-assurance… | Abdul Manan" />
+<meta name="twitter:description" content="vici-evalution by Abdul Manan. Enterprise quality-assurance platform for VICIdial call centers: syncs real call logs and recordings from one or many dialer…" />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">vici-evalution</span></nav>
+<h1>vici-evalution</h1>
+<p class="project-page__lead">Enterprise quality-assurance platform for VICIdial call centers: syncs real call logs and recordings from one or many dialer servers, tracks fronter→closer transfers (same-dialer and cross-dialer), and gives QA teams versioned scorecards, secure recording playback, and full admin/audit tooling — all multi-company with strict data isolation.</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>TypeScript</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-11-06">6 Nov 2026</time></dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/vici-evalution" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><h3>VICIdial QA Platform</h3><span id="user-content-vicidial-qa-platform"></span></div>
+<p><strong>Call-quality review for VICIdial call centres — counts that match the dialer, recordings that appear the moment the dialer has them, and scorecards your reviewers actually finish.</strong></p>
+<p>Built for fronter → closer operations: every XFER a fronter makes is tracked to the closer who took it, filed as <strong>Transfer → Unclosed → Closed</strong>, matched to its recordings, and handed to QA with the lead's full record beside the audio. Multi-company, role-based, audited, and shipped as five Docker containers.</p>
+<blockquote>
+<p>Built and maintained by <strong>Abdul Manan</strong>.</p>
+</blockquote>
+<hr>
+<div><h4>Contents</h4><span id="user-content-contents"></span></div>
+<ol>
+<li><a href="#user-content-what-you-get">What you get</a></li>
+<li><a href="#user-content-how-it-works">How it works</a></li>
+<li><a href="#user-content-install-on-a-server-10-minutes">Install on a server (10 minutes)</a></li>
+<li><a href="#user-content-connect-your-vicidial">Connect your VICIdial</a></li>
+<li><a href="#user-content-built-in-qa-forms">Built-in QA forms</a></li>
+<li><a href="#user-content-day-to-day-operations">Day-to-day operations</a></li>
+<li><a href="#user-content-remote-diagnostics">Remote diagnostics</a></li>
+<li><a href="#user-content-connections-other-apps-hrms-crm">Connections (other apps, HRMS, CRM)</a></li>
+<li><a href="#user-content-configuration">Configuration</a></li>
+<li><a href="#user-content-security">Security</a></li>
+<li><a href="#user-content-troubleshooting">Troubleshooting</a></li>
+<li><a href="#user-content-project-layout--development">Project layout &amp; development</a></li>
+</ol>
+<hr>
+<div><h4>What you get</h4><span id="user-content-what-you-get"></span></div>
+<div><h5>Queues that agree with the dialer</h5><span id="user-content-queues-that-agree-with-the-dialer"></span></div>
+<table>
+<thead>
+<tr>
+<th>Queue</th>
+<th>What lands here</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Transfers</strong></td>
+<td>every XFER a fronter dispositioned — built from VICIdial's own agent log, so the daily count equals the <em>Agent Status Detail</em> report to the call</td>
+</tr>
+<tr>
+<td><strong>Unclosed</strong></td>
+<td>transfers whose closer leg ended in anything other than a sale</td>
+</tr>
+<tr>
+<td><strong>Closed</strong></td>
+<td>every sale: on the transfer, on a later callback of the same lead, or straight into the closer group — equals the dialer's SALE count</td>
+</tr>
+</tbody>
+</table>
+<p>Counts are per <strong>dialer day</strong> (the dialer's time zone), with a header switch to show times in the reviewer's own zone. Verified day by day and agent by agent against VICIdial's reports.</p>
+<div><h5>Recordings, live</h5><span id="user-content-recordings-live"></span></div>
+<ul>
+<li>A call page shows <strong>Call in progress → Being prepared on the dialer → playable</strong>, refreshing itself every 8 seconds only while something can still change.</li>
+<li>The platform knows how VICIdial names files, so a recording is found the moment the dialer writes it — before the dialer's own list even reports it.</li>
+<li>Stale links heal themselves on play; a <strong>Fetch from dialer</strong> button forces an immediate re-check.</li>
+<li>0-second "disposition only" entries are recognised and the real conversation is played instead.</li>
+<li>Every leg shows <strong>who hung up</strong> (customer / agent / handoff) and every disposition is a colour-coded pill.</li>
+</ul>
+<div><h5>QA that fits the workflow</h5><span id="user-content-qa-that-fits-the-workflow"></span></div>
+<ul>
+<li><strong>Three built-in scorecards</strong> — TRA (fronter), Unclosed and Closed (closer) — plus a form builder with weights, critical/auto-fail questions, ratings, dropdowns and conditional questions. Every publish is an immutable version; old scores never change.</li>
+<li><strong>Evaluation page</strong>: recordings and the lead's full record on the left, the form on the right. Nothing to switch between.</li>
+<li><strong>Daily tasks</strong>: managers assign a dialer day's calls, per method, to a reviewer — all of them or a sample.</li>
+<li><strong>Reviewer scoping</strong>: limit a reviewer to specific methods/queues and to specific dialer agents.</li>
+<li><strong>Reports</strong>: evaluations spreadsheet with one column per question (CSV), QA performance by agent and by reviewer, agent activity straight from the dialer (live + archived days).</li>
+</ul>
+<div><h5>Enterprise basics</h5><span id="user-content-enterprise-basics"></span></div>
+<p>Multi-company with strict data isolation · roles &amp; permissions (super admin, company admin, QA manager, reviewer) · full audit log · encrypted dialer credentials · 7-day rolling retention that <strong>keeps every evaluated call forever</strong> · recordings only ever streamed through the authenticated API, never by public URL.</p>
+<hr>
+<div><h4>How it works</h4><span id="user-content-how-it-works"></span></div>
+<div><pre><code>                 ┌──────────────────────────── your VICIdial ────────────────────────────┐
+                 │  Non-Agent API   ·   read-only MySQL (vicidial_log, closer_log,       │
+                 │  (recordings,       agent_log, vicidial_list …)   ·   recording web   │
+                 │   agents, leads)                                       server (MP3)   │
+                 └───────▲──────────────────────────▲─────────────────────────▲──────────┘
+                         │ every 60 s                │                         │ HEAD/GET
+          ┌──────────────┴──────────────┐   ┌────────┴────────┐       ┌────────┴────────┐
+          │  worker  (BullMQ)           │   │  api  (Fastify) │◄──────┤  web  (nginx)   │◄── browser
+          │  sync · match · recordings  │   │  REST + auth +  │       │  React app +    │
+          │  retention · repair         │   │  recording proxy│       │  /api proxy     │
+          └──────────────┬──────────────┘   └────────┬────────┘       └─────────────────┘
+                         │                           │
+                 ┌───────▼───────────────────────────▼───────┐   ┌───────────┐
+                 │              PostgreSQL 16                 │   │   Redis   │
+                 └────────────────────────────────────────────┘   └───────────┘
+</code></pre></div>
+<p><strong>Sync</strong> reads the dialer every minute: calls (outbound + closer-group), the agent log (the source of truth for XFER counts), recordings and the agent roster. Calls are re-read for 12 hours because VICIdial writes a row at call start and rewrites it on disposition.
+<strong>Match</strong> links each transfer to its closer leg by lead, phone and timing (auto ≥ 70, flagged 40–69 for a manager to resolve).
+<strong>Recordings</strong> are linked to calls by start/end time, verified on the dialer's final MP3, and repaired every minute until the retention window ends.</p>
+<p>More depth: <a href="https://github.com/abdulmanan69/vici-evalution/blob/main/docs/ARCHITECTURE.md">docs/ARCHITECTURE.md</a> · <a href="https://github.com/abdulmanan69/vici-evalution/blob/main/docs/VICIDIAL_INTEGRATION.md">docs/VICIDIAL_INTEGRATION.md</a></p>
+<hr>
+<div><h4>Install on a server (10 minutes)</h4><span id="user-content-install-on-a-server-10-minutes"></span></div>
+<p><strong>Requirements:</strong> a Linux server (Ubuntu 22.04/24.04 or Debian 12), 2 vCPU, 4 GB RAM, 40 GB disk, outbound access to your dialer. Docker is installed for you if missing.</p>
+<div><h5>Option A — HTTPS with your own domain (recommended)</h5><span id="user-content-option-a--https-with-your-own-domain-recommended"></span></div>
+<p>Point a DNS <strong>A record</strong> (e.g. <code>qa.example.com</code>) at the server, open ports <strong>80</strong> and <strong>443</strong>, then:</p>
+<div><pre>git clone https://github.com/abdulmanan69/vici-evalution.git vici-qa
+<span>cd</span> vici-qa
+./deploy/install.sh qa.example.com</pre></div>
+<p>Certificates are issued automatically (Let's Encrypt via Caddy) and renewed forever.</p>
+<div><h5>Option B — plain HTTP on a port</h5><span id="user-content-option-b--plain-http-on-a-port"></span></div>
+<div><pre>git clone https://github.com/abdulmanan69/vici-evalution.git vici-qa
+<span>cd</span> vici-qa
+./deploy/install.sh</pre></div>
+<p>The app is on <code>http://&lt;server-ip&gt;:3000</code> (change <code>WEB_PORT</code> in <code>.env</code>). Use this only inside a private network or behind your own reverse proxy.</p>
+<p>The installer writes <code>.env</code> with <strong>random secrets</strong>, builds and starts the five containers, waits for the API, and prints the super-admin login. Database migrations run automatically at every start. Re-running the installer is safe.</p>
+<div><h5>Option C — Coolify</h5><span id="user-content-option-c--coolify"></span></div>
+<p>Coolify builds the stack straight from this repository and gives it a domain with HTTPS; nothing is published on host ports.</p>
+<ol>
+<li><strong>+ New Resource → Public Repository</strong> (or your connected GitHub App), repository <code>https://github.com/abdulmanan69/vici-evalution.git</code>, branch <code>main</code>.</li>
+<li><strong>Build Pack:</strong> <em>Docker Compose</em>. <strong>Docker Compose Location:</strong> <code>/docker-compose.coolify.yml</code>. Continue.</li>
+<li><strong>Environment Variables</strong> tab — the variables from the compose file are listed; set:
+<ul>
+<li><code>APP_ENCRYPTION_KEY</code> — 64 hex characters (<code>openssl rand -hex 32</code>)</li>
+<li><code>SUPERADMIN_EMAIL</code> and <code>SUPERADMIN_PASSWORD</code> (8+ characters)</li>
+<li>leave the rest at their defaults; the Postgres password is generated by Coolify (<code>SERVICE_PASSWORD_POSTGRES</code>)</li>
+</ul>
+</li>
+<li>On the <strong><code>web</code></strong> service set your domain, e.g. <code>https://qa.example.com</code> (DNS A record pointing at the Coolify server first). Coolify issues and renews the certificate.</li>
+<li><strong>Deploy</strong>. The first build takes a few minutes (it compiles the API and the web app); every service shows <em>healthy</em> when done. Open the domain and sign in.</li>
+</ol>
+<p>Afterwards: a push to <code>main</code> redeploys automatically if you enable the webhook / GitHub App auto-deploy, otherwise press <strong>Redeploy</strong>. Back up with Coolify's <em>Scheduled Tasks</em> on the <code>postgres</code> service, command <code>pg_dump -U vici_qa vici_qa | gzip &gt; /var/lib/postgresql/data/../backup-$(date +%F).sql.gz</code>, or from the host: <code>docker exec &lt;postgres-container&gt; pg_dump -U vici_qa vici_qa | gzip &gt; vici-qa-$(date +%F).sql.gz</code>.</p>
+<div><h5>After the first login</h5><span id="user-content-after-the-first-login"></span></div>
+<ol>
+<li><strong>Change the super-admin password</strong> (top-right menu).</li>
+<li><strong>Companies</strong> → create your company, then pick it in the scope selector.</li>
+<li><strong>Dialer servers</strong> → add your dialer (next section) and press <strong>Test connection</strong>.</li>
+<li><strong>Dispositions</strong> → map your codes (<code>XFER → Transfer</code>, each sale code → <code>Sale</code>).</li>
+<li><strong>Users</strong> → invite managers and reviewers; <strong>QA team</strong> → assign agents and methods.</li>
+<li>Queues fill within a minute; the first sync imports the retention window.</li>
+</ol>
+<hr>
+<div><h4>Connect your VICIdial</h4><span id="user-content-connect-your-vicidial"></span></div>
+<p>You need two things from the dialer. Hand <a href="https://github.com/abdulmanan69/vici-evalution/blob/main/DB-ACCESS-REQUEST.md">DB-ACCESS-REQUEST.md</a> to whoever administers it — it asks for exactly this, nothing more.</p>
+<p><strong>1. An API user</strong> (user level 9 with API access) — used for recordings, agent lists and lead lookups.</p>
+<p><strong>2. A read-only MySQL user</strong> on the <code>asterisk</code> database, reachable from this server:</p>
+<div><pre><span>CREATE</span> <span>USER</span> '<span>qa_readonly</span>'@<span><span>'</span>&lt;this-server-ip&gt;<span>'</span></span> IDENTIFIED BY <span><span>'</span>&lt;strong password&gt;<span>'</span></span>;
+<span>GRANT</span> <span>SELECT</span> <span>ON</span> asterisk.<span>*</span> TO <span><span>'</span>qa_readonly<span>'</span></span>@<span><span>'</span>&lt;this-server-ip&gt;<span>'</span></span>;
+FLUSH PRIVILEGES;</pre></div>
+<p>The platform only ever runs <code>SELECT</code>s, mostly small time-bounded reads against indexed columns; the load on the dialer is negligible.</p>
+<p>In <strong>Dialer servers → Add dialer</strong> enter the web root (<code>https://your-dialer</code>), the API user, the MySQL host/database/user/password, the recording web server if it differs, and the <strong>dialer's time zone</strong> (e.g. <code>America/New_York</code>). The time zone matters: VICIdial stores local times, and every count here is per dialer day. The platform also reads the dialer's clock on every sync and warns if the configured zone disagrees.</p>
+<p>Press <strong>Test connection</strong>: both the API and the MySQL checks must pass.</p>
+<p><strong>First import.</strong> Saving a dialer starts importing its last 7 days (the retention window) straight away — nothing to click. <strong>Sync monitor</strong> shows it day by day with time left; queues fill in as it goes. If it is interrupted (a deploy, a restart, the dialer dropping the connection) it continues where it stopped; if the dialer cannot be reached it says why in plain words and retries every few minutes. After that the dialer syncs every minute. A new company starts with the stock VICIdial meanings (XFER = transfer, SALE = sale, CALLBK = callback, NI = no sale) — adjust them under <strong>Dispositions</strong>; changing what counts as a transfer or sale re-reads the last 7 days automatically.</p>
+<p><strong>Fronters and closers on different dialers.</strong> When one dialer's fronters transfer to closers on another dialer — often a sister company's — those transfers find no closer call on their own dialer and stay in <em>Transfers</em> as "Closer leg not found". A super admin opens <strong>Dialer servers → Closer dialers</strong> on the fronters' dialer and ticks the closers' dialer. The closer's call is then found there (same phone number, within minutes), and the transfer moves to Unclosed or Closed with that call's recording; transfers already imported are matched again within a few minutes. The fronters' company sees only the closer calls that belong to its own transfers, and the closers' company keeps its own counts exactly as before.</p>
+<hr>
+<div><h4>Built-in QA forms</h4><span id="user-content-built-in-qa-forms"></span></div>
+<p>Every company starts with three published scorecards (identical closer forms by design):</p>
+<table>
+<thead>
+<tr>
+<th>Form</th>
+<th>For</th>
+<th>Queue</th>
+<th>Pass mark</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TRA – Transfer Call (Fronter)</strong></td>
+<td>fronters</td>
+<td>Transfers</td>
+<td>66 %</td>
+</tr>
+<tr>
+<td><strong>Unclosed – Closer Call</strong></td>
+<td>closers</td>
+<td>Unclosed</td>
+<td>90 %</td>
+</tr>
+<tr>
+<td><strong>Closed – Closer Call</strong></td>
+<td>closers</td>
+<td>Closed</td>
+<td>90 %</td>
+</tr>
+</tbody>
+</table>
+<p>They are ordinary forms: edit them, add questions, re-publish (each publish is a new version; past evaluations keep theirs). If one is archived or lost, <strong>QA forms → Load default forms</strong> brings back whatever is missing without touching the rest. The same happens automatically at every start and when a company is created. The definitions live in <a href="https://github.com/abdulmanan69/vici-evalution/blob/main/server/src/services/defaultForms.ts"><code>server/src/services/defaultForms.ts</code></a>.</p>
+<hr>
+<div><h4>Day-to-day operations</h4><span id="user-content-day-to-day-operations"></span></div>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Update to the latest version</td>
+<td><code>./deploy/update.sh</code></td>
+</tr>
+<tr>
+<td>Back up the database (keeps the newest 14)</td>
+<td><code>./deploy/backup.sh</code></td>
+</tr>
+<tr>
+<td>Nightly backup</td>
+<td><code>crontab -e</code> → <code>15 2 * * * /opt/vici-qa/deploy/backup.sh &gt;&gt; /var/log/vici-qa-backup.log 2&gt;&amp;1</code></td>
+</tr>
+<tr>
+<td>Restore a backup</td>
+<td><code>./deploy/restore.sh backups/vici-qa-20261018-021500.sql.gz</code></td>
+</tr>
+<tr>
+<td>Status</td>
+<td><code>docker compose ps</code></td>
+</tr>
+<tr>
+<td>Logs (API / worker)</td>
+<td><code>docker compose logs -f api</code> · <code>docker compose logs -f worker</code></td>
+</tr>
+<tr>
+<td>Restart everything</td>
+<td><code>docker compose restart</code></td>
+</tr>
+<tr>
+<td>Full re-sync of a dialer</td>
+<td><strong>Dialer servers → Sync (full)</strong></td>
+</tr>
+<tr>
+<td>Let one person work in several companies</td>
+<td><strong>Users &amp; roles → Companies</strong> on their row (super admins)</td>
+</tr>
+<tr>
+<td>Delete a dialer</td>
+<td><strong>Dialer servers → Delete</strong> (company admins and super admins)</td>
+</tr>
+<tr>
+<td>Delete a company</td>
+<td><strong>Companies → Delete</strong> (super admins only)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>People in several companies.</strong> A manager or evaluator who works for more than one company keeps one login. A super admin opens <strong>Users &amp; roles → Companies</strong> on that person's row, picks another company and their role there — they can be a QA manager in one company and a reviewer in another. After signing in, the person chooses the company from the <strong>Company</strong> switcher in the header; queues, tasks, forms, reports and evaluations all follow it, and the next sign-in opens in the company they used last. In each company the person appears in Users and QA team marked <em>shared</em>, with that company's role, QA-method limits and agent assignments. That company's admins can change their role and limits there or <strong>Remove access</strong>; their account itself stays with their own company. If their own company is deleted, the account moves to another company they work in.</p>
+<p><strong>Deleting.</strong> The dialog first counts what goes with the item (calls, recordings, transfers, evaluations, users …) and asks for its exact name. A deleted dialer stops syncing at once and leaves every list and filter; a deleted company's users are signed out and disabled at once. The data is then removed by the worker in small batches, so a big dialer never locks the database, and the row disappears from the admin page when it is done. Names and slugs are free for re-use straight away. QA forms stay when only a dialer is deleted. Every delete is in the audit log.</p>
+<p><strong>Retention.</strong> Un-reviewed calls, transfers and recordings older than <code>RETENTION_DAYS</code> (default 7) are deleted nightly. Anything with an evaluation, flagged, or closed as a sale is kept forever, with its calls — nothing a reviewer touched is lost, and sales stay on record for the HRMS sales push. Recordings are never copied; they stay on the dialer and stream through the API on demand.</p>
+<p><strong>Health.</strong> <code>GET /healthz</code> on the API (and through the web container) answers <code>200</code> when the database and Redis are reachable; <code>Dialer servers</code> shows the last sync, its duration and any warnings (time-zone mismatch, unmapped dispositions, archive access).</p>
+<hr>
+<div><h4>Remote diagnostics</h4><span id="user-content-remote-diagnostics"></span></div>
+<p>Look inside a running instance from any computer, without SSH and without a login: what is broken, how each dialer is syncing, recent errors, slow pages, the database. It is off until you set a token.</p>
+<ol>
+<li>On your computer, in this repository: <code>node scripts/ops.mjs init --url https://your-domain</code>. This writes <code>.ops.local</code> (git ignores it) with a new random token.</li>
+<li>Copy the <code>OPS_TOKEN</code> value from <code>.ops.local</code> to the server — Coolify: the application → <strong>Environment Variables</strong> → <code>OPS_TOKEN</code>; plain Docker: <code>.env</code> — and redeploy.</li>
+<li>Run <code>node scripts/ops.mjs status</code>.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>status</code></td>
+<td>API, worker, database, Redis, queues and traffic at a glance; a list of <strong>problems</strong> found (worker down, a dialer not syncing or failing, the 7-day import unfinished, errors, slow or failed requests, restarts); every dialer's last sync and 24-hour counts</td>
+</tr>
+<tr>
+<td><code>errors [--since 24h]</code></td>
+<td>warnings and errors from the API and the worker, grouped by message, with stack traces (<code>--list</code> for one line each)</td>
+</tr>
+<tr>
+<td><code>logs [--since 1h] [--grep text]</code></td>
+<td>everything the worker reported (each sync, recording check, delete), plus API warnings</td>
+</tr>
+<tr>
+<td><code>dialers</code> · <code>sync [--dialer name]</code></td>
+<td>per dialer: last runs, errors, slowest stages, cursors, calls/transfers/recordings in 24 h</td>
+</tr>
+<tr>
+<td><code>requests</code></td>
+<td>API timing per minute and per route, and the latest requests slower than 1 s</td>
+</tr>
+<tr>
+<td><code>companies</code> · <code>queues</code> · <code>db</code></td>
+<td>per-company counts; background jobs and schedules; database connections, heaviest queries, table sizes</td>
+</tr>
+<tr>
+<td><code>sql "select …"</code></td>
+<td>a read-only query</td>
+</tr>
+<tr>
+<td><code>probe &lt;dialer&gt;</code></td>
+<td>connects to that dialer's API and database now and reports what answered</td>
+</tr>
+</tbody>
+</table>
+<p>Add <code>--json</code> to any command for the raw answer. Every API and worker warning, error and crash is kept in Redis — the last 2,000 warnings and errors and the last 5,000 lines — with passwords and tokens masked, so restarts do not wipe the trail.</p>
+<p><strong>Safety.</strong> Nothing here changes data. Every request needs the token (<code>Authorization: Bearer …</code>); a missing or wrong one is refused and noted in the error log. Without <code>OPS_TOKEN</code> the endpoints do not exist. SQL runs as a separate read-only database login that cannot see sessions, password hashes, tokens or the encrypted dialer credentials, one statement at a time, for at most 20 s and a capped number of rows — on <code>users</code> and <code>dialer_servers</code>, name the columns (<code>select *</code> there is refused). <code>OPS_ALLOWED_IPS</code> can limit which addresses may connect. To change the token run <code>init --force</code> and update the server; to switch everything off, empty <code>OPS_TOKEN</code> and redeploy (the read-only login is disabled at the next start).</p>
+<hr>
+<div><h4>Connections (other apps, HRMS, CRM)</h4><span id="user-content-connections-other-apps-hrms-crm"></span></div>
+<p><strong>Admin → Connections</strong> (permission <em>Users &amp; roles</em>) lets other apps use QA data. Full reference with curl examples and the webhook signature check: <a href="https://github.com/abdulmanan69/vici-evalution/blob/main/docs/CONNECTIONS.md">docs/CONNECTIONS.md</a>.</p>
+<ul>
+<li><strong>API keys</strong> for a read-only machine API at <code>/api/v1/ext/…</code> (agents, transfers and sales, completed evaluations, monthly scores, agent activity). Each key has scopes and belongs to one company (super admins can make all-company keys). The key is shown once.</li>
+<li><strong>Webhooks</strong>: signed POSTs when an evaluation is completed or a sale closes or reopens, retried for about 24 hours.</li>
+<li><strong>Outgoing links</strong>: the last run of each push below.</li>
+</ul>
+<p>The platform also pushes, every hour:</p>
+<table>
+<thead>
+<tr>
+<th>To</th>
+<th>What</th>
+<th>On when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WaveTech HRMS</td>
+<td>QA scores, dialer attendance per shift day, (optionally) closed sales</td>
+<td><code>HRMS_URL</code> and a key (<a href="https://github.com/abdulmanan69/vici-evalution/blob/main/server/src/integrations/hrms/README.md">server/src/integrations/hrms</a>)</td>
+</tr>
+<tr>
+<td>CRM</td>
+<td>QA score per agent and month</td>
+<td><code>CRM_URL</code> and <code>CRM_API_KEY</code> (<a href="https://github.com/abdulmanan69/vici-evalution/blob/main/server/src/integrations/crm/README.md">server/src/integrations/crm</a>)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div><h4>Configuration</h4><span id="user-content-configuration"></span></div>
+<p>All settings live in <code>.env</code> (template: <a href="https://github.com/abdulmanan69/vici-evalution/blob/main/.env.example"><code>.env.example</code></a>). The installer fills the secrets.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NODE_ENV</code></td>
+<td><code>production</code></td>
+<td>production refuses to start with the placeholder encryption key</td>
+</tr>
+<tr>
+<td><code>WEB_PORT</code> / <code>WEB_BIND</code></td>
+<td><code>3000</code> / <code>0.0.0.0</code></td>
+<td>where the app listens; <code>WEB_BIND=127.0.0.1</code> behind the HTTPS proxy</td>
+</tr>
+<tr>
+<td><code>API_PORT</code> / <code>API_BIND</code></td>
+<td><code>8080</code> / <code>127.0.0.1</code></td>
+<td>the API; the web container reaches it internally</td>
+</tr>
+<tr>
+<td><code>DOMAIN</code></td>
+<td><em>(empty)</em></td>
+<td>enables the HTTPS overlay (<code>docker-compose.https.yml</code>)</td>
+</tr>
+<tr>
+<td><code>POSTGRES_DB</code> / <code>POSTGRES_USER</code> / <code>POSTGRES_PASSWORD</code></td>
+<td>—</td>
+<td>database credentials (Postgres is bound to localhost only)</td>
+</tr>
+<tr>
+<td><code>APP_ENCRYPTION_KEY</code></td>
+<td>—</td>
+<td>32-byte hex key that encrypts dialer credentials at rest</td>
+</tr>
+<tr>
+<td><code>SESSION_TTL_HOURS</code></td>
+<td><code>12</code></td>
+<td>login session length</td>
+</tr>
+<tr>
+<td><code>COOKIE_SECURE</code></td>
+<td><code>false</code></td>
+<td><code>false</code> = automatic (Secure whenever the page is served over HTTPS); <code>true</code> forces it on</td>
+</tr>
+<tr>
+<td><code>SUPERADMIN_EMAIL</code> / <code>SUPERADMIN_PASSWORD</code></td>
+<td>—</td>
+<td>bootstrap account, created on first start</td>
+</tr>
+<tr>
+<td><code>RETENTION_DAYS</code></td>
+<td><code>7</code></td>
+<td>rolling window for un-reviewed data (0 = keep everything)</td>
+</tr>
+<tr>
+<td><code>SYNC_POLL_SECONDS</code></td>
+<td><code>60</code></td>
+<td>how often each dialer syncs</td>
+</tr>
+<tr>
+<td><code>SYNC_LOOKBACK_MINUTES</code></td>
+<td><code>15</code></td>
+<td>overlap re-read on every incremental sync</td>
+</tr>
+<tr>
+<td><code>SYNC_HISTORICAL_DAYS</code></td>
+<td><code>30</code></td>
+<td>history imported on a full sync (capped by retention)</td>
+</tr>
+<tr>
+<td><code>RECORDING_CHECK_SECONDS</code></td>
+<td><code>60</code></td>
+<td>recording repair job cadence</td>
+</tr>
+<tr>
+<td><code>SYNC_CONCURRENCY</code></td>
+<td><code>4</code></td>
+<td>dialers synced side by side (each dialer still runs one sync at a time)</td>
+</tr>
+<tr>
+<td><code>PG_SHARED_BUFFERS</code> / <code>PG_EFFECTIVE_CACHE_SIZE</code> / <code>PG_WORK_MEM</code></td>
+<td><code>256MB</code> / <code>1GB</code> / <code>16MB</code></td>
+<td>Postgres memory; on a bigger server set shared buffers to about a quarter of RAM</td>
+</tr>
+<tr>
+<td><code>PG_LOG_SLOW_MS</code></td>
+<td><code>2000</code></td>
+<td>Postgres logs statements slower than this</td>
+</tr>
+<tr>
+<td><code>MATCH_AUTO_THRESHOLD</code> / <code>MATCH_FLAG_THRESHOLD</code></td>
+<td><code>70</code> / <code>40</code></td>
+<td>fronter→closer match scores for auto-link and manual review</td>
+</tr>
+<tr>
+<td><code>SEED_DEMO</code></td>
+<td><code>false</code></td>
+<td>creates a clearly flagged demo company with synthetic data</td>
+</tr>
+<tr>
+<td><code>OPS_TOKEN</code></td>
+<td><em>(empty)</em></td>
+<td>a random secret of 32+ characters turns on <a href="#user-content-remote-diagnostics">remote diagnostics</a>; empty = off</td>
+</tr>
+<tr>
+<td><code>OPS_ALLOWED_IPS</code></td>
+<td><em>(empty)</em></td>
+<td>optional comma-separated IPs / CIDR ranges allowed to use remote diagnostics</td>
+</tr>
+<tr>
+<td><code>HRMS_URL</code> / <code>HRMS_API_KEY</code> / <code>HRMS_API_KEYS</code></td>
+<td><em>(empty)</em></td>
+<td>WaveTech HRMS link; see <a href="https://github.com/abdulmanan69/vici-evalution/blob/main/server/src/integrations/hrms/README.md">the HRMS kit</a> for the other <code>HRMS_*</code> settings</td>
+</tr>
+<tr>
+<td><code>HRMS_PUSH_ATTENDANCE</code></td>
+<td><code>true</code></td>
+<td>dialer attendance per shift day to the HRMS every hour (needs <code>HRMS_URL</code>); <code>false</code> = off</td>
+</tr>
+<tr>
+<td><code>CRM_URL</code> / <code>CRM_API_KEY</code></td>
+<td><em>(empty)</em></td>
+<td>QA scores to the CRM every hour; empty = off</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div><h4>Security</h4><span id="user-content-security"></span></div>
+<ul>
+<li>Dialer passwords are encrypted with <code>APP_ENCRYPTION_KEY</code> and never returned by the API.</li>
+<li>Recordings are streamed only through <code>/api/v1/recordings/:id/stream</code>, behind login, permission and company checks; the dialer's URLs are never exposed to the browser.</li>
+<li>Postgres and the API are bound to <code>127.0.0.1</code>; only the web port (or Caddy's 80/443) faces the network.</li>
+<li>Every change — users, roles, forms, dispositions, dialer settings, evaluations, playback — is written to the audit log.</li>
+<li>Sessions are HTTP-only cookies, marked Secure automatically whenever the site is served over HTTPS (<code>COOKIE_SECURE=true</code> forces it).</li>
+<li>Remote diagnostics are off unless <code>OPS_TOKEN</code> is set, read-only, and their SQL login has no access to sessions, password hashes or dialer credentials.</li>
+</ul>
+<hr>
+<div><h4>Troubleshooting</h4><span id="user-content-troubleshooting"></span></div>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Cause / fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>port is already allocated</code> on start</td>
+<td>another service owns <code>WEB_PORT</code>; change it in <code>.env</code> and <code>docker compose up -d</code></td>
+</tr>
+<tr>
+<td><strong>Test connection</strong> fails on MySQL</td>
+<td>the dialer's firewall/<code>bind-address</code> or the user's host (<code>'qa_readonly'@'&lt;this-server-ip&gt;'</code>) — ask the dialer admin to allow this server's public IP</td>
+</tr>
+<tr>
+<td>A transfer shows <em>Closer leg not found</em></td>
+<td>the dialer has no closer-side call for it (dropped in queue, outside number, or XFER saved without a transfer) — the page says so after 30 min</td>
+</tr>
+<tr>
+<td>A recording says <em>Being prepared on the dialer</em> for long</td>
+<td>the dialer converts files 1–3 min after hangup; press <strong>Fetch from dialer</strong>; if it stays, the dialer never produced the file (the dialer's own lead page will show the same)</td>
+</tr>
+<tr>
+<td>Counts differ from the dialer by a few</td>
+<td>check the dialer <strong>time zone</strong> on the dialer server page and the <strong>Dispositions</strong> mapping — every XFER code must map to <em>Transfer</em>, every sale code to <em>Sale</em></td>
+</tr>
+<tr>
+<td><code>502</code> right after a restart</td>
+<td>nginx is waiting for the API; it re-resolves within 10 s</td>
+</tr>
+<tr>
+<td>The site feels slow</td>
+<td><strong>Sync monitor</strong> shows each sync's seconds per stage — a slow stage is usually the dialer answering slowly. For the database, <code>docker compose exec postgres psql -U vici_qa -d vici_qa -c "select calls, round(mean_exec_time) ms, left(query, 120) from pg_stat_statements order by total_exec_time desc limit 10"</code> lists the heaviest queries</td>
+</tr>
+<tr>
+<td>Lost the super-admin password</td>
+<td>it is in <code>.env</code> as <code>SUPERADMIN_PASSWORD</code> at install time; otherwise reset it from <strong>Users</strong> with another admin</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div><h4>Project layout &amp; development</h4><span id="user-content-project-layout--development"></span></div>
+<div><pre><code>deploy/                  install.sh · update.sh · backup.sh · restore.sh · Caddyfile
+docker-compose.yml       postgres + redis + api + worker + web
+docker-compose.https.yml Caddy overlay for automatic HTTPS
+docker-compose.coolify.yml  the same stack for Coolify (no host ports, proxy-managed domain)
+server/
+  drizzle/               SQL migrations (applied automatically at start)
+  src/db/                schema, migrator, seed (roles, super admin, default forms)
+  src/auth/              sessions, permissions, company scoping
+  src/routes/            REST API (queues, recordings, QA forms, tasks, reports, admin…)
+  src/services/          default forms · form schema &amp; scoring · live recordings
+  src/vicidial/          API + MySQL adapters, sync, matcher, recording URL repair
+  src/integrations/      hrms/ (WaveTech HRMS) · crm/ · connections/ (API keys, machine API, webhooks)
+  src/worker.ts          BullMQ schedulers (sync, recording repair, retention, pushes, webhooks)
+web/src/                 React app (queues, call pages, evaluation, forms, reports, admin)
+docs/                    architecture and VICIdial integration notes
+scripts/ops.mjs          remote diagnostics client (no dependencies; see Remote diagnostics)
+</code></pre></div>
+<p>Local development:</p>
+<div><pre>docker compose up -d postgres redis
+<span>cd</span> server <span>&amp;&amp;</span> npm install <span>&amp;&amp;</span> npm run migrate <span>&amp;&amp;</span> npm run seed
+npm run dev            <span><span>#</span> API on :8080</span>
+npm run dev:worker     <span><span>#</span> sync worker</span>
+<span>cd</span> ../web <span>&amp;&amp;</span> npm install <span>&amp;&amp;</span> npm run dev   <span><span>#</span> :3000, proxies /api to :8080</span>
+
+<span>cd</span> server <span>&amp;&amp;</span> npm <span>test</span>  <span><span>#</span> unit tests: matching, scoring, dispositions, time zones, recording URLs</span></pre></div>
+<hr>
+<p>© 2026 Abdul Manan. All rights reserved.</p>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/gamesite/"><span>TypeScript</span><h3>gamesite</h3></a><a class="related__card" href="/projects/qalam-studio/"><span>TypeScript</span><h3>qalam-studio</h3></a><a class="related__card" href="/projects/hrms/"><span>TypeScript</span><h3>hrms</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>active-noise-cancellation, a Rust project | Abdul Manan</title>
+<meta name="description" content="active-noise-cancellation by Abdul Manan. Lightweight, accurate AI noise cancellation for any PC microphone. ClearMic removes keyboards, fans, traffic, dogs…" />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/active-noise-cancellation/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="active-noise-cancellation, a Rust project | Abdul Manan" />
+<meta property="og:description" content="active-noise-cancellation by Abdul Manan. Lightweight, accurate AI noise cancellation for any PC microphone. ClearMic removes keyboards, fans, traffic, dogs…" />
+<meta property="og:url" content="https://abdulmanan.tech/projects/active-noise-cancellation/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="active-noise-cancellation, a Rust project | Abdul Manan" />
+<meta name="twitter:description" content="active-noise-cancellation by Abdul Manan. Lightweight, accurate AI noise cancellation for any PC microphone. ClearMic removes keyboards, fans, traffic, dogs…" />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">active-noise-cancellation</span></nav>
+<h1>active-noise-cancellation</h1>
+<p class="project-page__lead">Lightweight, accurate AI noise cancellation for any PC microphone. ClearMic removes keyboards, fans, traffic, dogs and room noise from your microphone in real time and hands the clean voice to Zoom, Teams, Meet, Discord or any other app. It works like Krisp, runs fully on your own computer and needs no account, no cloud and no GPU.</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>Rust</dd></div><div><dt>Stars</dt><dd>1</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-09-30">30 Sep 2026</time></dd></div><div><dt>License</dt><dd>MIT</dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/active-noise-cancellation" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><h3>ClearMic</h3><span id="user-content-clearmic"></span></div>
+
+<ul>
+<li><strong>Clear speech.</strong> DeepFilterNet3, a full-band 48 kHz neural model, keeps consonants and natural tone
+instead of the muffled sound of classic noise gates.</li>
+<li><strong>Light.</strong> One executable of about 30 MB and about 100 MB of RAM. Around 13 percent of one CPU core
+on a 2018 desktop Core i5, which is about 2 percent of the whole processor.</li>
+<li><strong>Private.</strong> Audio never leaves the machine. No telemetry, no network connections.</li>
+<li><strong>One install.</strong> The installer sets up the app and the virtual microphone driver together.</li>
+<li><strong>Robust.</strong> Automatic recovery when a headset is unplugged, any sample rate, any channel count.</li>
+<li><strong>Manageable.</strong> Silent installer, plain JSON settings, log file, headless mode and a command line.</li>
+</ul>
+<div><h4>How it works</h4><span id="user-content-how-it-works"></span></div>
+<div><pre><code>microphone -&gt; [ low-cut -&gt; DeepFilterNet3 -&gt; voice gate -&gt; limiter ] -&gt; virtual microphone -&gt; your meeting app
+</code></pre></div>
+<p>Windows has no built-in virtual microphone. ClearMic uses <strong>VB-CABLE by VB-Audio</strong>
+(<a href="https://www.vb-cable.com">https://www.vb-cable.com</a>) for that and installs it for you. VB-CABLE is donationware, all participations
+are welcome: if you find it useful, please support its authors.</p>
+<div><h4>Install</h4><span id="user-content-install"></span></div>
+<ol>
+<li>Run <code>ClearMic-Setup-1.0.1.exe</code> and approve the Windows administrator prompt. This installs ClearMic
+and the VB-CABLE virtual microphone driver in one go.</li>
+<li>Restart Windows if the installer asks for it.</li>
+<li>Start ClearMic. It finds your microphone and the virtual microphone automatically.</li>
+<li>In your meeting app choose <strong>CABLE Output (VB-Audio Virtual Cable)</strong> as the microphone.</li>
+</ol>
+<p>If Windows switched your speakers to "CABLE Input" after the driver was installed, ClearMic shows a
+warning with a button that opens Sound settings so you can pick your real speakers again.</p>
+<p>ClearMic also runs as a single <code>clearmic.exe</code> without the installer. It then offers an
+"Install virtual microphone" button when the <code>vbcable</code> folder is next to the executable. Without a virtual
+microphone the cleaned audio plays on your speakers, which is useful for a quick listen only.</p>
+<div><h4>Using the app</h4><span id="user-content-using-the-app"></span></div>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Big switch</td>
+<td>Turns noise cancellation on or off. Audio keeps flowing when off, so calls are not interrupted.</td>
+</tr>
+<tr>
+<td>Strength</td>
+<td>How much noise is removed. 85 percent is the default. 100 percent removes everything the model can.</td>
+</tr>
+<tr>
+<td>Voice gate</td>
+<td>Mutes the microphone completely between words.</td>
+</tr>
+<tr>
+<td>Extra filter</td>
+<td>Additional suppression for constant noise such as fans and air conditioning.</td>
+</tr>
+<tr>
+<td>Low-cut filter</td>
+<td>Removes rumble below 80 Hz before the model runs. Off by default, the model handles rumble.</td>
+</tr>
+<tr>
+<td>Monitor</td>
+<td>Plays the cleaned audio on your headphones so you can hear the result.</td>
+</tr>
+<tr>
+<td>Buffer</td>
+<td>Trade a little latency for stability on slow or busy machines.</td>
+</tr>
+</tbody>
+</table>
+<p><code>Ctrl+Shift+M</code> toggles noise cancellation from anywhere. Closing the window keeps ClearMic in the system
+tray. Right-click the tray icon to quit. Starting ClearMic a second time brings the running window forward.</p>
+<div><h4>Measured quality</h4><span id="user-content-measured-quality"></span></div>
+<p>Real speech mixed with recorded background noise, cleaned with <code>clearmic --process</code> at full strength and
+compared with the clean original. The score is SI-SDR in dB (higher is better; it drops when speech is
+distorted, not only when noise remains).</p>
+<table>
+<thead>
+<tr>
+<th>Noise level (input SNR)</th>
+<th>Before ClearMic</th>
+<th>After ClearMic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Very loud noise, 0 dB</td>
+<td>0.1 dB</td>
+<td>12.8 dB</td>
+</tr>
+<tr>
+<td>Loud noise, 5 dB</td>
+<td>5.0 dB</td>
+<td>15.7 dB</td>
+</tr>
+<tr>
+<td>Moderate noise, 10 dB</td>
+<td>10.0 dB</td>
+<td>18.1 dB</td>
+</tr>
+<tr>
+<td>Light noise, 20 dB</td>
+<td>20.0 dB</td>
+<td>23.5 dB</td>
+</tr>
+</tbody>
+</table>
+<p>Clean speech without noise passes through unchanged (32.7 dB). The test suite repeats this kind of check
+on a bundled speech clip, so a build that damages speech fails <code>cargo test</code>.</p>
+<p>Processing delay is 40 ms for the model plus the device buffers, about 80 ms inside ClearMic with the
+default buffer. Measured on a Core i5-8500T: 1.3 ms of processing per 10 ms of audio, no dropouts.</p>
+<div><h4>Command line</h4><span id="user-content-command-line"></span></div>
+<div><pre><code>clearmic                         start the desktop app
+clearmic --minimized             start hidden in the system tray
+clearmic --headless              run the engine without a window (uses saved settings)
+clearmic --list-devices          print capture and render endpoints
+clearmic --process IN.wav OUT.wav [--strength N] [--post-filter] [--gate] [--no-hpf]
+clearmic --bench [SECONDS]       measure processing speed on this CPU
+clearmic --selftest [SECONDS]    open the real devices, run muted, report health (exit code 0 = ok)
+clearmic --export-icon [PATH]    write the application icon as .ico
+</code></pre></div>
+<p>ClearMic is a windowed program, so <code>cmd.exe</code> and PowerShell do not wait for it by default. Use
+<code>start /wait clearmic --bench</code> in <code>cmd.exe</code> or <code>Start-Process clearmic -ArgumentList '--bench' -Wait -NoNewWindow</code>
+in PowerShell when a script needs the output or the exit code.</p>
+<p><code>--process</code> cleans a recording offline. The output has the same length and sample rate as the input and is
+aligned to it, so the two files can be compared directly.</p>
+<div><h4>Deployment for IT teams</h4><span id="user-content-deployment-for-it-teams"></span></div>
+<ul>
+<li><strong>Silent install:</strong>
+<code>ClearMic-Setup-1.0.1.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /TASKS="vbcable,autostart"</code>.
+Uninstall with <code>unins000.exe /VERYSILENT</code>; it offers to remove the driver it installed.</li>
+<li><strong>Driver prompt:</strong> the first time a VB-Audio driver is installed, Windows can ask the user to trust the
+publisher. For unattended rollouts add the "VB-Audio Software" certificate to Trusted Publishers by
+group policy first.</li>
+<li><strong>VB-CABLE licence:</strong> VB-Audio allows shipping VB-CABLE inside another installer when end users can see
+that it is VB-CABLE and can donate. For company-wide rollouts where employees cannot do that, buy
+VB-CABLE licences per seat at <a href="https://vb-audio.com/Services/licensing.htm">https://vb-audio.com/Services/licensing.htm</a>. An installer without the
+driver is built with <code>.\build.ps1 -Installer -NoDriver</code>.</li>
+<li><strong>Settings:</strong> <code>%LOCALAPPDATA%\clearmic\ClearMic\config\settings.json</code>. Copy a prepared file to
+pre-configure users. Unknown keys are ignored and missing keys use defaults.</li>
+<li><strong>Logs:</strong> <code>clearmic.log</code> in the same folder, rotated at 5 MB.</li>
+<li><strong>Health check:</strong> <code>clearmic --selftest</code> opens the real devices with the output muted and reports
+dropouts, CPU load and latency. <code>clearmic --bench 5</code> reports CPU headroom. <code>clearmic --list-devices</code>
+reports whether the virtual microphone is present.</li>
+<li><strong>Requirements:</strong> Windows 10 or 11, 64-bit. Any x86-64 CPU from the last ten years. About 100 MB of RAM.
+A graphics driver with OpenGL 2.0 for the window; on remote desktops without one use <code>--headless</code>.</li>
+</ul>
+<div><h4>Build from source</h4><span id="user-content-build-from-source"></span></div>
+<p>Requirements: Rust (GNU toolchain) and, for the installer, Inno Setup 6. Visual Studio is not needed.</p>
+<div><pre>rustup toolchain install stable<span>-</span>x86_64<span>-</span>pc<span>-</span>windows<span>-</span>gnu
+.\build.ps1              <span><span>#</span> release build</span>
+.\build.ps1 <span>-</span>Test        <span><span>#</span> run the test suite first</span>
+.\build.ps1 <span>-</span>Installer   <span><span>#</span> also build dist\ClearMic-Setup-1.0.1.exe (app + VB-CABLE driver)</span></pre></div>
+<p><code>build.ps1</code> downloads two things once: GNU binutils from the w64devkit project, because the Rust GNU
+toolchain needs <code>dlltool</code>, <code>as</code> and <code>gcc</code> to link against Windows system libraries, and the official
+VB-CABLE driver pack from VB-Audio, checked against a pinned SHA-256.</p>
+<p>The DeepFilterNet code and the <code>tract</code> inference library are pinned to the versions of the official
+DeepFilterNet v0.5.6 release. Do not update them without re-running the tests and the speech measurement.</p>
+<div><h4>Project layout</h4><span id="user-content-project-layout"></span></div>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/dsp/</code></td>
+<td>Model wrapper, filters, voice gate and the per-frame pipeline</td>
+</tr>
+<tr>
+<td><code>src/audio/</code></td>
+<td>Device enumeration, capture and playback streams, sample-rate conversion</td>
+</tr>
+<tr>
+<td><code>src/engine.rs</code></td>
+<td>Real-time engine: audio thread, lock-free buffers, clock-drift control, recovery</td>
+</tr>
+<tr>
+<td><code>src/app/</code></td>
+<td>Window, tray icon, global shortcut and command line</td>
+</tr>
+<tr>
+<td><code>tests/pipeline.rs</code></td>
+<td>End-to-end signal and speech-quality tests</td>
+</tr>
+<tr>
+<td><code>installer/clearmic.iss</code></td>
+<td>Inno Setup script</td>
+</tr>
+</tbody>
+</table>
+<div><h4>Troubleshooting</h4><span id="user-content-troubleshooting"></span></div>
+<ul>
+<li><strong>Other people hear nothing.</strong> Select "CABLE Output" as the microphone in the meeting app and check that
+the ClearMic output meter moves when you speak.</li>
+<li><strong>I hear nothing from my speakers after installing.</strong> Windows made the virtual cable the default
+playback device. Pick your real speakers in Sound settings.</li>
+<li><strong>"Driver installed but not active".</strong> Restart Windows once.</li>
+<li><strong>Robotic or choppy sound.</strong> Raise the buffer to "Safe" in Advanced. Run <code>clearmic --bench</code> and check that
+CPU load is well below 100 percent.</li>
+<li><strong>Voice sounds thin.</strong> Lower the strength to 70 percent and turn off the extra filter.</li>
+<li><strong>The microphone changed.</strong> Pick it in the Microphone list or press Refresh devices.</li>
+</ul>
+<div><h4>License</h4><span id="user-content-license"></span></div>
+<p>MIT for ClearMic. See <code>THIRD-PARTY-NOTICES.md</code> for the components it builds on, including VB-CABLE.</p>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/cueline/"><span>C++</span><h3>cueline</h3></a><a class="related__card" href="/projects/apexquant/"><span>Python</span><h3>apexquant</h3></a><a class="related__card" href="/projects/dispatchdesk/"><span>JavaScript</span><h3>dispatchdesk</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

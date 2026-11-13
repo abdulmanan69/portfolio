@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>bookper: Double-entry bookkeeping for small… | Abdul Manan</title>
+<meta name="description" content="bookper by Abdul Manan. Double-entry bookkeeping for small businesses, Pakistan first. A desktop app: each company&#x27;s books live in one SQLite file on the PC…" />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/bookper/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="bookper: Double-entry bookkeeping for small… | Abdul Manan" />
+<meta property="og:description" content="bookper by Abdul Manan. Double-entry bookkeeping for small businesses, Pakistan first. A desktop app: each company&#x27;s books live in one SQLite file on the PC…" />
+<meta property="og:url" content="https://abdulmanan.tech/projects/bookper/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="bookper: Double-entry bookkeeping for small… | Abdul Manan" />
+<meta name="twitter:description" content="bookper by Abdul Manan. Double-entry bookkeeping for small businesses, Pakistan first. A desktop app: each company&#x27;s books live in one SQLite file on the PC…" />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">bookper</span></nav>
+<h1>bookper</h1>
+<p class="project-page__lead">Double-entry bookkeeping for small businesses, Pakistan first. A desktop app: each company&#x27;s books live in one SQLite file on the PC, so it works with no internet. Keyboard first — every screen can be driven without the mouse.</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>C#</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-10-14">14 Oct 2026</time></dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/bookper" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><span id="user-content-bookper"></span></div>
+<p>Double-entry bookkeeping for small businesses, Pakistan first. A desktop app: each company's books live in one SQLite
+file on the PC, so it works with no internet. Keyboard first — every screen can be driven without the mouse.</p>
+<div><h3>What's in it</h3><span id="user-content-whats-in-it"></span></div>
+<ul>
+<li><strong>Accounts</strong> — customers, suppliers and the full chart of accounts, with opening balances.</li>
+<li><strong>Vouchers</strong> — sales, purchases, credit and debit notes, estimates, purchase orders, receipts, payments, contra,
+journal, expense and income, with bill-wise settlement, other charges, discounts and sales tax.</li>
+<li><strong>Inventory</strong> — items, services, units of measure (including compound units), stock on hand and item history.</li>
+<li><strong>30 reports</strong> — balance sheet, profit and loss, trial balance, ledgers, day book, registers, tax computation and
+register, outstanding payable/receivable, ageing, stock reports, ratio analysis and more, each exportable to a web
+page, Word, Excel or PDF.</li>
+<li><strong>Inventory valuation</strong> — FIFO, AVCO, weighted average, inward-quantity average and the older FIFO method, chosen in
+Settings and used by every report that values stock.</li>
+<li><strong>Settings</strong> — general settings, voucher series, warnings and restrictions, POS entry options and report settings.</li>
+<li><strong>Tools</strong> — export masters and transactions to Tally, cheque printing, item barcode labels (Code 128) and envelope
+printing.</li>
+</ul>
+<div><h3>Built with</h3><span id="user-content-built-with"></span></div>
+<p>.NET 10, Avalonia 12 (compiled bindings), CommunityToolkit.Mvvm, EF Core 10 on SQLite, SkiaSharp for printing,
+xUnit v3 with Avalonia headless tests.</p>
+<div><h3>Building and running</h3><span id="user-content-building-and-running"></span></div>
+<div><pre><code>dotnet build Bookper.slnx -c Release
+dotnet run --project src/Bookper.App
+</code></pre></div>
+<p>Tests:</p>
+<div><pre><code>dotnet test --solution Bookper.slnx -c Release
+</code></pre></div>
+<div><h3>Layout</h3><span id="user-content-layout"></span></div>
+<table>
+<thead>
+<tr>
+<th>Project</th>
+<th>What it holds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/Bookper.Core</code></td>
+<td>Money, quantities, the chart of accounts, invoice and valuation maths, report documents, printing</td>
+</tr>
+<tr>
+<td><code>src/Bookper.Data</code></td>
+<td>EF Core model, migrations and the services every screen calls</td>
+</tr>
+<tr>
+<td><code>src/Bookper.App</code></td>
+<td>Avalonia views, view models, styles and controls</td>
+</tr>
+<tr>
+<td><code>tests/Bookper.Tests</code></td>
+<td>Accounting, valuation and report tests</td>
+</tr>
+<tr>
+<td><code>tests/Bookper.UiTests</code></td>
+<td>Headless screen tests with snapshots</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/cueline/"><span>C++</span><h3>cueline</h3></a><a class="related__card" href="/projects/apexquant/"><span>Python</span><h3>apexquant</h3></a><a class="related__card" href="/projects/dispatchdesk/"><span>JavaScript</span><h3>dispatchdesk</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

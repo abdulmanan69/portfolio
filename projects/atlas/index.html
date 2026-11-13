@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>atlas: Multi-tenant platform for managing leads… | Abdul Manan</title>
+<meta name="description" content="atlas by Abdul Manan. Multi-tenant platform for managing leads, configuring AI voice agents, running controlled calling campaigns, and measuring outcomes.…" />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/atlas/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="atlas: Multi-tenant platform for managing leads… | Abdul Manan" />
+<meta property="og:description" content="atlas by Abdul Manan. Multi-tenant platform for managing leads, configuring AI voice agents, running controlled calling campaigns, and measuring outcomes.…" />
+<meta property="og:url" content="https://abdulmanan.tech/projects/atlas/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="atlas: Multi-tenant platform for managing leads… | Abdul Manan" />
+<meta name="twitter:description" content="atlas by Abdul Manan. Multi-tenant platform for managing leads, configuring AI voice agents, running controlled calling campaigns, and measuring outcomes.…" />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">atlas</span></nav>
+<h1>atlas</h1>
+<p class="project-page__lead">Multi-tenant platform for managing leads, configuring AI voice agents, running controlled calling campaigns, and measuring outcomes. *ATLAS is a working codename; branding is configurable via ATLAS_PRODUCT_NAME.*</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>Python</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-11-02">2 Nov 2026</time></dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/atlas" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/abdulmanan69/atlas/main/docs/brand/atlas-wordmark-white.png">
+    <img src="https://raw.githubusercontent.com/abdulmanan69/atlas/main/docs/brand/atlas-wordmark-black.png" alt="ATLAS" width="340" loading="lazy" decoding="async">
+  </picture>
+</p>
+<div><h3>AI Voice Agent &amp; CRM Platform</h3><span id="user-content-ai-voice-agent--crm-platform"></span></div>
+
+<div><h4>Status</h4><span id="user-content-status"></span></div>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>State</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 Foundation</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>2 Auth &amp; CRM (API)</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>3 Web app (CRM)</td>
+<td>✅ Radix controls, AG Grid leads</td>
+</tr>
+<tr>
+<td>4 Voice runtime, agents, calls</td>
+<td>✅ 276 backend tests on PostgreSQL + 7 live runtime contract tests</td>
+</tr>
+<tr>
+<td>5 Campaigns, calls, reports, flow canvas</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>7 API keys, webhooks, phone numbers, actions, knowledge</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>6, 8 Local models end-to-end, hardening</td>
+<td>⬜ see <code>docs/implementation-plan.md</code></td>
+</tr>
+</tbody>
+</table>
+<div><h4>Requirements</h4><span id="user-content-requirements"></span></div>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Docker Desktop / Engine</td>
+<td>24+ (Compose v2)</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>3.12 (installed automatically by <code>uv</code>)</td>
+</tr>
+<tr>
+<td>uv</td>
+<td>0.8+</td>
+</tr>
+<tr>
+<td>Node.js</td>
+<td>22 LTS (web app)</td>
+</tr>
+<tr>
+<td>pnpm</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<div><h4>First run</h4><span id="user-content-first-run"></span></div>
+<div><pre>cp .env.example .env              <span><span>#</span> then set ATLAS_JWT_SECRET and ATLAS_SECRETS_ENCRYPTION_KEY</span>
+docker compose up -d postgres redis
+<span>cd</span> services/api
+uv sync
+uv run alembic upgrade head
+ATLAS_DEMO_PASSWORD=<span><span>'</span>choose-one<span>'</span></span> uv run python -m app.seed   <span><span>#</span> optional synthetic demo data</span>
+uv run uvicorn app.main:app --reload --port 8080</pre></div>
+<ul>
+<li>API docs: <a href="http://localhost:8080/docs">http://localhost:8080/docs</a> (Swagger) · <a href="http://localhost:8080/redoc">http://localhost:8080/redoc</a></li>
+<li>Health: <a href="http://localhost:8080/api/v1/health/ready">http://localhost:8080/api/v1/health/ready</a></li>
+<li>Worker: <code>uv run arq app.workers.main.WorkerSettings</code></li>
+<li>Self-hosted voice demo on another PC, fully offline, in one command (<code>.\make.ps1 demo</code>): <a href="https://github.com/abdulmanan69/atlas/blob/main/docs/university-demo.md">docs/university-demo.md</a></li>
+</ul>
+<p>Web app (second terminal):</p>
+<div><pre><span>cd</span> apps/web
+pnpm install
+pnpm dev            <span><span>#</span> http://localhost:5173 (proxies /api to :8080)</span>
+pnpm gen:api        <span><span>#</span> regenerate src/types/api.d.ts after API changes</span></pre></div>
+<p><a href="https://github.com/abdulmanan69/atlas/blob/main/docs/screenshots/12-leads-grid.png"><img src="https://raw.githubusercontent.com/abdulmanan69/atlas/main/docs/screenshots/12-leads-grid.png" alt="Leads" loading="lazy" decoding="async"></a>
+<a href="https://github.com/abdulmanan69/atlas/blob/main/docs/screenshots/22-flow-canvas.png"><img src="https://raw.githubusercontent.com/abdulmanan69/atlas/main/docs/screenshots/22-flow-canvas.png" alt="Flow canvas" loading="lazy" decoding="async"></a>
+<a href="https://github.com/abdulmanan69/atlas/blob/main/docs/screenshots/15-reports.png"><img src="https://raw.githubusercontent.com/abdulmanan69/atlas/main/docs/screenshots/15-reports.png" alt="Reports" loading="lazy" decoding="async"></a></p>
+<p>Windows: every command above works in PowerShell. Or use the task runner: <code>.\make.ps1 infra</code>,
+<code>.\make.ps1 dev-api</code>, <code>.\make.ps1 check</code>. On Linux/macOS: <code>make infra</code>, <code>make dev-api</code>, ….</p>
+<div><h4>Quality gates</h4><span id="user-content-quality-gates"></span></div>
+<div><pre><span>cd</span> services/api
+uv run ruff check app tests <span>&amp;&amp;</span> uv run ruff format --check app tests
+uv run mypy app          <span><span>#</span> strict</span>
+uv run pytest -q         <span><span>#</span> needs the compose postgres + redis (uses db atlas_test, redis db 15)</span>
+uv run alembic check     <span><span>#</span> models and migrations in sync</span></pre></div>
+<p>On a slow PC, run the API tests on the Oracle server instead (one file or the whole suite;
+the first run installs the dependencies there):</p>
+<div><pre>bash infra/scripts/remote_api_tests.sh tests/test_campaigns.py</pre></div>
+<div><h4>Documentation</h4><span id="user-content-documentation"></span></div>
+<p>Brand assets (wordmark and mark as SVG and PNG, light and dark) live in <code>docs/brand/</code>. The web app renders the same geometry inline from <code>apps/web/src/components/brand.tsx</code>, filled with the current text colour.</p>
+<ul>
+<li><a href="https://github.com/abdulmanan69/atlas/blob/main/docs/handoff.md">Where the work stands and how to resume</a></li>
+<li><a href="https://github.com/abdulmanan69/atlas/blob/main/docs/architecture.md">Architecture</a></li>
+<li><a href="https://github.com/abdulmanan69/atlas/blob/main/docs/implementation-plan.md">Implementation plan</a></li>
+<li>Decisions: <a href="https://github.com/abdulmanan69/atlas/blob/main/docs/decisions/0001-modular-monolith-and-runtime-adapter.md">0001 runtime adapter</a> ·
+<a href="https://github.com/abdulmanan69/atlas/blob/main/docs/decisions/0002-auth-tokens-and-tenancy.md">0002 auth &amp; tenancy</a> ·
+<a href="https://github.com/abdulmanan69/atlas/blob/main/docs/decisions/0003-voice-runtime-call-completion.md">0003 call completion</a></li>
+<li>Feature docs: <a href="https://github.com/abdulmanan69/atlas/blob/main/docs/calls.md">calls</a> · <a href="https://github.com/abdulmanan69/atlas/blob/main/docs/campaigns.md">campaigns</a> · <a href="https://github.com/abdulmanan69/atlas/blob/main/docs/api-keys.md">API keys</a> ·
+<a href="https://github.com/abdulmanan69/atlas/blob/main/docs/webhooks.md">webhooks</a> · <a href="https://github.com/abdulmanan69/atlas/blob/main/docs/local-models.md">local models</a></li>
+<li><a href="https://github.com/abdulmanan69/atlas/blob/main/THIRD_PARTY_NOTICES.md">Third-party notices</a></li>
+</ul>
+<div><h4>Safety defaults</h4><span id="user-content-safety-defaults"></span></div>
+<p>Real phone calls are disabled unless <code>ATLAS_LIVE_CALLS_ENABLED=true</code> <strong>and</strong> the campaign is
+launched by a user holding <code>campaigns:launch_live</code>. Operators are responsible for call
+disclosure, recording consent, opt-out handling, and local calling regulations.</p>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/apexquant/"><span>Python</span><h3>apexquant</h3></a><a class="related__card" href="/projects/abusebox/"><span>Python</span><h3>AbuseBox</h3></a><a class="related__card" href="/projects/leadclean/"><span>Python</span><h3>leadclean</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

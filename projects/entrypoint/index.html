@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>entrypoint: The front door at… | Abdul Manan</title>
+<meta name="description" content="entrypoint by Abdul Manan. The front door at https://vertexpakistan.com. One page that sends staff to each company tool:." />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/entrypoint/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="entrypoint: The front door at… | Abdul Manan" />
+<meta property="og:description" content="entrypoint by Abdul Manan. The front door at https://vertexpakistan.com. One page that sends staff to each company tool:." />
+<meta property="og:url" content="https://abdulmanan.tech/projects/entrypoint/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="entrypoint: The front door at… | Abdul Manan" />
+<meta name="twitter:description" content="entrypoint by Abdul Manan. The front door at https://vertexpakistan.com. One page that sends staff to each company tool:." />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">entrypoint</span></nav>
+<h1>entrypoint</h1>
+<p class="project-page__lead">The front door at https://vertexpakistan.com. One page that sends staff to each company tool:</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>JavaScript</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-11-06">6 Nov 2026</time></dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/entrypoint" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><h3>Vertex Pakistan entrypoint</h3><span id="user-content-vertex-pakistan-entrypoint"></span></div>
+<p>The front door at <strong><a href="https://vertexpakistan.com">https://vertexpakistan.com</a></strong>. One page that sends staff to each company tool:</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Address</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HR</td>
+<td><a href="https://hr.vertexpakistan.com">https://hr.vertexpakistan.com</a></td>
+<td><code>H</code></td>
+</tr>
+<tr>
+<td>QA</td>
+<td><a href="https://qa.vertexpakistan.com">https://qa.vertexpakistan.com</a></td>
+<td><code>Q</code></td>
+</tr>
+<tr>
+<td>CRM</td>
+<td><a href="https://crm.vertexpakistan.com">https://crm.vertexpakistan.com</a></td>
+<td><code>C</code></td>
+</tr>
+</tbody>
+</table>
+<p>Each card shows whether its tool is online right now, checked by the server every 30 seconds. The header shows the time in Karachi and New York.</p>
+<p>The site is static HTML on nginx. It has no database, no npm packages and no client framework, and uses a few MB of memory on the server.</p>
+<div><h4>Change the tools</h4><span id="user-content-change-the-tools"></span></div>
+<p>Everything people see is in <strong><code>tools.json</code></strong>. To add, remove or reword a tool, edit that file and push. You don't need to touch HTML.</p>
+<div><pre>{
+  <span>"name"</span>: <span><span>"</span>Dialer<span>"</span></span>,
+  <span>"url"</span>: <span><span>"</span>https://dialer.vertexpakistan.com<span>"</span></span>,
+  <span>"key"</span>: <span><span>"</span>d<span>"</span></span>,
+  <span>"description"</span>: <span><span>"</span>Live campaigns, lists and agent seats.<span>"</span></span>,
+  <span>"preview"</span>: <span><span>"</span>window<span>"</span></span>,
+  <span>"tint"</span>: <span><span>"</span>rose<span>"</span></span>
+}</pre></div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>yes</td>
+<td>Card title.</td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td>yes</td>
+<td>Where the card goes. Must be <code>https://</code>. Also the address the status check calls.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>yes</td>
+<td>One sentence under the title.</td>
+</tr>
+<tr>
+<td><code>key</code></td>
+<td>no</td>
+<td>One letter or digit that opens the tool from the keyboard. Each tool needs a different one.</td>
+</tr>
+<tr>
+<td><code>preview</code></td>
+<td>no</td>
+<td>The picture at the top of the card: <code>payslip</code>, <code>call</code>, <code>pipeline</code> or <code>window</code> (a plain app window, the default for new tools).</td>
+</tr>
+<tr>
+<td><code>tint</code></td>
+<td>no</td>
+<td>Preview color: <code>indigo</code>, <code>green</code>, <code>amber</code>, <code>rose</code> or <code>slate</code> (default).</td>
+</tr>
+</tbody>
+</table>
+<p>The cards lay out in 3 columns, or in 2 when there are 2 or 4 tools.</p>
+<p>The <code>site</code> block in <code>tools.json</code> sets:</p>
+<ul>
+<li>the company name</li>
+<li>the headline and the sentence under it</li>
+<li>the header clocks, as time zone names such as <code>Asia/Karachi</code></li>
+</ul>
+<p>Before you push, check the file:</p>
+<div><pre>npm run check     <span><span>#</span> says exactly what is wrong in tools.json, or "ok"</span></pre></div>
+<div><h4>Work on it locally</h4><span id="user-content-work-on-it-locally"></span></div>
+<p>You need Node 18 or later. There is nothing to install.</p>
+<div><pre>npm run dev       <span><span>#</span> http://localhost:4319 by default; rebuilds on every reload; live status included</span>
+npm run build     <span><span>#</span> writes dist/</span></pre></div>
+<p>To use a different port, pass it after <code>--</code>, for example <code>npm run dev -- 5000</code>.</p>
+<div><h4>How it is put together</h4><span id="user-content-how-it-is-put-together"></span></div>
+<div><pre><code>tools.json              the content: tools, headline, clocks
+src/index.html          page template ({{PLACEHOLDERS}} filled by the build)
+src/card.html           one tool card
+src/previews/*.html     the pictures at the top of each card; add a file here to add a new preview
+src/styles.css          all styling; light and dark follow the device setting
+src/app.js              clocks, status dots, keyboard shortcuts, the call waveform
+scripts/build.mjs       checks tools.json and renders dist/
+scripts/serve.mjs       local preview server
+scripts/status-loop.sh  runs in the container: checks every tool every 30 s, writes status.json
+nginx.conf              caching and security headers (strict CSP: no inline scripts, no third-party calls)
+Dockerfile              build with Node, serve with nginx:alpine
+</code></pre></div>
+<p><strong>Status dots.</strong> The server checks the tools itself, not the visitor's browser, because some tools (the CRM, for example) block requests from other sites. A tool counts as online when it answers with any HTTP status below 500. If <code>status.json</code> is more than 3 minutes old, the card says "Status unknown" rather than showing an old result.</p>
+<p>To add a preview:</p>
+<ol>
+<li>Create <code>src/previews/&lt;name&gt;.html</code>. It can use <code>{{NAME}}</code> and the <code>.sheet</code> and <code>.accent</code> classes.</li>
+<li>Add its styles to <code>src/styles.css</code>.</li>
+<li>Use <code>"preview": "&lt;name&gt;"</code> in <code>tools.json</code>.</li>
+</ol>
+<div><h4>Deploy</h4><span id="user-content-deploy"></span></div>
+<p>It runs on Coolify at 72.61.151.103 as its own application, built from this repo's <code>Dockerfile</code>. It serves <code>https://vertexpakistan.com</code>, and <code>www</code> redirects there.</p>
+<p>Coolify doesn't deploy on push: after you push, click <strong>Redeploy</strong> in Coolify or call its deploy API.</p>
+<p>DNS (GoDaddy):</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td><code>@</code></td>
+<td><code>72.61.151.103</code></td>
+</tr>
+<tr>
+<td>CNAME</td>
+<td><code>www</code></td>
+<td><code>vertexpakistan.com</code></td>
+</tr>
+</tbody>
+</table>
+<p>Run any image locally:</p>
+<div><pre>docker build -t vertex-entrypoint <span>.</span>
+docker run --rm -p 8080:80 vertex-entrypoint</pre></div>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/dispatchdesk/"><span>JavaScript</span><h3>dispatchdesk</h3></a><a class="related__card" href="/projects/audio-editor/"><span>JavaScript</span><h3>audio-editor</h3></a><a class="related__card" href="/projects/gitmap/"><span>JavaScript</span><h3>gitmap</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

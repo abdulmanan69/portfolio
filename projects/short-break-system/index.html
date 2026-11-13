@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>short-break-system: A comprehensive web… | Abdul Manan</title>
+<meta name="description" content="short-break-system by Abdul Manan. A comprehensive web application designed to help organizations manage employee breaks efficiently and promote workplace…" />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/short-break-system/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="short-break-system: A comprehensive web… | Abdul Manan" />
+<meta property="og:description" content="short-break-system by Abdul Manan. A comprehensive web application designed to help organizations manage employee breaks efficiently and promote workplace…" />
+<meta property="og:url" content="https://abdulmanan.tech/projects/short-break-system/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="short-break-system: A comprehensive web… | Abdul Manan" />
+<meta name="twitter:description" content="short-break-system by Abdul Manan. A comprehensive web application designed to help organizations manage employee breaks efficiently and promote workplace…" />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">short-break-system</span></nav>
+<h1>short-break-system</h1>
+<p class="project-page__lead">A comprehensive web application designed to help organizations manage employee breaks efficiently and promote workplace wellness. This system provides real-time break tracking, admin dashboards for analytics, and callback management for follow-ups.</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>JavaScript</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-01-17">17 Jan 2026</time></dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/short-break-system" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><span id="user-content-short-break-system-"></span></div>
+<p>A comprehensive web application designed to help organizations manage employee breaks efficiently and promote workplace wellness. This system provides real-time break tracking, admin dashboards for analytics, and callback management for follow-ups.</p>
+<div><h3>📋 Table of Contents</h3><span id="user-content--table-of-contents"></span></div>
+<ul>
+<li><a href="#user-content-features">Features</a></li>
+<li><a href="#user-content-tech-stack">Tech Stack</a></li>
+<li><a href="#user-content-prerequisites">Prerequisites</a></li>
+<li><a href="#user-content-installation">Installation</a></li>
+<li><a href="#user-content-setup-instructions">Setup Instructions</a></li>
+<li><a href="#user-content-running-the-application">Running the Application</a></li>
+<li><a href="#user-content-project-structure">Project Structure</a></li>
+<li><a href="#user-content-default-credentials">Default Credentials</a></li>
+<li><a href="#user-content-api-routes">API Routes</a></li>
+<li><a href="#user-content-database">Database</a></li>
+<li><a href="#user-content-contributing">Contributing</a></li>
+<li><a href="#user-content-license">License</a></li>
+</ul>
+<div><h3>✨ Features</h3><span id="user-content--features"></span></div>
+<ul>
+<li>
+<p><strong>Employee Break Management</strong></p>
+<ul>
+<li>Track break start and end times</li>
+<li>Monitor daily break quotas</li>
+<li>View break history and analytics</li>
+</ul>
+</li>
+<li>
+<p><strong>Admin Dashboard</strong></p>
+<ul>
+<li>Real-time employee break monitoring</li>
+<li>System analytics and reports</li>
+<li>Employee management</li>
+<li>Break quota configuration</li>
+</ul>
+</li>
+<li>
+<p><strong>Authentication &amp; Security</strong></p>
+<ul>
+<li>Role-based access control (Admin/SuperAdmin/Employee)</li>
+<li>Secure password hashing with bcrypt</li>
+<li>Protected routes and API endpoints</li>
+</ul>
+</li>
+<li>
+<p><strong>Real-time Notifications</strong></p>
+<ul>
+<li>Broadcast ticker system</li>
+<li>System-wide announcements</li>
+<li>Employee notifications</li>
+</ul>
+</li>
+<li>
+<p><strong>Callback Management</strong></p>
+<ul>
+<li>Schedule and manage follow-ups</li>
+<li>Callback tracking</li>
+<li>Status management</li>
+</ul>
+</li>
+<li>
+<p><strong>Database Seeding</strong></p>
+<ul>
+<li>Dummy data generation for testing</li>
+<li>Easy database setup and initialization</li>
+</ul>
+</li>
+</ul>
+<div><h3>🛠️ Tech Stack</h3><span id="user-content-️-tech-stack"></span></div>
+<div><h4>Frontend</h4><span id="user-content-frontend"></span></div>
+<ul>
+<li><strong>React</strong> - UI library</li>
+<li><strong>Vite</strong> - Build tool and dev server</li>
+<li><strong>Tailwind CSS</strong> - Utility-first CSS framework</li>
+<li><strong>Axios</strong> - HTTP client</li>
+</ul>
+<div><h4>Backend</h4><span id="user-content-backend"></span></div>
+<ul>
+<li><strong>Node.js</strong> - Runtime environment</li>
+<li><strong>Express.js</strong> - Web framework</li>
+<li><strong>Sequelize</strong> - ORM</li>
+<li><strong>SQLite</strong> - Database</li>
+<li><strong>bcrypt</strong> - Password hashing</li>
+<li><strong>jsonwebtoken</strong> - Authentication</li>
+</ul>
+<div><h4>Development</h4><span id="user-content-development"></span></div>
+<ul>
+<li><strong>ESLint</strong> - Code linting</li>
+<li><strong>npm</strong> - Package manager</li>
+</ul>
+<div><h3>📋 Prerequisites</h3><span id="user-content--prerequisites"></span></div>
+<p>Before you begin, ensure you have the following installed on your system:</p>
+<ul>
+<li><strong>Node.js</strong> (v14 or higher) - <a href="https://nodejs.org/">Download here</a></li>
+<li><strong>npm</strong> (comes with Node.js)</li>
+<li><strong>Git</strong> - <a href="https://git-scm.com/">Download here</a></li>
+<li><strong>Windows</strong> (Project includes .bat file for Windows, but can run on macOS/Linux)</li>
+</ul>
+<div><h3>💻 Installation</h3><span id="user-content--installation"></span></div>
+<div><h4>Step 1: Clone the Repository</h4><span id="user-content-step-1-clone-the-repository"></span></div>
+<div><pre>git clone https://github.com/abdulmanan69/short-break-system.git
+<span>cd</span> short-break-system</pre></div>
+<div><h4>Step 2: Install Root Dependencies</h4><span id="user-content-step-2-install-root-dependencies"></span></div>
+<div><pre>npm install</pre></div>
+<div><h4>Step 3: Install Server Dependencies</h4><span id="user-content-step-3-install-server-dependencies"></span></div>
+<div><pre><span>cd</span> server
+npm install
+<span>cd</span> ..</pre></div>
+<div><h4>Step 4: Install Client Dependencies</h4><span id="user-content-step-4-install-client-dependencies"></span></div>
+<div><pre><span>cd</span> client
+npm install
+<span>cd</span> ..</pre></div>
+<div><h3>🚀 Setup Instructions</h3><span id="user-content--setup-instructions"></span></div>
+<div><h4>Step 1: Initialize the Database</h4><span id="user-content-step-1-initialize-the-database"></span></div>
+<p>First, set up the database with the schema:</p>
+<div><pre><span>cd</span> server
+node checkDB.js
+<span>cd</span> ..</pre></div>
+<div><h4>Step 2: Seed Dummy Data (Optional)</h4><span id="user-content-step-2-seed-dummy-data-optional"></span></div>
+<p>To populate the database with dummy employee data and break logs:</p>
+<div><pre><span>cd</span> server
+node generateDummyData.js
+<span>cd</span> ..</pre></div>
+<p>Or create just the admin user:</p>
+<div><pre><span>cd</span> server
+node seed.js
+<span>cd</span> ..</pre></div>
+<div><h4>Step 3: Configure Environment Variables</h4><span id="user-content-step-3-configure-environment-variables"></span></div>
+<p>The application uses default configurations. If you need to customize:</p>
+<div><h5>Server Configuration (server/config/database.js)</h5><span id="user-content-server-configuration-serverconfigdatabasejs"></span></div>
+<ul>
+<li>Default port: <code>5000</code></li>
+<li>Database: SQLite (server/database.sqlite)</li>
+</ul>
+<div><h5>Client Configuration (client/src/config.js)</h5><span id="user-content-client-configuration-clientsrcconfigjs"></span></div>
+<ul>
+<li>API base URL: <code>http://localhost:5000/api</code></li>
+</ul>
+<div><h3>🎯 Running the Application</h3><span id="user-content--running-the-application"></span></div>
+<div><h4>Option 1: Using the Batch File (Windows Only)</h4><span id="user-content-option-1-using-the-batch-file-windows-only"></span></div>
+<p>Simply run the provided batch file:</p>
+<div><pre>RUN_SYSTEM.bat</pre></div>
+<p>This will automatically start both the server and client.</p>
+<div><h4>Option 2: Manual Start</h4><span id="user-content-option-2-manual-start"></span></div>
+<div><h5>Terminal 1 - Start the Backend Server</h5><span id="user-content-terminal-1---start-the-backend-server"></span></div>
+<div><pre><span>cd</span> server
+npm start</pre></div>
+<p>The server will run on: <code>http://localhost:5000</code></p>
+<div><h5>Terminal 2 - Start the Frontend Development Server</h5><span id="user-content-terminal-2---start-the-frontend-development-server"></span></div>
+<div><pre><span>cd</span> client
+npm run dev</pre></div>
+<p>The client will typically run on: <code>http://localhost:5173</code></p>
+<div><h4>Access the Application</h4><span id="user-content-access-the-application"></span></div>
+<p>Open your browser and navigate to:</p>
+<div><pre><code>http://localhost:5173
+</code></pre></div>
+<div><h3>📁 Project Structure</h3><span id="user-content--project-structure"></span></div>
+<div><pre><code>short-break-system/
+├── client/                          # React frontend
+│   ├── src/
+│   │   ├── components/              # Reusable components
+│   │   │   ├── BroadcastTicker.jsx
+│   │   │   └── ProtectedRoute.jsx
+│   │   ├── context/                 # Context API
+│   │   │   └── AuthContext.jsx
+│   │   ├── pages/                   # Page components
+│   │   │   ├── Login.jsx
+│   │   │   ├── AdminDashboard.jsx
+│   │   │   └── EmployeeDashboard.jsx
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── config.js                # API configuration
+│   ├── package.json
+│   ├── vite.config.js
+│   └── tailwind.config.js
+│
+├── server/                          # Express backend
+│   ├── config/
+│   │   └── database.js              # Database configuration
+│   ├── models/                      # Database models
+│   │   ├── User.js
+│   │   ├── BreakLog.js
+│   │   ├── Callback.js
+│   │   ├── SystemSetting.js
+│   │   └── index.js
+│   ├── routes/                      # API routes
+│   │   ├── auth.js                  # Authentication routes
+│   │   ├── admin.js                 # Admin routes
+│   │   ├── break.js                 # Break management routes
+│   │   └── callback.js              # Callback routes
+│   ├── index.js                     # Express server entry point
+│   ├── seed.js                      # Create admin user
+│   ├── generateDummyData.js         # Generate test data
+│   ├── checkDB.js                   # Initialize database
+│   ├── package.json
+│   └── database.sqlite              # SQLite database file
+│
+├── package.json                     # Root package.json
+├── RUN_SYSTEM.bat                   # Windows batch file to run both servers
+└── README.md                        # This file
+</code></pre></div>
+<div><h3>🔐 Default Credentials</h3><span id="user-content--default-credentials"></span></div>
+<div><h4>Admin Account</h4><span id="user-content-admin-account"></span></div>
+<ul>
+<li><strong>Username:</strong> <code>admin</code></li>
+<li><strong>Password:</strong> <code>admin123</code></li>
+<li><strong>Role:</strong> SuperAdmin</li>
+</ul>
+<div><h4>Dummy Employee Accounts</h4><span id="user-content-dummy-employee-accounts"></span></div>
+<p>All dummy employees have the password: <code>pass123</code></p>
+<table>
+<thead>
+<tr>
+<th>Username</th>
+<th>Password</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>john_doe</td>
+<td>pass123</td>
+<td>John Doe</td>
+</tr>
+<tr>
+<td>sarah_smith</td>
+<td>pass123</td>
+<td>Sarah Smith</td>
+</tr>
+<tr>
+<td>mike_ross</td>
+<td>pass123</td>
+<td>Mike Ross</td>
+</tr>
+<tr>
+<td>emma_wilson</td>
+<td>pass123</td>
+<td>Emma Wilson</td>
+</tr>
+</tbody>
+</table>
+<div><h3>🔌 API Routes</h3><span id="user-content--api-routes"></span></div>
+<div><h4>Authentication Routes (<code>/api/auth</code>)</h4><span id="user-content-authentication-routes-apiauth"></span></div>
+<ul>
+<li><code>POST /login</code> - Login user</li>
+<li><code>POST /logout</code> - Logout user</li>
+<li><code>GET /me</code> - Get current user info</li>
+</ul>
+<div><h4>Break Routes (<code>/api/break</code>)</h4><span id="user-content-break-routes-apibreak"></span></div>
+<ul>
+<li><code>POST /start</code> - Start a break</li>
+<li><code>POST /end</code> - End current break</li>
+<li><code>GET /history</code> - Get break history</li>
+<li><code>GET /today</code> - Get today's breaks</li>
+</ul>
+<div><h4>Admin Routes (<code>/api/admin</code>)</h4><span id="user-content-admin-routes-apiadmin"></span></div>
+<ul>
+<li><code>GET /employees</code> - List all employees</li>
+<li><code>GET /breaks</code> - Get all breaks (filtered)</li>
+<li><code>GET /analytics</code> - Get analytics data</li>
+<li><code>PUT /settings</code> - Update system settings</li>
+</ul>
+<div><h4>Callback Routes (<code>/api/callback</code>)</h4><span id="user-content-callback-routes-apicallback"></span></div>
+<ul>
+<li><code>POST /create</code> - Create a callback</li>
+<li><code>GET /list</code> - List callbacks</li>
+<li><code>PUT /update/:id</code> - Update callback status</li>
+</ul>
+<div><h3>📊 Database</h3><span id="user-content--database"></span></div>
+<p>The application uses <strong>SQLite</strong> for data persistence. The database file is located at:</p>
+<div><pre><code>server/database.sqlite
+</code></pre></div>
+<div><h4>Database Models</h4><span id="user-content-database-models"></span></div>
+<p><strong>User</strong></p>
+<ul>
+<li>Stores employee and admin information</li>
+<li>Fields: id, username, password, name, role, dailyQuotaMinutes, isActive, createdAt, updatedAt</li>
+</ul>
+<p><strong>BreakLog</strong></p>
+<ul>
+<li>Records all employee breaks</li>
+<li>Fields: id, userId, startTime, endTime, durationMinutes, createdAt</li>
+</ul>
+<p><strong>Callback</strong></p>
+<ul>
+<li>Manages follow-up callbacks</li>
+<li>Fields: id, userId, scheduledTime, status, reason, createdAt</li>
+</ul>
+<p><strong>SystemSetting</strong></p>
+<ul>
+<li>Stores system-wide configurations</li>
+<li>Fields: id, key, value, createdAt, updatedAt</li>
+</ul>
+<div><h3>🤝 Contributing</h3><span id="user-content--contributing"></span></div>
+<p>Contributions are welcome! Here's how you can help:</p>
+<ol>
+<li>Fork the repository</li>
+<li>Create a feature branch (<code>git checkout -b feature/YourFeature</code>)</li>
+<li>Commit your changes (<code>git commit -m 'Add YourFeature'</code>)</li>
+<li>Push to the branch (<code>git push origin feature/YourFeature</code>)</li>
+<li>Open a Pull Request</li>
+</ol>
+<div><h3>📝 License</h3><span id="user-content--license"></span></div>
+<p>This project is open source and available under the MIT License.</p>
+<div><h3>🆘 Troubleshooting</h3><span id="user-content--troubleshooting"></span></div>
+<div><h4>Issue: Database not found</h4><span id="user-content-issue-database-not-found"></span></div>
+<p><strong>Solution:</strong> Run <code>node server/checkDB.js</code> to initialize the database</p>
+<div><h4>Issue: Dummy data not created</h4><span id="user-content-issue-dummy-data-not-created"></span></div>
+<p><strong>Solution:</strong> Run <code>node server/generateDummyData.js</code></p>
+<div><h4>Issue: Port already in use</h4><span id="user-content-issue-port-already-in-use"></span></div>
+<p><strong>Solution:</strong> The server uses port 5000 and client uses port 5173. Ensure these ports are available or modify the configuration files.</p>
+<div><h4>Issue: npm modules not installed</h4><span id="user-content-issue-npm-modules-not-installed"></span></div>
+<p><strong>Solution:</strong> Delete <code>node_modules</code> folder and <code>package-lock.json</code>, then run <code>npm install</code> in the root, server, and client directories.</p>
+<div><h3>📞 Support</h3><span id="user-content--support"></span></div>
+<p>For issues, questions, or suggestions, please open an issue on the GitHub repository.</p>
+<hr>
+<p><strong>Happy coding! 🚀</strong></p>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/dispatchdesk/"><span>JavaScript</span><h3>dispatchdesk</h3></a><a class="related__card" href="/projects/entrypoint/"><span>JavaScript</span><h3>entrypoint</h3></a><a class="related__card" href="/projects/audio-editor/"><span>JavaScript</span><h3>audio-editor</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

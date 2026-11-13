@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>InvoiceApp: Invoice and the Quotation App for the… | Abdul Manan</title>
+<meta name="description" content="InvoiceApp by Abdul Manan. Invoice and the Quotation App for the small bussinesses to Boost the productivity." />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/invoiceapp/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="InvoiceApp: Invoice and the Quotation App for the… | Abdul Manan" />
+<meta property="og:description" content="InvoiceApp by Abdul Manan. Invoice and the Quotation App for the small bussinesses to Boost the productivity." />
+<meta property="og:url" content="https://abdulmanan.tech/projects/invoiceapp/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="InvoiceApp: Invoice and the Quotation App for the… | Abdul Manan" />
+<meta name="twitter:description" content="InvoiceApp by Abdul Manan. Invoice and the Quotation App for the small bussinesses to Boost the productivity." />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">InvoiceApp</span></nav>
+<h1>InvoiceApp</h1>
+<p class="project-page__lead">Invoice and the Quotation App for the small bussinesses to Boost the productivity</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>Python</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-08-31">31 Aug 2026</time></dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/InvoiceApp" rel="noopener">View source on GitHub</a></div>
+<aside class="project-writing"><h2>Write-up</h2><ul><li><a href="/blog/invoiceapp-offline-invoicing-small-business/">InvoiceApp — Offline Invoicing and Stock Control</a></li></ul></aside>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><h3>InvoiceApp — Invoice, Quotation, Inventory &amp; Payment Manager (PKR)</h3><span id="user-content-invoiceapp--invoice-quotation-inventory--payment-manager-pkr"></span></div>
+<p>A standalone Windows desktop app for small businesses: <strong>customers, vendors, products, stock,
+purchases, invoices, quotations, payments, returns</strong> — all in one local SQLite file. No server,
+no internet, no subscription. Default currency is <strong>Pakistani Rupee (PKR, "Rs")</strong>, changeable in
+Settings.</p>
+<div><h4>Features</h4><span id="user-content-features"></span></div>
+<div><h5>Documents</h5><span id="user-content-documents"></span></div>
+<ul>
+<li><strong>Invoices &amp; quotations</strong> — searchable/filterable lists, editor with product auto-fill (shows
+what is in stock), per-line tax override, % or fixed discount, live totals, duplicate, print,
+PDF export, one-click <strong>Convert quotation → invoice</strong>.</li>
+<li><strong>7 PDF templates</strong> — Modern, Classic, Minimal, Bold, Corporate, Elegant, Compact. A4 or
+Letter. Big company name and bill-to name/company, logo, itemised table with grid borders,
+totals, status badge, notes/terms, bank details, <strong>signature boxes</strong> (prepared by / received
+by with names). Long lists paginate with the table header repeated.</li>
+<li><strong>Per-document PDF options</strong> — <em>Show / hide sections &amp; columns…</em> in the editor: turn off the
+status badge, due date, currency, logo, any table column (#, SKU, Qty, Unit, Unit price,
+Tax %), discount/tax/paid lines, notes, terms, bank details, signatures, grid. Defaults live in
+<em>Settings → PDF layout</em>.</li>
+<li><strong>Editable "Bill To"</strong> — change the heading (e.g. "Client", "Invoice To") and type any bill-to
+text; leave it empty to print the customer's details automatically.</li>
+<li>Numbering: prefix + counter + padding per document type, editable, duplicates rejected.</li>
+</ul>
+<div><h5>Money</h5><span id="user-content-money"></span></div>
+<ul>
+<li>Payments (partial, overpayment guard, Mark as paid = real payment row), global payments log,
+CSV export. Status is always computed: Unpaid / Partially Paid / Paid / Overdue.</li>
+<li><strong>Customer returns</strong> credit the invoice (balance drops) and optionally put items back in stock.</li>
+</ul>
+<div><h5>Inventory</h5><span id="user-content-inventory"></span></div>
+<ul>
+<li>Products carry a <strong>cost price (what you paid)</strong> and a <strong>sale price</strong>; margin shown to owners.</li>
+<li><strong>Purchases from vendors</strong> add stock and update the cost price. <strong>Returns to vendor</strong> remove stock.</li>
+<li>Invoices <strong>cannot sell more than is in stock</strong> (50 in stock → max 50 on invoices; owners can
+allow negative stock in Settings). Editing an invoice frees its own stock first.</li>
+<li>Stock levels, low-stock alerts (global threshold or per product), stock adjustments, full
+movement history, <strong>best sellers</strong> (qty, revenue, gross profit) by date range.</li>
+</ul>
+<div><h5>Access</h5><span id="user-content-access"></span></div>
+<ul>
+<li><strong>Login with roles.</strong> First run creates the <strong>owner</strong>. Owners see everything: payments,
+purchases, costs, profit, vendors, settings, users. <strong>Employees</strong> can work with invoices,
+quotations, customers, products (sale prices only) and view stock — no payments, no costs,
+no deletes. Manage accounts in <em>Settings → Users</em>; sign-in can be switched off.</li>
+<li>Owner dashboard: outstanding, paid this month, overdue, open quotes, <strong>gross profit</strong>, stock
+value, low stock, purchases, best sellers, activity feed. Employee dashboard shows counts only.</li>
+</ul>
+<div><h5>Everything is configurable</h5><span id="user-content-everything-is-configurable"></span></div>
+<p>Company profile &amp; logo, currency, tax defaults, numbering, payment-method list, default
+notes/terms, template &amp; page size, bill-to heading, signature labels/names, PDF defaults, low
+stock rules, <strong>theme colours (live)</strong>, backup/restore. Nothing business-specific is hardcoded.</p>
+<div><h4>Run from source</h4><span id="user-content-run-from-source"></span></div>
+<div><pre>python -m pip install -r requirements.txt
+python main.py</pre></div>
+<p>Python 3.11+ on Windows 10/11. Dependencies: <code>reportlab</code> (PDF), <code>ttkbootstrap</code> (modern ttk
+theme), <code>pillow</code> (logo preview / images), <code>pyinstaller</code> (packaging only).</p>
+<p>Data lives in <code>data\invoice_app.db</code> next to <code>main.py</code> (or next to the exe). <em>Print</em> writes to
+<code>data\exports\</code>. Errors are logged to <code>data\error.log</code>.</p>
+<div><h4>Tests</h4><span id="user-content-tests"></span></div>
+<div><pre>python -m unittest tests.test_flow -v</pre></div>
+<p>Covers: customer → product → invoice → partial payment → paid → quotation → convert → PDFs for
+all 7 templates × 2 sizes (1 page short, multi-page long) with every switch on/off → backup →
+restore; purchases → stock limit → returns (credit + restock) → vendor returns → best sellers →
+profit; users, roles and password checks; bad-number safety.</p>
+<div><h4>Build the portable exe</h4><span id="user-content-build-the-portable-exe"></span></div>
+<div><pre>build.bat</pre></div>
+<p>Installs dependencies, runs the tests, runs PyInstaller (<code>--onefile --windowed</code>, with the app
+icon and version details baked in) and copies <code>InvoiceApp.exe</code> to the project root. Copy that one
+file anywhere; it stores its data in a <code>data\</code> folder next to itself, or in
+<code>%LOCALAPPDATA%\InvoiceApp</code> when that folder is read-only.</p>
+<div><h4>Build the Windows installer</h4><span id="user-content-build-the-windows-installer"></span></div>
+<div><pre>build.bat
+build_installer.bat</pre></div>
+<p><code>build_installer.bat</code> uses <strong>Inno Setup 6</strong> (install once with <code>winget install JRSoftware.InnoSetup</code>)
+and produces <code>dist\InvoiceApp-Setup.exe</code>. Share that single file — double-clicking it installs
+InvoiceApp per-user (no admin prompt), adds Start-menu and optional desktop shortcuts, and
+registers an uninstaller in <em>Add or remove programs</em>.</p>
+<div><h4>"Windows protected your PC" / "app not safe to run"</h4><span id="user-content-windows-protected-your-pc--app-not-safe-to-run"></span></div>
+<p>This appears for <strong>any</strong> program that is not signed with a paid code-signing certificate — it is
+about the signature, not about the app being unsafe. To run it: <strong>More info → Run anyway</strong> (the
+installer shows the same, click <strong>More info → Run anyway</strong>). The warning fades on its own once the
+file builds reputation. Baking in the icon and version info (done here) and using the installer
+make it less alarming. To remove it completely you need an OV/EV code-signing certificate
+(a paid, yearly purchase from a certificate authority); once you have one, sign both
+<code>InvoiceApp.exe</code> and <code>InvoiceApp-Setup.exe</code> with <code>signtool sign /fd SHA256 /a ...</code>.</p>
+<div><h4>Project layout</h4><span id="user-content-project-layout"></span></div>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main.py</code></td>
+<td>App window, login flow, role-aware sidebar, theme application, error handler</td>
+</tr>
+<tr>
+<td><code>db.py</code></td>
+<td>SQLite schema + migrations, settings defaults, PDF display defaults, backup/restore</td>
+</tr>
+<tr>
+<td><code>models.py</code></td>
+<td>CRUD, totals, statuses, numbering, users/auth, stock movements, purchases, returns, reports</td>
+</tr>
+<tr>
+<td><code>pdf_templates.py</code></td>
+<td>The 7 PDF layouts + display-option handling (reportlab)</td>
+</tr>
+<tr>
+<td><code>theme.py</code></td>
+<td>Palette from settings → ttkbootstrap theme + fonts</td>
+</tr>
+<tr>
+<td><code>ui_common.py</code></td>
+<td>Cards, tables, badges, dialogs, forms, calendar popup</td>
+</tr>
+<tr>
+<td><code>ui_auth.py</code></td>
+<td>Owner setup, login, user management dialogs</td>
+</tr>
+<tr>
+<td><code>ui_inventory.py</code></td>
+<td>Stock, purchases, returns, best sellers, movement history</td>
+</tr>
+<tr>
+<td><code>ui_dashboard.py</code>, <code>ui_documents.py</code>, <code>ui_customers.py</code>, <code>ui_vendors.py</code>, <code>ui_products.py</code>, <code>ui_payments.py</code>, <code>ui_settings.py</code></td>
+<td>One module per screen</td>
+</tr>
+<tr>
+<td><code>utils.py</code></td>
+<td>Paths, money/number/date helpers</td>
+</tr>
+<tr>
+<td><code>tests/test_flow.py</code></td>
+<td>End-to-end logic tests</td>
+</tr>
+<tr>
+<td><code>build.bat</code>, <code>requirements.txt</code></td>
+<td>Packaging</td>
+</tr>
+</tbody>
+</table>
+<div><h4>Backup &amp; restore</h4><span id="user-content-backup--restore"></span></div>
+<p><em>Settings → Data → Back up database…</em> copies the live database anywhere. <em>Restore from backup…</em>
+validates the file, asks for confirmation, keeps <code>invoice_app.db.before-restore</code>, then replaces the
+current data (customers, invoices, stock, users — everything).</p>
+<div><h4>Cloud sync quick start (optional)</h4><span id="user-content-cloud-sync-quick-start-optional"></span></div>
+<p>Sync all shops' PCs through one free Supabase project. Everything keeps working offline.</p>
+<p><strong>Owner (once):</strong> sign up free at supabase.com -&gt; in the app: Settings -&gt; Cloud sync -&gt;
+press "Get token" (opens supabase.com/dashboard/account/tokens), Generate new token, paste it -&gt;
+press "Set everything up" - the app creates and configures the whole cloud by itself -&gt;
+Create account (your shop is created automatically) -&gt; press "Copy invite code".
+(A manual URL+key+SQL path is available below the easy setup if you prefer.)</p>
+<p><strong>Each employee:</strong> open the app -&gt; "Join a shop" on the login screen -&gt; paste the invite code +
+pick their own email and password. Done - no keys, no other setup.</p>
+<p>Tip: in Supabase -&gt; Authentication -&gt; Sign In/Providers -&gt; Email, turn OFF "Confirm email"
+so employees can join instantly.</p>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/apexquant/"><span>Python</span><h3>apexquant</h3></a><a class="related__card" href="/projects/abusebox/"><span>Python</span><h3>AbuseBox</h3></a><a class="related__card" href="/projects/leadclean/"><span>Python</span><h3>leadclean</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

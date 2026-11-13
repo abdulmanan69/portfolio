@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>inventory: A single‑file, zero‑dependency… | Abdul Manan</title>
+<meta name="description" content="inventory by Abdul Manan. A single‑file, zero‑dependency inventory and equipment assignment tool that runs entirely in your browser using LocalStorage." />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/inventory/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="inventory: A single‑file, zero‑dependency… | Abdul Manan" />
+<meta property="og:description" content="inventory by Abdul Manan. A single‑file, zero‑dependency inventory and equipment assignment tool that runs entirely in your browser using LocalStorage." />
+<meta property="og:url" content="https://abdulmanan.tech/projects/inventory/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="inventory: A single‑file, zero‑dependency… | Abdul Manan" />
+<meta name="twitter:description" content="inventory by Abdul Manan. A single‑file, zero‑dependency inventory and equipment assignment tool that runs entirely in your browser using LocalStorage." />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">inventory</span></nav>
+<h1>inventory</h1>
+<p class="project-page__lead">A single‑file, zero‑dependency inventory and equipment assignment tool that runs entirely in your browser using LocalStorage.</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>HTML</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2025-11-03">3 Nov 2025</time></dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/inventory" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><h3>Minimal Inventory Manager</h3><span id="user-content-minimal-inventory-manager"></span></div>
+<p>A single‑file, zero‑dependency inventory and equipment assignment tool that runs entirely in your browser using LocalStorage.</p>
+<ul>
+<li>Tech: HTML + CSS + vanilla JS (no build step)</li>
+<li>Data: saved to LocalStorage; import/export JSON</li>
+<li>Look &amp; feel: clean brutalist UI with consistent action buttons and custom dropdowns</li>
+</ul>
+<div><h4>Features</h4><span id="user-content-features"></span></div>
+<ul>
+<li>Employees
+<ul>
+<li>Add/remove employees</li>
+<li>Edit employee name (✎)</li>
+<li>Per‑equipment unassign (⊗)</li>
+</ul>
+</li>
+<li>Inventory
+<ul>
+<li>Categories: laptop, headset, mouse, other</li>
+<li>Add items with quantity; edit name/quantity (✎) with validation</li>
+<li>Remove item (🗑) with safety checks if assigned</li>
+</ul>
+</li>
+<li>Assign
+<ul>
+<li>Custom dropdowns to select employee and equipment</li>
+<li>Assign multiple categories at once</li>
+<li>See a table of assigned equipment and unassign per category</li>
+</ul>
+</li>
+<li>Customization
+<ul>
+<li>Customize (sidebar): accent/background/card/muted colors + compact mode</li>
+<li>Theme persisted to LocalStorage</li>
+</ul>
+</li>
+<li>Utilities
+<ul>
+<li>Export JSON; Import JSON; Clear All</li>
+<li>Favicon included (base64)</li>
+</ul>
+</li>
+</ul>
+<div><h4>Quick start</h4><span id="user-content-quick-start"></span></div>
+<ol>
+<li>Open <code>INDEX.HTML</code> in any modern browser (Chrome, Edge, Firefox, Safari).</li>
+<li>Start by adding employees and inventory.</li>
+<li>Use the Assign tab to link equipment to employees.</li>
+</ol>
+<p>Tip: Data is stored in your browser’s LocalStorage—no server required.</p>
+<div><h4>Import / Export</h4><span id="user-content-import--export"></span></div>
+<ul>
+<li>Export: Click “Export JSON” to download <code>inventory.json</code>.</li>
+<li>Import: Click “Import JSON” and select a previously exported file.</li>
+<li>Clear: “Clear All” resets both employees and inventory (and keeps your theme).</li>
+</ul>
+<div><h4>Editing &amp; Actions</h4><span id="user-content-editing--actions"></span></div>
+<ul>
+<li>Tables use consistent action buttons across Employees, Inventory, and Assign:
+<ul>
+<li>✎ Edit</li>
+<li>⊗ Unassign (per category)</li>
+<li>🗑 Remove/Delete</li>
+</ul>
+</li>
+<li>Buttons are always visible (not just on row hover) for clarity.</li>
+</ul>
+<div><h4>Customization (Theme)</h4><span id="user-content-customization-theme"></span></div>
+<ul>
+<li>Click “Customize” in the sidebar.</li>
+<li>Change: Accent, Background, Card, Muted text colors; toggle Compact mode.</li>
+<li>Settings persist via LocalStorage.</li>
+</ul>
+<div><h4>Data model</h4><span id="user-content-data-model"></span></div>
+<p>The exported JSON has this shape:</p>
+<div><pre>{
+  <span>"employees"</span>: [
+    {
+      <span>"id"</span>: <span><span>"</span>emp_xxx<span>"</span></span>,
+      <span>"name"</span>: <span><span>"</span>Jane Doe<span>"</span></span>,
+      <span>"equipment"</span>: {
+        <span>"laptop"</span>: <span><span>"</span>laptop_xxx<span>"</span></span> <span>| null,</span>
+        <span>"headset"</span>: <span><span>"</span>headset_xxx<span>"</span></span> <span>| null,</span>
+        <span>"mouse"</span>: <span><span>"</span>mouse_xxx<span>"</span></span> <span>| null,</span>
+        <span>"other"</span>: <span><span>"</span>other_xxx<span>"</span></span> <span>| null</span>
+      }
+    }
+  ],
+  <span>"inventory"</span>: {
+    <span>"laptop"</span>: [
+      { <span>"id"</span>: <span><span>"</span>laptop_xxx<span>"</span></span>, <span>"name"</span>: <span><span>"</span>Dell 5410<span>"</span></span>, <span>"model"</span>: <span><span>"</span>Dell 5410<span>"</span></span>, <span>"qty"</span>: <span>5</span>, <span>"assigned"</span>: <span>2</span> }
+    ],
+    <span>"headset"</span>: [],
+    <span>"mouse"</span>: [],
+    <span>"other"</span>: []
+  }
+}</pre></div>
+<p>Notes:</p>
+<ul>
+<li>You can’t reduce an item’s quantity below the number already assigned.</li>
+<li>Removing an item that’s assigned will prompt and unassign it from employees.</li>
+</ul>
+<div><h4>Troubleshooting</h4><span id="user-content-troubleshooting"></span></div>
+<ul>
+<li>Favicon not changing: hard refresh (Ctrl/Cmd + Shift + R) to bypass cache.</li>
+<li>Nothing saves: ensure your browser allows LocalStorage (disable private/incognito restrictions).</li>
+<li>UI glitches after updates: hard refresh to reload the latest single‑file assets.</li>
+</ul>
+<div><h4>Development</h4><span id="user-content-development"></span></div>
+<ul>
+<li>No build tools; just edit <code>INDEX.HTML</code>.</li>
+<li>Custom dropdowns are implemented with simple JS and CSS; no external libs.</li>
+</ul>
+<div><h4>Credits</h4><span id="user-content-credits"></span></div>
+<ul>
+<li>Developer: Abdul Manan — <a href="https://github.com/abdulmanan69">https://github.com/abdulmanan69</a></li>
+</ul>
+<div><h4>License</h4><span id="user-content-license"></span></div>
+<p>This project is provided as‑is with no warranty.</p>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/call-back-tracker/"><span>HTML</span><h3>call-back-tracker</h3></a><a class="related__card" href="/projects/p2pchat/"><span>HTML</span><h3>p2pchat</h3></a><a class="related__card" href="/projects/sticky-note-app/"><span>HTML</span><h3>sticky-note-app</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

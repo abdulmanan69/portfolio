@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>fruitefly: A bee with a spiking neural brain… | Abdul Manan</title>
+<meta name="description" content="fruitefly by Abdul Manan. A bee with a spiking neural brain forages for flowers through procedurally generated worlds — open fields, braided mazes, rooms, and…" />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/fruitefly/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="fruitefly: A bee with a spiking neural brain… | Abdul Manan" />
+<meta property="og:description" content="fruitefly by Abdul Manan. A bee with a spiking neural brain forages for flowers through procedurally generated worlds — open fields, braided mazes, rooms, and…" />
+<meta property="og:url" content="https://abdulmanan.tech/projects/fruitefly/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="fruitefly: A bee with a spiking neural brain… | Abdul Manan" />
+<meta name="twitter:description" content="fruitefly by Abdul Manan. A bee with a spiking neural brain forages for flowers through procedurally generated worlds — open fields, braided mazes, rooms, and…" />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">fruitefly</span></nav>
+<h1>fruitefly</h1>
+<p class="project-page__lead">A bee with a spiking neural brain forages for flowers through procedurally generated worlds — open fields, braided mazes, rooms, and a house with doorways, furniture, and a staircase it can fly over. Every claim is backed by reproducible experiments, a parity-tested C++ kernel, Kaggle-cloud training, and a full computer-vision perception stack (YOLO11 + Kalman + Hungarian multi-object tracking).</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>Python</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-10-27">27 Oct 2026</time></dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/fruitefly" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><h3>🐝 FlyCore Edge — Brain-Inspired Visual Navigation</h3><span id="user-content--flycore-edge--brain-inspired-visual-navigation"></span></div>
+<p>A bee with a <strong>spiking neural brain</strong> forages for flowers through procedurally generated worlds — open fields, braided mazes, rooms, and a house with doorways, furniture, and a staircase it can fly over. Every claim is backed by reproducible experiments, a parity-tested C++ kernel, Kaggle-cloud training, and a full computer-vision perception stack (YOLO11 + Kalman + Hungarian multi-object tracking).</p>
+<p><a href="https://github.com/abdulmanan69/fruitefly/blob/main/docs/images/hero_house.png"><img src="https://raw.githubusercontent.com/abdulmanan69/fruitefly/main/docs/images/hero_house.png" alt="FlyCore Edge — the bee navigating the house world" loading="lazy" decoding="async"></a></p>
+<hr>
+<div><h4>✨ Highlights</h4><span id="user-content--highlights"></span></div>
+<ul>
+<li><strong>LIF spiking controller</strong> — five leaky integrate-and-fire output neurons pick actions from range "danger" signals and visual goal bearing; turn-away wiring, visual-search drive, pre-spike action scoring. Safety rules (brake, committed avoidance with hysteresis) stay <strong>outside</strong> the network.</li>
+<li><strong>Fly-inspired reflex layer</strong> — escape saccades on stall, drift detection for corner rocking, <strong>novelty-based exploration</strong> (saccade only when no <em>new</em> ground is covered), and a <strong>re-acquire memory saccade</strong> that turns back toward the last seen goal bearing.</li>
+<li><strong>Four procedural world kinds</strong> — open / braided maze / rooms / <strong>house</strong> (doorways, low furniture, staircase), all seed-reproducible with a BFS-proven start→goal path, plus optional sequential <strong>checkpoint puzzles</strong>.</li>
+<li><strong>Honest physics</strong> — the camera has a real <strong>line-of-sight check</strong> (no seeing goals through walls), body-radius-aware range rays, and blocked (never penetrating) collisions.</li>
+<li><strong>Flight &amp; chase</strong> — an altitude autopilot climbs the bee over low obstacles and stairs; chase mode makes the goal flee when the bee closes in.</li>
+<li><strong>Immersive 3D</strong> — raycast first-person view (fullscreen with TAB), true camera-height projection (fly up and look <em>down</em> over walls), 360° mouse-look, minimap.</li>
+<li><strong>Perception stack</strong> — from-scratch <strong>SORT</strong>: color detection → <strong>Kalman filters</strong> → <strong>Hungarian algorithm</strong> → persistent-ID <strong>multi-object tracking</strong> with occlusion bridging; swappable <strong>YOLO11</strong> detector trained on Kaggle GPU; <strong>OpenCV</strong> MP4 episode recording.</li>
+<li><strong>Edge deployment path</strong> — C++ LIF kernel with 0/200,000-step action parity vs Python and an Arduino/ESP32 port with ultrasonic sensors.</li>
+</ul>
+<div><h4>📸 Gallery</h4><span id="user-content--gallery"></span></div>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/abdulmanan69/fruitefly/blob/main/docs/images/immersive_house.png"><img src="https://raw.githubusercontent.com/abdulmanan69/fruitefly/main/docs/images/immersive_house.png" alt="Immersive 3D view inside the house" loading="lazy" decoding="async"></a></td>
+<td><a href="https://github.com/abdulmanan69/fruitefly/blob/main/docs/images/sort_tracking.png"><img src="https://raw.githubusercontent.com/abdulmanan69/fruitefly/main/docs/images/sort_tracking.png" alt="SORT multi-object tracking overlay" loading="lazy" decoding="async"></a></td>
+</tr>
+<tr>
+<td><strong>Immersive 3D (TAB)</strong> — flying at altitude inside the house, looking down over walls; minimap top-right</td>
+<td><strong>SORT tracking (O)</strong> — Kalman + Hungarian boxes with persistent IDs on the camera panel</td>
+</tr>
+<tr>
+<td><a href="https://github.com/abdulmanan69/fruitefly/blob/main/docs/images/maze.png"><img src="https://raw.githubusercontent.com/abdulmanan69/fruitefly/main/docs/images/maze.png" alt="Braided maze world" loading="lazy" decoding="async"></a></td>
+<td><a href="https://github.com/abdulmanan69/fruitefly/blob/main/docs/images/checkpoints.png"><img src="https://raw.githubusercontent.com/abdulmanan69/fruitefly/main/docs/images/checkpoints.png" alt="Checkpoint puzzle" loading="lazy" decoding="async"></a></td>
+</tr>
+<tr>
+<td><strong>Maze world (M)</strong> — braided recursive-backtracker corridors</td>
+<td><strong>Checkpoint puzzle (C)</strong> — amber buds must be visited before the goal activates</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>Help overlay (press H in-game)</summary>
+<p><a href="https://github.com/abdulmanan69/fruitefly/blob/main/docs/images/help_overlay.png"><img src="https://raw.githubusercontent.com/abdulmanan69/fruitefly/main/docs/images/help_overlay.png" alt="Help overlay" loading="lazy" decoding="async"></a></p>
+</details>
+<div><h4>🚀 Quickstart</h4><span id="user-content--quickstart"></span></div>
+<div><pre>pip install -r requirements.txt
+python main.py                                    <span><span>#</span> classic demo map</span>
+python main.py --kind house --immersive --fly     <span><span>#</span> straight into the 3D house</span></pre></div>
+<p>Python 3.10–3.14. The simulation core needs only <code>numpy</code>; <code>pygame-ce</code> is for the GUI, <code>ultralytics</code>/<code>opencv-python</code> only for the YOLO backend and video export.</p>
+<div><h4>🎮 Controls</h4><span id="user-content--controls"></span></div>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>R / N</strong></td>
+<td>reset map / new random map (current kind)</td>
+</tr>
+<tr>
+<td><strong>M</strong></td>
+<td>cycle map kind: open → maze → rooms → house</td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td>toggle checkpoint puzzle mode</td>
+</tr>
+<tr>
+<td><strong>F</strong></td>
+<td>flight mode — altitude autopilot climbs over LOW obstacles &amp; stairs</td>
+</tr>
+<tr>
+<td><strong>T</strong></td>
+<td>chase mode — the goal wanders and flees from the bee</td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td>switch controller (LIF ↔ rule-based baseline)</td>
+</tr>
+<tr>
+<td><strong>O</strong></td>
+<td>tracked vision: SORT (Kalman + Hungarian MOT) with occlusion bridging</td>
+</tr>
+<tr>
+<td><strong>Y</strong></td>
+<td>YOLO11 vision backend (uses <code>models/yolo11_goal.pt</code>)</td>
+</tr>
+<tr>
+<td><strong>TAB</strong></td>
+<td>immersive fullscreen 3D; drag mouse = 360° look, right-click recenters</td>
+</tr>
+<tr>
+<td><strong>V / S / H</strong></td>
+<td>toggle sidebar 3D view / screenshot / help</td>
+</tr>
+<tr>
+<td><strong>Space / Esc</strong></td>
+<td>pause / quit</td>
+</tr>
+<tr>
+<td>mouse drag / right-click</td>
+<td>draw a wall / remove a wall</td>
+</tr>
+</tbody>
+</table>
+<p>Launch flags: <code>--kind {open,maze,rooms,house}</code>, <code>--seed N</code>, <code>--immersive</code>, <code>--fly</code>, <code>--chase</code>.</p>
+<div><h4>🧠 How it works</h4><span id="user-content--how-it-works"></span></div>
+<div><pre><code>camera frame ──► vision backend ──► (found, bearing) ─┐
+                 color filter | SORT tracker | YOLO11  │
+range rays  ──► L/F/R clearance (body-radius aware) ──┼──► LIF spiking network ──► action
+                                                       │    (5 neurons, argmax of      │
+pose        ──► reflex layer (stall / novelty /       ─┘     pre-spike potential)       ▼
+                re-acquire saccades, may override)          FORWARD · LEFT · RIGHT · SEEK · BRAKE
+</code></pre></div>
+<ol>
+<li>The simulated camera renders a forward view; the active target is drawn green <strong>only if a sight line exists</strong> (walls occlude; low furniture does not).</li>
+<li>Vision reports <code>(found, bearing error)</code>; three range rays report clearance, inflated by the robot's body radius.</li>
+<li>Range "danger" and the bearing drive five LIF neurons — a LEFT turn is excited by danger on the <em>right</em> (turn-away wiring). The strongest <strong>pre-spike</strong> membrane potential picks the action.</li>
+<li>A <strong>visual-search</strong> drive makes long ballistic runs increasingly attractive while the goal is unseen; explicit safety rules (brake, committed avoidance turns with release hysteresis) act outside the network.</li>
+<li>The shared <strong>reflex layer</strong> breaks stalls, corner rocking, and unproductive loops with fly-style saccades, and remembers the last seen goal bearing for one re-acquire turn.</li>
+</ol>
+<div><h4>📊 Results</h4><span id="user-content--results"></span></div>
+<p>15 seeded maps per kind, identical reflex layer for both controllers, zero blocked collisions everywhere. The LIF controller wins <strong>every structured world</strong>; the rule-based baseline leads only on open fields.</p>
+<table>
+<thead>
+<tr>
+<th>goal success</th>
+<th>baseline</th>
+<th><strong>LIF</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>open</td>
+<td><strong>86.7 %</strong></td>
+<td>80.0 %</td>
+</tr>
+<tr>
+<td>rooms</td>
+<td>13.3 %</td>
+<td><strong>40.0 %</strong></td>
+</tr>
+<tr>
+<td>maze</td>
+<td>26.7 %</td>
+<td><strong>46.7 %</strong></td>
+</tr>
+<tr>
+<td>house</td>
+<td>0.0 %</td>
+<td><strong>46.7 %</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><a href="https://github.com/abdulmanan69/fruitefly/blob/main/docs/images/plot_success_open.png"><img src="https://raw.githubusercontent.com/abdulmanan69/fruitefly/main/docs/images/plot_success_open.png" alt="Open success" loading="lazy" decoding="async"></a></th>
+<th><a href="https://github.com/abdulmanan69/fruitefly/blob/main/docs/images/plot_success_rooms.png"><img src="https://raw.githubusercontent.com/abdulmanan69/fruitefly/main/docs/images/plot_success_rooms.png" alt="Rooms success" loading="lazy" decoding="async"></a></th>
+<th><a href="https://github.com/abdulmanan69/fruitefly/blob/main/docs/images/plot_success_maze.png"><img src="https://raw.githubusercontent.com/abdulmanan69/fruitefly/main/docs/images/plot_success_maze.png" alt="Maze success" loading="lazy" decoding="async"></a></th>
+<th><a href="https://github.com/abdulmanan69/fruitefly/blob/main/docs/images/plot_success_house.png"><img src="https://raw.githubusercontent.com/abdulmanan69/fruitefly/main/docs/images/plot_success_house.png" alt="House success" loading="lazy" decoding="async"></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>open</td>
+<td>rooms</td>
+<td>maze</td>
+<td>house</td>
+</tr>
+</tbody>
+</table>
+<p>Where both succeed, the LIF controller is also <strong>faster</strong> (open: 877 vs 1,176 steps) over shorter paths, at ~50 µs per decision — far under a real-time frame budget.</p>
+<table>
+<thead>
+<tr>
+<th><a href="https://github.com/abdulmanan69/fruitefly/blob/main/docs/images/plot_steps.png"><img src="https://raw.githubusercontent.com/abdulmanan69/fruitefly/main/docs/images/plot_steps.png" alt="Steps to goal" loading="lazy" decoding="async"></a></th>
+<th><a href="https://github.com/abdulmanan69/fruitefly/blob/main/docs/images/plot_latency.png"><img src="https://raw.githubusercontent.com/abdulmanan69/fruitefly/main/docs/images/plot_latency.png" alt="Decision latency" loading="lazy" decoding="async"></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>steps to goal (open maps)</td>
+<td>decision latency per controller</td>
+</tr>
+</tbody>
+</table>
+<p>Five defects were found and fixed along the way by batch experiments and GUI observation — including a camera that originally saw goals <strong>through walls</strong> and corner rocking below the stall detector's threshold. The full engineering story, Kaggle-scale sweeps (150 maps), hyperparameter grid search (+16 pp validated), and limitations are in <a href="https://github.com/abdulmanan69/fruitefly/blob/main/REPORT.md">REPORT.md</a>.</p>
+<div><h4>👁 Perception stack</h4><span id="user-content--perception-stack"></span></div>
+<p><strong>SORT, from scratch</strong> (<code>flycore/perception.py</code>): color-segmentation detections → per-track constant-velocity <strong>Kalman filters</strong> → <strong>Hungarian algorithm</strong> (Munkres, implemented from scratch) on an IoU cost matrix → track lifecycle with <strong>persistent IDs</strong>. While the goal is briefly occluded, its Kalman prediction keeps supplying a bearing, so the bee doesn't instantly forget a target that slid behind a wall. Every piece is unit-tested (assignment optimality, velocity estimation, ID persistence, occlusion bridging).</p>
+<p><strong>YOLO11</strong> (<code>flycore/vision_yolo.py</code>): a Kaggle GPU kernel synthesizes a labeled dataset <strong>from the simulator itself</strong> (1,650 frames, pixel-perfect auto-labels from the green mask) and fine-tunes <code>yolo11n</code> — no hand labeling. Trained weights drop in at <code>models/yolo11_goal.pt</code> and the <strong>Y</strong> key swaps the backend live.</p>
+<table>
+<thead>
+<tr>
+<th>metric</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mAP@50 (held-out val)</td>
+<td><strong>0.995</strong></td>
+</tr>
+<tr>
+<td>mAP@50-95</td>
+<td>0.965</td>
+</tr>
+<tr>
+<td>CPU inference</td>
+<td>24.6 ms/frame (color filter: 0.5 ms)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><a href="https://github.com/abdulmanan69/fruitefly/blob/main/docs/images/yolo_pr_curve.png"><img src="https://raw.githubusercontent.com/abdulmanan69/fruitefly/main/docs/images/yolo_pr_curve.png" alt="YOLO PR curve" loading="lazy" decoding="async"></a></th>
+<th><a href="https://github.com/abdulmanan69/fruitefly/blob/main/docs/images/yolo_confusion.png"><img src="https://raw.githubusercontent.com/abdulmanan69/fruitefly/main/docs/images/yolo_confusion.png" alt="YOLO confusion matrix" loading="lazy" decoding="async"></a></th>
+<th><a href="https://github.com/abdulmanan69/fruitefly/blob/main/docs/images/yolo_predictions.jpg"><img src="https://raw.githubusercontent.com/abdulmanan69/fruitefly/main/docs/images/yolo_predictions.jpg" alt="YOLO validation predictions" loading="lazy" decoding="async"></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>precision–recall</td>
+<td>confusion matrix</td>
+<td>validation predictions</td>
+</tr>
+</tbody>
+</table>
+<p><strong>OpenCV video export</strong>: render any episode straight to MP4 — <code>python -m experiments.record_video --kind house --fly --tracker</code> (add <code>--immersive</code> or <code>--chase</code>).</p>
+<div><h4>🔬 Experiments &amp; reproducibility</h4><span id="user-content--experiments--reproducibility"></span></div>
+<div><pre>python -m unittest discover -s tests -v                    <span><span>#</span> 35 tests</span>
+python -m experiments.run_experiments --episodes 15 --kind house
+python -m experiments.analyze --csv results/results.csv    <span><span>#</span> figures + summary</span>
+python -m experiments.make_yolo_dataset                    <span><span>#</span> synthesize YOLO data locally</span></pre></div>
+<p>Every map is seed-deterministic: the same seed reproduces the same world, episode, and metrics on any machine. Each episode logs success, steps, blocked collisions, path length, mean/p95 decision latency, vision latency, peak memory, and reflex escapes.</p>
+<div><h5>Kaggle cloud pipelines</h5><span id="user-content-kaggle-cloud-pipelines"></span></div>
+<div><pre>python kaggle_run/run_on_kaggle.py --username <span>&lt;</span>you<span>&gt;</span>          <span><span>#</span> CPU: sweeps + grid search + C++ parity</span>
+python kaggle_run/run_on_kaggle.py --username <span>&lt;</span>you<span>&gt;</span> --yolo   <span><span>#</span> GPU: YOLO11 training on synthesized data</span></pre></div>
+<p>Both bundle the project as a <strong>self-contained kernel</strong> (source embedded as a base64 zip), push it via the Kaggle API, poll, and fetch outputs — the YOLO run installs the trained weights automatically. Token setup: kaggle.com → Settings → API → save to <code>~/.kaggle/access_token</code>. <strong>Never commit tokens.</strong></p>
+<div><h4>⚡ C++ kernel</h4><span id="user-content--c-kernel"></span></div>
+<p><code>cpp/lif_controller.cpp</code> mirrors the Python controller line-for-line and exposes a C ABI consumed via ctypes. Methodology is <strong>parity-first</strong>: <code>experiments/bench_cpp.py</code> must find <strong>zero</strong> action mismatches over 200,000 identical steps before any speed numbers are reported (measured: 0 mismatches, 1.65× speedup including FFI overhead).</p>
+<div><pre>g++ -O2 -shared -fPIC -o cpp/libflycore_lif.so cpp/lif_controller.cpp
+python -m experiments.bench_cpp --steps 200000</pre></div>
+<div><h4>🔌 Hardware</h4><span id="user-content--hardware"></span></div>
+<p>The controller needs only three range readings and a goal bearing, so it ports to real robots: <a href="https://github.com/abdulmanan69/fruitefly/blob/main/arduino/">arduino/</a> has a complete <strong>Arduino/ESP32 sketch</strong> (~$20 of parts — 3× HC-SR04 ultrasonic, 2× LDR "vision", L298N motors) running the identical LIF logic, plus Raspberry Pi instructions and the mapping to drone yaw/velocity commands.</p>
+<div><h4>📁 Project layout</h4><span id="user-content--project-layout"></span></div>
+<div><pre><code>flycore-edge/
+├── main.py                     # GUI app (pygame) — all modes &amp; launch flags
+├── flycore/                    # simulation core — numpy only, no pygame
+│   ├── config.py               # tunable settings
+│   ├── geometry.py             # minimal Rect (pygame-free collision math)
+│   ├── maps.py                 # open/maze/rooms/house generators + checkpoints + BFS guarantee
+│   ├── environment.py          # world, motion, flight autopilot, chase, LOS camera
+│   ├── vision.py               # color-based goal detection
+│   ├── vision_yolo.py          # YOLO11 backend (Kaggle-trained weights)
+│   ├── perception.py           # SORT: Kalman + Hungarian + MOT (from scratch)
+│   ├── sensors.py              # body-radius-aware range rays
+│   ├── controller.py           # LIF spiking controller (parameterizable)
+│   ├── baseline.py             # rule-based baseline controller
+│   ├── reflex.py               # saccades: stall / drift / novelty / re-acquire
+│   ├── runner.py               # headless episode runner + metrics
+│   ├── cpp_bridge.py           # ctypes bridge to the C++ kernel
+│   ├── sprites.py              # animated bee + flowers (asset-free)
+│   ├── view3d.py               # raycast pseudo-3D first-person view
+│   └── render.py               # pygame drawing: world, sidebar, immersive mode
+├── experiments/
+│   ├── run_experiments.py      # batch CLI → results CSV + summary JSON
+│   ├── analyze.py              # plots + markdown summary
+│   ├── bench_cpp.py            # Python↔C++ parity + speed benchmark
+│   ├── make_yolo_dataset.py    # simulator → YOLO dataset synthesizer
+│   └── record_video.py         # OpenCV MP4 episode recorder
+├── kaggle_run/
+│   ├── build_kernel.py         # self-contained CPU experiment kernel
+│   ├── build_yolo_kernel.py    # GPU YOLO11 training kernel
+│   └── run_on_kaggle.py        # push → poll → fetch via Kaggle API
+├── cpp/                        # C++ LIF kernel + C ABI (CMake / g++)
+├── arduino/                    # Arduino/ESP32 port + wiring guide
+├── models/                     # trained YOLO11 weights
+├── docs/images/                # README gallery
+└── tests/test_core.py          # 35 unit tests
+</code></pre></div>
+<div><h4>✅ Tests</h4><span id="user-content--tests"></span></div>
+<div><pre>python -m unittest discover -s tests</pre></div>
+<p>35 tests cover vision (incl. wall occlusion), geometry, all four map generators' solvability, checkpoint sequencing, flight over low obstacles, chase legality, corner escape, the Hungarian/Kalman/SORT stack, environment physics, the headless runner, and Python↔C++ parity.</p>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/apexquant/"><span>Python</span><h3>apexquant</h3></a><a class="related__card" href="/projects/abusebox/"><span>Python</span><h3>AbuseBox</h3></a><a class="related__card" href="/projects/leadclean/"><span>Python</span><h3>leadclean</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

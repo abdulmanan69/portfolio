@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>dispatchdesk: A dispatching and sales CRM for… | Abdul Manan</title>
+<meta name="description" content="dispatchdesk by Abdul Manan. A dispatching and sales CRM for truck dispatchers. It covers carrier lead discovery, pipeline, prospecting, sequences, email, AI…" />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/dispatchdesk/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="dispatchdesk: A dispatching and sales CRM for… | Abdul Manan" />
+<meta property="og:description" content="dispatchdesk by Abdul Manan. A dispatching and sales CRM for truck dispatchers. It covers carrier lead discovery, pipeline, prospecting, sequences, email, AI…" />
+<meta property="og:url" content="https://abdulmanan.tech/projects/dispatchdesk/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="dispatchdesk: A dispatching and sales CRM for… | Abdul Manan" />
+<meta name="twitter:description" content="dispatchdesk by Abdul Manan. A dispatching and sales CRM for truck dispatchers. It covers carrier lead discovery, pipeline, prospecting, sequences, email, AI…" />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">dispatchdesk</span></nav>
+<h1>dispatchdesk</h1>
+<p class="project-page__lead">A dispatching and sales CRM for truck dispatchers. It covers carrier lead discovery, pipeline, prospecting, sequences, email, AI dispatcher, brokers and loads, training, marketplace, community, teams, billing and admin. Everything runs in one Docker container</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>JavaScript</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-11-13">13 Nov 2026</time></dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/dispatchdesk" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><span id="user-content-dispatchdesk"></span></div>
+
+<p>This is an original implementation inspired by the public functionality of selldispatch.com. No proprietary code, branding or assets are reused. See <a href="https://github.com/abdulmanan69/dispatchdesk/blob/main/docs/FEATURE_SPEC.md">docs/FEATURE_SPEC.md</a> for the research notes and <a href="https://github.com/abdulmanan69/dispatchdesk/blob/main/docs/CHECKLIST.md">docs/CHECKLIST.md</a> for implementation status.</p>
+<div><h3>Production</h3><span id="user-content-production"></span></div>
+<p>The live deployment (Coolify, domain, email, Stripe, keys, backups) is documented step by step in <a href="https://github.com/abdulmanan69/dispatchdesk/blob/main/docs/SETUP_GUIDE.md">docs/SETUP_GUIDE.md</a>. Admins see the same checklist, checked against the real configuration, under <strong>Admin → Setup</strong>.</p>
+<div><h3>Quick start</h3><span id="user-content-quick-start"></span></div>
+<div><pre>cp .env.example .env          <span><span>#</span> set ADMIN_EMAIL / ADMIN_PASSWORD (and APP_URL for production)</span>
+docker compose up --build -d</pre></div>
+<p>Open <a href="http://localhost:3000">http://localhost:3000</a> and log in with the admin account from <code>.env</code>. Anyone can register a normal account at <code>/register</code>.</p>
+<p>Check health with <code>curl http://localhost:3000/api/health</code>, and follow the logs with <code>docker compose logs -f app</code>.</p>
+<div><h4>Admin account</h4><span id="user-content-admin-account"></span></div>
+<ul>
+<li><strong>First start:</strong> if <code>ADMIN_EMAIL</code> and <code>ADMIN_PASSWORD</code> are set, a super admin is created (only when that email does not exist yet).</li>
+<li><strong>Any time:</strong>
+<div><pre>docker compose <span>exec</span> app node scripts/create-admin.js you@example.com <span><span>'</span>StrongPass1<span>'</span></span> <span><span>'</span>Your Name<span>'</span></span></pre></div>
+This creates the user, or promotes an existing one and resets its password.</li>
+</ul>
+<div><h3>Architecture</h3><span id="user-content-architecture"></span></div>
+<div><pre><code>┌──────────────────────────── one container (node:24-bookworm-slim, non-root) ───────────────────────────┐
+│  tini → entrypoint.sh → prisma migrate deploy → node src/index.js                                        │
+│                                                                                                          │
+│  Express API (/api/*) ── session auth, CSRF, RBAC, rate limits, helmet CSP                               │
+│     ├─ Prisma 7 ORM ──► SQLite  /data/app.db  (better-sqlite3 driver adapter)                            │
+│     ├─ uploads ───────► /data/uploads/{documents,avatars,knowledge,training,marketplace,imports}         │
+│     ├─ in-process scheduler (email queue, sequence email steps, follow-up reminders, knowledge ingest)   │
+│     └─ adapters: FMCSA Census/QCMobile · SMTP/Hostinger/Gmail/Outlook · OpenAI-compatible · Tavily/Brave │
+│        · Stripe                                                                                          │
+│  Static React SPA (Vite build) served by the same Express process                                        │
+└──────────────────────────────────────────────── volume: dispatchdesk-data → /data ──────────────────────┘
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Choice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frontend</td>
+<td>React 19, React Router 7, TanStack Query 5, Tailwind CSS 4, Recharts, lucide icons</td>
+</tr>
+<tr>
+<td>Backend</td>
+<td>Node 24, Express 4, Zod validation, Multer uploads, Nodemailer, Stripe SDK</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>SQLite via Prisma 7 (<code>server/prisma/schema.prisma</code>, migrations in <code>server/prisma/migrations</code>)</td>
+</tr>
+<tr>
+<td>Auth</td>
+<td>bcrypt (cost 12), DB-backed sessions in HTTP-only SameSite=Lax cookies, double-submit CSRF token</td>
+</tr>
+<tr>
+<td>Secrets</td>
+<td>Integration credentials encrypted with AES-256-GCM using a key derived from <code>APP_SECRET</code></td>
+</tr>
+</tbody>
+</table>
+<div><h4>Persistence</h4><span id="user-content-persistence"></span></div>
+<p>Everything stateful lives in the <code>/data</code> volume: the database, uploads, and the generated app secret (<code>/data/.app_secret</code>, created when <code>APP_SECRET</code> is unset). Containers can be rebuilt or restarted without data loss. Back it up with:</p>
+<div><pre>docker run --rm -v dispatchdesk-data:/data -v <span><span>"</span><span>$PWD</span><span>"</span></span>:/backup busybox tar czf /backup/dispatchdesk-backup.tgz /data</pre></div>
+<div><h3>Local development (without Docker)</h3><span id="user-content-local-development-without-docker"></span></div>
+<div><pre><span>cd</span> server <span>&amp;&amp;</span> npm install <span>&amp;&amp;</span> npx prisma migrate deploy <span>&amp;&amp;</span> npm run dev     <span><span>#</span> API on :3000</span>
+<span>cd</span> client <span>&amp;&amp;</span> npm install <span>&amp;&amp;</span> npm run dev                                   <span><span>#</span> UI on :5173 (proxies /api)</span></pre></div>
+<div><h3>Tests</h3><span id="user-content-tests"></span></div>
+<div><pre><span>cd</span> server <span>&amp;&amp;</span> npm <span>test</span>        <span><span>#</span> API, auth, authorization, tenant isolation, services</span>
+<span>cd</span> client <span>&amp;&amp;</span> npm <span>test</span>        <span><span>#</span> component tests</span>
+
+<span><span>#</span> Against a running container (reads ADMIN_EMAIL/ADMIN_PASSWORD from .env):</span>
+node e2e/workflow.mjs setup  http://localhost:3000   <span><span>#</span> 22 business workflows (incl. real SMTP delivery to a local sink)</span>
+docker compose restart
+node e2e/workflow.mjs verify http://localhost:3000   <span><span>#</span> data, files and secrets survived the restart</span>
+<span>cd</span> e2e <span>&amp;&amp;</span> npm install <span>&amp;&amp;</span> npx playwright install chromium <span>&amp;&amp;</span> BASE_URL=http://localhost:3000 npx playwright <span>test</span>   <span><span>#</span> UI smoke</span></pre></div>
+<p><code>workflow.mjs</code> starts an SMTP sink on port 2525, which the container reaches at <code>host.docker.internal</code> (override with <code>SMTP_SINK_HOST</code>).</p>
+<p>See <a href="https://github.com/abdulmanan69/dispatchdesk/blob/main/docs/TEST_REPORT.md">docs/TEST_REPORT.md</a> for the latest results.</p>
+<div><h3>Integrations and credentials</h3><span id="user-content-integrations-and-credentials"></span></div>
+<p>Each integration below has a working adapter, configuration screen, validation and error handling. Without credentials, the app says so plainly and never fakes results. You can set credentials in <code>.env</code> or in <strong>Admin → Settings</strong>; values set there are encrypted and take precedence.</p>
+<table>
+<thead>
+<tr>
+<th>Integration</th>
+<th>Needed</th>
+<th>Without it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FMCSA Company Census (data.transportation.gov)</td>
+<td>nothing (optional <code>SOCRATA_APP_TOKEN</code>)</td>
+<td>— works out of the box</td>
+</tr>
+<tr>
+<td>FMCSA QCMobile enrichment</td>
+<td><code>FMCSA_WEBKEY</code></td>
+<td>census data only</td>
+</tr>
+<tr>
+<td>Platform email (verification, resets, invites)</td>
+<td><code>SMTP_*</code></td>
+<td>links are not emailed. Invite links are shown to team owners instead.</td>
+</tr>
+<tr>
+<td>User mailboxes: SMTP / Hostinger</td>
+<td>user enters their SMTP details in Email → Mailboxes</td>
+<td>—</td>
+</tr>
+<tr>
+<td>User mailboxes: Gmail</td>
+<td><code>GOOGLE_CLIENT_ID/SECRET</code>, redirect <code>${APP_URL}/api/email/oauth/gmail/callback</code></td>
+<td>button disabled with explanation</td>
+</tr>
+<tr>
+<td>User mailboxes: Outlook</td>
+<td><code>MICROSOFT_CLIENT_ID/SECRET</code>, redirect <code>${APP_URL}/api/email/oauth/outlook/callback</code></td>
+<td>button disabled with explanation</td>
+</tr>
+<tr>
+<td>AI dispatcher</td>
+<td><code>AI_API_KEY</code> (+ <code>AI_BASE_URL</code>, <code>AI_MODEL</code>) for any OpenAI-compatible API</td>
+<td>AI returns "not configured"</td>
+</tr>
+<tr>
+<td>AI web research</td>
+<td><code>SEARCH_PROVIDER</code> (<code>tavily</code>/<code>brave</code>) + <code>SEARCH_API_KEY</code></td>
+<td>knowledge base only</td>
+</tr>
+<tr>
+<td>Billing</td>
+<td><code>STRIPE_SECRET_KEY</code>, <code>STRIPE_WEBHOOK_SECRET</code>, and Price IDs per plan in Admin → Plans. Webhook endpoint: <code>${APP_URL}/api/billing/webhook</code></td>
+<td>checkout disabled. Everyone stays on Free.</td>
+</tr>
+</tbody>
+</table>
+<div><h4>Lead generator</h4><span id="user-content-lead-generator"></span></div>
+<p><strong>Lead generator</strong> (<code>/app/lead-generator</code>) saves FMCSA Census searches as profiles. Each run pulls live census records, skips carriers already in your CRM, and scores each lead 0–100 (phone, email, MC authority, active USDOT, new authority, small fleet). It then adds the leads to your pipeline, call queue and, optionally, a prospect list. <strong>Preview matches</strong> shows results without using quota.</p>
+<table>
+<thead>
+<tr>
+<th>Plan</th>
+<th>Leads / month</th>
+<th>Profiles</th>
+<th>Scheduled runs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Free</td>
+<td>50</td>
+<td>1</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Pro / Annual</td>
+<td>2,000</td>
+<td>10</td>
+<td>daily or weekly</td>
+</tr>
+<tr>
+<td>Teams</td>
+<td>5,000</td>
+<td>25</td>
+<td>daily or weekly</td>
+</tr>
+</tbody>
+</table>
+<p>Admins can change these in <strong>Admin → Plans</strong>.</p>
+<div><h4>Click-to-call</h4><span id="user-content-click-to-call"></span></div>
+<p>Choose a provider in <strong>Settings → Calling</strong>. Every phone number in the app, the power dialer (<code>/app/dialer</code>) and the browser extension then dial through it. Each call starts with a user click; nothing is auto-dialed.</p>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>How it dials</th>
+<th>Needs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Google Voice</td>
+<td>Opens <code>voice.google.com</code> with the number; you press call (Google Voice has no calling API)</td>
+<td>Signed in to Google Voice in the browser</td>
+</tr>
+<tr>
+<td>8x8 Work, RingCentral, Dialpad, system default</td>
+<td><code>tel:</code> link handled by the desktop app</td>
+<td>App installed and set as the default calling app</td>
+</tr>
+<tr>
+<td>Microsoft Teams</td>
+<td>Teams call link</td>
+<td>Teams Phone licence</td>
+</tr>
+<tr>
+<td>Zoom Phone</td>
+<td><code>zoomphonecall://</code></td>
+<td>Zoom desktop app</td>
+</tr>
+<tr>
+<td>callto / SIP / custom</td>
+<td>Your URL template with <code>{number}</code> or <code>{digits}</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Twilio (bridge)</td>
+<td>Rings your phone, then connects the carrier. Status, duration and unanswered calls are logged automatically</td>
+<td>Account SID, auth token, caller ID, your phone. <code>APP_URL</code> must be public HTTPS for the status webhooks</td>
+</tr>
+</tbody>
+</table>
+<div><h4>Browser extension</h4><span id="user-content-browser-extension"></span></div>
+<p><strong>Browser extension</strong> (<code>/app/extension</code>):</p>
+<ol>
+<li>Download the zip. It comes pre-configured with this server's URL.</li>
+<li>In Chrome or Edge, open <code>chrome://extensions</code>, turn on Developer mode, then click <strong>Load unpacked</strong>.</li>
+<li>Paste a personal access token you created on that page.</li>
+</ol>
+<p>Using it:</p>
+<ul>
+<li><strong>Toolbar button:</strong> scans the current page, but only when you click it. It finds phone, USDOT and MC numbers, and for each you can call, find it in your CRM, or add it.</li>
+<li><strong>Right-click menu:</strong> call or look up the text you have selected.</li>
+</ul>
+<p>Tokens can't reach admin, settings, billing or token endpoints. Only a SHA-256 hash of each token is stored.</p>
+<p>For local Stripe testing, run <code>stripe listen --forward-to localhost:3000/api/billing/webhook</code> and put the printed <code>whsec_…</code> value in <code>STRIPE_WEBHOOK_SECRET</code>.</p>
+<div><h3>Security notes</h3><span id="user-content-security-notes"></span></div>
+<ul>
+<li>RBAC is enforced on the server: roles and permissions live in DB tables, and every admin route checks a specific permission.</li>
+<li>Each dispatcher's pipeline is private. Team visibility follows team permissions. Platform admins do not get implicit access to private pipelines.</li>
+<li>Uploads are checked by extension, MIME type and magic bytes, with size limits. They are stored outside the web root and served only through access-checked endpoints.</li>
+<li>Rate limiting covers auth, AI, public forms and the API in general. Audit logs record security and admin actions.</li>
+<li><code>EXPOSE_DEV_TOKENS</code> must stay <code>false</code> in production.</li>
+</ul>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/entrypoint/"><span>JavaScript</span><h3>entrypoint</h3></a><a class="related__card" href="/projects/audio-editor/"><span>JavaScript</span><h3>audio-editor</h3></a><a class="related__card" href="/projects/gitmap/"><span>JavaScript</span><h3>gitmap</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

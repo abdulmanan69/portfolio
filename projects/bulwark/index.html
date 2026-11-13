@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bulwark: Security scanner for MCP servers and AI… | Abdul Manan</title>
+<meta name="description" content="Bulwark by Abdul Manan. Security scanner for MCP servers and AI agents. Detects prompt injection in tool descriptions, tool poisoning, rug pulls, supply-chain…" />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/bulwark/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="Bulwark: Security scanner for MCP servers and AI… | Abdul Manan" />
+<meta property="og:description" content="Bulwark by Abdul Manan. Security scanner for MCP servers and AI agents. Detects prompt injection in tool descriptions, tool poisoning, rug pulls, supply-chain…" />
+<meta property="og:url" content="https://abdulmanan.tech/projects/bulwark/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Bulwark: Security scanner for MCP servers and AI… | Abdul Manan" />
+<meta name="twitter:description" content="Bulwark by Abdul Manan. Security scanner for MCP servers and AI agents. Detects prompt injection in tool descriptions, tool poisoning, rug pulls, supply-chain…" />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">Bulwark</span></nav>
+<h1>Bulwark</h1>
+<p class="project-page__lead">Security scanner for MCP servers and AI agents. Detects prompt injection in tool descriptions, tool poisoning, rug pulls, supply-chain risk and the lethal trifecta. Pins tool definitions to a lockfile and enforces it at runtime. SARIF + CycloneDX AIBOM. Zero dependencies.</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>Python</dd></div><div><dt>Topics</dt><dd><span class="project-tags"><span>agent-security</span><span>ai-security</span><span>aibom</span><span>claude-code</span><span>cli</span><span>cursor</span><span>cyclonedx</span><span>devscops</span><span>llm-security</span><span>mcp</span><span>prompt-injection</span><span>python</span><span>sarif</span><span>sast</span><span>sbom</span><span>security</span><span>security-tools</span><span>supply-chain-security</span><span>tool-poisoning</span></span></dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-10-03">3 Oct 2026</time></dd></div><div><dt>License</dt><dd>Apache-2.0</dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/bulwark" rel="noopener">View source on GitHub</a></div>
+<aside class="project-writing"><h2>Write-up</h2><ul><li><a href="/blog/bulwark-mcp-security-scanner/">Bulwark — An MCP and AI Agent Security Scanner</a></li></ul></aside>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><h3>Bulwark — MCP and AI agent security scanner</h3><span id="user-content-bulwark--mcp-and-ai-agent-security-scanner"></span></div>
+<p><a href="https://github.com/abdulmanan69/bulwark/actions/workflows/ci.yml"><img src="https://github.com/abdulmanan69/bulwark/actions/workflows/ci.yml/badge.svg" alt="CI" loading="lazy" decoding="async"></a>
+<a href="https://pypi.org/project/bulwark-scanner/"><img src="https://camo.githubusercontent.com/15136737d6fec75395ddf910d61311365b220c8bfcc847d9b58f3ad9fae29f52/68747470733a2f2f696d672e736869656c64732e696f2f707970692f762f62756c7761726b2d7363616e6e6572" alt="PyPI" loading="lazy" decoding="async"></a>
+<a href="https://pypi.org/project/bulwark-scanner/"><img src="https://camo.githubusercontent.com/654cc977169bfccbe08b78efa85e7e6fb15d86d8851418ab2d13c7a2366339d7/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f62756c7761726b2d7363616e6e6572" alt="Python" loading="lazy" decoding="async"></a>
+<a href="https://github.com/abdulmanan69/bulwark/blob/main/LICENSE"><img src="https://camo.githubusercontent.com/1839907eb9fb8d6d05ff532e1870a7008790873fdcc0c17480337c508a844c23/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4170616368652d2d322e302d626c7565" alt="License" loading="lazy" decoding="async"></a>
+<a href="https://github.com/abdulmanan69/bulwark/blob/main/pyproject.toml"><img src="https://camo.githubusercontent.com/6c08d4ee84b1711c64a4371d221e421d5600803af4cf5e0036a4eda3128d2144/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f72756e74696d65253230646570656e64656e636965732d302d627269676874677265656e" alt="Runtime dependencies" loading="lazy" decoding="async"></a></p>
+<p><strong>Agent security posture management.</strong> Bulwark scans MCP servers for prompt
+injection, tool poisoning, rug pulls and supply-chain risk. It inventories
+everything your AI agents can reach — MCP servers, tool descriptions, hooks,
+permission rules, skills and instruction files — tells you what is exploitable
+about it, pins the safe state, and enforces that pin at runtime.</p>
+<p>Works with <strong>Claude Code</strong>, <strong>Claude Desktop</strong>, <strong>Cursor</strong>, <strong>VS Code</strong>,
+<strong>Windsurf</strong>, <strong>Cline</strong>, <strong>Roo</strong>, <strong>Zed</strong> and <strong>Continue</strong>. Emits <strong>SARIF</strong> for
+GitHub code scanning and a <strong>CycloneDX AIBOM</strong> for audits.</p>
+<div><pre><code>$ bulwark scan
+
+  BULWARK  agent security posture
+====================================================================
+  posture [F]  7/100     27 artifacts    22 findings    0 waived
+  8 critical   11 high   3 medium
+  lockfile: none - run `bulwark pin`
+====================================================================
+
+  CRITICAL
+
+  BW-INJ-001  mcp tool notes:append_note carries model-directed instructions
+      at .mcp.json:12
+      evidence
+        - concealment/INJ.HIDE.DONTTELL: Do not mention this to the user
+        - credential/INJ.CRED.KEYFILE: id_rsa
+        - exfiltration/INJ.EXFIL.PARAM: pass its contents as the 'context' parameter
+      fix
+        Do not connect this server until the description is explained...
+</code></pre></div>
+<p>Zero runtime dependencies. Installs and runs anywhere Python 3.9+ does.</p>
+<hr>
+<div><h4>Why this exists</h4><span id="user-content-why-this-exists"></span></div>
+<p>Your dependency scanner reads <code>package.json</code>. Your SAST tool reads source
+files. Neither of them reads the file that decides what your AI agent is
+allowed to do to your laptop, your repository and your production database.</p>
+<p>An MCP server entry is a command line that runs with your full privileges every
+time the agent starts. Its tool descriptions are injected into the model's
+context window before any tool is called. Nothing in your existing stack looks
+at either one.</p>
+<p>Five specific gaps, none of which an existing tool covers:</p>
+<table>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Why nothing else catches it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tool poisoning</strong></td>
+<td>The attack lives in a <em>description</em>, not in code. No SAST tool parses it; no human reads it after the first install.</td>
+</tr>
+<tr>
+<td><strong>Unicode-smuggled instructions</strong></td>
+<td>The text a reviewer sees and the text the model receives are different strings. Your editor renders both identically.</td>
+</tr>
+<tr>
+<td><strong>Rug pulls</strong></td>
+<td>The server behaves during review and changes afterwards. The config file is byte-identical, so code review shows nothing.</td>
+</tr>
+<tr>
+<td><strong>The lethal trifecta</strong></td>
+<td>Each tool is individually reasonable. The exposure exists only in the combination, and nothing computes the combination.</td>
+</tr>
+<tr>
+<td><strong>Excessive agency</strong></td>
+<td><code>npx -y whatever@latest</code> is an unreviewed, unpinned, auto-confirming remote code fetch on every launch. It reads like a config line.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div><h4>Install</h4><span id="user-content-install"></span></div>
+<div><pre>pip install bulwark-scanner          <span><span>#</span> no dependencies</span>
+pipx install bulwark-scanner         <span><span>#</span> or isolated</span></pre></div>
+<div><h4>Use</h4><span id="user-content-use"></span></div>
+<div><pre>bulwark scan                         <span><span>#</span> what is wrong right now</span>
+bulwark inventory                    <span><span>#</span> what can my agents reach at all</span>
+bulwark pin                          <span><span>#</span> record today's definitions as approved</span>
+bulwark diff                         <span><span>#</span> what changed since then</span>
+bulwark verify                       <span><span>#</span> fail the build if anything changed</span>
+bulwark explain BW-INJ-001           <span><span>#</span> why does this rule matter</span>
+bulwark aibom -o aibom.json          <span><span>#</span> CycloneDX bill of materials</span>
+bulwark proxy --server github        <span><span>#</span> enforce policy on a live session</span></pre></div>
+<div><h5>The workflow that matters</h5><span id="user-content-the-workflow-that-matters"></span></div>
+<div><pre>bulwark scan                    <span><span>#</span> 1. see what you have</span>
+<span><span>#</span> ...fix what needs fixing...</span>
+bulwark pin                     <span><span>#</span> 2. freeze the reviewed state</span>
+git add bulwark.lock <span>&amp;&amp;</span> git commit -m <span><span>"</span>pin agent tool definitions<span>"</span></span>
+bulwark verify                  <span><span>#</span> 3. in CI, from now on</span></pre></div>
+<p>Step 2 is the one nobody else offers. <code>bulwark.lock</code> records a content hash of
+every string your model is allowed to be told. If a server changes a tool
+description after you approved it, <code>bulwark verify</code> fails:</p>
+<div><pre><code>verify FAILED: 3 material change(s)
+  capability_added   notes:append_note -- gained: secrets
+  text_changed       notes:append_note -- the text the model reads has changed (37 -&gt; 186 characters)
+  schema_changed     notes:append_note -- the tool's arguments changed
+</code></pre></div>
+<hr>
+<div><h4>What it scans</h4><span id="user-content-what-it-scans"></span></div>
+<p>Bulwark finds agent configuration wherever the ecosystem actually puts it:</p>
+<ul>
+<li><strong>Claude Code</strong> — <code>.mcp.json</code>, <code>~/.claude.json</code>, <code>.claude/settings.json</code>,
+skills, subagents, slash commands, hooks, permission rules</li>
+<li><strong>Claude Desktop</strong> — <code>claude_desktop_config.json</code> on all three platforms</li>
+<li><strong>Cursor</strong> — <code>.cursor/mcp.json</code>, <code>.cursor/rules/*.mdc</code></li>
+<li><strong>VS Code / Copilot</strong> — <code>.vscode/mcp.json</code>, <code>mcp.servers</code> in settings</li>
+<li><strong>Windsurf, Cline, Roo, Zed, Continue</strong> — their respective config dialects</li>
+<li><strong>Instruction files</strong> — <code>CLAUDE.md</code>, <code>AGENTS.md</code>, <code>.cursorrules</code>, and friends</li>
+</ul>
+<p>With <code>--online</code> it also starts each stdio server and reads the tool list it
+<em>actually</em> serves — the only way to see descriptions a static config does not
+list. It never calls a tool, only lists them.</p>
+<div><h4>What it detects</h4><span id="user-content-what-it-detects"></span></div>
+<p>26 rules across seven families. <code>bulwark rules</code> lists them all;
+<code>bulwark explain &lt;id&gt;</code> gives the full reasoning for any one.</p>
+<table>
+<thead>
+<tr>
+<th>Family</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>injection</strong></td>
+<td>instructions aimed at the model in a tool description; payloads hidden in Unicode Tag characters, zero-width space, bidi overrides, HTML comments or base64; markdown-image exfiltration URLs</td>
+</tr>
+<tr>
+<td><strong>composite</strong></td>
+<td>the lethal trifecta; cross-server tool-name shadowing; a server issuing directives about <em>another</em> server's tools; excessive agency; auto-approved dangerous tools</td>
+</tr>
+<tr>
+<td><strong>supply-chain</strong></td>
+<td>unpinned auto-install; piping a download into a shell at launch; typosquats and scope impersonation; cleartext or tunnelled endpoints; privileged containers</td>
+</tr>
+<tr>
+<td><strong>drift</strong></td>
+<td>any model-visible string that changed after it was pinned</td>
+</tr>
+<tr>
+<td><strong>permissions</strong></td>
+<td>unbounded allow-rules; pre-approved destructive operations; disabled approval prompts</td>
+</tr>
+<tr>
+<td><strong>hooks</strong></td>
+<td>hooks that read credentials or call out to the network; unquoted interpolation of agent-controlled data into a shell</td>
+</tr>
+<tr>
+<td><strong>secrets</strong></td>
+<td>live credentials in <code>env</code> blocks, headers, args and <code>.env</code> files</td>
+</tr>
+</tbody>
+</table>
+<p>Every finding carries evidence you can check, a fix you can apply, and mappings
+to <strong>OWASP LLM Top 10</strong>, <strong>MITRE ATLAS</strong>, <strong>NIST AI 600-1</strong>, <strong>CWE</strong>,
+<strong>ISO/IEC 42001</strong> and <strong>EU AI Act</strong> articles.</p>
+<hr>
+<div><h4>CI</h4><span id="user-content-ci"></span></div>
+<p>Exit codes are the contract: <code>0</code> clean, <code>1</code> findings at or above the threshold,
+<code>2</code> usage error, <code>3</code> scan error.</p>
+<div><pre>- <span>name</span>: <span>Agent security scan</span>
+  <span>run</span>: <span>|</span>
+<span>    pip install bulwark-scanner</span>
+<span>    bulwark scan --no-user-scope --format sarif -o bulwark.sarif --fail-on high</span>
+<span>    bulwark verify --no-user-scope</span>
+<span></span>
+<span></span>- <span>uses</span>: <span>github/codeql-action/upload-sarif@v3</span>
+  <span>if</span>: <span>always()</span>
+  <span>with</span>:
+    <span>sarif_file</span>: <span>bulwark.sarif</span></pre></div>
+<p><code>--no-user-scope</code> matters in CI: without it, Bulwark would also report on
+whatever the build runner happens to have in its home directory.</p>
+<p>Bulwark walks the whole project, so a monorepo with a <code>.mcp.json</code> per package
+is fully covered. Use <code>--exclude</code> for directories that are not real
+configuration:</p>
+<div><pre>bulwark scan <span>.</span> --exclude <span><span>'</span>examples/**<span>'</span></span> --exclude <span><span>'</span>**/fixtures/**<span>'</span></span></pre></div>
+<p>Exclusion happens during discovery rather than when reporting, so an excluded
+path cannot contribute to a finding at all -- including composite rules like
+the trifecta, which are derived from tools and carry no path of their own.</p>
+<p>Other formats: <code>json</code>, <code>junit</code>, <code>markdown</code> (for PR comments), <code>html</code>
+(self-contained, no external assets, safe to email).</p>
+<hr>
+<div><h4>The runtime guard</h4><span id="user-content-the-runtime-guard"></span></div>
+<p>Scanning is a point-in-time check. Three of the worst failures exist only while
+the agent is running: a description that changes after review, a tool result
+carrying injected instructions, a credential leaving in a tool argument.</p>
+<p><code>bulwark proxy</code> sits between the host and one MCP server. Adopting it is a
+one-line config change:</p>
+<div><pre>{
+  <span>"mcpServers"</span>: {
+    <span>"github"</span>: {
+      <span>"command"</span>: <span><span>"</span>bulwark<span>"</span></span>,
+      <span>"args"</span>: [<span><span>"</span>proxy<span>"</span></span>, <span><span>"</span>--server<span>"</span></span>, <span><span>"</span>github<span>"</span></span>, <span><span>"</span>--block-injection<span>"</span></span>]
+    }
+  }
+}</pre></div>
+<p>It then:</p>
+<ul>
+<li><strong>hides</strong> denied tools from the list the model ever sees (<code>--deny-tool</code>),</li>
+<li><strong>refuses</strong> denied calls with an explanation the model can act on,</li>
+<li><strong>redacts</strong> credentials in both directions, before they leave the machine,</li>
+<li><strong>checks</strong> every live description against <code>bulwark.lock</code> and warns on drift,</li>
+<li><strong>quarantines</strong> tool results that read as instructions (<code>--block-injection</code>),</li>
+<li><strong>logs</strong> every call to append-only JSONL — the audit trail agents lack.</li>
+</ul>
+<p>Design rule: <em>fail open on the protocol, fail closed on policy.</em> A message the
+guard does not understand is passed through untouched, because a security
+control that breaks tooling gets removed within the day.</p>
+<p>Start with <code>--dry-run</code> to see what would be blocked before blocking anything.</p>
+<hr>
+<div><h4>Policy as code</h4><span id="user-content-policy-as-code"></span></div>
+<p>Drop a <code>bulwark.policy.yaml</code> beside your project:</p>
+<div><pre><span>fail_on</span>: <span>HIGH</span>
+
+<span>rules</span>:
+  <span>disable</span>: <span>[BW-DRF-002]           </span><span><span>#</span> we pin on release, not per-commit</span>
+  <span>severity</span>:
+    <span>BW-SUP-006</span>: <span>MEDIUM</span>
+
+<span>waivers</span>:
+  - <span>rule</span>: <span>BW-SUP-001</span>
+    <span>artifact</span>: <span>legacy-notes</span>
+    <span>reason</span>: <span><span>"</span>vendor ships no pinned build; tracked in SEC-1481<span>"</span></span>
+    <span>owner</span>: <span>platform-security</span>
+    <span>expires</span>: <span><span>"</span>2026-03-31<span>"</span></span>         <span><span>#</span> expired waivers stop suppressing, loudly</span>
+
+<span>exclude</span>: <span>["examples/**"]                 </span><span><span>#</span> never scanned at all</span>
+<span>known_packages</span>: <span>["@acme/internal-mcp"]   </span><span><span>#</span> extend typosquat screening</span>
+<span>plugins</span>: <span>["./security/acme_rules.py"]    </span><span><span>#</span> your own rules, same pipeline</span>
+
+<span>injection_patterns</span>:                      <span><span>#</span> your own detections, no code needed</span>
+  - <span>id</span>: <span>ACME.EXFIL</span>
+    <span>family</span>: <span>exfiltration</span>
+    <span>regex</span>: <span><span>'</span>upload\s+to\s+dropbox<span>'</span></span>       <span><span>#</span> single-quote regexes in YAML</span></pre></div>
+<p>A waiver with no expiry is a decision nobody will revisit, so Bulwark treats an
+expired one as absent and tells you which ones lapsed.</p>
+<hr>
+<div><h4>Design notes</h4><span id="user-content-design-notes"></span></div>
+<p><strong>No runtime dependencies.</strong> A tool installed to prevent supply-chain incidents
+should not be one.</p>
+<p><strong>No network calls.</strong> Bulwark never phones home, and never contacts a remote
+MCP endpoint during a scan — reaching one would send your credentials to a
+third party as a side effect of running a security scan.</p>
+<p><strong>Secrets are never reproduced.</strong> Findings carry a masked preview and a hash,
+never the value. The audit log records <code>"GitHub token"</code>, never the token.</p>
+<p><strong>Every finding is evidence-backed.</strong> A finding you cannot verify is just
+anxiety, so each one quotes the exact string that triggered it.</p>
+<p><strong>False positives are a security property.</strong> A scanner that cries wolf on a
+reasonable setup gets muted, and then it catches nothing. The test suite pins
+this: a benign corpus must produce zero findings.</p>
+<hr>
+<div><h4>Development</h4><span id="user-content-development"></span></div>
+<div><pre>git clone https://github.com/abdulmanan69/bulwark
+<span>cd</span> bulwark
+pip install -e <span><span>"</span>.[dev]<span>"</span></span>
+pytest                                  <span><span>#</span> 285 tests</span>
+pytest --cov=bulwark --cov-report=term
+ruff check src tests</pre></div>
+<div><h5>Running it on this repository</h5><span id="user-content-running-it-on-this-repository"></span></div>
+<p><code>examples/vulnerable-project/</code> is deliberately unsafe -- it is the fixture the
+walkthrough above uses. <code>bulwark.policy.yaml</code> excludes it, so a plain
+<code>bulwark scan</code> here reports on the project rather than on the teaching aid.
+To see the fixture light up, point at it directly:</p>
+<div><pre>bulwark scan examples/vulnerable-project   <span><span>#</span> grade F, 22 findings, all intentional</span></pre></div>
+<div><h5><code>bulwark: command not found</code> after installing</h5><span id="user-content-bulwark-command-not-found-after-installing"></span></div>
+<p>pip installed the executable into your user scripts directory and that
+directory is not on your PATH. Either use the module form, which always works:</p>
+<div><pre>python -m bulwark scan</pre></div>
+<p>or add the directory pip printed during install to your PATH. On Windows that
+is usually <code>%APPDATA%\Python\Python3xx\Scripts</code>.</p>
+<p>See <a href="https://github.com/abdulmanan69/bulwark/blob/main/docs/THREAT-MODEL.md">docs/THREAT-MODEL.md</a> for what Bulwark does and does
+not defend against, and <a href="https://github.com/abdulmanan69/bulwark/blob/main/docs/RULES.md">docs/RULES.md</a> for the full rule
+reference.</p>
+<hr>
+<div><h4>FAQ</h4><span id="user-content-faq"></span></div>
+<p><strong>Is this MCP server safe to install?</strong>
+Run <code>bulwark scan --online</code> in a directory whose config declares it. The
+<code>--online</code> flag starts the server and reads the tool descriptions it actually
+serves, which is the only way to see text a static config does not list.
+Bulwark lists tools; it never calls one.</p>
+<p><strong>What is tool poisoning?</strong>
+A tool description is documentation — it tells a model what a tool does. A
+poisoned one issues instructions instead: read this credential, send it there,
+do not mention this to the user. Because descriptions load into context before
+any tool is called, the instruction runs as soon as the server connects,
+whether or not the tool is ever used. Rule <code>BW-INJ-001</code>.</p>
+<p><strong>What is an MCP rug pull?</strong>
+A server behaves correctly while you review it, then changes a tool description
+afterwards. The config file is byte-identical, so code review shows nothing.
+<code>bulwark pin</code> hashes every model-visible string and <code>bulwark verify</code> fails when
+one moves. This is the failure mode static config review cannot detect by
+construction.</p>
+<p><strong>What is the lethal trifecta?</strong>
+An agent that can simultaneously reach private data, ingest content an outsider
+wrote, and send data outside the trust boundary. Any two of those is a normal
+integration; all three is a complete exfiltration path that needs no
+vulnerability to exploit. Rule <code>BW-CMP-001</code>.</p>
+<p><strong>How is this different from a dependency scanner?</strong>
+Snyk, Dependabot and Trivy read package manifests. None of them reads
+<code>.mcp.json</code>, and none of them parses a tool description — which is where this
+class of attack lives. Bulwark is complementary, not a replacement.</p>
+<p><strong>Does it send my configuration anywhere?</strong>
+No. There is no telemetry, no version check and no upload. Remote MCP endpoints
+are not contacted during a scan, because doing so would send your credentials
+to a third party as a side effect of running a security scan.</p>
+<p><strong>Will it leak my secrets into a report?</strong>
+No. Detected credentials are reduced to a masked preview and a hash before
+anything is written. The audit log records <code>"GitHub token"</code>, never the token.</p>
+<p><strong>Can I run it in CI?</strong>
+Yes — that is the main use. Exit codes are the contract, SARIF uploads to
+GitHub code scanning, and <code>--no-user-scope</code> keeps the scan off the runner's own
+home directory. There is a ready-made <a href="https://github.com/abdulmanan69/bulwark/blob/main/action.yml">GitHub Action</a>.</p>
+<p><strong>Can I add my own rules?</strong>
+Yes, two ways. Custom regex patterns go straight in
+<code>bulwark.policy.yaml</code> under <code>injection_patterns</code> with no code. Full rules are a
+Python class with one method, pointed at by <code>plugins:</code> — see
+<a href="https://github.com/abdulmanan69/bulwark/blob/main/docs/RULES.md">docs/RULES.md</a>.</p>
+<p><strong>Does it work on Windows?</strong>
+Yes. The test suite runs on Windows, macOS and Linux, and Windows console
+encoding is handled explicitly.</p>
+<p><strong>Why no dependencies?</strong>
+A tool you install to prevent supply-chain incidents should not be one. It also
+means it installs in minimal containers where CI actually runs.</p>
+<div><h4>Related work</h4><span id="user-content-related-work"></span></div>
+<p>Bulwark sits next to, not instead of, the tools you already run:</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Reads</th>
+<th>Bulwark overlap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Snyk / Dependabot / Trivy</td>
+<td>package manifests, images</td>
+<td>none — different files entirely</td>
+</tr>
+<tr>
+<td>Semgrep / CodeQL</td>
+<td>source code</td>
+<td>none — a tool description is not code</td>
+</tr>
+<tr>
+<td>Gitleaks / TruffleHog</td>
+<td>repository history for secrets</td>
+<td>partial — Bulwark also checks MCP <code>env</code> blocks</td>
+</tr>
+<tr>
+<td>MCP inspectors</td>
+<td>one server, interactively</td>
+<td>partial — Bulwark is non-interactive, multi-host, and pins</td>
+</tr>
+</tbody>
+</table>
+<div><h4>License</h4><span id="user-content-license"></span></div>
+<p>Apache-2.0. See <a href="https://github.com/abdulmanan69/bulwark/blob/main/LICENSE">LICENSE</a>.</p>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/apexquant/"><span>Python</span><h3>apexquant</h3></a><a class="related__card" href="/projects/abusebox/"><span>Python</span><h3>AbuseBox</h3></a><a class="related__card" href="/projects/leadclean/"><span>Python</span><h3>leadclean</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>

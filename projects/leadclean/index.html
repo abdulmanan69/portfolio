@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>leadclean: On-prem, LAN-only web app | Abdul Manan</title>
+<meta name="description" content="leadclean by Abdul Manan. On-prem, LAN-only web app: ingest huge lead files (100M+ rows), clean, dedupe, suppress DNC/blacklist, filter, export dialer-ready…" />
+<meta name="author" content="Abdul Manan" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://abdulmanan.tech/projects/leadclean/" />
+<meta name="theme-color" content="#faf8f5" />
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Abdul Manan" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="leadclean: On-prem, LAN-only web app | Abdul Manan" />
+<meta property="og:description" content="leadclean by Abdul Manan. On-prem, LAN-only web app: ingest huge lead files (100M+ rows), clean, dedupe, suppress DNC/blacklist, filter, export dialer-ready…" />
+<meta property="og:url" content="https://abdulmanan.tech/projects/leadclean/" />
+<meta property="og:image" content="https://abdulmanan.tech/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="leadclean: On-prem, LAN-only web app | Abdul Manan" />
+<meta name="twitter:description" content="leadclean by Abdul Manan. On-prem, LAN-only web app: ingest huge lead files (100M+ rows), clean, dedupe, suppress DNC/blacklist, filter, export dialer-ready…" />
+<meta name="twitter:image" content="https://abdulmanan.tech/og-image.png" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+
+</head>
+<body>
+<header class="post-topbar">
+  <a href="/" class="nav__logo" aria-label="Abdul Manan, home">AM<span>.</span></a>
+  <nav class="post-topbar__links" aria-label="Site">
+    <a href="/projects/">Projects</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main class="reader__body project-page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / <span aria-current="page">leadclean</span></nav>
+<h1>leadclean</h1>
+<p class="project-page__lead">On-prem, LAN-only web app: ingest huge lead files (100M+ rows), clean, dedupe, suppress DNC/blacklist, filter, export dialer-ready lists. Nothing discarded silently — every record lands in a bucket (Clean / Review / Malformed / Removed / Flagged).</p>
+<dl class="project-facts"><div><dt>Language</dt><dd>Python</dd></div><div><dt>Stars</dt><dd>0</dd></div><div><dt>Last updated</dt><dd><time datetime="2026-11-04">4 Nov 2026</time></dd></div></dl>
+<div class="project-links"><a class="btn btn--solid" href="https://github.com/abdulmanan69/leadclean" rel="noopener">View source on GitHub</a></div>
+<section class="readme" aria-labelledby="readme-h"><h2 id="readme-h">From the README</h2>
+<div><div><h3>LeadClean — Local Lead Data Cleaning &amp; DNC Filtering Platform</h3><span id="user-content-leadclean--local-lead-data-cleaning--dnc-filtering-platform"></span></div>
+
+<p>Specs: see <code>docs/</code> (BRD → RTM, shared requirement IDs).</p>
+<div><h4>Run locally (one command)</h4><span id="user-content-run-locally-one-command"></span></div>
+<div><pre>pip install -r backend\requirements.txt
+python run.py</pre></div>
+<p>Open <strong><a href="http://localhost:8080">http://localhost:8080</a></strong> → login <strong>admin / admin123</strong> (change it in Admin tab).</p>
+<ul>
+<li>LAN access: <code>http://&lt;server-ip&gt;:8080</code> (open port 8080 in Windows Firewall).</li>
+<li>Config: copy <code>backend\.env.example</code> → <code>backend\.env</code> (optional — defaults
+auto-detect machine RAM/cores; works on low-end machines, DuckDB spills to disk).</li>
+<li>Tests: <code>cd backend &amp;&amp; python -m pytest tests/ -q</code></li>
+</ul>
+<div><h4>Workflow</h4><span id="user-content-workflow"></span></div>
+<ol>
+<li><strong>Datasets</strong> — upload CSV/TXT/TSV/XLSX (chunked, resumable), any layout, headers optional.</li>
+<li><strong>Map</strong> — column → canonical mapping; auto-suggests (knows VICIdial repurposed
+columns: address2=make, address3=model, province=year, postal_code=zip);
+save as per-vendor template, auto-applies to future files.</li>
+<li><strong>Process</strong> — vectorized cleaning (phone→10-digit, ZIP pad, Title Case,
+state codes, car-make aliases, junk→null) → Parquet buckets.</li>
+<li><strong>DNC &amp; Rules</strong> — upload persistent DNC/blacklists (auto-apply to every job);
+field exclusion rules (dispositions, area codes...).</li>
+<li><strong>Jobs</strong> — pick datasets (cross-file dedup), dedup key, merge-fill, fuzzy
+thresholds, AND/OR filters, export format/chunking/split-by/naming → run.
+Progress live; results: export files + all 5 buckets downloadable + manifest.json.</li>
+</ol>
+<div><h4>Stack</h4><span id="user-content-stack"></span></div>
+<p>Python 3.11+ · FastAPI · DuckDB (all heavy set-based ops) · Polars · SQLite
+(metadata only) · Parquet (zstd) · Vue 3 web UI (vendored locally, no build
+step, works offline) served by the backend.</p>
+<p>Fuzzy dedup: DuckDB <code>jaro_winkler_similarity</code> self-join blocked on ZIP
+(same blocking strategy as Splink, no extra dependency).</p>
+<div><h4>Layout (TDD §2)</h4><span id="user-content-layout-tdd-2"></span></div>
+<div><pre><code>run.py              one-command start (creates data/ layout, boots API+UI)
+backend/app/        FastAPI + domain pipeline
+                    ingest → mapping → clean → validate → dedup → suppress → filter → export
+backend/tests/      25 tests incl. full E2E pipeline
+frontend/dist/      web UI (static, no build step needed)
+data/               raw / processed / dnc / jobs / exports  (PRD §13)
+deploy/             windows-service (NSSM) · docker (later, per user decision)
+</code></pre></div>
+<div><h4>Notes</h4><span id="user-content-notes"></span></div>
+<ul>
+<li>Default admin is created on first boot: <strong>admin / admin123</strong> — change it.</li>
+<li>Retention: nothing auto-deletes; datasets/jobs have manual Delete buttons.</li>
+<li>Docker deferred by decision — native run now; <code>deploy/docker/</code> reserved.</li>
+<li>UI is a dependency-free static page (React/AG Grid upgrade path preserved
+under <code>frontend/src/</code>); all grids page server-side, browser never loads full data.</li>
+</ul>
+</div>
+</section>
+<section class="related"><h2>More projects</h2><div class="related__grid"><a class="related__card" href="/projects/apexquant/"><span>Python</span><h3>apexquant</h3></a><a class="related__card" href="/projects/abusebox/"><span>Python</span><h3>AbuseBox</h3></a><a class="related__card" href="/projects/atlas/"><span>Python</span><h3>atlas</h3></a></div></section>
+</main>
+<footer class="footer">
+  <span>&copy; 2026 Abdul Manan</span>
+  <span>Built and designed by Abdul Manan &middot; <a href="https://github.com/abdulmanan69">github.com/abdulmanan69</a></span>
+  <a href="/">Home</a>
+</footer>
+</body>
+</html>
