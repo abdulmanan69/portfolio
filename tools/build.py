@@ -24,9 +24,27 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import blog                          # noqa: E402
+import check                         # noqa: E402
+import og                            # noqa: E402
 import projects                      # noqa: E402
 import repos as repo_data            # noqa: E402
-from common import ROOT, SITE, write  # noqa: E402
+from common import (AUTHOR, PERSON_ID, ROOT, SITE, inject, ld_script,  # noqa: E402
+                    person, write)
+
+
+def build_home_ld(lastmod):
+    """ProfilePage (with the full Person) and WebSite, written into index.html."""
+    profile = {
+        "@context": "https://schema.org", "@type": "ProfilePage", "@id": SITE + "/#profile",
+        "url": SITE + "/", "name": "%s — Web Developer Portfolio" % AUTHOR,
+        "dateModified": lastmod, "mainEntity": person(),
+    }
+    website = {
+        "@context": "https://schema.org", "@type": "WebSite", "@id": SITE + "/#website",
+        "name": AUTHOR, "alternateName": "abdulmanan.tech", "url": SITE + "/",
+        "publisher": {"@id": PERSON_ID},
+    }
+    inject("index.html", "ld-home", "\n".join(ld_script(x) for x in (profile, website)))
 
 
 def build_sitemap(entries):
@@ -59,7 +77,10 @@ def main():
     blog_entries = blog.build(posts, repos)
 
     home_lastmod = max(e[1] for e in project_entries + blog_entries)
+    build_home_ld(home_lastmod)
     build_sitemap([("/", home_lastmod, SITE + "/og-image.png")] + project_entries + blog_entries)
+    og.save_manifest()
+    check.run()
     print("done")
 
 
