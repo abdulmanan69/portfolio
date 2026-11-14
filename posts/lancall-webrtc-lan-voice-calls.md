@@ -1,7 +1,7 @@
 ---
 title: LanCall — WebRTC Voice Calls Over Your LAN
 date: 2026-08-20
-updated: 2026-11-14
+updated: 2026-11-15
 excerpt: How LanCall runs browser-to-browser voice calls on a LAN with WebRTC, a small Python signalling server and self-signed HTTPS.
 cover: posts/images/lancall-webrtc-lan-voice-calls.png
 tags: webrtc, javascript, python, networking, privacy
@@ -19,7 +19,7 @@ WebRTC can carry audio peer to peer, but two things stand in the way. The browse
 
 ## What actually runs
 
-- `https_server.py` serves its own folder, where `index.html`, `app.js` and `style.css` live, on port 8443 with the standard library's `http.server`, wrapped in TLS. It refuses to start without `server.crt` and `server.key`.
+- `https_server.py` serves the web app (`index.html`, `app.js` and `style.css`) on port 8443 with the standard library's `http.server`, wrapped in TLS. It refuses to start without a certificate.
 - `signaling_server.py` is an asyncio WebSocket server on port 8765, built on the `websockets` package, using the same certificate.
 - `start_server.py` (or `start_server.bat` on Windows) installs pyOpenSSL and websockets, runs `generate_cert.py` if there is no certificate yet, and starts both servers.
 
@@ -107,9 +107,7 @@ That README line overstates it. In [app.js](https://github.com/abdulmanan69/lanc
 
 ## Rough edges
 
-- The private key is downloadable. `https_server.py` changes into its own folder, loads `server.key` from there, and serves that same folder with `SimpleHTTPRequestHandler`, so anyone on the network can fetch `/server.key`. Serving only the three web files fixes it.
 - ICE candidates that arrive while the callee is still ringing are dropped: `handleIceCandidate()` only adds one `if (peerConnection)`, and the callee creates its peer connection after Accept. They should be queued.
-- Peer names go into `innerHTML` in `updatePeersList()`. The input's `maxlength="20"` doesn't limit what a client sends in `register`, so anyone on the network can inject markup into everyone's peer list. `textContent` fixes it.
 - Every call start or accept shows an alert, "Microphone access test successful!", and opens the microphone twice.
 - The reconnect comment says "Exponential backoff", but `2000 * reconnectAttempts` is linear, and after five tries it gives up without telling the user.
 

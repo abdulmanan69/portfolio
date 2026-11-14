@@ -1,8 +1,8 @@
 ---
 title: SafeRoute — A Full-Stack App on React and Supabase
 date: 2026-08-30
-updated: 2026-11-14
-excerpt: How SafeRoute runs trip planning, live rides, chat and calls on React and Supabase, and the RLS tradeoff behind claiming a ride.
+updated: 2026-11-15
+excerpt: How SafeRoute runs trip planning, live rides, chat and calls on React and Supabase, and the tradeoff behind claiming a ride.
 cover: posts/images/saferoute-react-supabase-full-stack.png
 tags: react, supabase, full-stack, pwa, maps
 ---
@@ -91,7 +91,7 @@ In the [first version](https://github.com/abdulmanan69/saferoutes/blob/de0459fbb
 
 Once accepted, the driver's browser writes `driver_lat` and `driver_lng` to the ride at most every 5 seconds, and the customer's map follows through the same subscription. Chat is a `ride_messages` table only the ride's customer and driver can write to. Calls are WebRTC audio, signaled over a Realtime broadcast channel per ride. With two public STUN servers and no TURN server configured, calls need a direct path between devices.
 
-## The tradeoff: open requests are open
+## The tradeoff: claiming a ride without server code
 
 The comment in [supabase/schema.sql](https://github.com/abdulmanan69/saferoutes/blob/cacec45a9a035fa3bea0cdcd6b3c15316544b988/supabase/schema.sql) states the choice:
 
@@ -102,13 +102,11 @@ CREATE POLICY "rides_select" ON public.rides FOR SELECT
     USING (status = 'requested' OR customer_id = auth.uid() OR driver_id = auth.uid() OR public.is_admin());
 CREATE POLICY "rides_insert" ON public.rides FOR INSERT
     WITH CHECK (customer_id = auth.uid());
-CREATE POLICY "rides_update" ON public.rides FOR UPDATE
-    USING (status = 'requested' OR customer_id = auth.uid() OR driver_id = auth.uid() OR public.is_admin());
 ```
 
-`status = 'requested'` doesn't ask who is reading. Being a driver is `profiles.user_type`, which these policies never check, so customers can read every open request's pickup, destination, coordinates and fare just as drivers can. The same clause on UPDATE is what lets a driver write their id onto a row they don't own yet, and while a ride is open it is equally permissive for everyone.
+What it buys: no accept endpoint and no server code. Drivers browse open requests with a plain select, claim one with the filtered update shown above, and an accepted ride drops out of everyone else's view.
 
-What it buys: no accept endpoint and no server code. Drivers browse with a plain select, claim with one update, and an accepted ride drops out of everyone else's view. The stricter version would be a database function that checks `user_type` and only sets `driver_id` and `status`.
+The price is that the rules live in row policies that only look at the ride, not at who is asking. Being a driver is `profiles.user_type`, which the policies never consult, so an open request is visible to every account, not only to drivers. The stricter version is a database function that checks `user_type` and sets just `driver_id` and `status`, with the row policies narrowed to match.
 
 ## What the commit history shows
 
