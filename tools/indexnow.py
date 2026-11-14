@@ -74,8 +74,13 @@ def url_for(path):
 
 
 def changed_urls(since, until):
-    """(url, expected live status, path at `until` or None) for each changed page."""
+    """(url, expected live status, path at `until` or None) for each changed page.
+    Pages that were in the previous sitemap count too, so a page that just turned
+    noindex gets recrawled and dropped."""
     listed = set(sitemap_urls())
+    before = subprocess.run(["git", "show", "%s:sitemap.xml" % since], cwd=ROOT,
+                            capture_output=True, text=True).stdout
+    listed |= set(re.findall(r"<loc>([^<]+)</loc>", before))
     out = []
     for line in git("diff", "--name-status", "--no-renames", since, until).splitlines():
         status, path = line.split("\t", 1)
