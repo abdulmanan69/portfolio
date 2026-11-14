@@ -52,13 +52,14 @@ FEATURED = ["bulwark", "pdf-toolkit", "cv-maker", "leadslicer", "saferoutes",
 #   description  replaces the GitHub description (better: fix it on GitHub)
 # Display names below come from the titles of your own blog posts.
 OVERRIDES = {
+    # demo URLs below were checked live (HTTP 200) on 2026-11-14
     "bulwark": {"name": "Bulwark"},
-    "cv-maker": {"name": "CV Studio"},
+    "cv-maker": {"name": "CV Studio", "demo": "https://abdulmanan69.github.io/cv-maker/"},
     "InvoiceApp": {"name": "InvoiceApp"},
     "lancall": {"name": "LanCall"},
-    "leadslicer": {"name": "LeadSlicer"},
+    "leadslicer": {"name": "LeadSlicer", "demo": "https://leadslicer.abdulmanan.tech/"},
     "saferoutes": {"name": "SafeRoute"},
-    "pdf-toolkit": {"name": "ToolForge"},
+    "pdf-toolkit": {"name": "ToolForge", "demo": "https://abdulmanan69.github.io/pdf-toolkit/"},
 }
 
 # ---------------------------------------------------------------- internals
