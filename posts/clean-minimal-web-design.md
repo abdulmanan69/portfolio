@@ -4,6 +4,7 @@ date: 2026-07-18
 excerpt: Minimalism isn't about empty pages. It's about removing everything that isn't doing a job, so the things that matter can breathe.
 cover: posts/images/clean-minimal-web-design.png
 tags: design, ui, minimalism
+noindex: true
 ---
 
 # Clean, Minimal Web Design — Less but Better

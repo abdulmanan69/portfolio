@@ -4,6 +4,7 @@ date: 2026-08-02
 excerpt: Search engine optimization isn't magic. It's clean HTML, fast pages, good metadata and structured data. Here's the practical checklist I use.
 cover: posts/images/seo-for-developers.png
 tags: seo, web, google, performance
+noindex: true
 ---
 
 # SEO for Developers — How I Get Pages to Rank

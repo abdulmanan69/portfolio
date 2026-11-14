@@ -4,6 +4,7 @@ date: 2026-07-28
 excerpt: How I make websites that look right on a 360px phone and a 4K monitor, using fluid layouts, sensible breakpoints and a mobile-first mindset.
 cover: posts/images/responsive-web-design.png
 tags: web, css, responsive, mobile
+noindex: true
 ---
 
 # Responsive Web Design — One Site, Every Screen

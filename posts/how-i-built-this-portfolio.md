@@ -4,6 +4,7 @@ date: 2026-07-24
 excerpt: A behind-the-scenes look at building a fast, GitHub-driven portfolio with zero build step — projects and blog posts that update themselves.
 cover: posts/images/how-i-built-this-portfolio.png
 tags: web, javascript, build-log
+noindex: true
 ---
 
 # How I Built This Portfolio

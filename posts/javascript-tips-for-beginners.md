@@ -4,6 +4,7 @@ date: 2026-08-08
 excerpt: Small habits that made my JavaScript cleaner and less buggy — from const-by-default to guard clauses and optional chaining.
 cover: posts/images/javascript-tips-for-beginners.png
 tags: javascript, web, beginners, tips
+noindex: true
 ---
 
 # 10 JavaScript Tips Every Beginner Should Know

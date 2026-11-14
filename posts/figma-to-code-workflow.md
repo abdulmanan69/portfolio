@@ -4,6 +4,7 @@ date: 2026-08-14
 excerpt: How I go from a blank Figma canvas to a working, responsive website — the decisions, the handoff, and the details that make it feel finished.
 cover: posts/images/figma-to-code-workflow.png
 tags: design, figma, ui, workflow
+noindex: true
 ---
 
 # From Figma to Code — My Design Workflow

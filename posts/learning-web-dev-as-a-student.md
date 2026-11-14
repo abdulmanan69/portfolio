@@ -4,6 +4,7 @@ date: 2026-07-10
 excerpt: What actually helped me learn to build for the web — and what turned out to be a waste of time. An honest note from someone still learning.
 cover: posts/images/learning-web-dev-as-a-student.png
 tags: learning, web, beginners
+noindex: true
 ---
 
 # Learning Web Development as a Student
