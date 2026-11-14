@@ -42,8 +42,9 @@ DENYLIST = {
 }
 
 # Repo names, in display order, pinned first on the homepage and /projects/.
-# TODO(Abdul): fill this in, e.g. ["lancall", "bulwark", "pdf-toolkit"].
-FEATURED = []
+# These are the projects with a full write-up on the blog, newest first.
+FEATURED = ["bulwark", "pdf-toolkit", "cv-maker", "leadslicer", "saferoutes",
+            "InvoiceApp", "lancall"]
 
 # Facts GitHub doesn't hold. Only put true things here.
 #   name         display name (defaults to the repo name)

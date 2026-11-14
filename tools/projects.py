@@ -431,7 +431,10 @@ def build_hub(repos):
 
 def inject_home(repos):
     """Bake the top project cards into index.html between the build markers."""
-    top = featured_first(repos)[:HOME_CARDS]
+    # every featured project, topped up to fill whole rows of three
+    featured = sum(r["featured"] for r in repos)
+    count = max(HOME_CARDS, -(-featured // 3) * 3)
+    top = featured_first(repos)[:count]
     inject("index.html", "projects", "\n".join(card(r, reveal=True) for r in top))
     inject("index.html", "projects-count", "All %d projects &rarr;" % len(repos), inline=True)
 
