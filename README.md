@@ -69,8 +69,13 @@ portfolio/
    excerpt: One line for the card and SEO.
    cover: posts/images/my-post.png
    tags: web, design
+   updated: 2026-08-01      # optional: last real content change
+   noindex: true            # optional: keep it on the blog, out of Google
    ---
    ```
+   (The `#` comments above are only for this README; the parser doesn't allow them.)
+   Every tag gets a page at `/blog/tags/<tag>/`; it's indexable once three
+   indexable posts share the tag.
 3. Generate the cover and rebuild the crawlable pages:
    ```bash
    python tools/make-cover.py my-post "Short Cover Title" CATEGORY
