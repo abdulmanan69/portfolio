@@ -6,7 +6,7 @@
 <title>Responsive Web Design — One Site, Every Screen - Abdul Manan</title>
 <meta name="description" content="How I make websites that look right on a 360px phone and a 4K monitor, using fluid layouts, sensible breakpoints and a mobile-first mindset." />
 <meta name="author" content="Abdul Manan" />
-<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="robots" content="noindex, follow" />
 <link rel="canonical" href="https://abdulmanan.tech/blog/responsive-web-design/" />
 <meta name="theme-color" content="#faf8f5" />
 <script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
@@ -25,6 +25,13 @@
 <meta name="twitter:description" content="How I make websites that look right on a 360px phone and a 4K monitor, using fluid layouts, sensible breakpoints and a mobile-first mindset." />
 <meta name="twitter:image" content="https://abdulmanan.tech/posts/images/responsive-web-design.png" />
 <meta name="twitter:image:alt" content="Cover: Responsive Web Design — One Site, Every Screen" />
+<meta property="article:published_time" content="2026-07-28" />
+<meta property="article:modified_time" content="2026-07-28" />
+<meta property="article:author" content="https://abdulmanan.tech/" />
+<meta property="article:tag" content="web" />
+<meta property="article:tag" content="css" />
+<meta property="article:tag" content="responsive" />
+<meta property="article:tag" content="mobile" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
@@ -32,7 +39,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/style.css" />
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Responsive Web Design — One Site, Every Screen", "description": "How I make websites that look right on a 360px phone and a 4K monitor, using fluid layouts, sensible breakpoints and a mobile-first mindset.", "image": "https://abdulmanan.tech/posts/images/responsive-web-design.png", "wordCount": 263, "author": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "publisher": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "datePublished": "2026-07-28", "dateModified": "2026-07-28", "keywords": "web, css, responsive, mobile", "mainEntityOfPage": "https://abdulmanan.tech/blog/responsive-web-design/", "url": "https://abdulmanan.tech/blog/responsive-web-design/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "@id": "https://abdulmanan.tech/blog/responsive-web-design/#article", "headline": "Responsive Web Design — One Site, Every Screen", "description": "How I make websites that look right on a 360px phone and a 4K monitor, using fluid layouts, sensible breakpoints and a mobile-first mindset.", "image": ["https://abdulmanan.tech/posts/images/responsive-web-design.png"], "inLanguage": "en", "wordCount": 263, "timeRequired": "PT1M", "author": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "publisher": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "datePublished": "2026-07-28", "dateModified": "2026-07-28", "keywords": "web, css, responsive, mobile", "isPartOf": {"@id": "https://abdulmanan.tech/blog/#blog"}, "mainEntityOfPage": "https://abdulmanan.tech/blog/responsive-web-design/", "url": "https://abdulmanan.tech/blog/responsive-web-design/"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulmanan.tech/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://abdulmanan.tech/blog/"}, {"@type": "ListItem", "position": 3, "name": "Responsive Web Design — One Site, Every Screen", "item": "https://abdulmanan.tech/blog/responsive-web-design/"}]}</script>
 </head>
 <body>
@@ -46,8 +53,8 @@
 <main class="reader__body">
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/blog/">Blog</a> / <span aria-current="page">Responsive Web Design — One Site, Every Screen</span></nav>
 <h1>Responsive Web Design — One Site, Every Screen</h1>
-<div class="reader__meta">By Abdul Manan - 2026-07-28 - 1 min read - #web #css #responsive #mobile</div>
-<img class="post-hero-img" alt="Responsive Web Design — One Site, Every Screen" src="https://abdulmanan.tech/posts/images/responsive-web-design.png">
+<div class="reader__meta">By <a href="/">Abdul Manan</a> &middot; <time datetime="2026-07-28">Jul 28, 2026</time> &middot; 1 min read<div class="reader__tags"><a href="/blog/tags/web/">#web</a> <a href="/blog/tags/css/">#css</a> <a href="/blog/tags/responsive/">#responsive</a> <a href="/blog/tags/mobile/">#mobile</a></div></div>
+<img class="post-hero-img" alt="Responsive Web Design — One Site, Every Screen" src="https://abdulmanan.tech/posts/images/responsive-web-design.png" width="1200" height="675">
 <p>Most people will see your site on a phone. If it only looks good on your laptop, it doesn't look good. Here's how I build sites that adapt to any screen.</p>
 <h2>Mobile-first, always</h2>
 <p>I write the base styles for the smallest screen first, then <em>add</em> complexity for bigger ones with <code>min-width</code> media queries. It keeps the CSS simple and forces me to decide what actually matters before I have room for extras.</p>
@@ -71,7 +78,7 @@
 <a href="https://api.whatsapp.com/send?text=Responsive%20Web%20Design%20%E2%80%94%20One%20Site%2C%20Every%20Screen%20https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fresponsive-web-design%2F" target="_blank" rel="noopener">WhatsApp</a>
 <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fresponsive-web-design%2F" target="_blank" rel="noopener">Facebook</a>
 <button type="button" onclick="navigator.clipboard.writeText('https://abdulmanan.tech/blog/responsive-web-design/');this.textContent='Copied!'">Copy link</button></div>
-<nav class="prevnext" aria-label="More posts"><a href="/blog/seo-for-developers/">&larr; SEO for Developers — How I Get Pages to Rank</a><a href="/blog/how-i-built-this-portfolio/">How I Built This Portfolio &rarr;</a></nav>
+<nav class="prevnext" aria-label="More posts"><a href="/blog/seo-for-developers/" rel="prev">&larr; SEO for Developers — How I Get Pages to Rank</a><a href="/blog/how-i-built-this-portfolio/" rel="next">How I Built This Portfolio &rarr;</a></nav>
 <section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/javascript-tips-for-beginners/"><span>2026-08-08</span><h3>10 JavaScript Tips Every Beginner Should Know</h3></a><a class="related__card" href="/blog/seo-for-developers/"><span>2026-08-02</span><h3>SEO for Developers — How I Get Pages to Rank</h3></a><a class="related__card" href="/blog/how-i-built-this-portfolio/"><span>2026-07-24</span><h3>How I Built This Portfolio</h3></a></div></section>
 </main>
 <footer class="footer">

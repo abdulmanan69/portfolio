@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>InvoiceApp — Offline Invoicing and Stock Control - Abdul Manan</title>
-<meta name="description" content="Invoices, quotations, inventory, payments and returns in one local SQLite file. No server, no internet, no subscription." />
+<meta name="description" content="A Windows desktop app that keeps invoices, stock and payments in one local SQLite file, with optional Supabase sync between PCs." />
 <meta name="author" content="Abdul Manan" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/" />
@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Abdul Manan" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:title" content="InvoiceApp — Offline Invoicing and Stock Control - Abdul Manan" />
-<meta property="og:description" content="Invoices, quotations, inventory, payments and returns in one local SQLite file. No server, no internet, no subscription." />
+<meta property="og:description" content="A Windows desktop app that keeps invoices, stock and payments in one local SQLite file, with optional Supabase sync between PCs." />
 <meta property="og:url" content="https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/" />
 <meta property="og:image" content="https://abdulmanan.tech/posts/images/invoiceapp-offline-invoicing-small-business.png" />
 <meta property="og:image:width" content="1200" />
@@ -22,9 +22,17 @@
 <meta property="og:image:alt" content="Cover: InvoiceApp — Offline Invoicing and Stock Control" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="InvoiceApp — Offline Invoicing and Stock Control - Abdul Manan" />
-<meta name="twitter:description" content="Invoices, quotations, inventory, payments and returns in one local SQLite file. No server, no internet, no subscription." />
+<meta name="twitter:description" content="A Windows desktop app that keeps invoices, stock and payments in one local SQLite file, with optional Supabase sync between PCs." />
 <meta name="twitter:image" content="https://abdulmanan.tech/posts/images/invoiceapp-offline-invoicing-small-business.png" />
 <meta name="twitter:image:alt" content="Cover: InvoiceApp — Offline Invoicing and Stock Control" />
+<meta property="article:published_time" content="2026-08-25" />
+<meta property="article:modified_time" content="2026-11-14" />
+<meta property="article:author" content="https://abdulmanan.tech/" />
+<meta property="article:tag" content="python" />
+<meta property="article:tag" content="sqlite" />
+<meta property="article:tag" content="desktop" />
+<meta property="article:tag" content="business" />
+<meta property="article:tag" content="pdf" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
@@ -32,7 +40,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/style.css" />
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "InvoiceApp — Offline Invoicing and Stock Control", "description": "Invoices, quotations, inventory, payments and returns in one local SQLite file. No server, no internet, no subscription.", "image": "https://abdulmanan.tech/posts/images/invoiceapp-offline-invoicing-small-business.png", "wordCount": 834, "author": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "publisher": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "datePublished": "2026-08-25", "dateModified": "2026-08-25", "keywords": "python, sqlite, desktop, business, pdf", "mainEntityOfPage": "https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/", "url": "https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "@id": "https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/#article", "headline": "InvoiceApp — Offline Invoicing and Stock Control", "description": "A Windows desktop app that keeps invoices, stock and payments in one local SQLite file, with optional Supabase sync between PCs.", "image": ["https://abdulmanan.tech/posts/images/invoiceapp-offline-invoicing-small-business.png"], "inLanguage": "en", "wordCount": 1412, "timeRequired": "PT7M", "author": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "publisher": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "datePublished": "2026-08-25", "dateModified": "2026-11-14", "keywords": "python, sqlite, desktop, business, pdf", "isPartOf": {"@id": "https://abdulmanan.tech/blog/#blog"}, "mainEntityOfPage": "https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/", "url": "https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/", "about": [{"@id": "https://abdulmanan.tech/projects/invoiceapp/#code"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulmanan.tech/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://abdulmanan.tech/blog/"}, {"@type": "ListItem", "position": 3, "name": "InvoiceApp — Offline Invoicing and Stock Control", "item": "https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/"}]}</script>
 </head>
 <body>
@@ -46,36 +54,64 @@
 <main class="reader__body">
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/blog/">Blog</a> / <span aria-current="page">InvoiceApp — Offline Invoicing and Stock Control</span></nav>
 <h1>InvoiceApp — Offline Invoicing and Stock Control</h1>
-<div class="reader__meta">By Abdul Manan - 2026-08-25 - 4 min read - #python #sqlite #desktop #business #pdf</div>
-<img class="post-hero-img" alt="InvoiceApp — Offline Invoicing and Stock Control" src="https://abdulmanan.tech/posts/images/invoiceapp-offline-invoicing-small-business.png">
-<p>Small shops run on a monthly subscription they resent, or on a spreadsheet nobody trusts. Both fail the same way: the subscription needs internet and a card that keeps working, and the spreadsheet lets you sell fifty units of something you have thirty of.</p>
-<p><strong><a href="https://github.com/abdulmanan69/InvoiceApp">InvoiceApp</a></strong> is a standalone Windows desktop app that keeps customers, vendors, products, stock, purchases, invoices, quotations, payments and returns in <strong>one local SQLite file</strong>. No server, no internet, no subscription. Default currency is Pakistani Rupee (PKR, "Rs"), changeable in Settings.</p>
-<h2>Documents that behave like documents</h2>
-<p>Invoices and quotations share a searchable, filterable list and an editor with product auto-fill that shows what's actually in stock. Per-line tax override, percentage or fixed discount, live totals, duplicate, print, PDF export — and <strong>one-click convert quotation → invoice</strong>, which is the step every shop does daily and most software makes you retype.</p>
-<p><strong>Seven PDF templates</strong> — Modern, Classic, Minimal, Bold, Corporate, Elegant, Compact — in A4 or Letter. Big company name and bill-to details, logo, itemised table with grid borders, totals, status badge, notes and terms, bank details, and <strong>signature boxes</strong> (prepared by / received by, with names). Long item lists paginate with the table header repeated, which sounds trivial until you've received page 3 of an invoice with no column labels.</p>
-<p>Every document also gets a <em>Show / hide sections &amp; columns</em> panel: turn off the status badge, due date, currency, logo, any table column, the discount, tax or paid lines, notes, terms, bank details, signatures or the grid. Defaults live in Settings → PDF layout. Different customers want different paperwork, and hardcoding one opinion means someone maintains a second template forever.</p>
-<p>Numbering is prefix + counter + padding per document type, editable, with duplicates rejected.</p>
-<h2>Money, computed rather than typed</h2>
-<p>Payments support partial amounts and guard against overpayment. "Mark as paid" writes a real payment row instead of flipping a flag, so the payments log and the invoice can't disagree. There's a global payments log with CSV export.</p>
-<p>Status is <strong>always computed</strong> — Unpaid, Partially Paid, Paid, Overdue. Nobody sets it by hand, so nobody forgets to.</p>
-<p>Customer returns credit the invoice, dropping the balance, and can optionally put items back into stock. A return that fixes the money but not the shelf is how inventory drifts away from reality.</p>
-<h2>Inventory that says no</h2>
-<p>Products carry a <strong>cost price</strong> (what you paid) and a <strong>sale price</strong>, with margin shown to owners. Purchases from vendors add stock and update the cost price; returns to vendor remove it.</p>
-<p>The rule that matters: <strong>invoices cannot sell more than is in stock.</strong> Fifty in stock means fifty is the maximum on an invoice. Owners can allow negative stock in Settings if their business genuinely works that way, but the default is the safe one. Editing an existing invoice frees its own stock first, so changing a line from 10 to 12 doesn't fail against stock the same invoice is holding.</p>
-<p>On top: stock levels, low-stock alerts (global threshold or per product), stock adjustments, a full movement history, and best sellers by quantity, revenue and gross profit over a date range.</p>
-<h2>Roles, because not everyone should see the margin</h2>
-<p>First run creates the <strong>owner</strong>. Owners see everything — payments, purchases, costs, profit, vendors, settings, users. <strong>Employees</strong> work with invoices, quotations, customers, products (sale prices only) and can view stock — no payments, no costs, no deletes.</p>
-<p>That split isn't paranoia, it's ordinary: the person at the counter needs to issue an invoice and should not be able to see what you paid the vendor, or quietly delete a document.</p>
-<p>The owner dashboard shows outstanding, paid this month, overdue, open quotes, gross profit, stock value, low stock, purchases, best sellers and an activity feed. The employee dashboard shows counts only.</p>
-<h2>Nothing business-specific is hardcoded</h2>
-<p>Company profile and logo, currency, tax defaults, numbering, payment methods, default notes and terms, template and page size, bill-to heading, signature labels and names, PDF defaults, low-stock rules, live theme colours, backup and restore.</p>
-<p>That list <em>is</em> the product. Software for small businesses usually dies on the one assumption the author never questioned — a currency symbol, a tax rate, a document label — and at that point it's someone else's tool you're fighting.</p>
-<h2>Why SQLite and why offline</h2>
-<p>One file holds everything. Backup is copying it. Restore is copying it back. There is no connection string, no migration server, no "the internet is down so we can't bill anyone."</p>
-<p>And because it's a real database rather than a spreadsheet, the constraints above — stock limits, computed status, atomic payments — are actually enforced instead of being a convention everyone violates when it's busy.</p>
-<h2>Run from source</h2>
-<pre><code class="language-bat">python -m pip install -r requirements.txt</code></pre>
-<p>Source: <a href="https://github.com/abdulmanan69/InvoiceApp">github.com/abdulmanan69/InvoiceApp</a>. If your business needs something shaped like this — or the web version of it — <a href="/#contact">get in touch</a>.</p>
+<div class="reader__meta">By <a href="/">Abdul Manan</a> &middot; <time datetime="2026-08-25">Aug 25, 2026</time> &middot; updated <time datetime="2026-11-14">Nov 14, 2026</time> &middot; 7 min read<div class="reader__tags"><a href="/blog/tags/python/">#python</a> <a href="/blog/tags/sqlite/">#sqlite</a> <a href="/blog/tags/desktop/">#desktop</a> <a href="/blog/tags/business/">#business</a> <a href="/blog/tags/pdf/">#pdf</a></div></div>
+<img class="post-hero-img" alt="InvoiceApp — Offline Invoicing and Stock Control" src="https://abdulmanan.tech/posts/images/invoiceapp-offline-invoicing-small-business.png" width="1200" height="675">
+<p><a href="https://github.com/abdulmanan69/InvoiceApp">InvoiceApp</a> is a Windows desktop app I built for small shops. Customers, vendors, products, stock, purchases, invoices, quotations, payments and returns all live in one local SQLite file. It is Python 3.11+ with Tkinter and ttkbootstrap for the UI and reportlab for the PDFs, with Pakistani Rupee as the default currency. There is also a short <a href="/projects/invoiceapp/">project page</a>.</p>
+<h2>The problem</h2>
+<p>The job is ordinary counter work: quote a price, turn the quote into an invoice, take part of the money now and the rest later, accept a return, restock from a vendor. It has to run on a shop PC with no server and no internet, and it has to refuse the mistakes a spreadsheet allows, like selling fifty units of something you have thirty of.</p>
+<p>The second problem came later. A shop with more than one PC needs them to agree, but billing cannot stop when the connection drops. Versions 2.7 to 3.0 add cloud sync through Supabase without making the local file depend on it.</p>
+<h2>How it is put together</h2>
+<p><code>db.py</code> owns the schema, migrations and settings. <code>models.py</code> holds the business logic as plain functions over dicts. <code>pdf_templates.py</code> draws the documents, each screen is its own <code>ui_*.py</code>, and <code>cloud.py</code> plus <code>sync.py</code> handle Supabase. One <code>sqlite3</code> connection, opened with <code>check_same_thread=False</code> and guarded by an <code>RLock</code>, is shared by the UI and the background sync thread.</p>
+<p>Business values are settings rows, not constants. The comment above <code>DEFAULT_SETTINGS</code> states the rule: "Every brandable / business-specific value lives here, never in the UI or PDF code."</p>
+<h3>Stock is a ledger</h3>
+<p>The <code>products</code> table has no stock column. Purchases, sales, restocked customer returns, vendor returns and manual adjustments each write a signed row to <code>stock_movements</code>, and the level is the sum:</p>
+<pre><code class="language-python">def stock_level(db: Database, product_id, exclude_ref: tuple | None = None) -&gt; float:
+    sql = "SELECT SUM(qty) FROM stock_movements WHERE product_id = ?"
+    params: list = [product_id]
+    if exclude_ref:
+        sql += " AND NOT (ref_type = ? AND ref_id = ?)"
+        params += list(exclude_ref)
+    return round2(db.scalar(sql, params, 0) or 0)</code></pre>
+<p>From <a href="https://github.com/abdulmanan69/InvoiceApp/blob/5a6601e20d4081a45e2a97c1779ac24be7fcc94b/models.py">models.py</a> at v3.0.0.</p>
+<p><code>exclude_ref</code> is what makes editing work. Change an invoice line from 10 to 12 and the stock check leaves out that invoice's own movements, so it does not fail against stock the invoice is already holding. <code>save_document</code> then replaces those movements in the same transaction as the line items. Unless the owner turns on <code>allow_negative_stock</code>, an invoice that needs more than is on hand raises a <code>StockError</code> naming each short line.</p>
+<h3>Money is derived, not typed</h3>
+<p>Invoice status is never stored. <code>compute_status</code> works it out on every read from the total, payments plus return credits, and the due date. It checks Paid, then Overdue, then Partially Paid, then Unpaid, so a partly paid invoice past its due date shows as Overdue.</p>
+<p><code>add_payment</code> stops an amount above the remaining balance with an <code>OverpaymentError</code>, which the payment dialog turns into an explicit "record it anyway?" question. "Mark as paid" records a payment for whatever is left, so the payments log and the invoice cannot disagree. Each saved line copies the product's SKU and cost price "so profit and PDFs stay stable later".</p>
+<h3>PDFs and roles</h3>
+<p>There are eight reportlab templates, Ledger being the newest, in A4 or Letter. The items table uses <code>repeatRows=1</code>, so long invoices repeat the column header on every page.</p>
+<p>Accounts are owner or employee, with PBKDF2-SHA256 password hashes. Roles are enforced by the UI, not by <code>models.py</code>: <code>main.py</code> never builds the Vendors, Payments and Settings pages for an employee, and the documents page only adds Delete and the payment buttons for owners.</p>
+<h2>Sync without giving up offline</h2>
+<p>The <code>sync.py</code> docstring sets the rule: "Local SQLite stays the source of truth." Phase A (<code>9a65061</code>) prepared the database and synced nothing. Phase B (<code>b86e6a4</code>) synced customers only. Phase C (<code>5a6601e</code>, v3.0.0) covers all 11 tables.</p>
+<p>SQLite triggers append every local insert, update and delete to a <code>sync_outbox</code> table. Pulled rows already carry a UUID and are written with a <code>sync_suppress</code> flag set, so the triggers do not queue them again. With auto-sync on, a daemon thread runs every 30 seconds: it pushes the outbox, then pulls rows newer than a per-table cursor.</p>
+<p>Integer ids differ per machine, so every foreign key crosses the wire as the parent row's UUID and is translated back on arrival. Tables are pulled parents first, and a child that arrives before its parent stops that table's pull until the next cycle.</p>
+<p>On Supabase each entity is one table with a <code>jsonb</code> <code>data</code> column, "so this schema never has to change when the app adds fields", per <code>SUPABASE_SETUP.sql</code>. A server trigger stamps <code>updated_at</code> "regardless of each PC's clock", and conflicts are last-write-wins by that timestamp, except that a local row still waiting in the outbox beats an incoming one.</p>
+<h2>The tradeoff: duplicate invoice numbers</h2>
+<p>Numbering is local. <code>next_number</code> reads a counter from settings and checks only the local <code>documents</code> table, which has <code>UNIQUE (doc_type, number)</code>. Two PCs offline at the same time can both issue INV-0007, and the second to arrive on either machine cannot be inserted as is.</p>
+<p>Blocking numbering until a PC is online would defeat offline billing. Renumbering the incoming invoice would change a number that may already be printed. The v3.0.0 commit message records the choice I made instead: "UNIQUE number collisions from offline PCs are kept by tagging the later arrival (INV-0007-ab12)."</p>
+<pre><code class="language-python">    def _write_row(self, t: str, cols: list[str], uid: str, r: dict, data: dict) -&gt; bool:
+        vals = [data.get(c) for c in cols]
+        local = self.db.query_one(f"SELECT id FROM {t} WHERE uuid = ?", (uid,))
+        try:
+            self._exec_row(t, cols, vals, uid, r, local)
+            return True
+        except sqlite3.IntegrityError as e:
+            # two PCs can mint the same invoice/purchase/return number while offline; keep both
+            # rows by tagging the later arrival's number
+            if "UNIQUE" in str(e).upper() and data.get("number"):
+                data["number"] = f"{data['number']}-{uid[:4]}"
+                # ...</code></pre>
+<p>From <a href="https://github.com/abdulmanan69/InvoiceApp/blob/5a6601e20d4081a45e2a97c1779ac24be7fcc94b/sync.py">sync.py</a> at v3.0.0.</p>
+<p>Nothing is lost, and <code>test_duplicate_offline_numbers_both_survive</code> checks that both rows exist. The cost: the rename happens while <code>sync_suppress</code> is on, so the rename itself is never queued for push. Each PC keeps its own document as INV-0007 and shows the other with a suffix, so one number points at different invoices on different machines. The stock rule has the same limit, since the check reads the local file and only counts sales from other PCs once they have synced.</p>
+<h2>What the commit history shows</h2>
+<p>The public history is 29 commits. v1.0 (<code>8c846b7</code>) had invoices, quotations, payments and three PDF templates. v2.0 (<code>421e64f</code>) added roles, inventory, returns and seven templates. The Ledger template (<code>7780eb0</code>) needed two follow-up fixes for its footer overlapping the table and the totals (<code>0c3ebbd</code>, <code>4fdcfd6</code>).</p>
+<p>One approach changed during sync. Phase B soft-deleted customers, which meant adding <code>deleted = 0</code> to customer queries. Phase C added AFTER DELETE triggers that write tombstones instead, "so models' hard deletes + FK cascades sync without touching any query." Customers still use the soft delete.</p>
+<p>The cloud work also produced real bugs:</p>
+<ul><li>The <code>members</code> access policies queried <code>members</code> itself, and Supabase answered with an infinite-recursion 500. Routing those checks through <code>SECURITY DEFINER</code> helpers fixed it (<code>c0a9257</code>).</li><li>Supabase rotates refresh tokens, so when the UI and the background sync refreshed at once, one got "400 Refresh Token Not Found". <code>cloud_refresh</code> now takes a lock and re-reads the stored session (<code>cc85e79</code>).</li><li><code>cloud.py</code> uses only <code>urllib</code>, "no extra dependency". Cloudflare in front of <code>api.supabase.com</code> rejected the default Python-urllib User-Agent with "403 error code: 1010", so every request now sends its own (<code>3b08759</code>).</li></ul>
+<h2>Run it</h2>
+<pre><code class="language-bat">python -m pip install -r requirements.txt
+python main.py</code></pre>
+<p>Data lives in <code>data\invoice_app.db</code> next to <code>main.py</code> or the exe. <code>python -m unittest tests.test_flow -v</code> runs the end-to-end tests. <code>tests/test_sync.py</code> runs the sync engine against an in-memory fake of Supabase, with deliberately different local ids on each "PC".</p>
+<p>If your shop needs something shaped like this, <a href="/#contact">get in touch</a>.</p>
 <aside class="project-writing"><h2>Project page</h2><ul><li><a href="/projects/invoiceapp/">InvoiceApp</a></li></ul></aside>
 <div class="share"><span>Share:</span>
 <a href="https://twitter.com/intent/tweet?text=InvoiceApp%20%E2%80%94%20Offline%20Invoicing%20and%20Stock%20Control&url=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Finvoiceapp-offline-invoicing-small-business%2F" target="_blank" rel="noopener">X</a>
@@ -83,8 +119,8 @@
 <a href="https://api.whatsapp.com/send?text=InvoiceApp%20%E2%80%94%20Offline%20Invoicing%20and%20Stock%20Control%20https%3A%2F%2Fabdulmanan.tech%2Fblog%2Finvoiceapp-offline-invoicing-small-business%2F" target="_blank" rel="noopener">WhatsApp</a>
 <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Finvoiceapp-offline-invoicing-small-business%2F" target="_blank" rel="noopener">Facebook</a>
 <button type="button" onclick="navigator.clipboard.writeText('https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/');this.textContent='Copied!'">Copy link</button></div>
-<nav class="prevnext" aria-label="More posts"><a href="/blog/saferoute-react-supabase-full-stack/">&larr; SafeRoute — A Full-Stack App on React and Supabase</a><a href="/blog/lancall-webrtc-lan-voice-calls/">LanCall — WebRTC Voice Calls Over Your LAN &rarr;</a></nav>
-<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/bulwark-mcp-security-scanner/"><span>2026-09-22</span><h3>Bulwark — An MCP and AI Agent Security Scanner</h3></a><a class="related__card" href="/blog/toolforge-browser-pdf-tools/"><span>2026-09-16</span><h3>ToolForge — 93 Browser Tools, Zero Uploads</h3></a><a class="related__card" href="/blog/lancall-webrtc-lan-voice-calls/"><span>2026-08-20</span><h3>LanCall — WebRTC Voice Calls Over Your LAN</h3></a></div></section>
+<nav class="prevnext" aria-label="More posts"><a href="/blog/saferoute-react-supabase-full-stack/" rel="prev">&larr; SafeRoute — A Full-Stack App on React and Supabase</a><a href="/blog/lancall-webrtc-lan-voice-calls/" rel="next">LanCall — WebRTC Voice Calls Over Your LAN &rarr;</a></nav>
+<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/bulwark-mcp-security-scanner/"><span>2026-09-22</span><h3>Bulwark — An MCP and AI Agent Security Scanner</h3></a><a class="related__card" href="/blog/toolforge-browser-pdf-tools/"><span>2026-09-16</span><h3>ToolForge — 92 Browser Tools, Zero Uploads</h3></a><a class="related__card" href="/blog/lancall-webrtc-lan-voice-calls/"><span>2026-08-20</span><h3>LanCall — WebRTC Voice Calls Over Your LAN</h3></a></div></section>
 </main>
 <footer class="footer">
   <span>Abdul Manan &copy; 2026</span>

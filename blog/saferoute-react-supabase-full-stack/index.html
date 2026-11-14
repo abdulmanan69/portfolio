@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>SafeRoute — A Full-Stack App on React and Supabase - Abdul Manan</title>
-<meta name="description" content="Real driving routes, safety scoring, live GPS and a ride marketplace, built on React 19, Supabase RLS and free APIs that need no keys." />
+<meta name="description" content="How SafeRoute runs trip planning, live rides, chat and calls on React and Supabase, and the RLS tradeoff behind claiming a ride." />
 <meta name="author" content="Abdul Manan" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/" />
@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Abdul Manan" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:title" content="SafeRoute — A Full-Stack App on React and Supabase - Abdul Manan" />
-<meta property="og:description" content="Real driving routes, safety scoring, live GPS and a ride marketplace, built on React 19, Supabase RLS and free APIs that need no keys." />
+<meta property="og:description" content="How SafeRoute runs trip planning, live rides, chat and calls on React and Supabase, and the RLS tradeoff behind claiming a ride." />
 <meta property="og:url" content="https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/" />
 <meta property="og:image" content="https://abdulmanan.tech/posts/images/saferoute-react-supabase-full-stack.png" />
 <meta property="og:image:width" content="1200" />
@@ -22,9 +22,17 @@
 <meta property="og:image:alt" content="Cover: SafeRoute — A Full-Stack App on React and Supabase" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="SafeRoute — A Full-Stack App on React and Supabase - Abdul Manan" />
-<meta name="twitter:description" content="Real driving routes, safety scoring, live GPS and a ride marketplace, built on React 19, Supabase RLS and free APIs that need no keys." />
+<meta name="twitter:description" content="How SafeRoute runs trip planning, live rides, chat and calls on React and Supabase, and the RLS tradeoff behind claiming a ride." />
 <meta name="twitter:image" content="https://abdulmanan.tech/posts/images/saferoute-react-supabase-full-stack.png" />
 <meta name="twitter:image:alt" content="Cover: SafeRoute — A Full-Stack App on React and Supabase" />
+<meta property="article:published_time" content="2026-08-30" />
+<meta property="article:modified_time" content="2026-11-14" />
+<meta property="article:author" content="https://abdulmanan.tech/" />
+<meta property="article:tag" content="react" />
+<meta property="article:tag" content="supabase" />
+<meta property="article:tag" content="full-stack" />
+<meta property="article:tag" content="pwa" />
+<meta property="article:tag" content="maps" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
@@ -32,7 +40,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/style.css" />
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "SafeRoute — A Full-Stack App on React and Supabase", "description": "Real driving routes, safety scoring, live GPS and a ride marketplace, built on React 19, Supabase RLS and free APIs that need no keys.", "image": "https://abdulmanan.tech/posts/images/saferoute-react-supabase-full-stack.png", "wordCount": 837, "author": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "publisher": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "datePublished": "2026-08-30", "dateModified": "2026-08-30", "keywords": "react, supabase, full-stack, pwa, maps", "mainEntityOfPage": "https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/", "url": "https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "@id": "https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/#article", "headline": "SafeRoute — A Full-Stack App on React and Supabase", "description": "How SafeRoute runs trip planning, live rides, chat and calls on React and Supabase, and the RLS tradeoff behind claiming a ride.", "image": ["https://abdulmanan.tech/posts/images/saferoute-react-supabase-full-stack.png"], "inLanguage": "en", "wordCount": 1493, "timeRequired": "PT7M", "author": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "publisher": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "datePublished": "2026-08-30", "dateModified": "2026-11-14", "keywords": "react, supabase, full-stack, pwa, maps", "isPartOf": {"@id": "https://abdulmanan.tech/blog/#blog"}, "mainEntityOfPage": "https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/", "url": "https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/", "about": [{"@id": "https://abdulmanan.tech/projects/saferoutes/#code"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulmanan.tech/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://abdulmanan.tech/blog/"}, {"@type": "ListItem", "position": 3, "name": "SafeRoute — A Full-Stack App on React and Supabase", "item": "https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/"}]}</script>
 </head>
 <body>
@@ -46,35 +54,82 @@
 <main class="reader__body">
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/blog/">Blog</a> / <span aria-current="page">SafeRoute — A Full-Stack App on React and Supabase</span></nav>
 <h1>SafeRoute — A Full-Stack App on React and Supabase</h1>
-<div class="reader__meta">By Abdul Manan - 2026-08-30 - 4 min read - #react #supabase #full-stack #pwa #maps</div>
-<img class="post-hero-img" alt="SafeRoute — A Full-Stack App on React and Supabase" src="https://abdulmanan.tech/posts/images/saferoute-react-supabase-full-stack.png">
-<p>Most of my tools deliberately have no backend. <strong>SafeRoute</strong> is the opposite: a full-stack travel platform where accounts, roles, bookings and admin broadcasts all have to be real.</p>
-<p>It plans road trips on <strong>real driving routes</strong> with automatic <strong>safety-risk scoring</strong>, runs <strong>live GPS journeys</strong> with voice guidance, books rides in a customer/driver marketplace, explores any city in the world with real photos, gives AI outfit advice from live weather, and is managed from an admin panel — installable as a <strong>PWA</strong> on your phone.</p>
-<p>Here's what I'd tell anyone building something similar.</p>
-<h2>Supabase did the part I didn't want to build</h2>
-<p><strong>Backend:</strong> Supabase — PostgreSQL, Auth and Row-Level Security.</p>
-<p>Auth alone is weeks of work done properly: sign-up, email confirmation, password reset that actually sends mail, sessions that survive a refresh. Supabase gives you all of it, and — this is the part people underrate — it gives you Postgres underneath rather than a proprietary document store you'll fight later.</p>
-<p>Two decisions that paid off:</p>
-<p><strong>RLS is the authorisation layer, not the client.</strong> A driver must not read another driver's bookings. If that rule lives in React, it holds until someone opens the network tab. In a row-level security policy it holds everywhere, including from a raw API call. The client stops being a trust boundary.</p>
-<p><strong>Signup side effects belong in the database.</strong> A new user needs a profile row and a settings row. Doing that in the app means every signup path has to remember, and a failed second insert leaves a half-created user. A database trigger creates both rows atomically — one place, no drift.</p>
-<p>The schema lives in <code>supabase/schema.sql</code> and is <strong>idempotent</strong>, so it's safe to re-run against a fresh project any time. A migration you're afraid to run twice is a migration you'll avoid running at all.</p>
-<h2>The frontend</h2>
-<p><strong>React 19 · Vite 7 · React Router 7 · Leaflet / React-Leaflet · ESLint 9.</strong></p>
-<p>Vite is the reason the project stayed pleasant. A dev server that starts instantly and hot-reloads a map-heavy page in under a second changes how much you're willing to experiment.</p>
-<p>Leaflet over a commercial map SDK was a cost decision that turned into a design one: OpenStreetMap tiles are free and unlimited, and Leaflet's plainness meant the map inherited the app's dark-violet UI instead of fighting it.</p>
-<h2>Every API is free, and none of them need a key</h2>
-<p>This was a hard constraint: anyone should be able to clone the repo and have a working app without signing up for anything.</p>
-<table><thead><tr><th>Purpose</th><th>Service</th></tr></thead><tbody><tr><td>City search &amp; geocoding</td><td>Open-Meteo Geocoding</td></tr><tr><td>Live weather + forecast</td><td>Open-Meteo Forecast</td></tr><tr><td>Real driving routes</td><td>OSRM (two public hosts + offline estimate fallback)</td></tr><tr><td>Map tiles</td><td>OpenStreetMap</td></tr><tr><td>Place photos &amp; nearby landmarks</td><td>Wikipedia REST + geosearch</td></tr><tr><td>GPS to place name</td><td>BigDataCloud reverse geocoding</td></tr><tr><td>Voice guidance</td><td>Browser SpeechSynthesis</td></tr><tr><td>Live position</td><td>Browser Geolocation</td></tr></tbody></table>
-<p>Note the routing row: <strong>two public OSRM hosts plus an offline estimate fallback.</strong> Free public endpoints go down, rate-limit and occasionally return nonsense. A trip planner that shows an error instead of a route is useless, so it tries the second host, and if both are gone it falls back to a distance-and-speed estimate and says so. Degrade, don't die.</p>
-<p>The last two rows are worth noticing too — voice guidance and live position are <em>browser</em> APIs. The turn-by-turn voice costs nothing and needs no service at all.</p>
-<h2>What "safety-risk scoring" means</h2>
-<p>The route comes back as real road geometry. Scoring combines what's knowable for free — conditions along the way, time of day, weather at the destination, the character of the road segments — into a number a person can act on.</p>
-<p>The interesting problem isn't the maths, it's the honesty: a score that looks authoritative but is guessing is worse than no score. So the app shows what fed the number rather than presenting a bare 7/10.</p>
-<h2>PWA, because this runs in a car</h2>
-<p>Installable on Android, iOS and desktop. On a phone mount, a browser tab with an address bar is the wrong shape — and a PWA also keeps the shell cached, which matters on a patchy signal between towns.</p>
-<h2>What I'd keep from this build</h2>
-<ul><li><strong>Push authorisation into the database.</strong> RLS policies are the cheapest real security you will ever write.</li><li><strong>Make the schema idempotent</strong> from day one.</li><li><strong>Give every external call a fallback</strong> before you ship, not after the first outage.</li><li><strong>Free APIs are a real stack</strong>, not a prototype stack — as long as you plan for them being down.</li></ul>
-<p>Source: <a href="https://github.com/abdulmanan69/saferoutes">github.com/abdulmanan69/saferoutes</a>. If you want something like this built — React front, Supabase back, deployed and live — <a href="/#contact">start a conversation</a>.</p>
+<div class="reader__meta">By <a href="/">Abdul Manan</a> &middot; <time datetime="2026-08-30">Aug 30, 2026</time> &middot; updated <time datetime="2026-11-14">Nov 14, 2026</time> &middot; 7 min read<div class="reader__tags"><a href="/blog/tags/react/">#react</a> <a href="/blog/tags/supabase/">#supabase</a> <a href="/blog/tags/full-stack/">#full-stack</a> <a href="/blog/tags/pwa/">#pwa</a> <a href="/blog/tags/maps/">#maps</a></div></div>
+<img class="post-hero-img" alt="SafeRoute — A Full-Stack App on React and Supabase" src="https://abdulmanan.tech/posts/images/saferoute-react-supabase-full-stack.png" width="1200" height="675">
+<p><a href="https://github.com/abdulmanan69/saferoutes">SafeRoute</a> is a road-trip planner and ride-booking app I built with React 19, Vite 7 and Supabase. You compare up to three real driving routes between two cities, each with a risk score, then run the trip with live GPS. A Rides section lets a customer request a ride and a driver accept it, with live tracking, chat and voice calls. Screenshots are on the <a href="/projects/saferoutes/">project page</a>.</p>
+<h2>The problem</h2>
+<p>Nearly everything here is data that belongs to someone. Trips are per user, admins see all of it, and a ride is shared by two people who each need to see it change the moment the other acts.</p>
+<p>I also didn't want my own server or paid map APIs. The README lists "Free APIs (no keys, already wired)" and the push guide says "Everything runs on Supabase's free tier — no other service." So the question was how much of a two-sided app Supabase and browser APIs can carry alone.</p>
+<h2>How it is built</h2>
+<p>The browser talks to Supabase directly with the anon key: Auth for accounts, Postgres with row-level security for data, and Realtime for live ride updates, chat and call signaling. Leaflet draws OpenStreetMap tiles, OSRM provides routes, Open-Meteo handles city search and weather, BigDataCloud turns GPS into place names and Wikipedia supplies photos, all without keys. The only server-side code is one Edge Function, <code>supabase/functions/push/index.ts</code>, which three Database Webhooks call to send Web Push.</p>
+<h2>Letting Postgres do the bookkeeping</h2>
+<p><code>supabase/schema.sql</code> defines seven tables, all with RLS enabled.</p>
+<p><strong>The admin check is a function.</strong> A rule like <em>own rows, or any row for an admin</em> needs the caller's role from <code>profiles</code>, and a policy on <code>profiles</code> that queries <code>profiles</code> refers back to itself. So the lookup lives in <code>is_admin()</code>, a <code>SECURITY DEFINER</code> function, under the comment "Admin check function (avoids circular RLS reference)".</p>
+<p><strong>Signup side effects live in a trigger.</strong> <code>handle_new_user()</code> runs after each insert into <code>auth.users</code> and creates the profile and settings rows, taking the name from sign-up metadata or the email. No React code path has to remember them.</p>
+<p><strong>The file can be run again.</strong> It uses <code>CREATE TABLE IF NOT EXISTS</code> and <code>ADD COLUMN IF NOT EXISTS</code>, drops each policy before recreating it, and wraps the Realtime publication changes so a duplicate is ignored. The README calls it "idempotent — safe to re-run anytime".</p>
+<p>The outfit closet, tourism itinerary and pre-trip checklist are not in the database. They sit in <code>localStorage</code> under per-user keys, so they stay in one browser.</p>
+<h2>Routing without an API key</h2>
+<p><code>getRoutes</code> tries two public OSRM hosts in order and, if both fail, returns an estimate instead of an error (<a href="https://github.com/abdulmanan69/saferoutes/blob/cacec45a9a035fa3bea0cdcd6b3c15316544b988/src/utils/geo.js">src/utils/geo.js</a>):</p>
+<pre><code class="language-js">// ...
+    for (const host of OSRM_HOSTS) {
+        try {
+            const res = await fetch(host + path);
+            if (!res.ok) continue;
+            const data = await res.json();
+            if (data.code !== 'Ok' || !data.routes?.length) continue;
+            return data.routes.map(r =&gt; {
+// ...
+        } catch {
+            // try next host
+        }
+    }
+
+    // Offline / all hosts down: estimate from the real geocoded coordinates.
+    const dist = haversineKm(start, end) * 1.3; // road-distance factor
+    return [{
+        distanceKm: dist,
+        durationHours: dist / 60,
+        avgSpeed: 60,
+        coordinates: [[start.lat, start.lng], [end.lat, end.lng]],
+        estimated: true
+    }];
+// ...</code></pre>
+<p>That is straight-line distance times 1.3 at 60 km/h. The planner checks the flag and warns "Routing service unavailable — showing a straight-line estimate." The ride fare quote (Rs. 200 base plus Rs. 45 per km) uses the same function, so it gets marked "(estimated)" too.</p>
+<h2>What the risk score actually is</h2>
+<p><code>computeRisk</code> in <code>src/pages/NewTrip.jsx</code> starts at 12 and adds points for the weather, season, difficulty and driver profile chosen in the form: Snowy adds 28, Expert 22, Winter 15, an aggressive driver 8. Then the route: 10 if OSRM's average speed is under 45 km/h (4 under 60), 6 over 500 km (3 over 300), and 4 per position after the first route. The result is clamped to 5 to 92; under 20 is Low, under 45 Medium.</p>
+<p>So it is a heuristic, shown as a percentage and a badge with no breakdown. The weather is what you select, not the live forecast, and road type and travel preference don't affect it.</p>
+<h2>Rides on Realtime</h2>
+<p>A customer inserts a <code>rides</code> row with status <code>requested</code>. Every signed-in client subscribes to <code>rides</code> through Realtime, so drivers see it without refreshing. Accepting is one filtered update (<a href="https://github.com/abdulmanan69/saferoutes/blob/cacec45a9a035fa3bea0cdcd6b3c15316544b988/src/pages/Rides.jsx">src/pages/Rides.jsx</a>):</p>
+<pre><code class="language-js">    const acceptRide = async (ride) =&gt; {
+        ensureNotifyPermission();
+        const { error } = await supabase.from('rides')
+            .update({ driver_id: user.id, status: 'accepted', updated_at: new Date().toISOString() })
+            .eq('id', ride.id).eq('status', 'requested');
+        if (error) return toast.error(error.message);
+        setRides(prev =&gt; prev.map(r =&gt; r.id === ride.id ? { ...r, driver_id: user.id, status: 'accepted' } : r));
+// ...</code></pre>
+<p>In the <a href="https://github.com/abdulmanan69/saferoutes/blob/de0459fbbc6795a128c61dec1718a1cd479739d5/src/pages/Rides.jsx">first version</a> the <code>.eq('status', 'requested')</code> line carried the comment <code>// race-safe</code>: if two drivers tap Accept together, only one update finds the ride still open. But the client checks only for an error, not whether a row changed, so the losing driver still gets the success toast and the ride marked as theirs locally.</p>
+<p>Once accepted, the driver's browser writes <code>driver_lat</code> and <code>driver_lng</code> to the ride at most every 5 seconds, and the customer's map follows through the same subscription. Chat is a <code>ride_messages</code> table only the ride's customer and driver can write to. Calls are WebRTC audio, signaled over a Realtime broadcast channel per ride. With two public STUN servers and no TURN server configured, calls need a direct path between devices.</p>
+<h2>The tradeoff: open requests are open</h2>
+<p>The comment in <a href="https://github.com/abdulmanan69/saferoutes/blob/cacec45a9a035fa3bea0cdcd6b3c15316544b988/supabase/schema.sql">supabase/schema.sql</a> states the choice:</p>
+<blockquote><p>Rides policies: open requests are visible to any signed-in user (drivers browse them); accepted/completed rides only to their customer, driver, or an admin.</p></blockquote>
+<pre><code class="language-sql">CREATE POLICY "rides_select" ON public.rides FOR SELECT
+    USING (status = 'requested' OR customer_id = auth.uid() OR driver_id = auth.uid() OR public.is_admin());
+CREATE POLICY "rides_insert" ON public.rides FOR INSERT
+    WITH CHECK (customer_id = auth.uid());
+CREATE POLICY "rides_update" ON public.rides FOR UPDATE
+    USING (status = 'requested' OR customer_id = auth.uid() OR driver_id = auth.uid() OR public.is_admin());</code></pre>
+<p><code>status = 'requested'</code> doesn't ask who is reading. Being a driver is <code>profiles.user_type</code>, which these policies never check, so customers can read every open request's pickup, destination, coordinates and fare just as drivers can. The same clause on UPDATE is what lets a driver write their id onto a row they don't own yet, and while a ride is open it is equally permissive for everyone.</p>
+<p>What it buys: no accept endpoint and no server code. Drivers browse with a plain select, claim with one update, and an accepted ride drops out of everyone else's view. The stricter version would be a database function that checks <code>user_type</code> and only sets <code>driver_id</code> and <code>status</code>.</p>
+<h2>What the commit history shows</h2>
+<p>There are 13 commits from 20 June to 5 July 2026. The Supabase backend came second (a8b858e), before any pages, and its schema already had the <code>rides</code> and <code>ride_messages</code> tables that nothing used until de0459f on 3 July.</p>
+<p>The clearest reversal is in the last commit, cacec45. In de0459f the call engine was a <code>useVoiceCall</code> hook inside <code>Rides.jsx</code> that tore down its channels on unmount, so calls rang only on the Rides page. cacec45 moved it and the ride subscription into a <code>RideLiveProvider</code> wrapping every route, with the header comment "ring EVERYWHERE in the app — not just on the Rides page."</p>
+<p>That commit also added a browser <code>Notification</code> when the tab is hidden and Web Push when the app is closed, and dropped the hint "Pay the shown fare on arrival. Cash, simple." The app takes no payments; the README calls subscription billing "a demo".</p>
+<h2>Smaller things worth stating plainly</h2>
+<ul><li><strong>Voice guidance</strong> is <code>speechSynthesis</code> announcing the start, each quarter of the route and arrival within about 1.5 km. It is not turn-by-turn.</li><li><strong>Smart Outfit</strong> runs no model. <code>src/utils/outfitModel.js</code> notes the original scikit-learn tree learned rule-generated labels, "so the fitted tree reproduces those exact rules", and codes the rules directly.</li><li><strong>The PWA</strong> caches the app shell only. The service worker skips cross-origin requests ("Never cache API traffic"), so offline means UI without routes or weather.</li></ul>
+<h2>Running your own copy</h2>
+<ul><li>Create a Supabase project, run <code>supabase/schema.sql</code>, and set <code>VITE_SUPABASE_URL</code> and <code>VITE_SUPABASE_ANON_KEY</code> in <code>.env</code>.</li><li>Background push also needs VAPID keys, the Edge Function and three webhooks; <code>docs/PUSH-SETUP.md</code> has the steps.</li></ul>
+<p>If you want something like this built, <a href="/#contact">start a conversation</a>.</p>
 <aside class="project-writing"><h2>Project page</h2><ul><li><a href="/projects/saferoutes/">SafeRoute</a></li></ul></aside>
 <div class="share"><span>Share:</span>
 <a href="https://twitter.com/intent/tweet?text=SafeRoute%20%E2%80%94%20A%20Full-Stack%20App%20on%20React%20and%20Supabase&url=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fsaferoute-react-supabase-full-stack%2F" target="_blank" rel="noopener">X</a>
@@ -82,8 +137,8 @@
 <a href="https://api.whatsapp.com/send?text=SafeRoute%20%E2%80%94%20A%20Full-Stack%20App%20on%20React%20and%20Supabase%20https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fsaferoute-react-supabase-full-stack%2F" target="_blank" rel="noopener">WhatsApp</a>
 <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fsaferoute-react-supabase-full-stack%2F" target="_blank" rel="noopener">Facebook</a>
 <button type="button" onclick="navigator.clipboard.writeText('https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/');this.textContent='Copied!'">Copy link</button></div>
-<nav class="prevnext" aria-label="More posts"><a href="/blog/leadslicer-split-csv-excel-files/">&larr; LeadSlicer — Split and Clean CSV Files Offline</a><a href="/blog/invoiceapp-offline-invoicing-small-business/">InvoiceApp — Offline Invoicing and Stock Control &rarr;</a></nav>
-<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/bulwark-mcp-security-scanner/"><span>2026-09-22</span><h3>Bulwark — An MCP and AI Agent Security Scanner</h3></a><a class="related__card" href="/blog/toolforge-browser-pdf-tools/"><span>2026-09-16</span><h3>ToolForge — 93 Browser Tools, Zero Uploads</h3></a><a class="related__card" href="/blog/cv-studio-free-resume-builder/"><span>2026-09-10</span><h3>CV Studio — A Free, Private Resume Builder</h3></a></div></section>
+<nav class="prevnext" aria-label="More posts"><a href="/blog/leadslicer-split-csv-excel-files/" rel="prev">&larr; LeadSlicer — Split and Clean CSV Files Offline</a><a href="/blog/invoiceapp-offline-invoicing-small-business/" rel="next">InvoiceApp — Offline Invoicing and Stock Control &rarr;</a></nav>
+<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/bulwark-mcp-security-scanner/"><span>2026-09-22</span><h3>Bulwark — An MCP and AI Agent Security Scanner</h3></a><a class="related__card" href="/blog/toolforge-browser-pdf-tools/"><span>2026-09-16</span><h3>ToolForge — 92 Browser Tools, Zero Uploads</h3></a><a class="related__card" href="/blog/cv-studio-free-resume-builder/"><span>2026-09-10</span><h3>CV Studio — A Free, Private Resume Builder</h3></a></div></section>
 </main>
 <footer class="footer">
   <span>Abdul Manan &copy; 2026</span>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>LeadSlicer — Split and Clean CSV Files Offline - Abdul Manan</title>
-<meta name="description" content="Dedupe, filter and split 50,000-row CSV or Excel lead files into chunks, entirely in the browser, with nothing uploaded anywhere." />
+<meta name="description" content="How LeadSlicer dedupes, filters and splits CSV or Excel lead files in the browser, with no uploads and no dates turned into serial numbers." />
 <meta name="author" content="Abdul Manan" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/" />
@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Abdul Manan" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:title" content="LeadSlicer — Split and Clean CSV Files Offline - Abdul Manan" />
-<meta property="og:description" content="Dedupe, filter and split 50,000-row CSV or Excel lead files into chunks, entirely in the browser, with nothing uploaded anywhere." />
+<meta property="og:description" content="How LeadSlicer dedupes, filters and splits CSV or Excel lead files in the browser, with no uploads and no dates turned into serial numbers." />
 <meta property="og:url" content="https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/" />
 <meta property="og:image" content="https://abdulmanan.tech/posts/images/leadslicer-split-csv-excel-files.png" />
 <meta property="og:image:width" content="1200" />
@@ -22,9 +22,17 @@
 <meta property="og:image:alt" content="Cover: LeadSlicer — Split and Clean CSV Files Offline" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="LeadSlicer — Split and Clean CSV Files Offline - Abdul Manan" />
-<meta name="twitter:description" content="Dedupe, filter and split 50,000-row CSV or Excel lead files into chunks, entirely in the browser, with nothing uploaded anywhere." />
+<meta name="twitter:description" content="How LeadSlicer dedupes, filters and splits CSV or Excel lead files in the browser, with no uploads and no dates turned into serial numbers." />
 <meta name="twitter:image" content="https://abdulmanan.tech/posts/images/leadslicer-split-csv-excel-files.png" />
 <meta name="twitter:image:alt" content="Cover: LeadSlicer — Split and Clean CSV Files Offline" />
+<meta property="article:published_time" content="2026-09-04" />
+<meta property="article:modified_time" content="2026-11-14" />
+<meta property="article:author" content="https://abdulmanan.tech/" />
+<meta property="article:tag" content="javascript" />
+<meta property="article:tag" content="csv" />
+<meta property="article:tag" content="excel" />
+<meta property="article:tag" content="tools" />
+<meta property="article:tag" content="privacy" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
@@ -32,7 +40,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/style.css" />
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "LeadSlicer — Split and Clean CSV Files Offline", "description": "Dedupe, filter and split 50,000-row CSV or Excel lead files into chunks, entirely in the browser, with nothing uploaded anywhere.", "image": "https://abdulmanan.tech/posts/images/leadslicer-split-csv-excel-files.png", "wordCount": 633, "author": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "publisher": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "datePublished": "2026-09-04", "dateModified": "2026-09-04", "keywords": "javascript, csv, excel, tools, privacy", "mainEntityOfPage": "https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/", "url": "https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "@id": "https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/#article", "headline": "LeadSlicer — Split and Clean CSV Files Offline", "description": "How LeadSlicer dedupes, filters and splits CSV or Excel lead files in the browser, with no uploads and no dates turned into serial numbers.", "image": ["https://abdulmanan.tech/posts/images/leadslicer-split-csv-excel-files.png"], "inLanguage": "en", "wordCount": 1456, "timeRequired": "PT7M", "author": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "publisher": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "datePublished": "2026-09-04", "dateModified": "2026-11-14", "keywords": "javascript, csv, excel, tools, privacy", "isPartOf": {"@id": "https://abdulmanan.tech/blog/#blog"}, "mainEntityOfPage": "https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/", "url": "https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/", "about": [{"@id": "https://abdulmanan.tech/projects/leadslicer/#code"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulmanan.tech/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://abdulmanan.tech/blog/"}, {"@type": "ListItem", "position": 3, "name": "LeadSlicer — Split and Clean CSV Files Offline", "item": "https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/"}]}</script>
 </head>
 <body>
@@ -46,35 +54,66 @@
 <main class="reader__body">
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/blog/">Blog</a> / <span aria-current="page">LeadSlicer — Split and Clean CSV Files Offline</span></nav>
 <h1>LeadSlicer — Split and Clean CSV Files Offline</h1>
-<div class="reader__meta">By Abdul Manan - 2026-09-04 - 3 min read - #javascript #csv #excel #tools #privacy</div>
-<img class="post-hero-img" alt="LeadSlicer — Split and Clean CSV Files Offline" src="https://abdulmanan.tech/posts/images/leadslicer-split-csv-excel-files.png">
-<p>Anyone who has worked in a sales or dispatch office knows this job. A 50,000-row lead list arrives. It needs the duplicates removed, the empty rows stripped, three columns kept out of nineteen, and then it has to be cut into 500-row chunks — one per agent.</p>
-<p>The usual options are all bad. Excel struggles and mangles your phone numbers into scientific notation. An online splitter wants you to upload a file full of customer phone numbers to a site with no name on it. A Python script works, but the person who actually needs this doesn't have Python.</p>
-<p><strong><a href="https://leadslicer.abdulmanan.tech">LeadSlicer</a></strong> is the fourth option: free, offline, browser-based. Your files never leave your device.</p>
-<h2>The seven-step flow</h2>
-<ol><li><strong>Upload</strong> — drag &amp; drop any <code>.csv</code>, <code>.xlsx</code> or <code>.xls</code> file</li><li><strong>Preview</strong> — first rows, total row and column counts</li><li><strong>Configure headers</strong> — use the first row, or auto-generate column names</li><li><strong>Select columns</strong> — keep only the fields you need</li><li><strong>Filter &amp; clean</strong> — remove duplicates, empty rows and rows with missing values</li><li><strong>Chunk</strong> — split into files of any size: 100, 500, 1000+ rows</li><li><strong>Download</strong> — individual files, or everything as one ZIP</li></ol>
-<p>Each chunk can be previewed before you download it, because finding out the split was wrong <em>after</em> you've emailed eight agents is how the afternoon disappears.</p>
-<h2>Formats come out the way they went in</h2>
-<p>This is the detail that decides whether a tool like this is usable. Dates, currency and number formats are preserved exactly. No <code>+923001234567</code> turning into <code>9.23E+11</code>, no leading zeros eaten, no <code>03/04</code> silently becoming April 3rd.</p>
-<p>Deduplication runs on <strong>any column you choose</strong> — Email, Phone, Company — not on whole-row equality, because two records for the same person are almost never byte-identical.</p>
-<h2>Why in-browser is the right call here</h2>
-<p>Three reasons, in the order that actually matters to a sales office:</p>
-<p><strong>Privacy.</strong> Lead files are customer data. In most companies, uploading them to an unvetted website is a policy breach even when nobody notices. A tool that runs locally sidesteps the entire conversation.</p>
-<p><strong>No install.</strong> It's a web page. The agent who needs it opens a link. There's no IT ticket, no admin password, no Python.</p>
-<p><strong>Offline.</strong> It's an installable PWA, so once loaded it works with no internet at all — on Android, iOS or desktop. Handy when the office Wi-Fi is the bottleneck.</p>
-<h2>Details that make it pleasant</h2>
-<ul><li>Light / dark / system themes with six accent colours</li><li>Keyboard navigable, semantic HTML — it works with a screen reader</li><li>Responsive down to a phone, because half the people using it are on one</li><li>ZIP download so you get one file instead of forty</li></ul>
-<p>None of that is clever engineering. It's the difference between a tool people use twice and a tool people keep in their bookmarks bar.</p>
-<h2>The same pattern, again</h2>
-<p>LeadSlicer is the third tool I've built on the same idea as <a href="/blog/toolforge-browser-pdf-tools/">ToolForge</a> and <a href="/blog/cv-studio-free-resume-builder/">CV Studio</a>: take a job that everyone assumes needs a server, and notice that the browser has been able to do it for years.</p>
-<p>Parsing spreadsheets, hashing, zipping, rendering PDFs, reading the camera — all local APIs now. Most "upload your file here" products are charging for a round trip that doesn't need to happen.</p>
+<div class="reader__meta">By <a href="/">Abdul Manan</a> &middot; <time datetime="2026-09-04">Sep 4, 2026</time> &middot; updated <time datetime="2026-11-14">Nov 14, 2026</time> &middot; 7 min read<div class="reader__tags"><a href="/blog/tags/javascript/">#javascript</a> <a href="/blog/tags/csv/">#csv</a> <a href="/blog/tags/excel/">#excel</a> <a href="/blog/tags/tools/">#tools</a> <a href="/blog/tags/privacy/">#privacy</a></div></div>
+<img class="post-hero-img" alt="LeadSlicer — Split and Clean CSV Files Offline" src="https://abdulmanan.tech/posts/images/leadslicer-split-csv-excel-files.png" width="1200" height="675">
+<p><a href="https://github.com/abdulmanan69/leadslicer">LeadSlicer</a> does one narrow job. It takes a CSV or Excel lead file, removes duplicates and empty rows, keeps only the columns you pick, and cuts the rest into smaller files: one per rep, territory or campaign batch.</p>
+<p>Lead files are customer contact data, so I wanted that work to happen without the file going anywhere, in something a non-developer could open from a link. The result is a static page with no backend and no build step; everything runs in the browser tab. It is live at <a href="https://leadslicer.abdulmanan.tech">leadslicer.abdulmanan.tech</a>, with a summary on the <a href="/projects/leadslicer/">project page</a>.</p>
+<h2>What the wizard does</h2>
+<p>The app is a six-step wizard: Upload, Header, Columns, Filter, Configure, Download. (The README counts the preview as a seventh step; in the app it is part of Upload.)</p>
+<ol><li><strong>Upload.</strong> Drop or browse for a <code>.csv</code>, <code>.xlsx</code> or <code>.xls</code> file and see row and column counts plus the first five rows. Only a workbook's first sheet is read, with a warning if there are more.</li><li><strong>Header.</strong> Use the first row as names or generate <code>Column1</code>, <code>Column2</code> and so on. A repeated name becomes <code>Email (2)</code>.</li><li><strong>Columns.</strong> Pick the columns to keep, and the identifier columns for duplicates, such as Email or Phone.</li><li><strong>Filter.</strong> Skip it, or toggle three filters: empty rows, duplicates, and rows missing a required value.</li><li><strong>Configure.</strong> Type a chunk size and see how many files it makes.</li><li><strong>Download.</strong> Each chunk gets a preview of its first 15 rows and a download button, plus one button to zip them all.</li></ol>
+<p>CSV in gives CSV out; Excel in gives <code>.xlsx</code> out. Part numbers are zero-padded "so 10+ chunks sort correctly in a file manager".</p>
+<h2>How it is put together</h2>
+<p>There is no framework. <code>index.html</code> loads four vendored libraries from <code>lib/</code> (SheetJS, PapaParse, JSZip, FileSaver) and four scripts of mine, all IIFEs: <code>FileProcessor</code> parses and filters, <code>ChunkExporter</code> writes CSV, XLSX and ZIP, <code>ThemeManager</code> handles appearance, and <code>app.js</code> drives the wizard. None of them calls <code>fetch</code> or XHR. A service worker pre-caches the page and libraries, so after one visit the app works offline and installs as a PWA.</p>
+<p>Inside the pipeline, every row is an array of strings. Next to the rows sits one object per column, <code>{ z, isDate, isNumeric }</code>, where <code>z</code> is the first Excel number format seen in that column below the first row. The filters run in a fixed order:</p>
+<ol><li><strong>Empty rows.</strong> Empty means every <em>kept</em> column is blank. Rows blank across the whole file are already dropped by the parsers.</li><li><strong>Duplicates.</strong> The key is the identifier columns' values, trimmed, lowercased and joined with a NUL character. The first row with a key wins.</li><li><strong>Missing required values.</strong> Rows with a blank required column go.</li></ol>
+<p>One consequence of that order: if the first copy of a lead is missing a required value that a later copy has, the later copy is dropped as a duplicate, then the first is dropped as incomplete. Neither survives.</p>
+<p>Comments show the sizes the code was written for. <code>filterData</code> filters by reference and copies once at the end because "On a 500k-row file this avoids a full duplicate of the dataset." The XLSX writer avoids <code>[headers, ...data]</code>, which "blows the call stack once a chunk holds a few hundred thousand rows." CSVs over 3 MB parse in a PapaParse worker, retried on the main thread if the worker fails to start. The repo has no benchmarks, so these are design targets, not measured limits.</p>
+<h2>The bug that shaped it</h2>
+<p>The history is three commits: the initial version and a CNAME in March 2026 (<code>bfbd1ee</code>, <code>3e46c21</code>), then one large commit in July 2026, <a href="https://github.com/abdulmanan69/leadslicer/commit/12b5cff6c418dfeab4836cfeecedb6faef540f2f"><code>12b5cff</code></a>: "fix: preserve date and number formats through slicing; add theme system".</p>
+<p>The first version read workbooks with <code>XLSX.read(e.target.result, { type: 'array' })</code> and then <code>sheet_to_json</code>. The commit message explains the result:</p>
+<blockquote><p>Dates were being destroyed on import. XLSX stores a date as a serial number and only renders it as dd/mm/yyyy via the cell's number format, but the reader used sheet_to_json with raw values, so 05/03/2026 came back as 46086 and every exported chunk contained integers instead of dates.</p></blockquote>
+<p>The fix reads the workbook with <code>cellDates</code>, <code>cellNF</code> and <code>cellText</code>, then converts each cell to the text the spreadsheet showed. From <a href="https://github.com/abdulmanan69/leadslicer/blob/12b5cff6c418dfeab4836cfeecedb6faef540f2f/js/fileProcessor.js">js/fileProcessor.js</a>:</p>
+<pre><code class="language-js">    /** Convert one worksheet cell to the text the spreadsheet displayed. */
+    function cellToText(cell) {
+        if (!cell) return '';
+        const t = cell.t;
+        // ...
+        // Dates: always prefer the rendered text so dd/mm/yyyy stays dd/mm/yyyy.
+        if (t === 'd') return cell.w ? String(cell.w).trim() : isoFromDate(cell.v);
+        // Numbers: use the rendered text only when a real format is attached,
+        // otherwise String(v) keeps the full precision that "General" would round.
+        if (cell.z &amp;&amp; cell.z !== 'General' &amp;&amp; typeof cell.w === 'string' &amp;&amp; cell.w !== '') {
+            return cell.w.trim();
+        }
+        return String(cell.v);
+    }</code></pre>
+<p>The number branch matters too. A long number in a General column, such as a phone number entered as a number, keeps every digit.</p>
+<h2>The tradeoff: text first, types only when sure</h2>
+<p>Carrying every cell as display text keeps filtering, deduplication and CSV output simple: the filters compare what you saw, and that is what gets written back. The cost lands on Excel output, where text has to become typed cells again, and the exporter only does that when sure. The rule opens <code>applyColumnFormats</code> in <a href="https://github.com/abdulmanan69/leadslicer/blob/12b5cff6c418dfeab4836cfeecedb6faef540f2f/js/chunkExporter.js">js/chunkExporter.js</a>:</p>
+<pre><code class="language-js">        for (let c = 0; c &lt; colCount; c++) {
+            const meta = formats[c];
+            if (!meta || !meta.z) continue;
+
+            const order = meta.isDate ? dateFieldOrder(meta.z) : null;
+            if (meta.isDate &amp;&amp; !order) continue;      // keep as text — safest
+            if (!meta.isDate &amp;&amp; !meta.isNumeric) continue;
+            // ...</code></pre>
+<p><code>dateFieldOrder</code> reads the day, month and year order from a format like <code>dd/mm/yyyy</code>. It returns null for formats with times or month and weekday names, "in which case the text is written unchanged." Impossible dates such as <code>31/02</code> also stay text. The commit message states the policy: "Values that cannot be parsed confidently stay as literal text instead of being guessed at."</p>
+<p>In an exported <code>.xlsx</code>, that costs:</p>
+<ul><li>Columns formatted like <code>dd-mmm-yyyy</code> or <code>dd/mm/yyyy hh:mm</code> come out as text that looks the same, not real dates.</li><li>General number columns, and values like <code>$1,234.50</code>, are written as text.</li><li>Precision hidden by a format is gone: a cell holding 1234.6 but showing <code>1,235</code> comes back holding 1235.</li><li>Each column is rebuilt with its first format, so in a column that mixes date formats a cell can come back reformatted, or as a different date.</li></ul>
+<p>What it buys: in a consistently formatted column, every cell shows what it showed before, and nothing is guessed. A wrong guess on <code>03/04</code> gives a valid-looking date that is wrong.</p>
+<p>CSV skips all this. PapaParse runs without type conversion, so fields stay strings and are written back as is. The file around them is rewritten: output is always comma-separated with CRLF line endings and a UTF-8 BOM, whatever the input delimiter was.</p>
+<h2>Other fixes in the same commit</h2>
+<p>The same message lists other fixes, including:</p>
+<ul><li><strong>A default got reversed.</strong> The first version skipped deduplication when no identifier column was ticked. Now it keys on all kept columns and says so: "No unique column picked — duplicates were matched on the full row."</li><li><strong>Choices were lost on Back.</strong> Each step rebuilds its checkboxes on entry, and selections lived only there. They now live in <code>Set</code>s in <code>app.js</code>, because otherwise "walking Back would silently discard them."</li><li><strong>The service worker never refreshed.</strong> <code>addAll</code> aborted the install on a single 404, and refreshed files went to a different cache from the one being read. The install now caches per file, and <code>cacheOwnerOf()</code> routes each refresh to the right cache.</li></ul>
+<p>It also replaced the original light/dark toggle with Light, Dark and System modes and six accent colours.</p>
 <h2>Try it</h2>
-<p><strong>Online:</strong> <a href="https://leadslicer.abdulmanan.tech">leadslicer.abdulmanan.tech</a> — no install, no account.</p>
-<p><strong>Locally:</strong></p>
+<p>Use it at <a href="https://leadslicer.abdulmanan.tech">leadslicer.abdulmanan.tech</a> or run it locally:</p>
 <pre><code class="language-bash">git clone https://github.com/abdulmanan69/leadslicer.git
 cd leadslicer
-# open index.html — that's the whole setup</code></pre>
-<p>MIT licensed, source on <a href="https://github.com/abdulmanan69/leadslicer">GitHub</a>. If your team has a file-wrangling job that eats an afternoon every week, <a href="/#contact">tell me about it</a> — those are my favourite things to build.</p>
+# then open index.html in a browser</code></pre>
+<p>Opening the file from disk is enough for slicing. Offline mode needs it served over HTTP, since the page registers <code>/sw.js</code> from the site root. It is MIT licensed.</p>
+<p><a href="/blog/toolforge-browser-pdf-tools/">ToolForge</a> and <a href="/blog/cv-studio-free-resume-builder/">CV Studio</a> follow the same idea: a job people expect to need a server, done in the browser tab. If your team has a file-wrangling job that eats an afternoon every week, <a href="/#contact">tell me about it</a>.</p>
 <aside class="project-writing"><h2>Project page</h2><ul><li><a href="/projects/leadslicer/">LeadSlicer</a></li></ul></aside>
 <div class="share"><span>Share:</span>
 <a href="https://twitter.com/intent/tweet?text=LeadSlicer%20%E2%80%94%20Split%20and%20Clean%20CSV%20Files%20Offline&url=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fleadslicer-split-csv-excel-files%2F" target="_blank" rel="noopener">X</a>
@@ -82,8 +121,8 @@ cd leadslicer
 <a href="https://api.whatsapp.com/send?text=LeadSlicer%20%E2%80%94%20Split%20and%20Clean%20CSV%20Files%20Offline%20https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fleadslicer-split-csv-excel-files%2F" target="_blank" rel="noopener">WhatsApp</a>
 <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fleadslicer-split-csv-excel-files%2F" target="_blank" rel="noopener">Facebook</a>
 <button type="button" onclick="navigator.clipboard.writeText('https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/');this.textContent='Copied!'">Copy link</button></div>
-<nav class="prevnext" aria-label="More posts"><a href="/blog/cv-studio-free-resume-builder/">&larr; CV Studio — A Free, Private Resume Builder</a><a href="/blog/saferoute-react-supabase-full-stack/">SafeRoute — A Full-Stack App on React and Supabase &rarr;</a></nav>
-<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/cv-studio-free-resume-builder/"><span>2026-09-10</span><h3>CV Studio — A Free, Private Resume Builder</h3></a><a class="related__card" href="/blog/toolforge-browser-pdf-tools/"><span>2026-09-16</span><h3>ToolForge — 93 Browser Tools, Zero Uploads</h3></a><a class="related__card" href="/blog/lancall-webrtc-lan-voice-calls/"><span>2026-08-20</span><h3>LanCall — WebRTC Voice Calls Over Your LAN</h3></a></div></section>
+<nav class="prevnext" aria-label="More posts"><a href="/blog/cv-studio-free-resume-builder/" rel="prev">&larr; CV Studio — A Free, Private Resume Builder</a><a href="/blog/saferoute-react-supabase-full-stack/" rel="next">SafeRoute — A Full-Stack App on React and Supabase &rarr;</a></nav>
+<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/cv-studio-free-resume-builder/"><span>2026-09-10</span><h3>CV Studio — A Free, Private Resume Builder</h3></a><a class="related__card" href="/blog/toolforge-browser-pdf-tools/"><span>2026-09-16</span><h3>ToolForge — 92 Browser Tools, Zero Uploads</h3></a><a class="related__card" href="/blog/lancall-webrtc-lan-voice-calls/"><span>2026-08-20</span><h3>LanCall — WebRTC Voice Calls Over Your LAN</h3></a></div></section>
 </main>
 <footer class="footer">
   <span>Abdul Manan &copy; 2026</span>

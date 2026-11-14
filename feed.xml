@@ -1,108 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel>
   <title>Abdul Manan - Blog</title>
   <link>https://abdulmanan.tech/blog/</link>
   <atom:link href="https://abdulmanan.tech/feed.xml" rel="self" type="application/rss+xml" />
-  <description>Web development, design, SEO and learning to code - by Abdul Manan.</description>
+  <description>How my projects were built, plus web development, design and SEO - by Abdul Manan.</description>
   <language>en-us</language>
-  <lastBuildDate>Tue, 22 Sep 2026 00:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 14 Nov 2026 00:00:00 GMT</lastBuildDate>
   <item>
     <title>Bulwark — An MCP and AI Agent Security Scanner</title>
     <link>https://abdulmanan.tech/blog/bulwark-mcp-security-scanner/</link>
-    <guid>https://abdulmanan.tech/blog/bulwark-mcp-security-scanner/</guid>
+    <guid isPermaLink="true">https://abdulmanan.tech/blog/bulwark-mcp-security-scanner/</guid>
     <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Nothing in your stack reads the file that decides what your AI agent can do. Bulwark scans MCP servers for prompt injection and tool poisoning.</description>
+    <dc:creator>Abdul Manan</dc:creator>
+    <category>security</category>
+    <category>mcp</category>
+    <category>ai-agents</category>
+    <category>python</category>
+    <category>open-source</category>
+    <description>How Bulwark finds poisoned MCP tool descriptions, pins what an AI agent reads in a lockfile, and what zero runtime dependencies cost.</description>
   </item>
   <item>
-    <title>ToolForge — 93 Browser Tools, Zero Uploads</title>
+    <title>ToolForge — 92 Browser Tools, Zero Uploads</title>
     <link>https://abdulmanan.tech/blog/toolforge-browser-pdf-tools/</link>
-    <guid>https://abdulmanan.tech/blog/toolforge-browser-pdf-tools/</guid>
+    <guid isPermaLink="true">https://abdulmanan.tech/blog/toolforge-browser-pdf-tools/</guid>
     <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Most free PDF tools upload your file to someone else&#x27;s server. ToolForge does the whole job inside your browser tab, and works offline.</description>
+    <dc:creator>Abdul Manan</dc:creator>
+    <category>javascript</category>
+    <category>privacy</category>
+    <category>pdf</category>
+    <category>browser</category>
+    <category>open-source</category>
+    <description>How ToolForge runs 92 PDF, image and text tools inside the browser tab, and what offline-first cost in memory and updates.</description>
   </item>
   <item>
     <title>CV Studio — A Free, Private Resume Builder</title>
     <link>https://abdulmanan.tech/blog/cv-studio-free-resume-builder/</link>
-    <guid>https://abdulmanan.tech/blog/cv-studio-free-resume-builder/</guid>
+    <guid isPermaLink="true">https://abdulmanan.tech/blog/cv-studio-free-resume-builder/</guid>
     <pubDate>Thu, 10 Sep 2026 00:00:00 GMT</pubDate>
-    <description>12 templates, live A4 pagination and PDF export, with no account and no server. Your CV never leaves the browser.</description>
+    <dc:creator>Abdul Manan</dc:creator>
+    <category>javascript</category>
+    <category>tools</category>
+    <category>career</category>
+    <category>privacy</category>
+    <category>open-source</category>
+    <description>How my browser-only CV builder paginates 12 templates onto A4 or Letter pages, fits a CV to 1-3 pages, and why its PDF button makes an image.</description>
   </item>
   <item>
     <title>LeadSlicer — Split and Clean CSV Files Offline</title>
     <link>https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/</link>
-    <guid>https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/</guid>
+    <guid isPermaLink="true">https://abdulmanan.tech/blog/leadslicer-split-csv-excel-files/</guid>
     <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
-    <description>Dedupe, filter and split 50,000-row CSV or Excel lead files into chunks, entirely in the browser, with nothing uploaded anywhere.</description>
+    <dc:creator>Abdul Manan</dc:creator>
+    <category>javascript</category>
+    <category>csv</category>
+    <category>excel</category>
+    <category>tools</category>
+    <category>privacy</category>
+    <description>How LeadSlicer dedupes, filters and splits CSV or Excel lead files in the browser, with no uploads and no dates turned into serial numbers.</description>
   </item>
   <item>
     <title>SafeRoute — A Full-Stack App on React and Supabase</title>
     <link>https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/</link>
-    <guid>https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/</guid>
+    <guid isPermaLink="true">https://abdulmanan.tech/blog/saferoute-react-supabase-full-stack/</guid>
     <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Real driving routes, safety scoring, live GPS and a ride marketplace, built on React 19, Supabase RLS and free APIs that need no keys.</description>
+    <dc:creator>Abdul Manan</dc:creator>
+    <category>react</category>
+    <category>supabase</category>
+    <category>full-stack</category>
+    <category>pwa</category>
+    <category>maps</category>
+    <description>How SafeRoute runs trip planning, live rides, chat and calls on React and Supabase, and the RLS tradeoff behind claiming a ride.</description>
   </item>
   <item>
     <title>InvoiceApp — Offline Invoicing and Stock Control</title>
     <link>https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/</link>
-    <guid>https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/</guid>
+    <guid isPermaLink="true">https://abdulmanan.tech/blog/invoiceapp-offline-invoicing-small-business/</guid>
     <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Invoices, quotations, inventory, payments and returns in one local SQLite file. No server, no internet, no subscription.</description>
+    <dc:creator>Abdul Manan</dc:creator>
+    <category>python</category>
+    <category>sqlite</category>
+    <category>desktop</category>
+    <category>business</category>
+    <category>pdf</category>
+    <description>A Windows desktop app that keeps invoices, stock and payments in one local SQLite file, with optional Supabase sync between PCs.</description>
   </item>
   <item>
     <title>LanCall — WebRTC Voice Calls Over Your LAN</title>
     <link>https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/</link>
-    <guid>https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/</guid>
+    <guid isPermaLink="true">https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/</guid>
     <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
-    <description>Voice calls between devices on the same network with no cloud service in the middle. A small Python server does the introductions.</description>
+    <dc:creator>Abdul Manan</dc:creator>
+    <category>webrtc</category>
+    <category>javascript</category>
+    <category>python</category>
+    <category>networking</category>
+    <category>privacy</category>
+    <description>How LanCall runs browser-to-browser voice calls on a LAN with WebRTC, a small Python signalling server and self-signed HTTPS.</description>
   </item>
   <item>
     <title>From Figma to Code — My Design Workflow</title>
     <link>https://abdulmanan.tech/blog/figma-to-code-workflow/</link>
-    <guid>https://abdulmanan.tech/blog/figma-to-code-workflow/</guid>
+    <guid isPermaLink="true">https://abdulmanan.tech/blog/figma-to-code-workflow/</guid>
     <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
+    <dc:creator>Abdul Manan</dc:creator>
+    <category>design</category>
+    <category>figma</category>
+    <category>ui</category>
+    <category>workflow</category>
     <description>How I go from a blank Figma canvas to a working, responsive website — the decisions, the handoff, and the details that make it feel finished.</description>
   </item>
   <item>
     <title>10 JavaScript Tips Every Beginner Should Know</title>
     <link>https://abdulmanan.tech/blog/javascript-tips-for-beginners/</link>
-    <guid>https://abdulmanan.tech/blog/javascript-tips-for-beginners/</guid>
+    <guid isPermaLink="true">https://abdulmanan.tech/blog/javascript-tips-for-beginners/</guid>
     <pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate>
+    <dc:creator>Abdul Manan</dc:creator>
+    <category>javascript</category>
+    <category>web</category>
+    <category>beginners</category>
+    <category>tips</category>
     <description>Small habits that made my JavaScript cleaner and less buggy — from const-by-default to guard clauses and optional chaining.</description>
   </item>
   <item>
     <title>SEO for Developers — How I Get Pages to Rank</title>
     <link>https://abdulmanan.tech/blog/seo-for-developers/</link>
-    <guid>https://abdulmanan.tech/blog/seo-for-developers/</guid>
+    <guid isPermaLink="true">https://abdulmanan.tech/blog/seo-for-developers/</guid>
     <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+    <dc:creator>Abdul Manan</dc:creator>
+    <category>seo</category>
+    <category>web</category>
+    <category>google</category>
+    <category>performance</category>
     <description>Search engine optimization isn&#x27;t magic. It&#x27;s clean HTML, fast pages, good metadata and structured data. Here&#x27;s the practical checklist I use.</description>
   </item>
   <item>
     <title>Responsive Web Design — One Site, Every Screen</title>
     <link>https://abdulmanan.tech/blog/responsive-web-design/</link>
-    <guid>https://abdulmanan.tech/blog/responsive-web-design/</guid>
+    <guid isPermaLink="true">https://abdulmanan.tech/blog/responsive-web-design/</guid>
     <pubDate>Tue, 28 Jul 2026 00:00:00 GMT</pubDate>
+    <dc:creator>Abdul Manan</dc:creator>
+    <category>web</category>
+    <category>css</category>
+    <category>responsive</category>
+    <category>mobile</category>
     <description>How I make websites that look right on a 360px phone and a 4K monitor, using fluid layouts, sensible breakpoints and a mobile-first mindset.</description>
   </item>
   <item>
     <title>How I Built This Portfolio</title>
     <link>https://abdulmanan.tech/blog/how-i-built-this-portfolio/</link>
-    <guid>https://abdulmanan.tech/blog/how-i-built-this-portfolio/</guid>
+    <guid isPermaLink="true">https://abdulmanan.tech/blog/how-i-built-this-portfolio/</guid>
     <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+    <dc:creator>Abdul Manan</dc:creator>
+    <category>web</category>
+    <category>javascript</category>
+    <category>build-log</category>
     <description>A behind-the-scenes look at building a fast, GitHub-driven portfolio with zero build step — projects and blog posts that update themselves.</description>
   </item>
   <item>
     <title>Clean, Minimal Web Design — Less but Better</title>
     <link>https://abdulmanan.tech/blog/clean-minimal-web-design/</link>
-    <guid>https://abdulmanan.tech/blog/clean-minimal-web-design/</guid>
+    <guid isPermaLink="true">https://abdulmanan.tech/blog/clean-minimal-web-design/</guid>
     <pubDate>Sat, 18 Jul 2026 00:00:00 GMT</pubDate>
+    <dc:creator>Abdul Manan</dc:creator>
+    <category>design</category>
+    <category>ui</category>
+    <category>minimalism</category>
     <description>Minimalism isn&#x27;t about empty pages. It&#x27;s about removing everything that isn&#x27;t doing a job, so the things that matter can breathe.</description>
   </item>
   <item>
     <title>Learning Web Development as a Student</title>
     <link>https://abdulmanan.tech/blog/learning-web-dev-as-a-student/</link>
-    <guid>https://abdulmanan.tech/blog/learning-web-dev-as-a-student/</guid>
+    <guid isPermaLink="true">https://abdulmanan.tech/blog/learning-web-dev-as-a-student/</guid>
     <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
+    <dc:creator>Abdul Manan</dc:creator>
+    <category>learning</category>
+    <category>web</category>
+    <category>beginners</category>
     <description>What actually helped me learn to build for the web — and what turned out to be a waste of time. An honest note from someone still learning.</description>
   </item>
 </channel>

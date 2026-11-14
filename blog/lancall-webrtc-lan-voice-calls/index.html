@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>LanCall — WebRTC Voice Calls Over Your LAN - Abdul Manan</title>
-<meta name="description" content="Voice calls between devices on the same network with no cloud service in the middle. A small Python server does the introductions." />
+<meta name="description" content="How LanCall runs browser-to-browser voice calls on a LAN with WebRTC, a small Python signalling server and self-signed HTTPS." />
 <meta name="author" content="Abdul Manan" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/" />
@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Abdul Manan" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:title" content="LanCall — WebRTC Voice Calls Over Your LAN - Abdul Manan" />
-<meta property="og:description" content="Voice calls between devices on the same network with no cloud service in the middle. A small Python server does the introductions." />
+<meta property="og:description" content="How LanCall runs browser-to-browser voice calls on a LAN with WebRTC, a small Python signalling server and self-signed HTTPS." />
 <meta property="og:url" content="https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/" />
 <meta property="og:image" content="https://abdulmanan.tech/posts/images/lancall-webrtc-lan-voice-calls.png" />
 <meta property="og:image:width" content="1200" />
@@ -22,9 +22,17 @@
 <meta property="og:image:alt" content="Cover: LanCall — WebRTC Voice Calls Over Your LAN" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="LanCall — WebRTC Voice Calls Over Your LAN - Abdul Manan" />
-<meta name="twitter:description" content="Voice calls between devices on the same network with no cloud service in the middle. A small Python server does the introductions." />
+<meta name="twitter:description" content="How LanCall runs browser-to-browser voice calls on a LAN with WebRTC, a small Python signalling server and self-signed HTTPS." />
 <meta name="twitter:image" content="https://abdulmanan.tech/posts/images/lancall-webrtc-lan-voice-calls.png" />
 <meta name="twitter:image:alt" content="Cover: LanCall — WebRTC Voice Calls Over Your LAN" />
+<meta property="article:published_time" content="2026-08-20" />
+<meta property="article:modified_time" content="2026-11-14" />
+<meta property="article:author" content="https://abdulmanan.tech/" />
+<meta property="article:tag" content="webrtc" />
+<meta property="article:tag" content="javascript" />
+<meta property="article:tag" content="python" />
+<meta property="article:tag" content="networking" />
+<meta property="article:tag" content="privacy" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
@@ -32,7 +40,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/style.css" />
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "LanCall — WebRTC Voice Calls Over Your LAN", "description": "Voice calls between devices on the same network with no cloud service in the middle. A small Python server does the introductions.", "image": "https://abdulmanan.tech/posts/images/lancall-webrtc-lan-voice-calls.png", "wordCount": 657, "author": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "publisher": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "datePublished": "2026-08-20", "dateModified": "2026-08-20", "keywords": "webrtc, javascript, python, networking, privacy", "mainEntityOfPage": "https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/", "url": "https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "@id": "https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/#article", "headline": "LanCall — WebRTC Voice Calls Over Your LAN", "description": "How LanCall runs browser-to-browser voice calls on a LAN with WebRTC, a small Python signalling server and self-signed HTTPS.", "image": ["https://abdulmanan.tech/posts/images/lancall-webrtc-lan-voice-calls.png"], "inLanguage": "en", "wordCount": 1487, "timeRequired": "PT7M", "author": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "publisher": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "datePublished": "2026-08-20", "dateModified": "2026-11-14", "keywords": "webrtc, javascript, python, networking, privacy", "isPartOf": {"@id": "https://abdulmanan.tech/blog/#blog"}, "mainEntityOfPage": "https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/", "url": "https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/", "about": [{"@id": "https://abdulmanan.tech/projects/lancall/#code"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulmanan.tech/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://abdulmanan.tech/blog/"}, {"@type": "ListItem", "position": 3, "name": "LanCall — WebRTC Voice Calls Over Your LAN", "item": "https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/"}]}</script>
 </head>
 <body>
@@ -46,43 +54,73 @@
 <main class="reader__body">
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/blog/">Blog</a> / <span aria-current="page">LanCall — WebRTC Voice Calls Over Your LAN</span></nav>
 <h1>LanCall — WebRTC Voice Calls Over Your LAN</h1>
-<div class="reader__meta">By Abdul Manan - 2026-08-20 - 3 min read - #webrtc #javascript #python #networking #privacy</div>
-<img class="post-hero-img" alt="LanCall — WebRTC Voice Calls Over Your LAN" src="https://abdulmanan.tech/posts/images/lancall-webrtc-lan-voice-calls.png">
-<p>Two people sitting in the same building, on the same Wi-Fi, talk to each other by sending their voices to a data centre in another country and back. That's normal now, and it's absurd — it needs internet, it needs an account, and a third party hears everything.</p>
-<p><strong><a href="https://github.com/abdulmanan69/lancall">LanCall</a></strong> is voice calling that stays on your LAN. Devices on the same network call each other directly using WebRTC, with no external servers involved.</p>
-<h2>How a "serverless" call still needs a server</h2>
-<p>The audio is peer-to-peer. Getting the two peers to find each other is not.</p>
-<p>Two pieces run on one machine on the network:</p>
-<ol><li><strong>An HTTPS server</strong> that serves the web app — HTML, CSS, JavaScript</li><li><strong>A WebSocket signalling server</strong> that carries the introduction between peers</li></ol>
-<pre><code>[Device A] ----\
-                \
-                 [Signaling Server] &lt;---&gt; [HTTPS Server]
-                /
-[Device B] ----/</code></pre>
-<p>The sequence:</p>
-<ol><li>Both devices connect to the signalling server and exchange connection details — session descriptions and network candidates</li><li>Once they know how to reach each other, they open a direct P2P connection</li><li><strong>Voice data flows straight between the devices</strong>, not through the server</li></ol>
-<p>The signalling server handles a few kilobytes of setup, then does nothing for the rest of the call. If it crashed mid-conversation, the conversation would continue.</p>
-<p>That's the thing WebRTC tutorials bury: signalling and media are separate problems. The server you need is small, dumb and only involved at the start.</p>
-<h2>HTTPS isn't optional, and that's the fiddly bit</h2>
-<p>Browsers won't give a page microphone access over plain HTTP, and WebRTC needs a secure context. On the public internet you get a certificate from Let's Encrypt. On a LAN, with devices addressed as <code>192.168.1.x</code>, there's no domain to certify.</p>
-<p>So LanCall serves over <strong>HTTPS and WSS using self-signed certificates</strong>, generated at setup. The cost is the browser warning on first connect — you click through it once per device. The alternative is no microphone access at all.</p>
-<p>If you're deploying something like this for a team, the tidier route is installing your own certificate authority on the devices. For a small network, clicking through once is fine.</p>
-<h2>Cross-platform for free</h2>
-<p>Windows, macOS, Linux, Android and iOS — anything with a modern browser. There's no app to install on the phones, no store approval, no build per platform. One web app, every device on the network.</p>
-<p>This is the part people forget when reaching for Electron or a native app: a web page served from a laptop on the LAN already runs everywhere, and the browser provides the microphone, the codecs, the echo cancellation and the encryption.</p>
-<h2>Getting it running</h2>
-<p>Prerequisites: Python 3.6 or newer, and pip.</p>
-<p><strong>Windows</strong></p>
-<pre><code class="language-cmd">start_server.bat</code></pre>
-<p><strong>Linux / macOS</strong></p>
-<pre><code class="language-bash">python start_server.py</code></pre>
-<p>Then open the printed HTTPS address on any device on the same network, accept the certificate warning once, and call.</p>
-<h2>Where it's genuinely useful</h2>
-<p>An office where the internet is down but the network is up. A warehouse floor. A workshop. Any situation where two people need voice contact and a cloud dependency is either unavailable or unwelcome — the audio never leaves the building, so there's no recording in someone else's account and no bill.</p>
-<p>It also makes a good way to actually learn WebRTC. On the open internet you also need STUN and TURN servers to punch through NATs, and that complexity hides the core idea. On a LAN, peers can reach each other directly, so the protocol shows through clearly.</p>
-<h2>Related reading</h2>
-<p>If the privacy-first, no-cloud thread is what interests you, the same idea shows up in <a href="/blog/toolforge-browser-pdf-tools/">ToolForge</a> — 93 document tools with no uploads — and in <a href="/blog/leadslicer-split-csv-excel-files/">LeadSlicer</a> for spreadsheet work.</p>
-<p>Source: <a href="https://github.com/abdulmanan69/lancall">github.com/abdulmanan69/lancall</a>. Questions, or want something like it for your office? <a href="/#contact">Message me</a>.</p>
+<div class="reader__meta">By <a href="/">Abdul Manan</a> &middot; <time datetime="2026-08-20">Aug 20, 2026</time> &middot; updated <time datetime="2026-11-14">Nov 14, 2026</time> &middot; 7 min read<div class="reader__tags"><a href="/blog/tags/webrtc/">#webrtc</a> <a href="/blog/tags/javascript/">#javascript</a> <a href="/blog/tags/python/">#python</a> <a href="/blog/tags/networking/">#networking</a> <a href="/blog/tags/privacy/">#privacy</a></div></div>
+<img class="post-hero-img" alt="LanCall — WebRTC Voice Calls Over Your LAN" src="https://abdulmanan.tech/posts/images/lancall-webrtc-lan-voice-calls.png" width="1200" height="675">
+<p><a href="https://github.com/abdulmanan69/lancall">LanCall</a> lets devices on the same network call each other from a browser. One machine runs a 74-line HTTPS file server and a 259-line WebSocket signalling server, both in Python. Every other device just opens a URL, and the audio goes directly between the two browsers. There's also a <a href="/projects/lancall/">project page</a>. This post covers how it works, including the parts of the code I'd change.</p>
+<h2>The problem</h2>
+<p>The README states the goal: the app "allows users on the same network to make voice calls directly between devices without any external servers."</p>
+<p>WebRTC can carry audio peer to peer, but two things stand in the way. The browsers have to swap session descriptions and network candidates before they can connect, and something has to carry those messages. And browsers only hand the microphone to secure pages; the error text in <code>app.js</code> says "browsers only allow media device access on HTTPS or localhost." A phone loading the page from a laptop's LAN IP is not localhost, so it needs HTTPS.</p>
+<h2>What actually runs</h2>
+<ul><li><code>https_server.py</code> serves its own folder, where <code>index.html</code>, <code>app.js</code> and <code>style.css</code> live, on port 8443 with the standard library's <code>http.server</code>, wrapped in TLS. It refuses to start without <code>server.crt</code> and <code>server.key</code>.</li><li><code>signaling_server.py</code> is an asyncio WebSocket server on port 8765, built on the <code>websockets</code> package, using the same certificate.</li><li><code>start_server.py</code> (or <code>start_server.bat</code> on Windows) installs pyOpenSSL and websockets, runs <code>generate_cert.py</code> if there is no certificate yet, and starts both servers.</li></ul>
+<p>The README's diagram draws a link between the two servers. The code has none. They are separate processes that share only the certificate files, and <code>start_server.py</code> just launches both and terminates one if the other exits. The browser ties them together: it loads the page from port 8443, then builds its WebSocket URL from the page's own hostname and port 8765, choosing <code>wss://</code> whenever the page is HTTPS.</p>
+<h2>The signalling server</h2>
+<p>The server keeps one dictionary, <code>connected_clients</code>, mapping each open socket to an <code>id</code> and a display <code>name</code>. Each browser invents its id on page load and a default name from its user agent, such as "Windows PC" plus a random number, and sends both in a <code>register</code> message. Whenever someone registers, renames or disconnects, the server broadcasts the full list to everyone as <code>client_list</code>. That broadcast is the whole presence system.</p>
+<p>Everything else is relaying. <code>offer</code>, <code>answer</code>, <code>ice_candidate</code> and <code>hangup</code> messages carry a <code>target_id</code>, and the server forwards them to the matching socket:</p>
+<pre><code class="language-python">        elif msg_type == "offer":
+            target_id = data.get("target_id")
+            sender_info = connected_clients.get(websocket, {"id": "unknown", "name": "unknown"})
+            # ...
+            if target_id:
+                # Find the target websocket
+                target_socket = None
+                for ws, client_info in connected_clients.items():
+                    if client_info["id"] == target_id:
+                        target_socket = ws
+                        break
+                        
+                if target_socket:
+                    # Add sender info to the message
+                    data["sender_id"] = sender_info["id"]
+                    data["sender_name"] = sender_info["name"]
+                    try:
+                        await target_socket.send(json.dumps(data))
+                    # ...</code></pre>
+<p>From <a href="https://github.com/abdulmanan69/lancall/blob/bea8e73e710c06f5b92ca993b836d76c65000784/signaling_server.py#L115-L136">signaling_server.py</a>. The server writes <code>sender_id</code> and <code>sender_name</code> from its own registry, so the callee sees who is calling according to the server, not according to the caller's message. The other three branches are near-copies of this one and could be a single forwarding function.</p>
+<h2>A call, end to end</h2>
+<ol><li>The caller clicks Call next to a peer. <code>startCall()</code> runs a microphone test, then requests audio with <code>echoCancellation</code>, <code>noiseSuppression</code> and <code>autoGainControl</code> on.</li><li>It creates an <code>RTCPeerConnection</code>, adds the track, and sends an offer through the signalling server. ICE candidates follow the same route.</li><li>The callee gets an incoming-call screen and a ringtone made with the Web Audio API: an 800 Hz sine wave switched on and off every two seconds.</li><li>On Accept, the callee opens its microphone, applies the offer and sends back an answer.</li><li>Once ICE connects, audio flows browser to browser. No TURN server is configured, so nothing relays the media.</li></ol>
+<p>Hanging up is also a signalling message, and each side also ends the call if its connection state turns <code>disconnected</code> or <code>failed</code>. The page hangs up by itself when it becomes hidden ("Send hangup if in a call when leaving the page"), so switching tabs, or apps on a phone, ends the call.</p>
+<p>Nothing in <code>app.js</code> ends a call when the WebSocket closes; <code>onclose</code> only schedules a reconnect. If the signalling server dies mid-call, the audio keeps going, but a hangup can't be delivered, and the other side only notices through its connection state.</p>
+<h2>The tradeoff: self-signed certificates</h2>
+<p>A LAN address like <code>192.168.1.x</code> has no domain name to get a public certificate for, but the microphone needs HTTPS. LanCall makes its own certificate on first run:</p>
+<pre><code class="language-python">    # Create a key pair
+    key = crypto.PKey()
+    key.generate_key(crypto.TYPE_RSA, 2048)
+
+    # Create a self-signed cert
+    cert = crypto.X509()
+    # ...
+    cert.get_subject().CN = get_local_ip()
+    cert.set_serial_number(1000)
+    cert.gmtime_adj_notBefore(0)
+    cert.gmtime_adj_notAfter(365*24*60*60)  # 1 year
+    cert.set_issuer(cert.get_subject())
+    cert.set_pubkey(key)
+    cert.sign(key, 'sha256')</code></pre>
+<p>From <a href="https://github.com/abdulmanan69/lancall/blob/bea8e73e710c06f5b92ca993b836d76c65000784/generate_cert.py#L24-L41">generate_cert.py</a>. The certificate is its own issuer, so no browser trusts it. The README is upfront about the cost:</p>
+<blockquote><p>Browsers will show security warnings - this is expected for self-signed certificates</p></blockquote>
+<p><code>start_server.py</code> repeats it at launch: "Click 'Advanced' and 'Proceed to ...' to continue". Every device has to click through that warning before it can call. In return there is no domain or DNS to set up, and no key is shared between installs: <code>.gitignore</code> excludes <code>*.crt</code> and <code>*.key</code>, so each one generates its own.</p>
+<p>The code also shows the limits:</p>
+<ul><li>The common name is whatever LAN IP the machine had at generation time. <code>get_local_ip()</code> finds it by pointing a UDP socket at 8.8.8.8 ("doesn't actually send data", a copy of the helper notes) and falls back to <code>127.0.0.1</code> if that fails.</li><li>The start scripts only check that the files exist, never the IP or the one-year expiry. The README's fix for certificate trouble is to "delete <code>server.crt</code> and <code>server.key</code> files and restart the server".</li></ul>
+<p>For a team, I'd install a local certificate authority on each device instead. LanCall doesn't do that.</p>
+<h2>Not quite "without any external servers"</h2>
+<p>That README line overstates it. In <a href="https://github.com/abdulmanan69/lancall/blob/bea8e73e710c06f5b92ca993b836d76c65000784/app.js#L357-L364">app.js</a> the peer connection is configured with five public STUN servers (two of Google's, plus stunprotocol.org, voiparound.com and voipbuster.com), which the browser contacts while gathering candidates when the network has internet access. <code>index.html</code> also loads <code>adapter-latest.js</code> from webrtc.github.io and Tailwind from cdn.tailwindcss.com. The audio still goes device to device, but for a strictly offline LAN the STUN list should go and those scripts should be served locally.</p>
+<h2>Rough edges</h2>
+<ul><li>The private key is downloadable. <code>https_server.py</code> changes into its own folder, loads <code>server.key</code> from there, and serves that same folder with <code>SimpleHTTPRequestHandler</code>, so anyone on the network can fetch <code>/server.key</code>. Serving only the three web files fixes it.</li><li>ICE candidates that arrive while the callee is still ringing are dropped: <code>handleIceCandidate()</code> only adds one <code>if (peerConnection)</code>, and the callee creates its peer connection after Accept. They should be queued.</li><li>Peer names go into <code>innerHTML</code> in <code>updatePeersList()</code>. The input's <code>maxlength="20"</code> doesn't limit what a client sends in <code>register</code>, so anyone on the network can inject markup into everyone's peer list. <code>textContent</code> fixes it.</li><li>Every call start or accept shows an alert, "Microphone access test successful!", and opens the microphone twice.</li><li>The reconnect comment says "Exponential backoff", but <code>2000 * reconnectAttempts</code> is linear, and after five tries it gives up without telling the user.</li></ul>
+<h2>What the history shows</h2>
+<p>Four commits. All of the code, nine files and 2,249 lines, arrived on 1 October 2025 in ce49093, "Initial commit: LAN Voice Call application with HTTPS and WebSocket signaling servers". The README (deeb9e7) and MIT license (d93c526) followed the next day, and no code has changed since. Earlier iteration survives only in comments: the WebSocket block is labelled "Solution 3", the error handlers mention "we removed the status elements", and a server comment mentions "websockets v15".</p>
+<h2>Running it</h2>
+<p>The README says Python 3.6, but <code>signaling_server.py</code> calls <code>asyncio.run()</code>, which arrived in 3.7, so use a current Python 3. Run <code>start_server.bat</code> on Windows or <code>python start_server.py</code> elsewhere, open <code>https://&lt;server-ip&gt;:8443</code> on each device, accept the certificate warning, allow the microphone and click Call. Ports 8443 and 8765 must not be blocked by the server's firewall.</p>
+<p>The same no-cloud idea runs through <a href="/blog/toolforge-browser-pdf-tools/">ToolForge</a>, browser tools with no uploads, and <a href="/blog/leadslicer-split-csv-excel-files/">LeadSlicer</a> for spreadsheet work. Questions, or want something like it for your office? <a href="/#contact">Message me</a>.</p>
 <aside class="project-writing"><h2>Project page</h2><ul><li><a href="/projects/lancall/">LanCall</a></li></ul></aside>
 <div class="share"><span>Share:</span>
 <a href="https://twitter.com/intent/tweet?text=LanCall%20%E2%80%94%20WebRTC%20Voice%20Calls%20Over%20Your%20LAN&url=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Flancall-webrtc-lan-voice-calls%2F" target="_blank" rel="noopener">X</a>
@@ -90,8 +128,8 @@
 <a href="https://api.whatsapp.com/send?text=LanCall%20%E2%80%94%20WebRTC%20Voice%20Calls%20Over%20Your%20LAN%20https%3A%2F%2Fabdulmanan.tech%2Fblog%2Flancall-webrtc-lan-voice-calls%2F" target="_blank" rel="noopener">WhatsApp</a>
 <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Flancall-webrtc-lan-voice-calls%2F" target="_blank" rel="noopener">Facebook</a>
 <button type="button" onclick="navigator.clipboard.writeText('https://abdulmanan.tech/blog/lancall-webrtc-lan-voice-calls/');this.textContent='Copied!'">Copy link</button></div>
-<nav class="prevnext" aria-label="More posts"><a href="/blog/invoiceapp-offline-invoicing-small-business/">&larr; InvoiceApp — Offline Invoicing and Stock Control</a><a href="/blog/figma-to-code-workflow/">From Figma to Code — My Design Workflow &rarr;</a></nav>
-<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/toolforge-browser-pdf-tools/"><span>2026-09-16</span><h3>ToolForge — 93 Browser Tools, Zero Uploads</h3></a><a class="related__card" href="/blog/cv-studio-free-resume-builder/"><span>2026-09-10</span><h3>CV Studio — A Free, Private Resume Builder</h3></a><a class="related__card" href="/blog/leadslicer-split-csv-excel-files/"><span>2026-09-04</span><h3>LeadSlicer — Split and Clean CSV Files Offline</h3></a></div></section>
+<nav class="prevnext" aria-label="More posts"><a href="/blog/invoiceapp-offline-invoicing-small-business/" rel="prev">&larr; InvoiceApp — Offline Invoicing and Stock Control</a><a href="/blog/figma-to-code-workflow/" rel="next">From Figma to Code — My Design Workflow &rarr;</a></nav>
+<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/toolforge-browser-pdf-tools/"><span>2026-09-16</span><h3>ToolForge — 92 Browser Tools, Zero Uploads</h3></a><a class="related__card" href="/blog/cv-studio-free-resume-builder/"><span>2026-09-10</span><h3>CV Studio — A Free, Private Resume Builder</h3></a><a class="related__card" href="/blog/leadslicer-split-csv-excel-files/"><span>2026-09-04</span><h3>LeadSlicer — Split and Clean CSV Files Offline</h3></a></div></section>
 </main>
 <footer class="footer">
   <span>Abdul Manan &copy; 2026</span>

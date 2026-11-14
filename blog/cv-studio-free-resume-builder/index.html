@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>CV Studio — A Free, Private Resume Builder - Abdul Manan</title>
-<meta name="description" content="12 templates, live A4 pagination and PDF export, with no account and no server. Your CV never leaves the browser." />
+<meta name="description" content="How my browser-only CV builder paginates 12 templates onto A4 or Letter pages, fits a CV to 1-3 pages, and why its PDF button makes an image." />
 <meta name="author" content="Abdul Manan" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="https://abdulmanan.tech/blog/cv-studio-free-resume-builder/" />
@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Abdul Manan" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:title" content="CV Studio — A Free, Private Resume Builder - Abdul Manan" />
-<meta property="og:description" content="12 templates, live A4 pagination and PDF export, with no account and no server. Your CV never leaves the browser." />
+<meta property="og:description" content="How my browser-only CV builder paginates 12 templates onto A4 or Letter pages, fits a CV to 1-3 pages, and why its PDF button makes an image." />
 <meta property="og:url" content="https://abdulmanan.tech/blog/cv-studio-free-resume-builder/" />
 <meta property="og:image" content="https://abdulmanan.tech/posts/images/cv-studio-free-resume-builder.png" />
 <meta property="og:image:width" content="1200" />
@@ -22,9 +22,17 @@
 <meta property="og:image:alt" content="Cover: CV Studio — A Free, Private Resume Builder" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="CV Studio — A Free, Private Resume Builder - Abdul Manan" />
-<meta name="twitter:description" content="12 templates, live A4 pagination and PDF export, with no account and no server. Your CV never leaves the browser." />
+<meta name="twitter:description" content="How my browser-only CV builder paginates 12 templates onto A4 or Letter pages, fits a CV to 1-3 pages, and why its PDF button makes an image." />
 <meta name="twitter:image" content="https://abdulmanan.tech/posts/images/cv-studio-free-resume-builder.png" />
 <meta name="twitter:image:alt" content="Cover: CV Studio — A Free, Private Resume Builder" />
+<meta property="article:published_time" content="2026-09-10" />
+<meta property="article:modified_time" content="2026-11-14" />
+<meta property="article:author" content="https://abdulmanan.tech/" />
+<meta property="article:tag" content="javascript" />
+<meta property="article:tag" content="tools" />
+<meta property="article:tag" content="career" />
+<meta property="article:tag" content="privacy" />
+<meta property="article:tag" content="open-source" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="Abdul Manan - Blog" href="/feed.xml" />
@@ -32,7 +40,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/style.css" />
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "CV Studio — A Free, Private Resume Builder", "description": "12 templates, live A4 pagination and PDF export, with no account and no server. Your CV never leaves the browser.", "image": "https://abdulmanan.tech/posts/images/cv-studio-free-resume-builder.png", "wordCount": 770, "author": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "publisher": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "datePublished": "2026-09-10", "dateModified": "2026-09-10", "keywords": "javascript, tools, career, privacy, open-source", "mainEntityOfPage": "https://abdulmanan.tech/blog/cv-studio-free-resume-builder/", "url": "https://abdulmanan.tech/blog/cv-studio-free-resume-builder/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "@id": "https://abdulmanan.tech/blog/cv-studio-free-resume-builder/#article", "headline": "CV Studio — A Free, Private Resume Builder", "description": "How my browser-only CV builder paginates 12 templates onto A4 or Letter pages, fits a CV to 1-3 pages, and why its PDF button makes an image.", "image": ["https://abdulmanan.tech/posts/images/cv-studio-free-resume-builder.png"], "inLanguage": "en", "wordCount": 1487, "timeRequired": "PT7M", "author": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "publisher": {"@type": "Person", "@id": "https://abdulmanan.tech/#person", "name": "Abdul Manan", "url": "https://abdulmanan.tech/"}, "datePublished": "2026-09-10", "dateModified": "2026-11-14", "keywords": "javascript, tools, career, privacy, open-source", "isPartOf": {"@id": "https://abdulmanan.tech/blog/#blog"}, "mainEntityOfPage": "https://abdulmanan.tech/blog/cv-studio-free-resume-builder/", "url": "https://abdulmanan.tech/blog/cv-studio-free-resume-builder/", "about": [{"@id": "https://abdulmanan.tech/projects/cv-maker/#code"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://abdulmanan.tech/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://abdulmanan.tech/blog/"}, {"@type": "ListItem", "position": 3, "name": "CV Studio — A Free, Private Resume Builder", "item": "https://abdulmanan.tech/blog/cv-studio-free-resume-builder/"}]}</script>
 </head>
 <body>
@@ -46,36 +54,88 @@
 <main class="reader__body">
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/blog/">Blog</a> / <span aria-current="page">CV Studio — A Free, Private Resume Builder</span></nav>
 <h1>CV Studio — A Free, Private Resume Builder</h1>
-<div class="reader__meta">By Abdul Manan - 2026-09-10 - 4 min read - #javascript #tools #career #privacy #open-source</div>
-<img class="post-hero-img" alt="CV Studio — A Free, Private Resume Builder" src="https://abdulmanan.tech/posts/images/cv-studio-free-resume-builder.png">
-<p>The online CV builder script is always the same. You fill in everything, you get a nice preview, you click Download — and there's the paywall. You've just typed your full employment history, address and phone number into a database to get nothing back.</p>
-<p><strong><a href="https://github.com/abdulmanan69/cv-maker">CV Studio</a></strong> is my answer: a free, fast, 100% client-side CV / resume builder. No accounts, no server, and your data never leaves your browser. MIT licensed.</p>
-<h2>12 templates that cover real formats</h2>
-<p>Classic, Horizon, Minimal, Executive, Bold, Tech, Timeline, Swiss, Gradient, Compact, Paper and Onyx — spanning ATS-friendly single-column, sidebar layouts, timelines, dark, serif and dense formats.</p>
-<p>The ATS-friendly ones matter more than they look. A lot of applications go through an applicant tracking system before a human sees them, and a two-column design with text in boxes can come out scrambled. Having both kinds in one tool means you can keep a plain version for the robots and a designed version for the human.</p>
-<h2>The pagination engine was the hard part</h2>
-<p>A CV is a <em>paged</em> document, and the web has no native concept of one. The preview renders real A4 or US Letter pages, and content flows across them automatically — which means measuring rendered blocks and deciding where each one is allowed to break.</p>
-<p>On top of that sits <strong>Fit to 1 / 2 / 3 pages</strong>, which auto-shrinks type, spacing and margins until the content lands on the target page count. Everyone's real constraint is "it must be one page", so the tool solves for that directly instead of leaving you to nudge a font-size slider twenty times.</p>
-<h2>Everything is adjustable, live</h2>
-<ul><li><strong>Accent colour</strong> from a palette, hue/lightness sliders, or a hex value</li><li><strong>Body and heading fonts</strong>, text size, line height, section spacing, margins</li><li><strong>Heading style</strong> and date format</li><li><strong>Photo upload and editor</strong> — drag &amp; drop an image, then pan, zoom, rotate and tune brightness / contrast / saturation / grayscale / sepia; circle, rounded or square</li><li><strong>Drag &amp; drop everything</strong> — sections, entries, skills and links reorder with smooth FLIP animations</li><li><strong>A QR code on your CV</strong>, generated entirely locally — no external QR service ever sees the link — pointing at your site, GitHub, LinkedIn, email, phone or a scannable contact card</li></ul>
-<p>Colour, font and spacing changes render while you drag, because a preview that updates on blur makes you guess.</p>
-<h2>Ten section types, plus your own</h2>
-<p>Experience, education, skills, languages, projects, certifications, awards, interests, references — and unlimited custom sections, because someone always needs "Publications" or "Volunteering" and a fixed schema always loses.</p>
-<h2>Losing work is the real failure mode</h2>
-<p>For a tool with no accounts, "my browser crashed" cannot mean "start again". So:</p>
-<ul><li><strong>Undo / redo</strong> on Ctrl+Z / Ctrl+Y</li><li><strong>Autosave</strong> to <code>localStorage</code> as you type</li><li><strong>JSON backup import / export</strong> — your CV as a portable file you own, which also means you can keep three tailored versions and switch between them</li><li><strong>Sample data</strong> to start from, and dark mode for late-night applications</li></ul>
-<h2>PDF export without a server</h2>
-<p>Export uses <code>html2canvas</code> + <code>jsPDF</code>, loaded from a CDN only when you click download, with a <strong>print fallback</strong> when you're offline. Ctrl+P → Save as PDF gives you a vector-quality copy that is often <em>better</em> than the rasterised one, and it works with nothing loaded at all.</p>
-<p>That's the general rule in this app: the primary path can use a library, but there always has to be a path that works with nothing.</p>
-<h2>The stack</h2>
-<p>Vanilla JavaScript, hand-written CSS, canvas-based image editing and a custom pagination engine. No framework and no build step — open <code>index.html</code> and it runs.</p>
-<p>Every form control is hand-built too: dropdowns, month/year picker, sliders, colour picker and toggles. Native browser popups look wrong inside a designed app and behave differently on every OS, so they're gone.</p>
-<p>It also ships with full SEO wiring — meta tags, Open Graph, JSON-LD (<code>WebApplication</code> + FAQ + author), <code>robots.txt</code>, <code>sitemap.xml</code>, an <code>llms.txt</code> for AI crawlers, and a PWA manifest — the same checklist I wrote about in <a href="/blog/seo-for-developers/">SEO for Developers</a>.</p>
-<h2>Use it or fork it</h2>
+<div class="reader__meta">By <a href="/">Abdul Manan</a> &middot; <time datetime="2026-09-10">Sep 10, 2026</time> &middot; updated <time datetime="2026-11-14">Nov 14, 2026</time> &middot; 7 min read<div class="reader__tags"><a href="/blog/tags/javascript/">#javascript</a> <a href="/blog/tags/tools/">#tools</a> <a href="/blog/tags/career/">#career</a> <a href="/blog/tags/privacy/">#privacy</a> <a href="/blog/tags/open-source/">#open-source</a></div></div>
+<img class="post-hero-img" alt="CV Studio — A Free, Private Resume Builder" src="https://abdulmanan.tech/posts/images/cv-studio-free-resume-builder.png" width="1200" height="675">
+<p>The online CV builder script is always the same. You fill in everything, you get a nice preview, you click Download, and there's the paywall. You've just typed your full employment history, address and phone number into a database to get nothing back.</p>
+<p><a href="https://github.com/abdulmanan69/cv-maker">CV Studio</a> is my answer: a CV builder that runs entirely in the browser, with no account and no backend. The README licenses it under MIT, and the <a href="/projects/cv-maker/">project page</a> has the short version. This post is about how it works inside.</p>
+<h2>What "no server" means in the code</h2>
+<p>Everything you enter lives in one <code>{ data, settings }</code> object, saved to <code>localStorage</code> under <code>cvmaker:v1</code> 350 ms after your last edit. Your photo is in there too, as a 640×640 JPEG data URL. The code makes no <code>fetch</code> or XHR calls and has no analytics. The only third-party requests are Google Fonts and, when you click Download PDF, html2canvas and jsPDF from jsDelivr.</p>
+<p>There is one storage slot, so separate versions per application, or moving to another device, means JSON backups (Export backup, or Ctrl+S). One gap: if a big photo exceeds the storage quota, <code>saveNow</code> swallows the error. The comment says "storage full — photo too big; user still has export", and the save indicator still pulses.</p>
+<h2>Templates emit blocks, the engine owns pages</h2>
+<p>There's no framework and no build step: <code>index.html</code> loads 24 plain scripts in order, each an IIFE hanging off <code>window.CV</code>. The <a href="https://github.com/abdulmanan69/cv-maker/blob/0035be896ec754e1f92a7b51995f9b41c43f9ea4/docs/TEMPLATE_CONTRACT.md">template contract</a> sets the rule:</p>
+<blockquote><p>Templates are plain-script IIFEs loaded via <code>&lt;script&gt;</code> tags (no modules, no build step). They must work from <code>file://</code> and GitHub Pages, with <strong>zero external assets</strong>.</p></blockquote>
+<p>A template's <code>render(data, S, T)</code> never deals with pages. It returns ordered arrays of blocks: <code>main</code>, an optional <code>side</code> column, and an optional <code>header</code> for page 1. The contract asks for "one block per section heading (<code>T.headBlk</code>) and one block per item", because the block is what the paginator moves.</p>
+<p>Six of the 12 templates are single-column (Classic, Minimal, Executive, Paper, Tech, Timeline) and six have a side column (Horizon, Onyx, Gradient, Bold, Swiss, Compact). Only Classic is tagged "ATS friendly" in code. Settings reach every template as CSS custom properties on <code>.cv-root</code>, such as <code>--accent</code>, <code>--fs</code> and <code>--pad</code>.</p>
+<h2>Pagination: append until it overflows</h2>
+<p>Each page is a fixed-size <code>div</code> (794×1123 px for A4, 816×1056 for US Letter) built off-screen, with <code>overflow:hidden</code> columns. Then <code>buildPages</code> pours blocks in:</p>
+<pre><code class="language-js">  function fillCol(col, queue) {
+    if (!col) return 0;
+    let count = 0;
+    while (queue.length) {
+      const b = queue[0];
+      col.appendChild(b);
+      if (col.scrollHeight &gt; col.clientHeight + 1) {
+        col.removeChild(b);
+        if (!col.childElementCount) { // block taller than a whole column — place anyway
+          col.appendChild(b);
+          queue.shift();
+          count++;
+        }
+        break;
+      }
+      queue.shift();
+      count++;
+    }
+    // keep-with-next: don't leave a section heading orphaned at the page bottom
+    const last = col.lastElementChild;
+    if (count &gt; 0 &amp;&amp; queue.length &amp;&amp; last &amp;&amp; last.classList.contains('blk-head') &amp;&amp; col.childElementCount &gt; 1) {
+      col.removeChild(last);
+      queue.unshift(last);
+      count--;
+    }
+    return count;
+  }</code></pre>
+<p>From <a href="https://github.com/abdulmanan69/cv-maker/blob/0035be896ec754e1f92a7b51995f9b41c43f9ea4/js/paginate.js#L36-L62">js/paginate.js</a>. Append a block, ask the browser whether the column overflows, and if so take it back for the next page. Blocks never split, so a job entry stays whole. The side and main queues fill separately, so a sidebar can run onto page 2 by itself.</p>
+<p>Two limits: the page loop stops at 12 (<code>while (n &lt; 12 &amp;&amp; ...)</code>) and anything still queued is not rendered. And because measurement depends on real fonts, the app renders again when <code>document.fonts.ready</code> resolves.</p>
+<h2>Fit to 1, 2 or 3 pages is a binary search</h2>
+<p>Everyone's real constraint is "it must be one page". The "Fit content to" setting handles it by rerunning the whole paginator at different scales:</p>
+<pre><code class="language-js">    let fit = 1;
+    if (S.targetPages !== 'auto') {
+      const target = parseInt(S.targetPages, 10) || 1;
+      if (buildPages(def, data, S, 1).length &gt; target) {
+        let lo = 0.45, hi = 1;
+        for (let i = 0; i &lt; 8; i++) {
+          const mid = (lo + hi) / 2;
+          if (buildPages(def, data, S, mid).length &lt;= target) lo = mid;
+          else hi = mid;
+        }
+        fit = lo;
+      }
+    }</code></pre>
+<p>From <a href="https://github.com/abdulmanan69/cv-maker/blob/0035be896ec754e1f92a7b51995f9b41c43f9ea4/js/paginate.js#L160-L172">js/paginate.js</a>. <code>fit</code> scales the base text size, the gaps and the page padding. Eight halvings land within about 0.002 of the best scale, for up to ten full page builds per render. If the content won't fit even at 0.45, you get 0.45 and the extra pages. The CV guide in the repo says what to do instead: "tighten the writing before shrinking the type".</p>
+<h2>Live preview without repaginating every pixel</h2>
+<p>A comment in <code>design.js</code> describes how sliders stay smooth:</p>
+<blockquote><p>var-backed settings restyle already-rendered pages instantly (zero lag while dragging), then the throttled full render repaginates</p></blockquote>
+<p><code>CV.retint</code> pushes the new CSS variables onto the pages on screen, and <code>CV.refreshSoon</code> repaginates at most every 140 ms, plus one trailing render. The template gallery uses the same engine: each thumbnail is page 1 of <em>your</em> CV, scaled down.</p>
+<h2>The tradeoff: the big PDF button makes a picture</h2>
+<p>Download PDF is the primary button in the top bar, with Print beside it as a ghost button. They produce different files.</p>
+<p>Download PDF lazy-loads the two libraries, then for each page calls <code>html2canvas</code> with <code>scale: 2</code>, converts the canvas with <code>toDataURL('image/jpeg', 0.95)</code>, and places that image edge to edge with <code>pdf.addImage</code> (<a href="https://github.com/abdulmanan69/cv-maker/blob/0035be896ec754e1f92a7b51995f9b41c43f9ea4/js/export.js#L123-L131">js/export.js</a>). You get one click, no print dialog, and a file named after you (<code>abdul-manan-cv.pdf</code> for me). You lose the text layer: nobody can select the words, and neither can a parser.</p>
+<p>Print clones the same paginated pages into a <code>#print-holder</code>, hides the app, breaks after each page and injects an <code>@page{size:A4;margin:0}</code> rule. The README puts the result plainly: "Ctrl+P → Save as PDF gives a vector-quality copy".</p>
+<p>That matters because the guide in the same repo says "Export a PDF with real, selectable text, never a screenshot or scan". Picking Classic for a job portal only helps if you export through Print. Download PDF is fine for emailing a person.</p>
+<p>Download PDF also falls back to Print. If anything fails, including a 20-second timeout per library, the app offers the print dialog and promises "an identical result". That holds for how the pages look, not for what's inside the file. The primary path can use a library, but there has to be a path that doesn't need one.</p>
+<h2>The smaller pieces</h2>
+<ul><li><strong>QR code.</strong> <code>qr.js</code> is a from-scratch encoder: "Byte mode, ECC level M, versions 1-10, full mask evaluation". Version 10 caps the payload at 213 bytes, so an over-long custom link gets no code. The contact-card option writes a <code>MECARD:</code> string.</li><li><strong>Photo editor.</strong> Canvas pan, zoom, rotate and five filters, baked into a 640×640 JPEG on Apply. Reopening it edits that JPEG, not your original.</li><li><strong>Sections.</strong> Nine built-in types, each addable once, plus a repeatable Custom type.</li><li><strong>Controls.</strong> Dropdowns, month picker, sliders, colour picker and dialogs are custom (<code>widgets.js</code>: "no native dropdowns/calendars"). The file chooser is the one native picker left.</li></ul>
+<h2>What the commit history shows</h2>
+<p>Not much. There are two commits, both on 23 July 2026. The first added the whole app at once, 37 files and 4,593 lines, so the log can't show how the paginator evolved.</p>
+<p>The second, 36 minutes later, fixed a bug I'd shipped. <code>index.html</code> carries static intro content for crawlers and no-JS visitors, and boot threw it away (<a href="https://github.com/abdulmanan69/cv-maker/blob/5b3decf6bcf202c5f808e906360fbcc01ad6be18/js/app.js#L259">js/app.js at 5b3decf</a>):</p>
+<pre><code class="language-js">    app.textContent = ''; // remove the static SEO/crawler content</code></pre>
+<p>The <a href="https://github.com/abdulmanan69/cv-maker/commit/0035be896ec754e1f92a7b51995f9b41c43f9ea4">fix commit</a> explains: "The app deleted the static intro block on boot, leaving the rendered page with no headings or descriptive text for search engines." Boot now moves that block into a new About tab. The same commit added <code>templates.html</code>, <code>guide.html</code> and a 404 page, but not a README update: its deploy notes still name three files to edit when six site files hardcode the URL.</p>
+<h2>Run it or fork it</h2>
 <pre><code class="language-bash">git clone https://github.com/abdulmanan69/cv-maker.git
-# then just open index.html</code></pre>
-<p>Deploying your own copy is Settings → Pages → <code>main</code> / root. Search-and-replace the site URL in <code>index.html</code>, <code>robots.txt</code> and <code>sitemap.xml</code> once and you're live.</p>
-<p>Code and issues: <a href="https://github.com/abdulmanan69/cv-maker">github.com/abdulmanan69/cv-maker</a>. Building something similar and want a hand? <a href="/#contact">Say hi</a>.</p>
+# then open index.html in a browser</code></pre>
+<p>To host a copy on GitHub Pages, set Settings → Pages → Source to <code>main</code> and <code>/ (root)</code>, then replace <code>https://abdulmanan69.github.io/cv-maker/</code> in <code>index.html</code>, <code>templates.html</code>, <code>guide.html</code>, <code>robots.txt</code>, <code>sitemap.xml</code> and <code>llms.txt</code>. The basics from <a href="/blog/seo-for-developers/">SEO for Developers</a> are already in them.</p>
+<p>To add a 13th template, follow <code>docs/TEMPLATE_CONTRACT.md</code>: one file in <code>js/templates/</code>, one <code>&lt;script&gt;</code> tag in <code>index.html</code>, and a <code>render</code> that survives blank data.</p>
+<p>Building something similar and want a hand? <a href="/#contact">Say hi</a>.</p>
 <aside class="project-writing"><h2>Project page</h2><ul><li><a href="/projects/cv-maker/">CV Studio</a></li></ul></aside>
 <div class="share"><span>Share:</span>
 <a href="https://twitter.com/intent/tweet?text=CV%20Studio%20%E2%80%94%20A%20Free%2C%20Private%20Resume%20Builder&url=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fcv-studio-free-resume-builder%2F" target="_blank" rel="noopener">X</a>
@@ -83,8 +143,8 @@
 <a href="https://api.whatsapp.com/send?text=CV%20Studio%20%E2%80%94%20A%20Free%2C%20Private%20Resume%20Builder%20https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fcv-studio-free-resume-builder%2F" target="_blank" rel="noopener">WhatsApp</a>
 <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fabdulmanan.tech%2Fblog%2Fcv-studio-free-resume-builder%2F" target="_blank" rel="noopener">Facebook</a>
 <button type="button" onclick="navigator.clipboard.writeText('https://abdulmanan.tech/blog/cv-studio-free-resume-builder/');this.textContent='Copied!'">Copy link</button></div>
-<nav class="prevnext" aria-label="More posts"><a href="/blog/toolforge-browser-pdf-tools/">&larr; ToolForge — 93 Browser Tools, Zero Uploads</a><a href="/blog/leadslicer-split-csv-excel-files/">LeadSlicer — Split and Clean CSV Files Offline &rarr;</a></nav>
-<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/toolforge-browser-pdf-tools/"><span>2026-09-16</span><h3>ToolForge — 93 Browser Tools, Zero Uploads</h3></a><a class="related__card" href="/blog/leadslicer-split-csv-excel-files/"><span>2026-09-04</span><h3>LeadSlicer — Split and Clean CSV Files Offline</h3></a><a class="related__card" href="/blog/lancall-webrtc-lan-voice-calls/"><span>2026-08-20</span><h3>LanCall — WebRTC Voice Calls Over Your LAN</h3></a></div></section>
+<nav class="prevnext" aria-label="More posts"><a href="/blog/toolforge-browser-pdf-tools/" rel="prev">&larr; ToolForge — 92 Browser Tools, Zero Uploads</a><a href="/blog/leadslicer-split-csv-excel-files/" rel="next">LeadSlicer — Split and Clean CSV Files Offline &rarr;</a></nav>
+<section class="related"><h2>Related posts</h2><div class="related__grid"><a class="related__card" href="/blog/toolforge-browser-pdf-tools/"><span>2026-09-16</span><h3>ToolForge — 92 Browser Tools, Zero Uploads</h3></a><a class="related__card" href="/blog/leadslicer-split-csv-excel-files/"><span>2026-09-04</span><h3>LeadSlicer — Split and Clean CSV Files Offline</h3></a><a class="related__card" href="/blog/lancall-webrtc-lan-voice-calls/"><span>2026-08-20</span><h3>LanCall — WebRTC Voice Calls Over Your LAN</h3></a></div></section>
 </main>
 <footer class="footer">
   <span>Abdul Manan &copy; 2026</span>
