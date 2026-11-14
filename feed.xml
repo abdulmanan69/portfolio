@@ -6,7 +6,7 @@
   <atom:link href="https://abdulmanan.tech/feed.xml" rel="self" type="application/rss+xml" />
   <description>How my projects were built, plus web development, design and SEO - by Abdul Manan.</description>
   <language>en-us</language>
-  <lastBuildDate>Sat, 14 Nov 2026 00:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 15 Nov 2026 00:00:00 GMT</lastBuildDate>
   <item>
     <title>Bulwark — An MCP and AI Agent Security Scanner</title>
     <link>https://abdulmanan.tech/blog/bulwark-mcp-security-scanner/</link>
@@ -70,7 +70,7 @@
     <category>full-stack</category>
     <category>pwa</category>
     <category>maps</category>
-    <description>How SafeRoute runs trip planning, live rides, chat and calls on React and Supabase, and the RLS tradeoff behind claiming a ride.</description>
+    <description>How SafeRoute runs trip planning, live rides, chat and calls on React and Supabase, and the tradeoff behind claiming a ride.</description>
   </item>
   <item>
     <title>InvoiceApp — Offline Invoicing and Stock Control</title>
