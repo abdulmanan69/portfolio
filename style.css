@@ -431,3 +431,12 @@ html { overflow-x: hidden; }
 .readme details { margin: 0 0 22px; }
 .readme summary { cursor: pointer; font-weight: 600; }
 .project__badge { font-family: "JetBrains Mono", monospace; font-size: .72rem; letter-spacing: .06em; color: var(--accent); }
+
+/* blog tags */
+.tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin: -20px 0 40px; }
+.tag-list a { font-family: "JetBrains Mono", monospace; font-size: .8rem; border: 1px solid var(--line); border-radius: 100px; padding: 6px 12px; color: var(--ink-soft); transition: border-color .25s, color .25s; }
+.tag-list a:hover { border-color: var(--accent); color: var(--accent); }
+.tag-list span { color: var(--muted); margin-left: 2px; }
+.reader__meta a { color: var(--ink-soft); border-bottom: 1px solid var(--line); }
+.reader__tags { display: flex; flex-wrap: wrap; gap: 6px 12px; margin-top: 10px; }
+.reader__body .reader__tags a { color: var(--accent); border-bottom: 0; }

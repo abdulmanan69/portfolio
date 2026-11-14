@@ -145,14 +145,20 @@ FOOTER = """<footer class="footer">
 </footer>"""
 
 
+INDEX = "index, follow, max-image-preview:large"
+NOINDEX = "noindex, follow"
+
+
 def page(*, title, desc, path, body, og_type="website", image=None, image_alt=None,
-         ld=(), year="2026"):
+         ld=(), year="2026", robots=INDEX, meta=()):
     """Render a full HTML document.
 
     path       site-relative URL of this page, e.g. "/projects/lancall/"
     image      (url, width, height) for og:image; defaults to the site card
     image_alt  alt text for the card; defaults to the title
     ld         iterable of JSON-LD dicts
+    robots     INDEX or NOINDEX (noindex pages stay out of the sitemap)
+    meta       extra (property, content) pairs, e.g. article:published_time
     """
     url = SITE + path
     img_url, img_w, img_h = image or DEFAULT_IMAGE
@@ -165,7 +171,7 @@ def page(*, title, desc, path, body, og_type="website", image=None, image_alt=No
 <title>{title}</title>
 <meta name="description" content="{desc}" />
 <meta name="author" content="{author}" />
-<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="robots" content="{robots}" />
 <link rel="canonical" href="{url}" />
 <meta name="theme-color" content="#faf8f5" />
 {theme}
@@ -183,7 +189,7 @@ def page(*, title, desc, path, body, og_type="website", image=None, image_alt=No
 <meta name="twitter:title" content="{title}" />
 <meta name="twitter:description" content="{desc}" />
 <meta name="twitter:image" content="{img}" />
-<meta name="twitter:image:alt" content="{img_alt}" />
+<meta name="twitter:image:alt" content="{img_alt}" />{extra}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="alternate" type="application/rss+xml" title="{author} - Blog" href="/feed.xml" />
@@ -196,6 +202,7 @@ def page(*, title, desc, path, body, og_type="website", image=None, image_alt=No
 <body>
 """.format(title=e(title), desc=e(desc), author=AUTHOR, url=url, theme=THEME_SCRIPT,
            og_type=og_type, img=e(img_url), img_w=img_w, img_h=img_h,
-           img_alt=e(image_alt or title),
+           img_alt=e(image_alt or title), robots=robots,
+           extra="".join('\n<meta property="%s" content="%s" />' % (e(k), e(v)) for k, v in meta),
            ld="\n".join(ld_script(x) for x in ld))
     return "%s%s\n%s\n%s\n</body>\n</html>\n" % (head, TOPBAR, body, FOOTER.format(year=year))
