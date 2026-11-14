@@ -1,111 +1,121 @@
 ---
-title: ToolForge — 93 Browser Tools, Zero Uploads
+title: ToolForge — 92 Browser Tools, Zero Uploads
 date: 2026-09-16
-excerpt: Most free PDF tools upload your file to someone else's server. ToolForge does the whole job inside your browser tab, and works offline.
+updated: 2026-11-14
+excerpt: How ToolForge runs 92 PDF, image and text tools inside the browser tab, and what offline-first cost in memory and updates.
 cover: posts/images/toolforge-browser-pdf-tools.png
 tags: javascript, privacy, pdf, browser, open-source
 ---
 
-# ToolForge — 93 Browser Tools, Zero Uploads
+# ToolForge — 92 Browser Tools, Zero Uploads
 
-Search "merge PDF" and every result asks you to upload the file. Your contract,
-your payslip, your ID scan — onto a stranger's server, with a promise that it'll
-be deleted in an hour.
+Most free PDF tools want the file uploaded before they will merge or compress it. For a contract, a payslip or an ID scan, that means trusting someone else's server and their deletion policy.
 
-The strange part is that none of it needs a server. Browsers have had the APIs to
-do this work locally for years. So I built
-**[ToolForge](https://github.com/abdulmanan69/pdf-toolkit)**: 93 document, image,
-text and utility tools that run entirely in your browser. No uploads, no accounts,
-no tracking — and it keeps working with no connection at all.
+[ToolForge](https://github.com/abdulmanan69/pdf-toolkit) is my answer: a static React app where every merge, render, hash and conversion runs inside the tab. There is no backend. The only `fetch()` calls in `src/` read `data:` URLs the app generated itself, and one of the README's contributing rules is "Never add a network call." It is MIT licensed, with a [live demo](https://abdulmanan69.github.io/pdf-toolkit/) and a [project page](/projects/pdf-toolkit/).
 
-[Try it live](https://abdulmanan69.github.io/pdf-toolkit/) · MIT licensed
+## 92 tools, not 93
 
-## "Client-side" here means there is no server
+Every tool is an entry in `src/tools/catalog.json`, which has 93 entries. One of them, OCR, carries `"status": "soon"` and is a placeholder, so 92 tools are implemented today. The first version of this post said 93.
 
-ToolForge is a static single-page app. Once the page has loaded there is no server
-left to talk to. Every merge, render, hash and conversion happens inside your tab,
-using:
+By primary category: PDF 29 (including the OCR placeholder), Image 17, Text 15, Conversion, Security and Utilities 10 each, and Compression 2. 21 entries also name extra categories in an `alsoIn` field, so Compress PDF, for example, appears under both PDF and Compression.
 
-- **Canvas** for rendering pages, resizing and filtering images
-- **Web Crypto** for hashing and password work
-- **IndexedDB** for holding large files without blowing up memory
-- a handful of well-known client-side libraries for PDF and archive formats
+## The stack
 
-The privacy claim isn't a policy you have to trust. Open DevTools, watch the
-Network tab, drop in a file. Nothing leaves.
+React 18 and TypeScript, built with Vite 6, deployed to GitHub Pages by a workflow that type-checks, runs the unit tests and builds on every push to `main`. Inside the tab:
 
-## What's actually in it
+- **Writing PDFs:** `@cantoo/pdf-lib`, a pdf-lib fork with AES encryption, because upstream pdf-lib cannot read or write password-protected files. Every module imports it through `src/lib/pdf.ts`.
+- **Reading PDFs:** PDF.js, imported on first use by `getPdfjs()` and run in its own worker.
+- **Images:** one canvas pipeline in `src/lib/image.ts`. Tools describe resize, filter and watermark steps as data; brightness or blur become a CSS filter string on `ctx.filter`.
+- **Hashes:** Web Crypto for SHA and HMAC JWT verification. MD5 is not available there, so `src/lib/crypto.ts` carries an RFC 1321 version, kept "only for checksum comparison, never for passwords."
+- **The rest:** JSZip, `qrcode`, `jsqr`, `jsbarcode` and `marked`.
 
-The tools cover six categories. A few overlap — Compress PDF is listed under both
-PDF and Compression — so the lists add up to a little more than 93 distinct tools.
+## One catalogue, one workbench
 
-**PDF.** Merge, split, extract pages, delete pages, rearrange with drag & drop
-plus undo/redo, rotate, crop, duplicate pages, insert blanks, compress, add or
-remove watermarks, page numbers, metadata editor, flatten, sign by drawing or
-uploading, add text, highlight, underline, sticky notes, fill AcroForms, password
-protect, unlock, view, search text, extract text, extract embedded images, PDF to
-images, images to PDF, contact-sheet generator.
+The first commit message sums up the design: the catalogue is "plain data (src/tools/catalog.json) joined to icons and lazy components, so the build scripts and the app share one source of truth", and "FileWorkbench owns the whole file loop", so "a tool is ~30 lines."
 
-**Images.** Resize, compress by quality or target size, crop by drag or numbers,
-rotate, flip, convert between JPG / PNG / WebP / SVG, GIF conversion, image to PDF,
-watermark, blur, grayscale, brightness, contrast, saturation, background colour,
-QR generator and QR scanner from file or camera.
+The join happens in [src/tools/registry.ts](https://github.com/abdulmanan69/pdf-toolkit/blob/10f017fb6912b07cf4d305787a34eff320ecd302/src/tools/registry.ts):
 
-**Text.** Word and character counters, remove duplicate lines, strip extra spaces,
-sort lines, reverse text, Base64 and URL encode/decode, JSON formatter and
-validator, XML and HTML formatters, Markdown preview.
-
-**Conversion.** JPG/PNG/WebP to PDF, PDF to PNG/JPG, ZIP creator and extractor,
-CSV to JSON, JSON to CSV, Markdown to HTML.
-
-**Security.** Password generator with an entropy readout, SHA-256, SHA-512, MD5,
-UUID v4, JWT decoder, JWT viewer with local HS256 verification, random strings,
-PDF encryption and decryption.
-
-**Utilities.** QR codes for text, URL, Wi-Fi and vCard, barcodes (CODE128, EAN,
-UPC and more), colour picker with contrast checks, palette generator, timestamp
-converter, Unix clock, lorem ipsum, random numbers, dice, coin flip.
-
-## The interesting engineering problems
-
-**Memory, not CPU, is the limit.** A 200-page scanned PDF will happily exhaust a
-tab if you hold every rendered page as a bitmap. Pages get rendered on demand and
-cached to IndexedDB rather than kept in JavaScript memory.
-
-**The UI has to stay alive.** Hashing a large file or rasterising a long document
-blocks the main thread, and a frozen tab reads as a crash. Heavy work goes off the
-main thread and reports progress, so the page always looks like it's doing
-something.
-
-**Offline is a feature, not a fallback.** Because everything is local, the app
-caches itself and stays usable on a plane or a bad hotel connection. Any tool that
-*would* need the network simply isn't in the app.
-
-**93 tools can't be 93 pages.** They share one workspace shell — file picker,
-preview, options panel, download — so adding a tool means adding a module, not a
-new page and a new set of bugs.
-
-## Who it's for
-
-People handling documents they'd rather not hand to a stranger: HR files, invoices,
-ID scans, medical letters, signed contracts. Also anyone on a locked-down office
-machine where installing Acrobat isn't happening and uploading client documents is
-a fireable offence.
-
-That privacy-first, no-server approach is the same one behind
-[LeadSlicer](/blog/leadslicer-split-csv-excel-files/) and
-[CV Studio](/blog/cv-studio-free-resume-builder/) — once you've built the pattern
-once, a surprising number of "you need an account for this" products turn out not
-to need one.
-
-## Run it yourself
-
-It's a static site. Clone it and open `index.html`, or fork it and publish to
-GitHub Pages in two clicks — there's no build step and nothing to configure.
-
-```bash
-git clone https://github.com/abdulmanan69/pdf-toolkit.git
+```ts
+export const TOOLS: ToolDefinition[] = (catalog as ToolCatalogEntry[]).map((entry) => {
+  const implementation = IMPLEMENTATIONS[entry.id];
+  const icon = ICONS[entry.id];
+  if (!implementation || !icon) {
+    throw new Error(
+      `Tool "${entry.id}" is in catalog.json but has no ${implementation ? 'icon' : 'implementation'}.`,
+    );
+  }
+  const [loader, exportName] = implementation;
+  return {
+    ...entry,
+    icon,
+    component: lazy(async () => ({ default: (await loader())[exportName] })),
+  };
+});
 ```
 
-The code is [on GitHub](https://github.com/abdulmanan69/pdf-toolkit). If a tool
-you need is missing, open an issue — or [tell me about it](/#contact).
+`IMPLEMENTATIONS` maps each id to a category module and a named export, so a module is not imported until one of its tools is opened. An entry with no code or icon throws as soon as the registry loads instead of shipping a dead page.
+
+The same JSON drives the build. `scripts/seo.mjs` writes the sitemap from it, then prerenders 102 HTML files (home, 7 categories, 93 tools, About), each with its own title, description, canonical URL and JSON-LD. GitHub Pages has no rewrite rules, so this is how a real path like `/pdf-toolkit/tool/merge-pdf` gets its own metadata. A copy of `index.html` becomes `404.html` so unknown URLs still boot the router.
+
+`FileWorkbench` handles drop and paste, reordering, progress, errors, per-file downloads and a ZIP of everything. A tool supplies options and an async `run(files, report)`. Each run takes a token, and an older run's results are discarded if a newer one has started, so changing an option mid-run cannot show stale output.
+
+## Where the files actually live
+
+The first version of this post said rendered pages were cached in IndexedDB and heavy work ran off the main thread. Neither matches the code.
+
+Files you add are ordinary `File` objects in React state. The update prompt says it directly: "open files are held in memory, not saved." The app has no Web Workers of its own. PDF.js parses in its worker; pdf-lib, the canvas pipeline and MD5 run on the main thread, and long jobs keep the progress bar moving through the workbench's `report(value, label)` callback.
+
+Page thumbnails are rendered once per file at 0.3 scale and kept as JPEG object URLs, so selecting, rotating or reordering pages never re-renders the document.
+
+IndexedDB has a different job. `FileWorkbench` writes every added file to a `recent` store capped at 12 files and 60 MB. A comment says it is for a "Recent Files panel", but no code reads the store back yet. In Settings, Clear recent files empties it; Clear all local data only removes the `toolforge:` localStorage keys.
+
+The README states the limit plainly: "Very large files are bounded by device memory, not by an upload quota."
+
+## Compress PDF does two different things
+
+Lossless mode re-saves the PDF with pdf-lib using object streams, and returns the original if the result is not smaller.
+
+Balanced (150 DPI, JPEG quality 0.75) and Strong (96 DPI, 0.55) render every page to a canvas and rebuild the PDF from JPEGs. The lossless preset's label, "Structure only — text stays selectable", is the hint: the other two produce image-only pages. They also hold every rendered page in memory until the rebuild, since `renderPdfPages` returns the whole array.
+
+## The tradeoff: ask before updating
+
+In an offline-first app, the service worker decides when a new version takes over. The [first commit](https://github.com/abdulmanan69/pdf-toolkit/blob/8adb3fed70fea2eca4cde918d56fa05f625a1bd8/vite.config.ts) used `registerType: 'autoUpdate'`, with a comment in `main.tsx` saying "new versions apply on the next visit". The [second commit](https://github.com/abdulmanan69/pdf-toolkit/commit/10f017fb6912b07cf4d305787a34eff320ecd302) reversed that, and `vite.config.ts` explains why:
+
+> A tool that holds unsaved work in memory must never swap itself out underneath the user — an autoUpdate service worker can reload the page mid-operation and take a half-finished document with it.
+
+Workbox now runs with `skipWaiting: false` and `clientsClaim: false`, and a `PwaManager` component shows "A new version is ready" with Reload now and Later buttons.
+
+The cost is freshness: someone can keep running an old build for as long as they press Later. So `pwa.tsx` polls for updates every hour. Its comment: "Without this a long-lived installed window can run an old build for days, because a standalone app rarely gets a cold navigation." I would rather someone run a stale build for a while than lose a half-finished document.
+
+## The offline bug in the first release
+
+The first commit precached `**/*.{js,css,html,svg,png,ico,woff2}`. That looked complete and was not. The fix from the second commit, in [vite.config.ts](https://github.com/abdulmanan69/pdf-toolkit/blob/10f017fb6912b07cf4d305787a34eff320ecd302/vite.config.ts):
+
+```ts
+        /*
+          `mjs` is load-bearing and easy to miss: Vite emits the PDF.js worker
+          as `pdf.worker.min-[hash].mjs`, and a `js` glob does not match
+          it. Without it the app precached a healthy-looking manifest and then
+          failed to open a single PDF offline — the worker was the one request
+          that still went to the network.
+        */
+        globPatterns: ['**/*.{js,mjs,css,html,svg,png,ico,woff2,bcmap,pfb,wasm,json}'],
+```
+
+The same line adds `bcmap` and `pfb`, PDF.js's character maps and standard fonts, which `scripts/copy-pdfjs-assets.mjs` copies into `public/pdfjs/` before every dev run and build. Without them, the config notes, "a cold offline load opens documents with missing glyphs, which reads as corruption rather than as a missing cache."
+
+That commit fixed a quieter bug too: the Reduce motion setting wrote `data-reduce-motion` on the `html` element, but, as a comment in `App.tsx` admits, the first build "never read it anywhere". Now it drives Framer Motion's `MotionConfig`.
+
+## OCR waits for an opt-in download
+
+OCR is the one entry that is not implemented yet, and the reason is size. The placeholder page says:
+
+> Recognising text in scans needs a language model of roughly 10–15 MB per language. Shipping it eagerly would break the promise that this app loads fast and works offline after one visit, so OCR will arrive as an opt-in download: you pick a language, the model is cached, and recognition then runs entirely on your device like every other tool here.
+
+Until then the page does one useful thing: drop a PDF in and it counts the text PDF.js can extract. Over 40 characters, it sends you to Extract Text; fewer, and the file is "almost certainly a scan that will need OCR."
+
+## Running it
+
+It is a Vite project, so it needs Node 20 or newer and a build: clone it, run `npm install`, then `npm run dev`. `npm run build` copies the PDF.js assets, writes the sitemap, type-checks, builds and prerenders the 102 routes into `dist/`.
+
+If a tool you need is missing, open an issue or [tell me about it](/#contact).
